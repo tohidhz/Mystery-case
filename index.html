@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Calloway Files — A Detective Mystery Game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="topbar" hidden>
+  <div class="topbar-case">
+    <span class="topbar-file" id="topbar-file">FILE No. 001</span>
+    <span class="topbar-title" id="topbar-title"></span>
+  </div>
+  <div class="topbar-clock" id="topbar-clock" aria-live="polite">
+    <span class="clock-time" id="clock-time">9:40 PM</span>
+    <span class="clock-deadline" id="clock-deadline"></span>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn btn-quiet" id="btn-desk" title="Return to the desk (progress is saved)">Desk</button>
+    <button class="btn btn-accuse" id="btn-accuse">Make an Accusation</button>
+  </div>
+</header>
+
+<main id="app">
+  <section id="screen-title" class="screen"></section>
+  <section id="screen-briefing" class="screen" hidden></section>
+  <section id="screen-game" class="screen" hidden>
+    <div id="board-pane">
+      <div id="map-wrap">
+        <div class="pane-label">— PREMISES —</div>
+        <div id="map" role="navigation" aria-label="Floor plan"></div>
+      </div>
+      <div id="location-panel"></div>
+    </div>
+    <aside id="journal">
+      <nav id="journal-tabs" role="tablist" aria-label="Journal">
+        <button class="jtab active" data-tab="evidence" id="jtab-evidence" role="tab" aria-selected="true" aria-controls="tab-evidence">Evidence <span class="tab-count" id="count-evidence"></span></button>
+        <button class="jtab" data-tab="people" id="jtab-people" role="tab" aria-selected="false" aria-controls="tab-people">Persons</button>
+        <button class="jtab" data-tab="board" id="jtab-board" role="tab" aria-selected="false" aria-controls="tab-board">The Board <span class="tab-count" id="count-board"></span></button>
+      </nav>
+      <div id="journal-body">
+        <div id="tab-evidence" class="tab-panel active" role="tabpanel" aria-labelledby="jtab-evidence"></div>
+        <div id="tab-people" class="tab-panel" role="tabpanel" aria-labelledby="jtab-people" hidden></div>
+        <div id="tab-board" class="tab-panel" role="tabpanel" aria-labelledby="jtab-board" hidden></div>
+      </div>
+    </aside>
+  </section>
+  <section id="screen-verdict" class="screen" hidden></section>
+</main>
+
+<div id="modal-root"></div>
+<div id="toast-root" aria-live="polite"></div>
+
+<script src="js/case1.js"></script>
+<script src="js/case2.js"></script>
+<script src="js/case3.js"></script>
+<script src="js/case4.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

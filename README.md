@@ -2,6 +2,8 @@
 
 A story-driven detective mystery board game for the browser. Four fully written murder cases from the archive of Calloway & Associates, 1931–1953: search the rooms, interrogate everyone, pin the evidence to the board, and name the killer before the clock runs out.
 
+Playable in **English and Persian (فارسی)** — the whole game, prose included, not just the buttons. Every room is a hand-drawn scene you search by eye.
+
 ## Run it
 
 No build, no server, no dependencies:
@@ -26,6 +28,7 @@ Each case has its own floor plan, five suspects (plus witnesses), around two doz
 ## How to play
 
 - **The clock is the game.** Every move costs minutes — travel 10, questioning 10, searching 20. When the deadline arrives, you accuse with whatever you have.
+- **Search the scene.** Each room is an illustrated plate with a pin on every searchable detail — click the decanter, the fire bucket, the patch bay. Enlarge the plate to zoom and pan around it. Pins mark themselves examined as you work, and locked ones show what you still can't reach.
 - **Search rooms** for physical evidence. Some things are locked until you find what opens them.
 - **Question everyone.** New lines of inquiry open as evidence surfaces — confronting a suspect with the right exhibit changes what they'll say.
 - **Watch the Board.** Deductions form themselves on the corkboard when you hold the right combination of evidence. Two of them can unlock a final confrontation that breaks the killer in the room.
@@ -33,17 +36,27 @@ Each case has its own floor plan, five suspects (plus witnesses), around two doz
 
 Progress and best results are saved in the browser (localStorage).
 
+## Languages
+
+Use the toggle in the corner of the desk screen; the choice is remembered. Persian runs the game right-to-left with Persian numerals (۹:۴۰ ب.ظ), Persian exhibit letters (مدرک الف / ب / پ), and Naskh for narrative prose. The floor plan and the scene plates deliberately keep their geography — a room doesn't move house because you changed language.
+
+Translation is a text pack layered over the English structure, so anything untranslated falls back to English rather than breaking.
+
 ## Project layout
 
 ```
 index.html      shell and screens
-css/style.css   the whole look — desk, dossiers, corkboard, stamps
+css/style.css   the whole look — desk, dossiers, corkboard, stamps, scenes
+js/i18n.js      interface strings, English + Persian
 js/case1.js     Case 001 data (locations, suspects, dialogue, clues, deductions, endings)
-js/case2.js     Case 002 data
-js/case3.js     Case 003 data
-js/case4.js     Case 004 data
-js/game.js      engine: state, clock, map, interrogations, deduction board, accusation, saves
+js/case2-4.js   Cases 002–004
+js/case1.fa.js  Persian text pack for case 001 (…and case2-4.fa.js)
+js/art1.js      Case 001 scene plates — inline SVG + hotspot pin coordinates
+js/art2-4.js    Scene plates for cases 002–004
+js/game.js      engine: state, clock, map, scenes, interrogations, board, accusation, saves
 ```
+
+Scene art is language-neutral by rule — no text elements anywhere in the SVG — so one set of plates serves both editions.
 
 Adding a fifth case is just another `window.CASES.push({...})` file following the same schema, plus a `<script>` tag in `index.html` — the engine picks it up automatically and the title screen counts itself.
 

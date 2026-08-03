@@ -3,13 +3,18 @@
   "use strict";
 
   const CASES = window.CASES || [];
+  const UI = window.CALLOWAY_UI || {};
+  const ART = window.CASE_ART || {};
+  const TEXT = window.CASE_TEXT || {};
   const COST = { travel: 10, search: 20, ask: 10 };
   const SAVE_KEY = "calloway_save_v1";
   const RESULTS_KEY = "calloway_results_v1";
+  const LANG_KEY = "calloway_lang_v1";
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  let LANG = "en";
   let G = null;          // active game state
-  let C = null;          // active case data
+  let C = null;          // active case data, localized
   let warned120 = false, warned60 = false;
   let DEBUG = false;     // set by hash boot; disables saves
 
@@ -21,11 +26,121 @@
     if (html !== undefined) n.innerHTML = html;
     return n;
   }
-  function numberWord(n) {
-    return ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][n] || String(n);
-  }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  }
+
+  /* ---------- language ---------- */
+  const FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+  function digits(s) {
+    if (LANG !== "fa") return String(s);
+    return String(s).replace(/[0-9]/g, (d) => FA_DIGITS[+d]);
+  }
+  function L() { return UI[LANG] || UI.en || {}; }
+  // T("key", a, b) — looks up an interface string and fills %1, %2 … (numbers localized)
+  function T(key) {
+    const args = Array.prototype.slice.call(arguments, 1);
+    let s = L()[key];
+    if (s === undefined) s = (UI.en || {})[key];
+    if (s === undefined) return key;
+    return String(s).replace(/%(\d)/g, (m, i) => digits(args[i - 1] !== undefined ? args[i - 1] : ""));
+  }
+  function numberWord(n) {
+    const list = L().numbers || UI.en.numbers;
+    return list[n] || digits(n);
+  }
+  function setLang(lang, rerender) {
+    LANG = UI[lang] ? lang : "en";
+    try { localStorage.setItem(LANG_KEY, LANG); } catch (e) { /* private mode */ }
+    document.documentElement.lang = LANG;
+    document.documentElement.dir = L().dir || "ltr";
+    document.body.classList.toggle("lang-fa", LANG === "fa");
+    // static chrome that lives in index.html
+    $("#btn-desk").textContent = T("desk");
+    $("#btn-desk").title = T("deskTitle");
+    $("#btn-accuse").textContent = T("accuse");
+    const pane = document.querySelector(".pane-label");
+    if (pane) pane.textContent = T("premises");
+    const tabNames = { evidence: "tabEvidence", people: "tabPeople", board: "tabBoard" };
+    document.querySelectorAll(".jtab").forEach((tab) => {
+      const countId = tab.dataset.tab === "evidence" ? "count-evidence" : tab.dataset.tab === "board" ? "count-board" : null;
+      tab.textContent = T(tabNames[tab.dataset.tab]) + " ";
+      if (countId) { const sp = el("span", "tab-count"); sp.id = countId; tab.appendChild(sp); }
+    });
+    if (!rerender) return;
+    if (C) { C = localizeCase(baseCase(C.id)); }
+    if (!$("#screen-game").hidden) { enterGame(); }
+    else if (!$("#screen-briefing").hidden) { renderBriefing(); }
+    else if (!$("#screen-verdict").hidden) { renderTitle(); }
+    else { renderTitle(); }
+  }
+
+  /* Merge a Persian text pack over a case's English structure. Anything the
+     pack omits falls back to the original, so a partial translation still runs. */
+  function baseCase(id) { return CASES.find((c) => c.id === id); }
+  function localizeCase(base) {
+    if (!base) return base;
+    const pack = TEXT[base.id + "_" + LANG];
+    if (!pack) return base;
+    const pick = (o, k, d) => (o && o[k] !== undefined ? o[k] : d);
+    const out = Object.assign({}, base);
+    ["title", "tagline", "place", "date", "deadlineLabel", "epigraph", "detectiveNote"].forEach((k) => {
+      out[k] = pick(pack, k, base[k]);
+    });
+    out.briefing = pack.briefing || base.briefing;
+    out.locations = base.locations.map((loc) => {
+      const lp = (pack.locations || {})[loc.id] || {};
+      return Object.assign({}, loc, {
+        name: pick(lp, "name", loc.name),
+        desc: pick(lp, "desc", loc.desc),
+        hotspots: loc.hotspots.map((h) => {
+          const hp = (lp.hotspots || {})[h.id] || {};
+          return Object.assign({}, h, {
+            name: pick(hp, "name", h.name),
+            found: pick(hp, "found", h.found),
+            lockedHint: pick(hp, "lockedHint", h.lockedHint),
+          });
+        }),
+      });
+    });
+    out.suspects = base.suspects.map((s) => {
+      const sp = (pack.suspects || {})[s.id] || {};
+      return Object.assign({}, s, {
+        name: pick(sp, "name", s.name),
+        role: pick(sp, "role", s.role),
+        blurb: pick(sp, "blurb", s.blurb),
+        initials: pick(sp, "initials", s.initials),
+        topics: s.topics.map((t) => {
+          const tp = (sp.topics || {})[t.id] || {};
+          return Object.assign({}, t, {
+            label: pick(tp, "label", t.label),
+            response: pick(tp, "response", t.response),
+            note: pick(tp, "note", t.note),
+          });
+        }),
+      });
+    });
+    out.clues = {};
+    Object.keys(base.clues).forEach((cid) => {
+      const cp = (pack.clues || {})[cid] || {};
+      out.clues[cid] = {
+        name: pick(cp, "name", base.clues[cid].name),
+        desc: pick(cp, "desc", base.clues[cid].desc),
+      };
+    });
+    out.deductions = base.deductions.map((d) => {
+      const dp = (pack.deductions || {})[d.id] || {};
+      return Object.assign({}, d, { name: pick(dp, "name", d.name), text: pick(dp, "text", d.text) });
+    });
+    out.motiveOptions = base.motiveOptions.map((m) => {
+      const label = (pack.motives || {})[m.id];
+      return Object.assign({}, m, { label: label !== undefined ? label : m.label });
+    });
+    out.epilogues = {};
+    Object.keys(base.epilogues).forEach((k) => {
+      out.epilogues[k] = (pack.epilogues || {})[k] || base.epilogues[k];
+    });
+    return out;
   }
 
   /* ---------- persistence ---------- */
@@ -51,16 +166,24 @@
   function fmtClock(totalMin) {
     const m = ((totalMin % 1440) + 1440) % 1440;
     let h = Math.floor(m / 60), mm = m % 60;
-    const ap = h >= 12 ? "PM" : "AM";
+    const pm = h >= 12;
+    const ap = LANG === "fa" ? (pm ? "ب.ظ" : "ق.ظ") : (pm ? "PM" : "AM");
     h = h % 12; if (h === 0) h = 12;
-    return h + ":" + String(mm).padStart(2, "0") + " " + ap;
+    return digits(h + ":" + String(mm).padStart(2, "0")) + " " + ap;
   }
   function timeLeft() { return C.timeBudget - G.elapsed; }
+  // "3h 20m" / "3h" / "20m" — never the awkward "3h 0m"
+  function fmtSpan(base, mins) {
+    const h = Math.floor(mins / 60), m = mins % 60;
+    if (h && m) return T(base, h, m);
+    if (h) return T(base + "H", h);
+    return T(base + "M", m);
+  }
   function renderClock() {
     const t = $("#clock-time"), d = $("#clock-deadline");
     t.textContent = fmtClock(C.startMinutes + G.elapsed);
     const left = timeLeft();
-    d.textContent = left > 0 ? "· " + Math.floor(left / 60) + "h " + (left % 60) + "m until deadline" : "· TIME IS UP";
+    d.textContent = left > 0 ? fmtSpan("untilDeadline", left) : T("timeUpShort");
     const clock = $("#topbar-clock");
     clock.classList.toggle("warn", left <= 120 && left > 60);
     clock.classList.toggle("danger", left <= 60);
@@ -70,8 +193,8 @@
     G.elapsed = Math.min(C.timeBudget, G.elapsed + min);
     renderClock();
     const left = timeLeft();
-    if (left <= 120 && !warned120) { warned120 = true; toast("clock", "The night is getting old", "Two hours remain."); }
-    if (left <= 60 && !warned60) { warned60 = true; toast("clock", "One hour remains", "Time to start thinking about a name."); }
+    if (left <= 120 && !warned120) { warned120 = true; toast("clock", T("toastNightOld"), T("toastNightOldBody")); }
+    if (left <= 60 && !warned60) { warned60 = true; toast("clock", T("toastOneHour"), T("toastOneHourBody")); }
     saveGame();
     if (left <= 0) onTimeUp();
   }
@@ -153,30 +276,38 @@
   function renderTitle() {
     const s = $("#screen-title");
     s.innerHTML = "";
+
+    const langBtn = el("button", "lang-toggle", esc(T("otherLangName")));
+    langBtn.title = T("switchTo");
+    langBtn.setAttribute("lang", LANG === "fa" ? "en" : "fa");
+    langBtn.addEventListener("click", () => setLang(LANG === "fa" ? "en" : "fa", true));
+    s.appendChild(langBtn);
+
     const head = el("header", "title-head");
-    head.appendChild(el("div", "agency-line", "CALLOWAY &amp; ASSOCIATES · CONFIDENTIAL INQUIRIES · EST. 1924"));
-    head.appendChild(el("h1", "game-title", "The <span>Calloway</span> Files"));
-    head.appendChild(el("p", "title-sub", numberWord(CASES.length) + " unsolved nights from the agency archive. Search the rooms. Question everyone. Watch the clock. Then put a name on the warrant — and be right."));
+    head.appendChild(el("div", "agency-line", T("agency")));
+    head.appendChild(el("h1", "game-title", T("gameTitle")));
+    head.appendChild(el("p", "title-sub", T("titleSub", numberWord(CASES.length))));
     s.appendChild(head);
 
     const save = loadGame();
     const results = getResults();
     const shelf = el("div", "dossier-shelf");
-    CASES.forEach((cs) => {
+    CASES.forEach((baseCs) => {
+      const cs = localizeCase(baseCs);
       const res = results[cs.id];
       const d = el("article", "dossier" + (res ? " dossier-" + res.tier : ""));
       d.setAttribute("tabindex", "0");
       d.setAttribute("role", "button");
-      d.setAttribute("aria-label", "Open case file " + cs.fileNo + ": " + cs.title);
+      d.setAttribute("aria-label", T("openCaseAria", cs.fileNo, cs.title));
       const stars = "◆".repeat(cs.difficulty) + "◇".repeat(3 - cs.difficulty);
       d.innerHTML =
-        '<div class="dossier-tab">FILE No. ' + cs.fileNo + "</div>" +
+        '<div class="dossier-tab">' + T("fileNo", cs.fileNo) + "</div>" +
         '<div class="dossier-body">' +
         '<div class="dossier-meta">' + esc(cs.place) + " · " + esc(cs.date) + "</div>" +
         '<h2 class="dossier-title">' + esc(cs.title) + "</h2>" +
         '<p class="dossier-tag">' + esc(cs.tagline) + "</p>" +
-        '<div class="dossier-foot"><span class="difficulty" title="Difficulty">' + stars + "</span>" +
-        (save && save.caseId === cs.id && !save.over ? '<span class="resume-chip">IN PROGRESS — RESUME</span>' : "") +
+        '<div class="dossier-foot"><span class="difficulty" title="' + T("difficulty") + '">' + stars + "</span>" +
+        (save && save.caseId === cs.id && !save.over ? '<span class="resume-chip">' + T("resumeChip") + "</span>" : "") +
         "</div></div>" +
         (res ? '<div class="dossier-stamp stamp-' + res.tier + '">' + stampText(res.tier) + "</div>" : "");
       const open = () => {
@@ -190,8 +321,8 @@
     s.appendChild(shelf);
 
     const foot = el("footer", "title-foot",
-      "A tale of deduction in " + numberWord(CASES.length).toLowerCase() + " nights · progress is kept in this browser" +
-      (Object.keys(results).length ? ' · <button class="linklike" id="btn-wipe">clear the record</button>' : ""));
+      T("footer", numberWord(CASES.length).toLowerCase()) +
+      (Object.keys(results).length ? ' · <button class="linklike" id="btn-wipe">' + T("clearRecord") + "</button>" : ""));
     s.appendChild(foot);
     const wipe = $("#btn-wipe");
     if (wipe) wipe.addEventListener("click", () => {
@@ -200,12 +331,12 @@
     showScreen("#screen-title");
   }
   function stampText(tier) {
-    return { perfect: "SOLVED", partial: "CLOSED", wrong: "COLD CASE", timeout: "SURRENDERED" }[tier] || "";
+    return T({ perfect: "stampPerfect", partial: "stampPartial", wrong: "stampWrong", timeout: "stampTimeout" }[tier] || "stampPartial");
   }
 
   /* ---------- briefing ---------- */
   function startCase(caseId) {
-    C = CASES.find((c) => c.id === caseId);
+    C = localizeCase(baseCase(caseId));
     G = {
       caseId: caseId, elapsed: 0, loc: C.locations[0].id,
       clues: [], searched: [], asked: [], deductions: [], over: false,
@@ -215,33 +346,32 @@
     renderBriefing();
   }
   function resumeCase(save) {
-    C = CASES.find((c) => c.id === save.caseId);
+    C = localizeCase(baseCase(save.caseId));
     if (!C) { clearSave(); renderTitle(); return; }
     G = save;
     warned120 = timeLeft() <= 120; warned60 = timeLeft() <= 60;
     enterGame();
-    toast("clock", "Case resumed", "The clock reads " + fmtClock(C.startMinutes + G.elapsed) + ".");
+    toast("clock", T("toastResumed"), T("toastResumedBody", fmtClock(C.startMinutes + G.elapsed)));
   }
   function renderBriefing() {
     const s = $("#screen-briefing");
     s.innerHTML = "";
     const sheet = el("div", "brief-sheet");
-    sheet.appendChild(el("div", "brief-stamp", "CASE OPENED"));
+    sheet.appendChild(el("div", "brief-stamp", T("caseOpened")));
     sheet.appendChild(el("div", "brief-head",
-      "CALLOWAY &amp; ASSOCIATES — CASE FILE No. " + C.fileNo +
-      "<br>" + esc(C.place).toUpperCase() + " · " + esc(C.date).toUpperCase()));
+      T("letterhead", C.fileNo) + "<br>" + esc(C.place) + " · " + esc(C.date)));
     sheet.appendChild(el("h2", "brief-title", esc(C.title)));
     sheet.appendChild(el("p", "brief-epigraph", esc(C.epigraph)));
     const paras = el("div", "brief-paras");
     sheet.appendChild(paras);
     const note = el("div", "brief-note");
-    note.innerHTML = '<span class="note-label">Pinned to the file, in your own hand:</span> ' + esc(C.detectiveNote);
+    note.innerHTML = '<span class="note-label">' + T("pinnedNote") + "</span> " + esc(C.detectiveNote);
     note.style.visibility = "hidden";
     sheet.appendChild(note);
     const deadline = el("div", "brief-deadline", esc(C.deadlineLabel));
     deadline.style.visibility = "hidden";
     sheet.appendChild(deadline);
-    const btn = el("button", "btn btn-primary brief-begin", "Begin the Investigation — " + fmtClock(C.startMinutes));
+    const btn = el("button", "btn btn-primary brief-begin", T("beginInvestigation", fmtClock(C.startMinutes)));
     btn.style.visibility = "hidden";
     btn.addEventListener("click", enterGame);
     sheet.appendChild(btn);
@@ -267,7 +397,7 @@
 
   /* ---------- main game ---------- */
   function enterGame() {
-    $("#topbar-file").textContent = "FILE No. " + C.fileNo;
+    $("#topbar-file").textContent = T("fileNo", C.fileNo);
     $("#topbar-title").textContent = C.title;
     renderClock();
     renderMap();
@@ -295,9 +425,11 @@
         '<span class="room-chips">' +
         people.map((p) => '<span class="chip" style="--chip:' + p.color + '" title="' + esc(p.name) + '">' + esc(p.initials) + "</span>").join("") +
         "</span>" +
-        (unsearched ? '<span class="room-dots" title="' + unsearched + ' place(s) left to search">' + "•".repeat(unsearched) + "</span>" : '<span class="room-done" title="Fully searched">✓</span>') +
-        (here ? '<span class="you-are-here">YOU ARE HERE</span>' : '<span class="travel-cost">' + COST.travel + "m</span>");
-      room.setAttribute("aria-label", loc.name + (here ? " (current location)" : " — travel, " + COST.travel + " minutes"));
+        (unsearched ? '<span class="room-dots" title="' + T("placesLeft", unsearched) + '">' + "•".repeat(unsearched) + "</span>"
+                    : '<span class="room-done" title="' + T("fullySearched") + '">✓</span>') +
+        (here ? '<span class="you-are-here">' + T("youAreHere") + "</span>"
+              : '<span class="travel-cost">' + T("minutesShort", COST.travel) + "</span>");
+      room.setAttribute("aria-label", here ? T("currentLocation", loc.name) : T("travelAria", loc.name, COST.travel));
       room.addEventListener("click", () => travelTo(loc.id));
       map.appendChild(room);
     });
@@ -312,39 +444,132 @@
     renderLocation();
   }
 
+  /* ---------- the scene: an illustrated room you can search by eye ---------- */
+  function sceneFor(locId) {
+    const set = ART[C.id];
+    return set ? set[locId] : null;
+  }
+  function hotspotState(h) {
+    if (G.searched.includes(h.id)) return "done";
+    if (h.requiresClue && !G.clues.includes(h.requiresClue)) return "locked";
+    return "open";
+  }
+  // Build the illustrated scene with a clickable pin over every searchable detail.
+  function buildScene(loc, scene, big) {
+    const fig = el("figure", "scene" + (big ? " scene-big" : ""));
+    const frame = el("div", "scene-frame");
+    const vb = String(scene.viewBox).trim().split(/\s+/);
+    if (vb.length === 4 && +vb[3]) frame.style.setProperty("--ar", (+vb[2] / +vb[3]).toFixed(4));
+    frame.innerHTML = '<svg class="scene-art" viewBox="' + scene.viewBox + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="' + esc(loc.name) + '">' + scene.svg + "</svg>";
+    loc.hotspots.forEach((h) => {
+      const pos = (scene.hotspots || {})[h.id];
+      if (!pos) return;
+      const state = hotspotState(h);
+      const pin = el("button", "scene-pin pin-" + state);
+      pin.style.left = pos.x + "%";
+      pin.style.top = pos.y + "%";
+      pin.innerHTML = '<span class="scene-pin-dot"></span><span class="scene-pin-label">' + esc(h.name) + "</span>";
+      pin.setAttribute("aria-label", h.name + " — " +
+        (state === "done" ? T("examined") : state === "locked" ? T("lockedShort") : T("searchCost", COST.search)));
+      pin.title = h.name;
+      pin.addEventListener("click", (e) => { e.stopPropagation(); searchHotspot(loc, h); });
+      frame.appendChild(pin);
+    });
+    fig.appendChild(frame);
+    return fig;
+  }
+
+  function openSceneViewer(loc, scene) {
+    const m = openModal("modal-scene");
+    m.box.innerHTML =
+      '<header class="scene-head">' +
+      '<div><span class="disc-kicker">' + esc(loc.name) + "</span>" +
+      '<p class="scene-hint">' + T("sceneZoomHint") + "</p></div>" +
+      '<div class="scene-tools">' +
+      '<button class="btn btn-quiet" id="z-out" aria-label="' + T("zoomOut") + '">−</button>' +
+      '<button class="btn btn-quiet" id="z-reset">' + T("zoomReset") + "</button>" +
+      '<button class="btn btn-quiet" id="z-in" aria-label="' + T("zoomIn") + '">+</button>' +
+      '<button class="btn btn-primary" id="z-close">' + T("sceneClose") + "</button>" +
+      "</div></header>" +
+      '<div class="scene-stage" id="scene-stage"></div>';
+    const stage = m.box.querySelector("#scene-stage");
+    const fig = buildScene(loc, scene, true);
+    stage.appendChild(fig);
+
+    let zoom = 1, ox = 0, oy = 0;
+    const apply = () => {
+      fig.style.transform = "translate(" + ox + "px," + oy + "px) scale(" + zoom + ")";
+    };
+    const setZoom = (z) => { zoom = Math.max(1, Math.min(5, z)); if (zoom === 1) { ox = oy = 0; } apply(); };
+    m.box.querySelector("#z-in").addEventListener("click", () => setZoom(zoom * 1.4));
+    m.box.querySelector("#z-out").addEventListener("click", () => setZoom(zoom / 1.4));
+    m.box.querySelector("#z-reset").addEventListener("click", () => setZoom(1));
+    m.box.querySelector("#z-close").addEventListener("click", m.close);
+    stage.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      setZoom(zoom * (e.deltaY < 0 ? 1.12 : 1 / 1.12));
+    }, { passive: false });
+    let dragging = false, sx = 0, sy = 0;
+    stage.addEventListener("pointerdown", (e) => {
+      if (e.target.closest(".scene-pin")) return;
+      dragging = true; sx = e.clientX - ox; sy = e.clientY - oy;
+      stage.setPointerCapture(e.pointerId);
+      stage.classList.add("dragging");
+    });
+    stage.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      ox = e.clientX - sx; oy = e.clientY - sy; apply();
+    });
+    const stop = () => { dragging = false; stage.classList.remove("dragging"); };
+    stage.addEventListener("pointerup", stop);
+    stage.addEventListener("pointercancel", stop);
+    return m;
+  }
+
   function renderLocation() {
     const loc = locById(G.loc);
     const panel = $("#location-panel");
     panel.innerHTML = "";
-    panel.appendChild(el("div", "loc-kicker", "— " + esc(loc.name).toUpperCase() + " —"));
+    panel.appendChild(el("div", "loc-kicker", "— " + esc(loc.name) + " —"));
+
+    const scene = sceneFor(loc.id);
+    if (scene) {
+      const fig = buildScene(loc, scene, false);
+      const cap = el("figcaption", "scene-cap");
+      cap.innerHTML = '<span>' + T("sceneHint") + "</span>";
+      const zoomBtn = el("button", "btn btn-quiet scene-zoom", T("sceneZoom"));
+      zoomBtn.addEventListener("click", () => openSceneViewer(loc, scene));
+      cap.appendChild(zoomBtn);
+      fig.appendChild(cap);
+      panel.appendChild(fig);
+    }
+
     panel.appendChild(el("p", "loc-desc", esc(loc.desc)));
 
     const people = suspectsAt(loc.id);
     if (people.length) {
-      const pk = el("div", "loc-subhead", "PRESENT");
-      panel.appendChild(pk);
+      panel.appendChild(el("div", "loc-subhead", T("present")));
       const row = el("div", "person-row");
       people.forEach((p) => {
         const card = el("button", "person-chip");
         card.innerHTML =
           '<span class="monogram" style="--chip:' + p.color + '">' + esc(p.initials) + "</span>" +
           '<span class="person-chip-text"><strong>' + esc(p.name) + "</strong><em>" + esc(p.role) + "</em></span>" +
-          '<span class="chip-cost">question · ' + COST.ask + "m</span>";
+          '<span class="chip-cost">' + T("questionCost", COST.ask) + "</span>";
         card.addEventListener("click", () => openInterrogation(p.id));
         row.appendChild(card);
       });
       panel.appendChild(row);
     }
 
-    panel.appendChild(el("div", "loc-subhead", "SEARCH"));
+    panel.appendChild(el("div", "loc-subhead", T("searchHead")));
     const hs = el("div", "hotspot-list");
     loc.hotspots.forEach((h) => {
-      const done = G.searched.includes(h.id);
-      const locked = h.requiresClue && !G.clues.includes(h.requiresClue);
-      const b = el("button", "hotspot" + (done ? " searched" : "") + (locked ? " locked" : ""));
+      const state = hotspotState(h);
+      const b = el("button", "hotspot" + (state === "done" ? " searched" : "") + (state === "locked" ? " locked" : ""));
       b.innerHTML =
-        '<span class="hs-name">' + (locked ? "🔒 " : "") + esc(h.name) + "</span>" +
-        '<span class="hs-state">' + (done ? "examined ✓" : locked ? "locked" : "search · " + COST.search + "m") + "</span>";
+        '<span class="hs-name">' + (state === "locked" ? "🔒 " : "") + esc(h.name) + "</span>" +
+        '<span class="hs-state">' + (state === "done" ? T("examined") : state === "locked" ? T("lockedShort") : T("searchCost", COST.search)) + "</span>";
       b.addEventListener("click", () => searchHotspot(loc, h));
       hs.appendChild(b);
     });
@@ -357,10 +582,10 @@
     if (h.requiresClue && !G.clues.includes(h.requiresClue) && !done) {
       const m = openModal("modal-discovery");
       m.box.innerHTML =
-        '<div class="disc-kicker">' + esc(loc.name).toUpperCase() + "</div>" +
+        '<div class="disc-kicker">' + esc(loc.name) + "</div>" +
         '<h3 class="disc-title">' + esc(h.name) + "</h3>" +
-        '<p class="disc-text">' + esc(h.lockedHint || "You can't get into this yet.") + "</p>" +
-        '<button class="btn btn-primary modal-ok">Step back</button>';
+        '<p class="disc-text">' + esc(h.lockedHint || T("lockedFallback")) + "</p>" +
+        '<button class="btn btn-primary modal-ok">' + T("stepBack") + "</button>";
       m.box.querySelector(".modal-ok").addEventListener("click", m.close);
       return;
     }
@@ -370,19 +595,18 @@
     const fresh = grantClues(h.gives || []);
     renderMap();
     renderLocation();
-    if (!G.over || true) showDiscovery(loc, h, fresh);
+    showDiscovery(loc, h, fresh);
     saveGame();
   }
 
   function showDiscovery(loc, h, freshClues) {
     const m = openModal("modal-discovery");
-    let html =
-      '<div class="disc-kicker">' + esc(loc.name).toUpperCase() + "</div>" +
+    m.box.innerHTML =
+      '<div class="disc-kicker">' + esc(loc.name) + "</div>" +
       '<h3 class="disc-title">' + esc(h.name) + "</h3>" +
       '<p class="disc-text" id="disc-text"></p>' +
       '<div class="disc-clues" id="disc-clues"></div>' +
-      '<button class="btn btn-primary modal-ok" id="disc-ok" style="visibility:hidden">Noted</button>';
-    m.box.innerHTML = html;
+      '<button class="btn btn-primary modal-ok" id="disc-ok" style="visibility:hidden">' + T("noted") + "</button>";
     const okBtn = m.box.querySelector("#disc-ok");
     okBtn.addEventListener("click", m.close);
     const cluesBox = m.box.querySelector("#disc-clues");
@@ -392,7 +616,7 @@
         if (!c) return;
         const isNew = freshClues.includes(cid);
         const card = el("div", "clue-mini" + (isNew ? " fresh" : ""));
-        card.innerHTML = '<span class="clue-mini-label">' + (isNew ? "EVIDENCE LOGGED" : "IN EVIDENCE") + "</span><strong>" + esc(c.name) + "</strong>";
+        card.innerHTML = '<span class="clue-mini-label">' + (isNew ? T("evidenceLoggedLabel") : T("inEvidenceLabel")) + "</span><strong>" + esc(c.name) + "</strong>";
         cluesBox.appendChild(card);
       });
       okBtn.style.visibility = "";
@@ -408,7 +632,7 @@
       if (!G.clues.includes(cid)) { G.clues.push(cid); fresh.push(cid); }
     });
     if (fresh.length) {
-      fresh.forEach((cid) => toast("clue", "Evidence logged", C.clues[cid] ? C.clues[cid].name : cid));
+      fresh.forEach((cid) => toast("clue", T("toastEvidence"), C.clues[cid] ? C.clues[cid].name : cid));
       checkDeductions();
       renderJournal();
     }
@@ -420,7 +644,7 @@
       if (G.deductions.includes(d.id)) return;
       if (d.requires.every((cid) => G.clues.includes(cid))) {
         G.deductions.push(d.id);
-        toast("deduction", "DEDUCTION — " + d.name, d.text.length > 110 ? d.text.slice(0, 107) + "…" : d.text);
+        toast("deduction", T("toastDeduction", d.name), d.text.length > 110 ? d.text.slice(0, 107) + "…" : d.text);
       }
     });
   }
@@ -432,10 +656,10 @@
     m.box.innerHTML =
       '<header class="interro-head">' +
       '<span class="monogram lg" style="--chip:' + p.color + '">' + esc(p.initials) + "</span>" +
-      '<div class="interro-id"><h3>' + esc(p.name) + "</h3><em>" + esc(p.role) + " · " + p.age + "</em>" +
-      (p.witness ? '<span class="witness-tag">WITNESS — NOT A SUSPECT</span>' : "") +
+      '<div class="interro-id"><h3>' + esc(p.name) + "</h3><em>" + esc(p.role) + " · " + digits(p.age) + "</em>" +
+      (p.witness ? '<span class="witness-tag">' + T("witnessLong") + "</span>" : "") +
       "</div>" +
-      '<button class="btn btn-quiet interro-close">Done</button>' +
+      '<button class="btn btn-quiet interro-close">' + T("done") + "</button>" +
       "</header>" +
       '<div class="interro-body">' +
       '<div class="dialogue" id="dialogue"><p class="dlg-blurb">' + esc(p.blurb) + "</p></div>" +
@@ -464,17 +688,17 @@
       list.forEach((t) => {
         const asked = G.asked.includes(t.id);
         const b = el("button", "topic" + (asked ? " asked" : "") + (t.climax ? " climax" : ""));
-        b.innerHTML = '<span>' + esc(t.label) + "</span><span class='topic-cost'>" +
-          (asked ? "asked ✓" : COST.ask + "m") + "</span>";
+        b.innerHTML = "<span>" + esc(t.label) + "</span><span class='topic-cost'>" +
+          (asked ? T("asked") : T("minutesShort", COST.ask)) + "</span>";
         b.addEventListener("click", () => askTopic(p, t, box));
         wrap.appendChild(b);
       });
     };
-    addGroup("QUESTIONS", plain);
-    addGroup("PRESENT EVIDENCE", confront);
-    const hiddenCount = p.topics.length - avail.length;
-    if (hiddenCount > 0) {
-      wrap.appendChild(el("div", "topics-hint", hiddenCount + " line" + (hiddenCount > 1 ? "s" : "") + " of inquiry may open as evidence surfaces."));
+    addGroup(T("questionsGroup"), plain);
+    addGroup(T("confrontGroup"), confront);
+    const hidden = p.topics.length - avail.length;
+    if (hidden > 0) {
+      wrap.appendChild(el("div", "topics-hint", T(hidden > 1 ? "topicsHintMany" : "topicsHintOne", hidden)));
     }
   }
 
@@ -486,8 +710,7 @@
       G.asked.push(t.id);
       spend(COST.ask);
     }
-    const q = el("p", "dlg-q", "— " + esc(t.label));
-    dlg.appendChild(q);
+    dlg.appendChild(el("p", "dlg-q", "— " + esc(t.label)));
     const a = el("div", "dlg-a" + (t.climax ? " dlg-climax" : ""));
     dlg.appendChild(a);
     dlg.scrollTop = dlg.scrollHeight;
@@ -497,9 +720,8 @@
     const next = () => {
       if (i >= paras.length) {
         if (first) {
-          const fresh = grantClues(t.gives || []);
-          if (fresh.length || t.gives) renderTopics(p, box);
-          else renderTopics(p, box);
+          grantClues(t.gives || []);
+          renderTopics(p, box);
           saveGame();
         }
         return;
@@ -519,11 +741,14 @@
     renderEvidenceTab();
     renderPeopleTab();
     renderBoardTab();
-    $("#count-evidence").textContent = G.clues.length ? "(" + G.clues.length + ")" : "";
-    $("#count-board").textContent = G.deductions.length ? "(" + G.deductions.length + ")" : "";
+    const ce = $("#count-evidence"), cb = $("#count-board");
+    if (ce) ce.textContent = G.clues.length ? "(" + digits(G.clues.length) + ")" : "";
+    if (cb) cb.textContent = G.deductions.length ? "(" + digits(G.deductions.length) + ")" : "";
   }
 
+  const FA_LETTERS = ["الف", "ب", "پ", "ت", "ث", "ج", "چ", "ح", "خ", "د", "ذ", "ر", "ز", "ژ", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "گ", "ل", "م", "ن", "و", "ه", "ی"];
   function exhibitLetter(i) {
+    if (LANG === "fa") return FA_LETTERS[i] || digits(i + 1);
     let s = "", n = i;
     do { s = String.fromCharCode(65 + (n % 26)) + s; n = Math.floor(n / 26) - 1; } while (n >= 0);
     return s;
@@ -533,7 +758,7 @@
     const t = $("#tab-evidence");
     t.innerHTML = "";
     if (!G.clues.length) {
-      t.appendChild(el("p", "empty-note", "No evidence yet. Search the rooms; question the people. Everything you log lands here."));
+      t.appendChild(el("p", "empty-note", T("noEvidenceYet")));
       return;
     }
     G.clues.forEach((cid, i) => {
@@ -541,7 +766,7 @@
       if (!c) return;
       const card = el("article", "clue-card");
       card.innerHTML =
-        '<span class="exhibit">EXHIBIT ' + exhibitLetter(i) + "</span>" +
+        '<span class="exhibit">' + T("exhibit", exhibitLetter(i)) + "</span>" +
         "<h4>" + esc(c.name) + "</h4>" +
         "<p>" + esc(c.desc) + "</p>";
       t.appendChild(card);
@@ -560,10 +785,10 @@
       });
       card.innerHTML =
         '<header><span class="monogram" style="--chip:' + p.color + '">' + esc(p.initials) + "</span>" +
-        "<div><h4>" + esc(p.name) + (p.witness ? ' <span class="witness-tag">WITNESS</span>' : "") + "</h4>" +
-        "<em>" + esc(p.role) + " · " + p.age + " · in " + esc(loc ? loc.name : "?") + "</em></div></header>" +
+        "<div><h4>" + esc(p.name) + (p.witness ? ' <span class="witness-tag">' + T("witnessShort") + "</span>" : "") + "</h4>" +
+        "<em>" + esc(p.role) + " · " + digits(p.age) + " · " + T("inRoom", esc(loc ? loc.name : "?")) + "</em></div></header>" +
         "<p>" + esc(p.blurb) + "</p>" +
-        (notes ? '<ul class="person-notes">' + notes + "</ul>" : '<p class="empty-note">Nothing on record yet — go and ask.</p>');
+        (notes ? '<ul class="person-notes">' + notes + "</ul>" : '<p class="empty-note">' + T("nothingOnRecord") + "</p>");
       t.appendChild(card);
     });
   }
@@ -596,18 +821,18 @@
       const made = G.deductions.includes(d.id);
       const card = el("div", "ded-card" + (made ? " made" : " unmade"));
       if (made) {
-        card.innerHTML = '<span class="pin pin-red"></span><span class="ded-label">DEDUCTION</span><h4>' + esc(d.name) + "</h4><p>" + esc(d.text) + "</p>";
+        card.innerHTML = '<span class="pin pin-red"></span><span class="ded-label">' + T("deductionLabel") + '</span><h4>' + esc(d.name) + "</h4><p>" + esc(d.text) + "</p>";
         dedMap[d.id] = card;
       } else {
         const have = d.requires.filter((r) => G.clues.includes(r)).length;
-        card.innerHTML = '<span class="ded-label">UNFORMED</span><h4>? ? ?</h4><p class="empty-note">' +
-          have + " of " + d.requires.length + " threads in hand. Keep pulling.</p>";
+        card.innerHTML = '<span class="ded-label">' + T("unformedLabel") + '</span><h4>؟ ؟ ؟</h4><p class="empty-note">' +
+          T("threads", have, d.requires.length) + "</p>";
       }
       dedWrap.appendChild(card);
     });
     board.appendChild(dedWrap);
     if (!G.clues.length) {
-      board.appendChild(el("p", "empty-note board-empty", "The board is bare. It won't stay that way."));
+      board.appendChild(el("p", "empty-note board-empty", T("boardBare")));
     }
     t.appendChild(board);
 
@@ -648,11 +873,11 @@
     const m = openModal("modal-accuse");
     m.overlay.dataset.locked = "1";
     m.box.innerHTML =
-      '<div class="acc-kicker">TIME IS UP</div>' +
-      "<h3 class='acc-title'>The deadline has arrived</h3>" +
-      "<p class='disc-text'>" + esc(C.deadlineLabel) + " Whatever you believe, it must be said now — or the case passes out of your hands forever.</p>" +
-      '<div class="acc-actions"><button class="btn btn-primary" id="acc-now">Name the killer</button>' +
-      '<button class="btn btn-quiet" id="acc-give">Surrender the case</button></div>';
+      '<div class="acc-kicker">' + T("timeUpKicker") + "</div>" +
+      "<h3 class='acc-title'>" + T("deadlineArrived") + "</h3>" +
+      "<p class='disc-text'>" + T("deadlineBody", esc(C.deadlineLabel)) + "</p>" +
+      '<div class="acc-actions"><button class="btn btn-primary" id="acc-now">' + T("nameKiller") + "</button>" +
+      '<button class="btn btn-quiet" id="acc-give">' + T("surrenderCase") + "</button></div>";
     m.box.querySelector("#acc-now").addEventListener("click", () => { m.close(); openAccuse(true); });
     m.box.querySelector("#acc-give").addEventListener("click", () => { m.close(); finishCase("timeout", null, null, []); });
   }
@@ -665,10 +890,10 @@
     const render = (step) => {
       if (step === 1) {
         m.box.innerHTML =
-          '<div class="acc-kicker">THE ACCUSATION · I of III</div>' +
-          "<h3 class='acc-title'>Who did it?</h3>" +
+          '<div class="acc-kicker">' + T("accStep1") + "</div>" +
+          "<h3 class='acc-title'>" + T("whoDidIt") + "</h3>" +
           '<div class="acc-grid" id="acc-grid"></div>' +
-          (forced ? "" : '<div class="acc-actions"><button class="btn btn-quiet" id="acc-cancel">Not yet — keep digging</button></div>');
+          (forced ? "" : '<div class="acc-actions"><button class="btn btn-quiet" id="acc-cancel">' + T("notYet") + "</button></div>");
         const grid = m.box.querySelector("#acc-grid");
         C.suspects.filter((s) => !s.witness).forEach((s) => {
           const b = el("button", "acc-suspect");
@@ -681,10 +906,10 @@
       } else if (step === 2) {
         const s = C.suspects.find((x) => x.id === state.suspect);
         m.box.innerHTML =
-          '<div class="acc-kicker">THE ACCUSATION · II of III</div>' +
-          "<h3 class='acc-title'>Why did " + esc(s.name.split(" ")[0]) + " do it?</h3>" +
+          '<div class="acc-kicker">' + T("accStep2") + "</div>" +
+          "<h3 class='acc-title'>" + T("whyDidThey", esc(s.name.split(" ")[0])) + "</h3>" +
           '<div class="acc-list" id="acc-list"></div>' +
-          '<div class="acc-actions"><button class="btn btn-quiet" id="acc-back">Back</button></div>';
+          '<div class="acc-actions"><button class="btn btn-quiet" id="acc-back">' + T("back") + "</button></div>";
         const list = m.box.querySelector("#acc-list");
         C.motiveOptions.forEach((mo) => {
           const b = el("button", "acc-motive", esc(mo.label));
@@ -695,15 +920,15 @@
       } else {
         const s = C.suspects.find((x) => x.id === state.suspect);
         m.box.innerHTML =
-          '<div class="acc-kicker">THE ACCUSATION · III of III</div>' +
-          "<h3 class='acc-title'>What proves it? <span class='acc-sub'>Choose up to three exhibits.</span></h3>" +
+          '<div class="acc-kicker">' + T("accStep3") + "</div>" +
+          "<h3 class='acc-title'>" + T("whatProves") + " <span class='acc-sub'>" + T("chooseThree") + "</span></h3>" +
           '<div class="acc-evidence" id="acc-ev"></div>' +
           '<div class="acc-actions">' +
-          '<button class="btn btn-quiet" id="acc-back">Back</button>' +
-          '<button class="btn btn-accuse-final" id="acc-final" disabled>Accuse ' + esc(s.name) + "</button></div>";
+          '<button class="btn btn-quiet" id="acc-back">' + T("back") + "</button>" +
+          '<button class="btn btn-accuse-final" id="acc-final">' + T("accuseFinal", esc(s.name)) + "</button></div>";
         const evBox = m.box.querySelector("#acc-ev");
         const finalBtn = m.box.querySelector("#acc-final");
-        if (!G.clues.length) evBox.appendChild(el("p", "empty-note", "You hold no evidence. This will not go well — but you may still point a finger."));
+        if (!G.clues.length) evBox.appendChild(el("p", "empty-note", T("noEvidenceWarn")));
         G.clues.forEach((cid, i) => {
           const c = C.clues[cid];
           if (!c) return;
@@ -713,16 +938,11 @@
             const at = state.evidence.indexOf(cid);
             if (at >= 0) { state.evidence.splice(at, 1); b.classList.remove("picked"); }
             else if (state.evidence.length < 3) { state.evidence.push(cid); b.classList.add("picked"); }
-            finalBtn.disabled = false;
           });
           evBox.appendChild(b);
         });
-        finalBtn.disabled = false;
         m.box.querySelector("#acc-back").addEventListener("click", () => render(2));
-        finalBtn.addEventListener("click", () => {
-          m.close();
-          resolveAccusation(state);
-        });
+        finalBtn.addEventListener("click", () => { m.close(); resolveAccusation(state); });
       }
     };
     render(1);
@@ -747,13 +967,13 @@
     const cluePct = G.clues.length / totalClueCount();
     const allDed = G.deductions.length === C.deductions.length;
     if (tier === "perfect") {
-      if (cluePct >= 0.8 && allDed) return "LEGENDARY SLEUTH";
-      if (cluePct >= 0.55) return "SEASONED INSPECTOR";
-      return "SHARP-EYED DETECTIVE";
+      if (cluePct >= 0.8 && allDed) return T("rankLegendary");
+      if (cluePct >= 0.55) return T("rankSeasoned");
+      return T("rankSharp");
     }
-    if (tier === "partial") return "BEAT DETECTIVE";
-    if (tier === "wrong") return "WRONG MAN'S BANE";
-    return "CASE SURRENDERED";
+    if (tier === "partial") return T("rankBeat");
+    if (tier === "wrong") return T("rankWrong");
+    return T("rankSurrendered");
   }
 
   function finishCase(tier, accusedId, motiveId, evidence) {
@@ -768,37 +988,38 @@
     s.innerHTML = "";
     const sheet = el("div", "verdict-sheet");
     sheet.appendChild(el("div", "verdict-stamp stamp-" + tier, stampText(tier)));
-    sheet.appendChild(el("div", "brief-head", "CASE FILE No. " + C.fileNo + " — FINAL REPORT"));
+    sheet.appendChild(el("div", "brief-head", T("finalReport", C.fileNo)));
     sheet.appendChild(el("h2", "brief-title", esc(C.title)));
     if (accused) {
+      const mo = (C.motiveOptions.find((m) => m.id === motiveId) || {}).label;
       sheet.appendChild(el("p", "verdict-accused",
-        "You accused <strong>" + esc(accused.name) + "</strong>" +
-        (motiveId ? " — " + esc((C.motiveOptions.find((m) => m.id === motiveId) || {}).label || "").toLowerCase() : "") + "."));
+        T("youAccused", esc(accused.name), mo ? T("accusedMotive", esc(mo)) : "")));
     }
     const paras = el("div", "brief-paras");
     (C.epilogues[tier] || []).forEach((p) => {
-      paras.appendChild(el("p", "brief-p", esc(p.replace(/\{ACCUSED\}/g, accused ? accused.name : "your suspect"))));
+      paras.appendChild(el("p", "brief-p", esc(p.replace(/\{ACCUSED\}/g, accused ? accused.name : T("yourSuspect")))));
     });
     sheet.appendChild(paras);
 
     const truth = C.suspects.find((x) => x.id === C.solution.culprit);
     if (tier === "wrong" || tier === "timeout") {
       sheet.appendChild(el("div", "verdict-truth",
-        "<span class='note-label'>For the drawer no one opens:</span> the killer was <strong>" + esc(truth.name) + "</strong>, " + esc(truth.role.toLowerCase()) + "."));
+        "<span class='note-label'>" + T("forTheDrawer") + "</span> " + T("killerWas", esc(truth.name), esc(truth.role))));
     }
 
+    const left = timeLeft();
     const stats = el("div", "verdict-stats");
     stats.innerHTML =
-      "<span>RANK — <strong>" + rank + "</strong></span>" +
-      "<span>Evidence — " + G.clues.length + " / " + totalClueCount() + "</span>" +
-      "<span>Deductions — " + G.deductions.length + " / " + C.deductions.length + "</span>" +
-      "<span>Clock — " + (timeLeft() > 0 ? Math.floor(timeLeft() / 60) + "h " + (timeLeft() % 60) + "m to spare" : "ran dry") + "</span>";
+      "<span>" + T("rankLabel", rank) + "</span>" +
+      "<span>" + T("evidenceStat", G.clues.length, totalClueCount()) + "</span>" +
+      "<span>" + T("deductionsStat", G.deductions.length, C.deductions.length) + "</span>" +
+      "<span>" + T("clockStat", left > 0 ? fmtSpan("toSpare", left) : T("ranDry")) + "</span>";
     sheet.appendChild(stats);
 
     const actions = el("div", "acc-actions");
-    const again = el("button", "btn btn-quiet", "Reopen this case");
+    const again = el("button", "btn btn-quiet", T("reopenCase"));
     again.addEventListener("click", () => startCase(C.id));
-    const desk = el("button", "btn btn-primary", "Return to the desk");
+    const desk = el("button", "btn btn-primary", T("returnDesk"));
     desk.addEventListener("click", renderTitle);
     actions.appendChild(again); actions.appendChild(desk);
     sheet.appendChild(actions);
@@ -826,24 +1047,26 @@
 
   /* ---------- boot ---------- */
   // Debug/test boot via URL hash, e.g. #case:blackwood,demo,board or #brief:orpheum
-  // flags: demo (pre-search open hotspots), board / people (journal tab), talk:<suspectId>, accuse
+  // flags: demo, board, people, talk:<suspectId>, accuse, fa (force Persian)
   function bootFromHash() {
     const parts = location.hash.slice(1).split(",");
+    if (parts.includes("fa")) setLang("fa", false);
+    if (parts.includes("en")) setLang("en", false);
     const head = (parts[0] || "").match(/^(case|brief):([a-z0-9]+)$/);
     if (!head) return false;
-    const cs = CASES.find((c) => c.id === head[2]);
-    if (!cs) return false;
+    const base = CASES.find((c) => c.id === head[2]);
+    if (!base) return false;
     DEBUG = true;
-    if (head[1] === "brief") { startCase(cs.id); return true; }
-    C = cs;
-    G = { caseId: cs.id, elapsed: 0, loc: cs.locations[0].id, clues: [], searched: [], asked: [], deductions: [], over: false };
+    if (head[1] === "brief") { startCase(base.id); return true; }
+    C = localizeCase(base);
+    G = { caseId: base.id, elapsed: 0, loc: C.locations[0].id, clues: [], searched: [], asked: [], deductions: [], over: false };
     if (parts.includes("demo")) {
-      cs.locations.forEach((l) => l.hotspots.forEach((h) => {
+      C.locations.forEach((l) => l.hotspots.forEach((h) => {
         if (h.requiresClue && !G.clues.includes(h.requiresClue)) return;
         G.searched.push(h.id);
         (h.gives || []).forEach((cid) => { if (!G.clues.includes(cid)) G.clues.push(cid); });
       }));
-      cs.deductions.forEach((d) => { if (d.requires.every((cid) => G.clues.includes(cid))) G.deductions.push(d.id); });
+      C.deductions.forEach((d) => { if (d.requires.every((cid) => G.clues.includes(cid))) G.deductions.push(d.id); });
       G.elapsed = 150;
     }
     enterGame();
@@ -852,14 +1075,21 @@
         const tab = document.querySelector('.jtab[data-tab="' + f + '"]');
         if (tab) tab.click();
       } else if (f.indexOf("talk:") === 0) {
-        const p = cs.suspects.find((s) => s.id === f.slice(5));
+        const p = C.suspects.find((s) => s.id === f.slice(5));
         if (p) openInterrogation(p.id);
       } else if (f === "accuse") {
         openAccuse(false);
+      } else if (f === "scene") {
+        const loc = locById(G.loc), sc = sceneFor(G.loc);
+        if (sc) openSceneViewer(loc, sc);
       }
     });
     return true;
   }
+
+  let saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
+  setLang(saved || (navigator.language && /^fa/i.test(navigator.language) ? "fa" : "en"), false);
   wire();
   if (!bootFromHash()) renderTitle();
 })();

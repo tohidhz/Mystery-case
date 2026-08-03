@@ -1447,3 +1447,217 @@ path.string {
   .dossier:hover, .dossier:focus-visible { transform: none; }
   .toast { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   THE SCENE — an illustrated room you search by eye
+   ============================================================ */
+
+.scene { margin: 0 0 1.1rem; }
+
+.scene-frame {
+  position: relative;
+  aspect-ratio: var(--ar, 1.613);
+  width: min(100%, calc(360px * var(--ar, 1.613)));
+  margin: 0 auto;
+  direction: ltr;                 /* the room's geography never mirrors */
+  border: 1px solid rgba(43, 38, 32, .5);
+  border-radius: 2px;
+  background: #14110d;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, .6), 0 3px 10px rgba(0, 0, 0, .4);
+  overflow: hidden;
+  line-height: 0;
+}
+.scene-art { display: block; width: 100%; height: 100%; }
+.scene-stage .scene-frame { width: min(100%, calc(70vh * var(--ar, 1.613))); }
+
+/* a pin over every searchable detail */
+.scene-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  line-height: 1;
+  z-index: 3;
+}
+.scene-pin-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--paper);
+  background: rgba(168, 53, 42, .82);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .45), 0 2px 5px rgba(0, 0, 0, .6);
+  flex: none;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.scene-pin-dot::after {
+  content: "";
+  position: absolute;
+  inset: 4px auto auto 4px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .65);
+}
+.scene-pin-label {
+  font-family: var(--font-type);
+  font-size: .68rem;
+  white-space: nowrap;
+  color: var(--paper);
+  background: rgba(20, 17, 13, .88);
+  border: 1px solid rgba(201, 174, 126, .35);
+  padding: .25rem .5rem;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .15s ease, transform .15s ease;
+  pointer-events: none;
+  max-width: 40vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.scene-pin:hover .scene-pin-label,
+.scene-pin:focus-visible .scene-pin-label { opacity: 1; transform: translateX(0); }
+.scene-pin:hover .scene-pin-dot { transform: scale(1.22); }
+
+.scene-pin.pin-open .scene-pin-dot { animation: pin-breathe 2.6s ease-in-out infinite; }
+.scene-pin.pin-done .scene-pin-dot { background: rgba(95, 107, 74, .8); }
+.scene-pin.pin-done .scene-pin-dot::before {
+  content: "✓"; position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--paper); line-height: 1;
+}
+.scene-pin.pin-locked .scene-pin-dot { background: rgba(60, 52, 40, .85); border-style: dashed; }
+
+@keyframes pin-breathe {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 0, 0, .45), 0 0 0 0 rgba(168, 53, 42, .5); }
+  50%      { box-shadow: 0 0 0 3px rgba(0, 0, 0, .45), 0 0 0 9px rgba(168, 53, 42, 0); }
+}
+
+.scene-cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: #6b5636;
+  line-height: 1.5;
+}
+.scene-zoom { flex: none; font-size: .72rem; padding: .35em .8em; }
+
+/* the enlarged plate */
+.modal-scene {
+  max-width: min(1180px, 96vw);
+  width: 96vw;
+  padding: 1rem 1.1rem 1.1rem;
+}
+.scene-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: .7rem;
+}
+.scene-head .disc-kicker { display: block; }
+.scene-hint { font-family: var(--font-mono); font-size: .7rem; color: #6b5636; margin-top: .2rem; }
+.scene-tools { display: flex; gap: .4rem; flex-wrap: wrap; }
+.scene-tools .btn { padding: .35em .8em; font-size: .74rem; }
+
+.scene-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #0f0d09;
+  cursor: grab;
+  touch-action: none;
+  max-height: 74vh;
+}
+.scene-stage.dragging { cursor: grabbing; }
+.scene-stage .scene {
+  margin: 0;
+  transform-origin: center center;
+  transition: transform .12s ease-out;
+  will-change: transform;
+}
+.scene-stage .scene-frame { border: none; box-shadow: none; }
+.scene-big .scene-pin-label { font-size: .62rem; }
+
+/* ============================================================
+   LANGUAGE
+   ============================================================ */
+
+.lang-toggle {
+  position: absolute;
+  top: 1.2rem;
+  inset-inline-end: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--kraft);
+  border: 1px solid rgba(201, 174, 126, .35);
+  border-radius: 3px;
+  padding: .4em 1em;
+  background: rgba(0, 0, 0, .25);
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.lang-toggle:hover { color: var(--paper); border-color: var(--kraft); background: rgba(201, 174, 126, .1); }
+#screen-title { position: relative; }
+
+/* Persian edition: Naskh for prose, Vazirmatn for labels and figures */
+body.lang-fa {
+  --font-type: "Vazirmatn", "Tahoma", sans-serif;
+  --font-body: "Noto Naskh Arabic", "Vazirmatn", serif;
+  --font-mono: "Vazirmatn", "Tahoma", sans-serif;
+  font-size: 16px;
+  line-height: 1.95;
+}
+body.lang-fa .game-title { font-weight: 700; letter-spacing: 0; }
+body.lang-fa .agency-line,
+body.lang-fa .dossier-tab,
+body.lang-fa .brief-head,
+body.lang-fa .exhibit,
+body.lang-fa .topics-label,
+body.lang-fa .loc-subhead,
+body.lang-fa .acc-kicker,
+body.lang-fa .disc-kicker { letter-spacing: 0; }
+body.lang-fa .brief-p,
+body.lang-fa .dlg-a-p,
+body.lang-fa .loc-desc { text-align: justify; }
+body.lang-fa .clock-time { letter-spacing: 0; }
+
+/* RTL flips for the handful of physically-placed pieces */
+[dir="rtl"] .brief-sheet::before,
+[dir="rtl"] .verdict-sheet::before { left: auto; right: 2rem; }
+[dir="rtl"] .brief-stamp,
+[dir="rtl"] .verdict-stamp { right: auto; left: 1.8rem; transform: rotate(-8deg); }
+[dir="rtl"] .dossier-stamp { right: auto; left: 8%; }
+[dir="rtl"] .dossier-tab { left: auto; right: 14px; }
+[dir="rtl"] .brief-epigraph { border-left: none; border-right: 2px solid rgba(85, 73, 58, .35); padding-left: 0; padding-right: 1rem; }
+[dir="rtl"] .dlg-climax { border-left: none; border-right: 3px solid var(--kraft-deep); }
+[dir="rtl"] .verdict-stats span { border-left: none; border-right: 1px solid rgba(85, 73, 58, .3); }
+[dir="rtl"] .verdict-stats span:first-child { border-right: none; padding-right: 0; }
+[dir="rtl"] .pin-exhibit { right: auto; left: .45rem; }
+[dir="rtl"] .travel-cost,
+[dir="rtl"] .you-are-here { right: auto; left: .5rem; }
+[dir="rtl"] .person-notes { padding-left: 0; padding-right: 1.1rem; }
+[dir="rtl"] .toast { transform: translateX(-30px); }
+[dir="rtl"] .toast.show { transform: translateX(0); }
+[dir="rtl"] #map { direction: ltr; }        /* the floor plan keeps its geography */
+[dir="rtl"] #map .room { direction: rtl; }
+[dir="rtl"] .scene-pin-label { transform: translateX(4px); }
+[dir="rtl"] .scene-pin:hover .scene-pin-label,
+[dir="rtl"] .scene-pin:focus-visible .scene-pin-label { transform: translateX(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-pin.pin-open .scene-pin-dot { animation: none; }
+  .scene-stage .scene { transition: none; }
+}
+
+@media (max-width: 640px) {
+  .scene-pin-dot { width: 26px; height: 26px; }
+  .scene-pin-label { display: none; }
+  .lang-toggle { position: static; display: block; margin: 0 auto .6rem; }
+}

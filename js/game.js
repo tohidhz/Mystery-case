@@ -200,6 +200,9 @@
     const clock = $("#topbar-clock");
     clock.classList.toggle("warn", left <= 120 && left > 60);
     clock.classList.toggle("danger", left <= 60);
+    // the desk lamp loses to dawn as the budget drains — the resource, made ambient
+    const burned = Math.max(0, Math.min(1, G.elapsed / C.timeBudget));
+    document.documentElement.style.setProperty("--dawn", (burned * burned).toFixed(3));
   }
   function spend(min) {
     if (!G || G.over) return;
@@ -256,15 +259,26 @@
     if (clock) { clock.classList.remove("ticked"); void clock.offsetWidth; clock.classList.add("ticked"); }
   }
 
-  /* ---------- toasts ---------- */
+  /* ---------- toasts ----------
+     Queued: closing two deductions at once used to stack three notices in the
+     same corner, all truncated, all expiring together. */
+  const toastQ = [];
+  let toastTimer = null;
   function toast(kind, title, body) {
+    toastQ.push({ kind, title, body });
+    if (!toastTimer) pumpToasts();
+  }
+  function pumpToasts() {
+    const next = toastQ.shift();
+    if (!next) { toastTimer = null; return; }
     const root = $("#toast-root");
-    const t = el("div", "toast toast-" + kind);
-    t.appendChild(el("div", "toast-title", esc(title)));
-    if (body) t.appendChild(el("div", "toast-body", esc(body)));
+    const t = el("div", "toast toast-" + next.kind);
+    t.appendChild(el("div", "toast-title", esc(next.title)));
+    if (next.body) t.appendChild(el("div", "toast-body", esc(next.body)));
     root.appendChild(t);
     requestAnimationFrame(() => t.classList.add("show"));
     setTimeout(() => { t.classList.remove("show"); setTimeout(() => t.remove(), 400); }, 3800);
+    toastTimer = setTimeout(pumpToasts, REDUCED ? 120 : 460);
   }
 
   /* ---------- modals ---------- */
@@ -309,6 +323,7 @@
 
   /* ---------- title screen ---------- */
   function renderTitle() {
+    document.documentElement.style.setProperty("--dawn", "0");
     const s = $("#screen-title");
     s.innerHTML = "";
 
@@ -418,7 +433,7 @@
     let current = null;
     const typeNext = () => {
       if (idx >= C.briefing.length) {
-        note.style.visibility = ""; deadline.style.visibility = ""; btn.style.visibility = "";
+        [note, deadline, btn].forEach((n) => { n.style.visibility = ""; n.classList.add("revealed"); });
         btn.focus();
         return;
       }
@@ -477,6 +492,8 @@
     if (G.over) return;
     renderMap();
     renderLocation();
+    const panel = $("#location-panel");
+    panel.classList.remove("swapping"); void panel.offsetWidth; panel.classList.add("swapping");
   }
 
   /* ---------- the scene: an illustrated room you can search by eye ---------- */
@@ -603,6 +620,7 @@
     loc.hotspots.forEach((h) => {
       const state = hotspotState(h);
       const b = el("button", "hotspot" + (state === "done" ? " searched" : "") + (state === "locked" ? " locked" : ""));
+      b.dataset.hs = h.id;
       b.innerHTML =
         '<span class="hs-name">' + (state === "locked" ? "🔒 " : "") + esc(h.name) + "</span>" +
         '<span class="hs-state">' + (state === "done" ? T("examined") : state === "locked" ? T("lockedShort") : T("searchCost", COST.search)) + "</span>";
@@ -631,9 +649,11 @@
     const fresh = grantClues(h.gives || []);
     renderMap();
     renderLocation();
-    // renderLocation has already run; ping the freshly redrawn pin
+    // renderLocation has already run; ping the freshly redrawn pin and row
     const pinEl = document.querySelector('.scene-pin[data-hs="' + h.id + '"]');
     if (pinEl) pinEl.classList.add("just-found");
+    const rowEl = document.querySelector('.hotspot[data-hs="' + h.id + '"]');
+    if (rowEl) rowEl.classList.add("settling");
     showDiscovery(loc, h, fresh);
     saveGame();
   }
@@ -655,6 +675,7 @@
         if (!c) return;
         const isNew = freshClues.includes(cid);
         const card = el("div", "clue-mini" + (isNew ? " fresh" : ""));
+        card.style.setProperty("--i", cluesBox.children.length);
         card.innerHTML = '<span class="clue-mini-label">' + (isNew ? T("evidenceLoggedLabel") : T("inEvidenceLabel")) + "</span><strong>" + esc(c.name) + "</strong>";
         cluesBox.appendChild(card);
       });
@@ -972,6 +993,7 @@
       if (startStep > 3) state.evidence = G.clues.slice(0, 3);
     }
     const render = (step) => {
+      m.box.classList.remove("acc-step"); void m.box.offsetWidth; m.box.classList.add("acc-step");
       if (step === 1) {
         m.box.innerHTML =
           '<div class="acc-kicker">' + T("accStep1") + "</div>" +
@@ -1224,6 +1246,9 @@
         openAccuse(false);
       } else if (f.indexOf("acc:") === 0) {
         openAccuse(false, +f.slice(4) || 1);
+      } else if (f.indexOf("t:") === 0) {
+        G.elapsed = Math.min(C.timeBudget, +f.slice(2) || 0);
+        renderClock();
       } else if (f === "scene") {
         const loc = locById(G.loc), sc = sceneFor(G.loc);
         if (sc) openSceneViewer(loc, sc);

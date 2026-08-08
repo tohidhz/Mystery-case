@@ -1896,3 +1896,87 @@ path.string.drawing {
   border-top: 1px solid rgba(85, 73, 58, .22);
   padding-top: .7rem;
 }
+
+/* ============================================================
+   THE NIGHT BURNING DOWN
+   The clock is the game's only real resource and it used to be
+   legible in exactly two moments. This makes it continuous: the
+   lamp loses to a cold pre-dawn as the budget drains. Ambient,
+   never decorative — it IS the state.
+   ============================================================ */
+
+#dawn {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--dawn, 0);
+  transition: opacity 1200ms linear;
+  background:
+    radial-gradient(ellipse 130% 70% at 50% 104%, rgba(143, 164, 192, .42) 0%, rgba(143, 164, 192, 0) 60%),
+    linear-gradient(0deg, rgba(37, 52, 78, .50) 0%, rgba(37, 52, 78, .16) 55%, rgba(37, 52, 78, .10) 100%);
+}
+
+/* The plate is the largest dark surface on screen and the one the player is
+   actually looking at, so the night lands there: the room's own light goes
+   cold as the budget drains. Sits above the art, below the pins. */
+.scene-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: calc(var(--dawn, 0) * .78);
+  transition: opacity 1200ms linear;
+  background:
+    linear-gradient(200deg, rgba(150, 178, 214, .28) 0%, rgba(90, 120, 165, .10) 45%, rgba(20, 30, 50, .30) 100%);
+  mix-blend-mode: screen;
+}
+/* the enlarged plate carries it too, a touch stronger */
+.scene-stage .scene-frame::after { opacity: calc(var(--dawn, 0) * .5); }
+/* keep every surface above the wash */
+#app, #topbar, #modal-root, #toast-root { position: relative; z-index: 1; }
+#topbar { z-index: 50; }
+
+/* the lamp itself dims as the night goes */
+body { transition: background-color 1200ms linear; }
+
+/* --- transitions that were hard cuts --- */
+#location-panel.swapping { animation: room-swap var(--dur-slow) var(--ease-out-quart); }
+@keyframes room-swap { from { opacity: 0; transform: translateY(8px); } }
+
+.modal .acc-step { animation: step-in var(--dur) var(--ease-out-quart); }
+@keyframes step-in { from { opacity: 0; transform: translateX(10px); } }
+[dir="rtl"] .modal .acc-step { animation-name: step-in-rtl; }
+@keyframes step-in-rtl { from { opacity: 0; transform: translateX(-10px); } }
+
+/* the briefing's closing beats used to blink into place */
+.brief-note.revealed,
+.brief-deadline.revealed,
+.brief-begin.revealed { animation: beat-in 420ms var(--ease-out-quart) both; }
+.brief-deadline.revealed { animation-delay: 90ms; }
+.brief-begin.revealed { animation-delay: 190ms; }
+@keyframes beat-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* discovered exhibits arrive one after another, not in a lump */
+.disc-clues .clue-mini {
+  animation: mini-in 260ms var(--ease-out-quart) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+@keyframes mini-in { from { opacity: 0; transform: translateY(-6px); } }
+
+/* a hotspot row settling into its examined state */
+.hotspot { transition: background-color var(--dur) var(--ease-out-quart), border-color var(--dur) var(--ease-out-quart), opacity var(--dur) var(--ease-out-quart); }
+.hotspot.settling { animation: hs-settle 620ms var(--ease-out-quart); }
+@keyframes hs-settle {
+  0%   { background: rgba(95, 107, 74, .22); }
+  100% { background: transparent; }
+}
+
+/* dialogue turns arrive rather than appear */
+.dlg-q { animation: turn-in 240ms var(--ease-out-quart) both; }
+@keyframes turn-in { from { opacity: 0; transform: translateY(-4px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  #dawn { transition: none; }
+}

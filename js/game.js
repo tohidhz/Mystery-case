@@ -298,6 +298,7 @@
 
   /* ---------- modals ---------- */
   const FOCUSABLE = 'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  let modalSeq = 0;
   function openModal(cls) {
     const root = $("#modal-root");
     const overlay = el("div", "overlay");
@@ -314,6 +315,9 @@
       closing = true;
       overlay.classList.add("is-closing");
       setTimeout(() => overlay.remove(), REDUCED ? 0 : 150);
+      if (!document.querySelector(".overlay:not(.is-closing)")) {
+        [$("#app"), $("#topbar")].forEach((n) => { if (n) { n.inert = false; n.removeAttribute("aria-hidden"); } });
+      }
       document.removeEventListener("keydown", keys, true);
       if (returnTo && returnTo.focus) returnTo.focus();
     };
@@ -330,9 +334,20 @@
     };
     document.addEventListener("keydown", keys, true);
     SFX.play("open");
+    // everything behind a modal is unreachable, for pointer and AT alike
+    [$("#app"), $("#topbar")].forEach((n) => { if (n) { n.inert = true; n.setAttribute("aria-hidden", "true"); } });
     requestAnimationFrame(() => {
+      // name the dialog from its own heading; nine dialogs all announced "dialog"
+      const h = box.querySelector("h3, .acc-title, .disc-title");
+      if (h) {
+        if (!h.id) h.id = "dlg-h-" + (++modalSeq);
+        box.setAttribute("aria-labelledby", h.id);
+      }
       const first = box.querySelector(FOCUSABLE);
-      (first || box).focus();
+      // focusing a control inside a scrollable dialog scrolled the question
+      // itself out of view on short screens
+      (first || box).focus({ preventScroll: true });
+      box.scrollTop = 0;
     });
     return { box, close, overlay };
   }
@@ -341,6 +356,29 @@
     SFX.setMuted(!on);
     if (on) { SFX.unlock(); if (C && !$("#screen-game").hidden) SFX.room(C.id); SFX.play("paper"); }
     else { SFX.leaveRoom(); }
+  }
+
+  /* The legend used to exist only in the empty Evidence panel, so it was
+     deleted the moment the player logged their first clue — the cost model
+     vanished exactly when it started to matter. It lives here now, always
+     reachable, along with the affordances nothing else documents. */
+  function legendHTML() {
+    return '<div class="legend"><h5>' + T("legendTitle") + "</h5><ul>" +
+      '<li><span class="legend-dot legend-open"></span>' + T("legendPin") + "</li>" +
+      '<li><span class="legend-dot legend-done"></span>' + T("legendDone") + "</li>" +
+      '<li><span class="legend-dot legend-chip">VB</span>' + T("legendChip") + "</li>" +
+      "</ul></div>";
+  }
+  function openRules() {
+    const m = openModal("modal-casefile");
+    m.box.innerHTML =
+      '<h3 class="disc-title">' + T("rulesTitle") + "</h3>" +
+      '<div class="rules-block"><h4>' + T("rulesCosts") + "</h4><p>" +
+        T("rulesCostsBody", COST.search, COST.ask, COST.travel) + "</p></div>" +
+      '<div class="rules-block"><h4>' + T("rulesRoom") + "</h4>" + legendHTML() + "</div>" +
+      '<div class="rules-block"><h4>' + T("rulesKeys") + "</h4><p>" + T("rulesKeysBody") + "</p></div>" +
+      '<div class="acc-actions"><button class="btn btn-primary modal-ok">' + T("noted") + "</button></div>";
+    m.box.querySelector(".modal-ok").addEventListener("click", m.close);
   }
 
   // Sound and language used to sit loose in the bar. They are preferences,
@@ -366,10 +404,13 @@
         { val: "en", label: "English", on: LANG === "en", lang: "en" },
         { val: "fa", label: "فارسی", on: LANG === "fa", lang: "fa" },
       ])) +
+      '<div class="set-row"><div class="set-label">' + T("rules") + "</div>" +
+      '<div class="set-opts"><button class="set-opt" id="set-rules">' + T("rulesTitle") + "</button></div></div>" +
       "</div>" +
       '<div class="acc-actions"><button class="btn btn-primary modal-ok">' + T("close") + "</button></div>";
     m.box.querySelector(".modal-ok").addEventListener("click", m.close);
-    m.box.querySelectorAll(".set-opt").forEach((b) => {
+    m.box.querySelector("#set-rules").addEventListener("click", () => { m.close(); openRules(); });
+    m.box.querySelectorAll(".set-opt:not(#set-rules)").forEach((b) => {
       b.addEventListener("click", () => {
         if (b.dataset.set === "sound") {
           setSound(b.dataset.val === "on");
@@ -443,7 +484,18 @@
     s.appendChild(foot);
     const wipe = $("#btn-wipe");
     if (wipe) wipe.addEventListener("click", () => {
-      localStorage.removeItem(RESULTS_KEY); clearSave(); renderTitle();
+      const m = openModal("modal-discovery");
+      m.box.innerHTML =
+        '<div class="acc-kicker">' + T("wipeTitle") + "</div>" +
+        '<h3 class="acc-title">' + T("wipeTitle") + "</h3>" +
+        '<p class="disc-text">' + T("wipeBody") + "</p>" +
+        '<div class="acc-actions"><button class="btn btn-quiet" id="wipe-no">' + T("cancel") + "</button>" +
+        '<button class="btn btn-accuse-final" id="wipe-yes">' + T("wipeConfirm") + "</button></div>";
+      m.box.querySelector("#wipe-no").addEventListener("click", m.close);
+      m.box.querySelector("#wipe-yes").addEventListener("click", () => {
+        try { localStorage.removeItem(RESULTS_KEY); } catch (e) { /* nothing to clear */ }
+        clearSave(); m.close(); renderTitle();
+      });
     });
     showScreen("#screen-title");
   }
@@ -986,13 +1038,8 @@
       // an empty panel taught nothing; this is the only place the rules exist
       const intro = el("div", "evidence-empty");
       intro.innerHTML =
-        '<p class="empty-note">' + T("noEvidenceYet") + "</p>" +
-        '<div class="legend"><h5>' + T("legendTitle") + "</h5><ul>" +
-        '<li><span class="legend-dot legend-open"></span>' + T("legendPin") + "</li>" +
-        '<li><span class="legend-dot legend-done"></span>' + T("legendDone") + "</li>" +
-        '<li><span class="legend-dot legend-chip">VB</span>' + T("legendChip") + "</li>" +
-        "</ul>" +
-        '<p class="legend-cost">' + T("legendCost", COST.search, COST.ask, COST.travel) + "</p></div>";
+        '<p class="empty-note">' + T("noEvidenceYet") + "</p>" + legendHTML() +
+        '<p class="legend-cost">' + T("legendCost", COST.search, COST.ask, COST.travel) + "</p>";
       t.appendChild(intro);
       return;
     }
@@ -1202,9 +1249,8 @@
     t.appendChild(board);
 
     const drawAll = () => board.querySelectorAll(".ded-group").forEach((g) => g._draw && g._draw());
-    redrawStrings = drawAll;
+    redrawStrings = drawAll;   // the resize handler is bound once, at boot
     requestAnimationFrame(() => { drawAll(); newDeductions = []; });
-    window.addEventListener("resize", drawAll, { passive: true });
   }
 
   /* ---------- accusation ---------- */
@@ -1415,6 +1461,7 @@
 
   /* ---------- wire chrome ---------- */
   function wire() {
+    window.addEventListener("resize", () => redrawStrings(), { passive: true });
     $("#btn-settings").addEventListener("click", openSettings);
     $("#btn-casefile").addEventListener("click", openCaseFile);
     $("#btn-accuse").addEventListener("click", () => openAccuse(false));
@@ -1501,6 +1548,8 @@
         const fr = document.querySelector(".scene-frame");
         const parts2 = f.split(":");
         if (fr && fr._lens) fr._lens._show(+parts2[1] || 0.5, +parts2[2] || 0.55);
+      } else if (f === "rules") {
+        openRules();
       } else if (f === "settings") {
         openSettings();
       } else if (f === "casefile") {

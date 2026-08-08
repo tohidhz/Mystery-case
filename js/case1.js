@@ -108,7 +108,7 @@ window.CASES.push({
   suspects: [
     {
       id: "vivian", name: "Vivian Blackwood", role: "The widow", age: 34,
-      color: "#7A8A5A", initials: "VB", location: "hall",
+      color: "#5d6b42", initials: "VB", location: "hall",
       blurb: "Edmund's second wife of four years. Twenty-six years his junior, beautiful in sea-green silk, and far too composed for a woman widowed an hour ago — or exactly composed enough.",
       topics: [
         { id: "t_v_alibi", label: "Her whereabouts tonight",
@@ -132,7 +132,7 @@ window.CASES.push({
     },
     {
       id: "julian", name: "Julian Blackwood", role: "The estranged son", age: 29,
-      color: "#5E6B8C", initials: "JB", location: "conservatory",
+      color: "#47536e", initials: "JB", location: "conservatory",
       blurb: "Edmund's only child, home for the first time in five years and dressed like the money ran out three years ago. Grief and relief are fighting for his face, and neither is winning.",
       topics: [
         { id: "t_j_alibi", label: "His whereabouts tonight",
@@ -155,7 +155,7 @@ window.CASES.push({
     },
     {
       id: "hale", name: "Dr. Marcus Hale", role: "The family physician", age: 58,
-      color: "#8C6A4F", initials: "MH", location: "study",
+      color: "#6d5138", initials: "MH", location: "study",
       blurb: "Thirty years the Blackwood family doctor, and Edmund's oldest friend. Silver-haired, steady-handed, professionally sad. He has already written 'cardiac arrest' on the certificate in his mind and is waiting for you to agree.",
       topics: [
         { id: "t_h_alibi", label: "His whereabouts tonight",
@@ -183,7 +183,7 @@ window.CASES.push({
     },
     {
       id: "celeste", name: "Celeste Moreau", role: "The sommelier", age: 41,
-      color: "#7A5A6E", initials: "CM", location: "cellar",
+      color: "#5e4353", initials: "CM", location: "cellar",
       blurb: "Keeper of the Blackwood cellar for eleven years. Precise as a jeweler, loyal as a hound, and visibly more upset about the violated wine than she is prepared to admit about anything else.",
       topics: [
         { id: "t_c_alibi", label: "Her movements tonight",
@@ -208,7 +208,7 @@ window.CASES.push({
     },
     {
       id: "gordon", name: "Gordon Pryce", role: "The business partner", age: 55,
-      color: "#9B7A3F", initials: "GP", location: "guestwing",
+      color: "#7a5e2c", initials: "GP", location: "guestwing",
       blurb: "Half of Blackwood & Pryce for twenty years — the half, people say, that counts the money. Sweating through good tailoring, and his valise was packed before you arrived.",
       topics: [
         { id: "t_g_alibi", label: "His movements tonight",
@@ -229,7 +229,7 @@ window.CASES.push({
     },
     {
       id: "tilly", name: "Mrs. Tilly", role: "The cook — witness", age: 61, witness: true,
-      color: "#6E6E5E", initials: "T", location: "kitchen",
+      color: "#545447", initials: "T", location: "kitchen",
       blurb: "Thirty years over the Blackwood stoves. Not a suspect — she was elbow-deep in sixty dinners with three scullery maids for witnesses — but nothing moves through this house without passing her door.",
       topics: [
         { id: "t_t_evening", label: "What she heard tonight",

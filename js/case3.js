@@ -111,7 +111,7 @@ window.CASES.push({
   suspects: [
     {
       id: "dot", name: "Dorothy 'Dot' Lange", role: "The producer", age: 31,
-      color: "#7A5A6E", initials: "DL", location: "control",
+      color: "#5e4353", initials: "DL", location: "control",
       blurb: "Six years producing 'The Midnight Hour' — the quiet perfectionist who runs the board, times the show to the second, and made Herrick's ritual run like a Swiss watch. She was at the controls, behind glass, when he died. The one person visibly nowhere near him.",
       topics: [
         { id: "t_d_account", label: "Her account of 12:03",
@@ -140,7 +140,7 @@ window.CASES.push({
     },
     {
       id: "eugene", name: "Eugene Pratt", role: "The chief engineer", age: 45,
-      color: "#5E6B8C", initials: "EP", location: "shop",
+      color: "#47536e", initials: "EP", location: "shop",
       blurb: "Twenty years keeping WQXT on the air; the trap in the patch bay is textbook Pratt work — which he'd tell you himself, glumly. The only staffer who could rig it blindfolded, and he knows exactly how that arithmetic looks.",
       topics: [
         { id: "t_e_technical", label: "Explain the trap",
@@ -162,7 +162,7 @@ window.CASES.push({
     },
     {
       id: "iris", name: "Iris Bell", role: "The effects artist", age: 38,
-      color: "#7A8A5A", initials: "IB", location: "effects",
+      color: "#5d6b42", initials: "IB", location: "effects",
       blurb: "Ten years of thunder sheets and Hammond dread — the sound of 'The Midnight Hour' is mostly her hands. Sharp-eyed, warm, and worried about someone, which is the most interesting thing in the room.",
       topics: [
         { id: "t_i_alibi", label: "Her whereabouts tonight",
@@ -183,7 +183,7 @@ window.CASES.push({
     },
     {
       id: "chet", name: "Chet Morrow", role: "The fired afternoon host", age: 51,
-      color: "#9B7A3F", initials: "CM", location: "lobby",
+      color: "#7a5e2c", initials: "CM", location: "lobby",
       blurb: "Fifteen years of the two-o'clock slot, terminated by memo yesterday. Loud, wounded, and still in the building at midnight, which he'll need to explain. The obvious suspect — which, in your experience, is a job description rarely filled.",
       topics: [
         { id: "t_c_why", label: "Why is he here at midnight?",
@@ -201,7 +201,7 @@ window.CASES.push({
     },
     {
       id: "ostrow", name: "Sam Ostrow", role: "The sponsor's man", age: 48,
-      color: "#8C6A4F", initials: "SO", location: "lobby",
+      color: "#6d5138", initials: "SO", location: "lobby",
       blurb: "Vellum Cigarettes' account man, sent to cancel the sponsorship in person, hat on knee, waiting out a dead man's last broadcast. A creature of contracts and column inches — and possibly the only person in the building with no history here at all.",
       topics: [
         { id: "t_o_business", label: "Why cancel the sponsorship?",

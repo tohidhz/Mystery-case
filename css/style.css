@@ -1589,23 +1589,6 @@ path.string {
    LANGUAGE
    ============================================================ */
 
-.lang-toggle {
-  position: absolute;
-  top: 1.2rem;
-  inset-inline-end: 1.4rem;
-  /* renders Persian while the UI is English, so it can never rely on
-     body.lang-fa — it needs its own joining-safe stack and zero tracking */
-  font-family: "Vazirmatn", var(--font-mono);
-  font-size: .82rem;
-  letter-spacing: 0;
-  color: var(--kraft);
-  border: 1px solid rgba(201, 174, 126, .35);
-  border-radius: 3px;
-  padding: .4em 1em;
-  background: rgba(0, 0, 0, .25);
-  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
-}
-.lang-toggle:hover { color: var(--paper); border-color: var(--kraft); background: rgba(201, 174, 126, .1); }
 #screen-title { position: relative; }
 
 /* Persian edition: Naskh for prose, Vazirmatn for labels and figures */
@@ -1693,7 +1676,6 @@ body.lang-fa .clock-time { letter-spacing: 0; }
 @media (max-width: 640px) {
   .scene-pin-dot { width: 26px; height: 26px; }
   .scene-pin-label { display: none; }
-  .lang-toggle { position: static; display: block; margin: 0 auto .6rem; }
 }
 
 /* ============================================================
@@ -1968,7 +1950,11 @@ path.string.drawing {
 /* the enlarged plate carries it too, a touch stronger */
 .scene-stage .scene-frame::after { opacity: calc(var(--dawn, 0) * .5); }
 /* keep every surface above the wash */
-#app, #topbar, #modal-root, #toast-root { position: relative; z-index: 1; }
+/* Lift the app above #dawn/#atmos. Deliberately NOT #toast-root or
+   #modal-root: both position themselves, and listing #toast-root here
+   silently overrode the toast layer's `fixed`, putting every notification
+   into normal flow — invisible below the fold on a phone. */
+#app, #topbar { position: relative; z-index: 1; }
 #topbar { z-index: 50; }
 
 /* the lamp itself dims as the night goes */
@@ -2144,10 +2130,6 @@ body[data-case="meridian"] .atmos-b {
   66%  { transform: translate3d(2%, -3%, 0); }
   100% { transform: translate3d(0, 0, 0); }
 }
-
-/* Renders Persian while the interface is English, so like .lang-toggle it
-   cannot rely on body.lang-fa — Latin tracking severs the cursive joins. */
-#btn-lang { font-family: "Vazirmatn", var(--font-mono); letter-spacing: 0; }
 
 /* the sound switch lives beside the clock */
 .btn-chip {
@@ -2342,6 +2324,9 @@ body[data-case="meridian"] .atmos-b {
   background: rgba(255, 255, 255, .3);
   transition: background-color var(--dur) var(--ease-out-quart), color var(--dur) var(--ease-out-quart), border-color var(--dur) var(--ease-out-quart);
 }
+/* Shows Persian while the interface is still English, so it can never rely
+   on body.lang-fa — Special Elite has no Arabic coverage and the joins break. */
+.set-opt[lang="fa"] { font-family: "Vazirmatn", Tahoma, sans-serif; letter-spacing: 0; }
 .set-opt:hover { color: var(--ink); border-color: var(--ink-soft); }
 .set-opt.is-on {
   background: var(--ink);
@@ -2360,17 +2345,16 @@ body[data-case="meridian"] .atmos-b {
 .board-count {
   font-family: var(--font-mono);
   font-size: .72rem;
-  color: #c9b58a;
+  color: #241b10;   /* 4.63:1 on the cork; the cream read at 1.68 */
   text-align: center;
   margin-bottom: 1rem;
-  opacity: .85;
 }
 .board-head {
   font-family: var(--font-type);
   font-size: .68rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #d8c49a;
+  color: #241b10;   /* 4.63:1 on the cork */
   margin: 1.6rem 0 .8rem;
   padding-bottom: .35rem;
   border-bottom: 1px dashed rgba(240, 231, 206, .22);
@@ -2485,3 +2469,25 @@ body[data-case="meridian"] .atmos-b {
   .verdict-sheet.struck { animation: none; }
   .stamp-shock { display: none; }
 }
+
+/* --- the rules, reachable at any time from settings --- */
+.rules-block { margin-bottom: 1.4rem; }
+.rules-block h4 {
+  font-family: var(--font-type);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #6b5636;
+  margin-bottom: .5rem;
+}
+.rules-block p { color: var(--ink-soft); font-size: .95rem; }
+.rules-block .legend { margin-top: 0; }
+
+/* --- measured contrast corrections (WCAG AA on the surfaces they sit on) --- */
+.difficulty { color: #7a1a13; }                 /* was 3.07 on kraft, now 4.96 */
+.game-title span { color: #c0453a; }            /* large text needs 3:1; was 2.72, now 3.53 */
+.tab-count { color: #4a3f2c; }
+/* the paper focus ring lands on dark ink chips inside the settings dialog */
+.modal .set-opt.is-on:focus-visible,
+.modal .btn-primary:focus-visible,
+.modal .btn-accuse-final:focus-visible { outline-color: var(--lamp); }

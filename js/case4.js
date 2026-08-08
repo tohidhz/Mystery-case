@@ -110,7 +110,7 @@ window.CASES.push({
   suspects: [
     {
       id: "corliss", name: "Miles Corliss", role: "The secretary & legman", age: 41,
-      color: "#5E6B8C", initials: "MC", location: "lounge",
+      color: "#47536e", initials: "MC", location: "lounge",
       blurb: "Eleven years carrying Keene's dispatch case, typing his columns, booking his compartments — the indispensable man, gray-eyed and pressed at ten at night, quietly arranging your investigation for you. The one person aboard whose living died with Ambrose Keene, which he will point out himself, dryly, before you can.",
       topics: [
         { id: "t_c_account", label: "His account of the evening",
@@ -133,7 +133,7 @@ window.CASES.push({
     },
     {
       id: "voss", name: "Dr. Eleanor Voss", role: "The surgeon", age: 52,
-      color: "#7A5A6E", initials: "EV", location: "dining",
+      color: "#5e4353", initials: "EV", location: "dining",
       blurb: "A thoracic surgeon traveling west to a hospital appointment, who examined the body at 9:12 because she was the nearest thing to a coroner on the mountain. Brisk, exact, and carrying something heavier than her instrument bag — she has been too helpful, too early, in the way of people rehearsing their innocence.",
       topics: [
         { id: "t_v_body", label: "Her examination of the body",
@@ -153,7 +153,7 @@ window.CASES.push({
     },
     {
       id: "callahan", name: "Daniel 'Big Dan' Callahan", role: "The ruined promoter", age: 54,
-      color: "#9B7A3F", initials: "DC", location: "lounge",
+      color: "#7a5e2c", initials: "DC", location: "lounge",
       blurb: "Once the biggest fight promoter on the coast, until Keene's 'Arena' series took his license, his partners, and his name — and kept an unpublished second half in a red-tabbed folder, on the installment plan. He boarded this train loudly, told the conductor he had business with Keene, and has been daring you to notice him ever since.",
       topics: [
         { id: "t_k_grudge", label: "His business with Keene",
@@ -173,7 +173,7 @@ window.CASES.push({
     },
     {
       id: "wexler", name: "Harold Wexler", role: "The syndicate editor", age: 57,
-      color: "#8C6A4F", initials: "HW", location: "dining",
+      color: "#6d5138", initials: "HW", location: "dining",
       blurb: "Managing editor of the Clarion Syndicate, twenty years of selling Ambrose Keene to sixty-one papers — aboard, he says, by pure scheduling coincidence. Everything about him is warm, and none of it reaches his eyes, which are doing arithmetic on you the way they've done arithmetic on everything since 1933.",
       topics: [
         { id: "t_w_aboard", label: "Why is he on this train?",
@@ -194,7 +194,7 @@ window.CASES.push({
     },
     {
       id: "frankie", name: "Frances 'Frankie' Dell", role: "The nurse-companion", age: 29,
-      color: "#7A8A5A", initials: "FD", location: "corridor8",
+      color: "#5d6b42", initials: "FD", location: "corridor8",
       blurb: "Hired three months ago, when the diagnosis came — compartment 6, the other side of the dead man's wall. Plain-spoken, steady-handed, and grieving him outright, which makes her the only person on this train who is. What a feared man's nurse knows about him, nobody else alive knows.",
       topics: [
         { id: "t_f_night", label: "Her account of the evening",
@@ -214,7 +214,7 @@ window.CASES.push({
     },
     {
       id: "poole", name: "Elias Poole", role: "The porter — witness", age: 61, witness: true,
-      color: "#6E6E5E", initials: "EP", location: "vestibule",
+      color: "#545447", initials: "EP", location: "vestibule",
       blurb: "Thirty years on the Meridian, and the only pair of eyes that covered the sleeper corridor all night. Not a suspect — he was in the dining car pantry with the steward and two waiters when the thump came through the wall, and on his jump seat in six men's view thereafter. What Elias Poole says happened, happened. It's what everyone heard through the door that needs a second look.",
       topics: [
         { id: "t_p_night", label: "The seltzer at 8:30",

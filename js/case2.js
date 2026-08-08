@@ -110,7 +110,7 @@ window.CASES.push({
   suspects: [
     {
       id: "roland", name: "Roland Pierce", role: "The leading man", age: 38,
-      color: "#5E6B8C", initials: "RP", location: "greenroom",
+      color: "#47536e", initials: "RP", location: "greenroom",
       blurb: "The matinee idol whose hand held the dagger. Still in costume, still stained, being ruined in real time. Either the most wronged man in Bay City or the boldest murderer in it — he did it in front of eight hundred people, after all.",
       topics: [
         { id: "t_r_account", label: "The moment it happened",
@@ -133,7 +133,7 @@ window.CASES.push({
     },
     {
       id: "adele", name: "Adele Winters", role: "The understudy", age: 27,
-      color: "#7A5A6E", initials: "AW", location: "greenroom",
+      color: "#5e4353", initials: "AW", location: "greenroom",
       blurb: "Two hundred and eleven performances in the wings, word-perfect in a role she never got to play. Tomorrow's papers will call her the luckiest woman in Bay City, in the way that ends careers before they start.",
       topics: [
         { id: "t_a_interval", label: "Her whereabouts at the interval",
@@ -154,7 +154,7 @@ window.CASES.push({
     },
     {
       id: "braff", name: "Hugo Braff", role: "The director", age: 52,
-      color: "#9B7A3F", initials: "HB", location: "office",
+      color: "#7a5e2c", initials: "HB", location: "office",
       blurb: "Director, producer, and owner of the Orpheum's debts. A big man in a checked suit, sweating brandy and arithmetic. The insurance policy in his drawer is worth more than his season.",
       topics: [
         { id: "t_b_interval", label: "His whereabouts at the interval",
@@ -175,7 +175,7 @@ window.CASES.push({
     },
     {
       id: "mabel", name: "Mabel Finch", role: "The property mistress", age: 49,
-      color: "#7A8A5A", initials: "MF", location: "wings",
+      color: "#5d6b42", initials: "MF", location: "wings",
       blurb: "Twenty-two years running prop tables, and nothing crosses hers without her initials. Her table is her scripture — which is what makes the pencil entry in tonight's log a kind of blasphemy.",
       topics: [
         { id: "t_m_table", label: "The prop table rules",
@@ -196,7 +196,7 @@ window.CASES.push({
     },
     {
       id: "victor", name: "Victor Delacroix", role: "The playwright", age: 44,
-      color: "#8C6A4F", initials: "VD", location: "stage",
+      color: "#6d5138", initials: "VD", location: "stage",
       blurb: "The celebrated author of 'The Scarlet Hour' — five years famous, impeccably grieved, quoting his own eulogy for tomorrow's papers. His signature is on the play, the programme, and, you begin to suspect, considerably less of the writing.",
       topics: [
         { id: "t_v_grief", label: "His account of the evening",
@@ -220,7 +220,7 @@ window.CASES.push({
     },
     {
       id: "pip", name: "Pip", role: "The callboy — witness", age: 14, witness: true,
-      color: "#6E6E5E", initials: "P", location: "wings",
+      color: "#545447", initials: "P", location: "wings",
       blurb: "Fourteen, all elbows and stage-fright, posted on the hamper by the fly rail every night of the run. Not a suspect — six stagehands had him in sight striking Act II furniture through the interval. But the wings are his kingdom, and nothing crosses them unseen.",
       topics: [
         { id: "t_p_interval", label: "What he saw at the interval",

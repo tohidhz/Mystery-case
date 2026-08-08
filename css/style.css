@@ -2296,8 +2296,10 @@ body[data-case="meridian"] .atmos-b {
   .topbar-actions { order: 3; width: 100%; justify-content: flex-end; }
 }
 @media (max-width: 560px) {
-  #btn-casefile { font-size: 0; padding-inline: .7em; }         /* keep the control, drop the label */
-  #btn-casefile::before { content: "☰"; font-size: .95rem; }
+  /* keep the control, drop the label — padding must not be em-based here,
+     because font-size:0 would collapse it to nothing */
+  #btn-casefile { font-size: 0; padding: 0 .75rem; min-width: 44px; justify-content: center; }
+  #btn-casefile::before { content: "☰"; font-size: 1rem; line-height: 1; }
 }
 
 /* --- settings: preferences, not actions, so they live behind one gear --- */
@@ -2345,4 +2347,60 @@ body[data-case="meridian"] .atmos-b {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
+}
+
+/* ============================================================
+   THE BOARD, RESTRUCTURED
+   Every closed deduction is a cluster: its exhibits directly
+   above it, the string short and crossing open cork. The old
+   layout ran every string across one packed field of slips,
+   which is why the reasoning read worse here than in the list.
+   ============================================================ */
+
+.board-count {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: #c9b58a;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: .85;
+}
+.board-head {
+  font-family: var(--font-type);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #d8c49a;
+  margin: 1.6rem 0 .8rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px dashed rgba(240, 231, 206, .22);
+}
+
+.ded-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: .9rem .9rem 1rem;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .1);
+  box-shadow: inset 0 0 0 1px rgba(240, 231, 206, .07);
+}
+.ded-group .string-layer { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: visible; }
+.ded-group .group-pins {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  justify-content: center;
+  margin-bottom: 2.6rem;      /* the gap the string crosses */
+}
+.ded-group .pin-card { margin: 0; }
+.ded-group .ded-card { position: relative; z-index: 2; margin: 0; }
+
+/* the loose field keeps the scattered look; only clusters are ordered */
+.board-head + .pin-field { margin-bottom: .4rem; }
+
+@media (max-width: 520px) {
+  .ded-group .group-pins { margin-bottom: 2rem; }
+  .ded-group { padding: .7rem .6rem .8rem; }
 }

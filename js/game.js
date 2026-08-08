@@ -986,73 +986,69 @@
     t.innerHTML = "";
     const board = el("div", "corkboard");
     board.id = "corkboard";
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "string-layer");
-    board.appendChild(svg);
 
-    const pinsWrap = el("div", "pin-field");
-    const pinMap = {};
-    G.clues.forEach((cid, i) => {
-      const c = C.clues[cid];
-      if (!c) return;
-      const pin = el("div", "pin-card");
-      pin.style.setProperty("--i", Math.min(i, 12));
-      pin.innerHTML = '<span class="pin"></span><span class="pin-exhibit">' + exhibitLetter(i) + "</span><strong>" + esc(c.name) + "</strong>";
-      pin.title = c.desc;
-      // the description was title-only, so keyboard and touch never reached it
-      pin.setAttribute("aria-label", c.name + " — " + c.desc);
-      pinsWrap.appendChild(pin);
-      pinMap[cid] = pin;
-    });
-    board.appendChild(pinsWrap);
-
-    const dedWrap = el("div", "deduction-field");
-    const dedMap = {};
-    C.deductions.forEach((d) => {
-      const made = G.deductions.includes(d.id);
-      const card = el("div", "ded-card" + (made ? " made" : " unmade"));
-      if (made) {
-        if (newDeductions.includes(d.id)) card.classList.add("is-new");
-        card.innerHTML = '<span class="pin pin-red"></span><span class="ded-label">' + T("deductionLabel") + '</span><h4>' + esc(d.name) + "</h4><p>" + esc(d.text) + "</p>";
-        dedMap[d.id] = card;
-      } else {
-        const have = d.requires.filter((r) => G.clues.includes(r)).length;
-        card.innerHTML = '<span class="ded-label">' + T("unformedLabel") + '</span><h4>' + T("unformedTitle") + '</h4><p class="empty-note">' +
-          T("threads", have, d.requires.length) + "</p>";
-      }
-      dedWrap.appendChild(card);
-    });
-    board.appendChild(dedWrap);
     if (!G.clues.length) {
       board.appendChild(el("p", "empty-note board-empty", T("boardBare")));
+      t.appendChild(board);
+      return;
     }
-    t.appendChild(board);
 
-    // draw strings after layout
-    const draw = () => {
-      const bb = board.getBoundingClientRect();
-      svg.setAttribute("width", board.scrollWidth);
-      svg.setAttribute("height", board.scrollHeight);
-      svg.innerHTML = "";
-      C.deductions.forEach((d) => {
-        if (!G.deductions.includes(d.id)) return;
-        const dc = dedMap[d.id];
-        if (!dc) return;
-        const dr = dc.getBoundingClientRect();
-        const dx = dr.left - bb.left + dr.width / 2;
-        const dy = dr.top - bb.top + 10;
-        d.requires.forEach((cid) => {
-          const pc = pinMap[cid];
-          if (!pc) return;
-          const pr = pc.getBoundingClientRect();
-          const px = pr.left - bb.left + pr.width / 2;
-          const py = pr.top - bb.top + 8;
+    const letterOf = (cid) => exhibitLetter(G.clues.indexOf(cid));
+    const slip = (cid) => {
+      const c = C.clues[cid];
+      const pin = el("div", "pin-card");
+      pin.innerHTML = '<span class="pin"></span><span class="pin-exhibit">' + letterOf(cid) + "</span><strong>" + esc(c.name) + "</strong>";
+      pin.title = c.desc;
+      pin.setAttribute("aria-label", c.name + " — " + c.desc);
+      return pin;
+    };
+
+    const made = C.deductions.filter((d) => G.deductions.includes(d.id));
+    const connected = new Set();
+    made.forEach((d) => d.requires.forEach((cid) => connected.add(cid)));
+
+    board.appendChild(el("div", "board-count", T("boardLeads", G.clues.length, connected.size)));
+
+    /* Each closed deduction is its own cluster: the exhibits that produced it
+       sit directly above it, so the string is short and crosses open cork.
+       The old layout ran every string across one packed field, which is why
+       the reasoning was less legible here than in the plain evidence list. */
+    made.forEach((d) => {
+      const group = el("div", "ded-group" + (newDeductions.includes(d.id) ? " is-new" : ""));
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("class", "string-layer");
+      group.appendChild(svg);
+
+      const pins = el("div", "group-pins");
+      const pinEls = d.requires.map((cid) => {
+        const n = slip(cid);
+        pins.appendChild(n);
+        return n;
+      });
+      group.appendChild(pins);
+
+      const card = el("div", "ded-card made" + (newDeductions.includes(d.id) ? " is-new" : ""));
+      card.innerHTML = '<span class="pin pin-red"></span><span class="ded-label">' + T("deductionLabel") +
+        '</span><h4>' + esc(d.name) + "</h4><p>" + esc(d.text) + "</p>";
+      group.appendChild(card);
+      board.appendChild(group);
+
+      group._draw = () => {
+        const gb = group.getBoundingClientRect();
+        svg.setAttribute("width", group.offsetWidth);
+        svg.setAttribute("height", group.offsetHeight);
+        svg.innerHTML = "";
+        const cr = card.getBoundingClientRect();
+        const dx = cr.left - gb.left + cr.width / 2;
+        const dy = cr.top - gb.top + 6;
+        pinEls.forEach((pe) => {
+          const pr = pe.getBoundingClientRect();
+          const px = pr.left - gb.left + pr.width / 2;
+          const py = pr.top - gb.top + pr.height - 2;
           const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-          const midY = (py + dy) / 2 + 14;
-          path.setAttribute("d", "M" + px + "," + py + " Q" + (px + dx) / 2 + "," + midY + " " + dx + "," + dy);
+          path.setAttribute("d", "M" + px + "," + py + " Q" + px + "," + ((py + dy) / 2) + " " + dx + "," + dy);
           path.setAttribute("class", "string");
           svg.appendChild(path);
-          // a newly-closed deduction ties its own string
           if (newDeductions.includes(d.id) && !REDUCED && path.getTotalLength) {
             const len = path.getTotalLength();
             path.style.setProperty("--len", len);
@@ -1060,10 +1056,41 @@
             path.classList.add("drawing");
           }
         });
+      };
+    });
+
+    // everything pinned that no conclusion rests on yet
+    const loose = G.clues.filter((cid) => !connected.has(cid));
+    if (loose.length) {
+      board.appendChild(el("div", "board-head", T("boardLoose")));
+      const field = el("div", "pin-field");
+      loose.forEach((cid, i) => {
+        const n = slip(cid);
+        n.style.setProperty("--i", Math.min(i, 12));
+        field.appendChild(n);
       });
-    };
-    requestAnimationFrame(() => { draw(); newDeductions = []; });
-    window.addEventListener("resize", draw, { passive: true });
+      board.appendChild(field);
+    }
+
+    const pending = C.deductions.filter((d) => !G.deductions.includes(d.id));
+    if (pending.length) {
+      board.appendChild(el("div", "board-head", T("boardPending")));
+      const ghosts = el("div", "deduction-field");
+      pending.forEach((d) => {
+        const have = d.requires.filter((r) => G.clues.includes(r)).length;
+        const card = el("div", "ded-card unmade");
+        card.innerHTML = '<span class="ded-label">' + T("unformedLabel") + '</span><h4>' + T("unformedTitle") +
+          '</h4><p class="empty-note">' + T("threads", have, d.requires.length) + "</p>";
+        ghosts.appendChild(card);
+      });
+      board.appendChild(ghosts);
+    }
+
+    t.appendChild(board);
+
+    const drawAll = () => board.querySelectorAll(".ded-group").forEach((g) => g._draw && g._draw());
+    requestAnimationFrame(() => { drawAll(); newDeductions = []; });
+    window.addEventListener("resize", drawAll, { passive: true });
   }
 
   /* ---------- accusation ---------- */

@@ -100,6 +100,9 @@ window.CALLOWAY_UI = {
     unformedLabel: "UNFORMED",
     threads: "%1 of %2 threads in hand. Keep pulling.",
     boardBare: "The board is bare. It won't stay that way.",
+    boardLoose: "Pinned, not yet connected",
+    boardPending: "Still forming",
+    boardLeads: "%1 exhibits · %2 connected",
 
     timeUpKicker: "TIME IS UP",
     deadlineArrived: "The deadline has arrived",
@@ -272,6 +275,9 @@ window.CALLOWAY_UI = {
     unformedLabel: "شکل‌نگرفته",
     threads: "%1 رشته از %2 در دست دارید. سرِ نخ را ول نکنید.",
     boardBare: "فعلاً تخته خالی است — خالی نمی‌ماند.",
+    boardLoose: "سنجاق‌شده، هنوز وصل‌نشده",
+    boardPending: "در حالِ شکل‌گرفتن",
+    boardLeads: "%1 مدرک · %2 وصل‌شده",
 
     timeUpKicker: "مهلت تمام شد",
     deadlineArrived: "مهلت سر رسید",

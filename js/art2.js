@@ -79,7 +79,7 @@ window.CASE_ART.orpheum = {
     <rect x="494" y="86" width="216" height="180" fill="#2a2018"/>
     <rect x="504" y="96" width="196" height="160" fill="url(#or-stage-sky)"/>
     <circle cx="646" cy="140" r="34" fill="#e3d5ac" opacity="0.9"/>
-    <circle cx="636" cy="134" r="30" fill="#f0e7ce" opacity="0.5"/>
+    <g class="fx-glow" style="--d:2.1s"><circle cx="636" cy="134" r="30" fill="#f0e7ce" opacity="0.5"/></g>
     <circle cx="654" cy="150" r="7" fill="#cbb98f" opacity="0.35"/>
     <circle cx="632" cy="128" r="5" fill="#cbb98f" opacity="0.3"/>
     <path d="M504 256 L504 214 L536 214 L536 200 L570 200 L570 220 L604 220 L604 198 L638 198 L638 224 L672 224 L672 206 L700 206 L700 256 Z" fill="#161d2c"/>
@@ -121,8 +121,8 @@ window.CASE_ART.orpheum = {
   <rect x="126" y="352" width="164" height="7" fill="#33271a"/>
   <path d="M196 300 l0 -34 q0 -8 8 -8 l6 0 q8 0 8 8 l0 34 z" fill="#2f3a4e"/>
   <rect x="203" y="240" width="10" height="24" fill="#f0e7ce"/>
-  <ellipse cx="208" cy="236" rx="5" ry="10" fill="#ffd98a"/>
-  <ellipse cx="208" cy="278" rx="34" ry="12" fill="#ffd98a" opacity="0.12"/>
+  <ellipse cx="208" cy="236" rx="5" ry="10" fill="#ffd98a" class="fx-flame" style="--d:.3s"/>
+  <g class="fx-glow" style="--d:2.4s"><ellipse cx="208" cy="278" rx="34" ry="12" fill="#ffd98a" opacity="0.12"/></g>
   <g fill="#e3d5ac" opacity="0.9">
     <path d="M136 292 l52 -4 l2 10 l-52 4 z"/><path d="M142 284 l50 -4 l2 8 l-50 4 z"/>
   </g>
@@ -179,7 +179,7 @@ window.CASE_ART.orpheum = {
 <rect x="0" y="440" width="1000" height="180" fill="url(#or-stage-foot)"/>
 
 <!-- the raking beam from the front-of-house rail -->
-<path d="M646 0 L790 0 L520 620 L286 620 Z" fill="url(#or-stage-beam)"/>
+<path d="M646 0 L790 0 L520 620 L286 620 Z" fill="url(#or-stage-beam)" class="fx-glow" style="--d:.6s"/>
 
 <!-- THE TRAPDOOR -->
 <g>
@@ -347,9 +347,11 @@ window.CASE_ART.orpheum = {
 </g>
 
 <!-- stage left leg curtain -->
-<rect x="-10" y="0" width="80" height="620" fill="url(#or-stage-velvet)"/>
-<g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
-  <path d="M8 0 l4 620"/><path d="M26 0 l-2 620"/><path d="M44 0 l3 620"/><path d="M62 0 l-3 620"/>
+<g class="fx-sway" style="--d:1.3s;transform-origin:top center">
+  <rect x="-10" y="0" width="80" height="620" fill="url(#or-stage-velvet)"/>
+  <g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
+    <path d="M8 0 l4 620"/><path d="M26 0 l-2 620"/><path d="M44 0 l3 620"/><path d="M62 0 l-3 620"/>
+  </g>
 </g>
 
 <!-- the border curtain, hung above -->
@@ -376,16 +378,16 @@ window.CASE_ART.orpheum = {
     <path d="M212 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="240" cy="592" rx="17" ry="7" fill="#ffd98a"/>
     <path d="M308 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="336" cy="592" rx="17" ry="7" fill="#ffd98a"/>
     <path d="M404 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="432" cy="592" rx="17" ry="7" fill="#ffd98a"/>
-    <path d="M500 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="528" cy="592" rx="17" ry="7" fill="#ffd98a"/>
+    <path d="M500 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="528" cy="592" rx="17" ry="7" fill="#ffd98a" class="fx-flicker" style="--d:1.9s"/>
     <path d="M596 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="624" cy="592" rx="17" ry="7" fill="#ffd98a"/>
     <path d="M692 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="720" cy="592" rx="17" ry="7" fill="#ffd98a"/>
     <path d="M788 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="816" cy="592" rx="17" ry="7" fill="#ffd98a"/>
     <path d="M884 592 q28 -30 56 0 z" fill="#241b12"/><ellipse cx="912" cy="592" rx="17" ry="7" fill="#ffd98a"/>
   </g>
   <g fill="#d9a441" opacity="0.16">
-    <ellipse cx="48" cy="580" rx="52" ry="26"/><ellipse cx="240" cy="580" rx="52" ry="26"/>
-    <ellipse cx="432" cy="580" rx="52" ry="26"/><ellipse cx="624" cy="580" rx="52" ry="26"/>
-    <ellipse cx="816" cy="580" rx="52" ry="26"/>
+    <ellipse cx="48" cy="580" rx="52" ry="26" class="fx-glow" style="--d:.2s"/><ellipse cx="240" cy="580" rx="52" ry="26" class="fx-glow" style="--d:2.6s"/>
+    <ellipse cx="432" cy="580" rx="52" ry="26" class="fx-glow" style="--d:1.1s"/><ellipse cx="624" cy="580" rx="52" ry="26" class="fx-glow" style="--d:2.9s"/>
+    <ellipse cx="816" cy="580" rx="52" ry="26" class="fx-glow" style="--d:1.7s"/>
   </g>
 </g>
 
@@ -477,7 +479,7 @@ window.CASE_ART.orpheum = {
 <!-- the gap to the stage: the only real light in the room -->
 <rect x="820" y="0" width="180" height="620" fill="#2a2018"/>
 <rect x="848" y="0" width="120" height="620" fill="#6b5326"/>
-<rect x="848" y="0" width="120" height="470" fill="#d9a441" opacity="0.5"/>
+<g class="fx-glow" style="--d:.4s"><rect x="848" y="0" width="120" height="470" fill="#d9a441" opacity="0.5"/></g>
 <rect x="848" y="470" width="120" height="150" fill="#7a5a32"/>
 <g stroke="#8f6c3a" stroke-width="2" opacity="0.7">
   <line x1="872" y1="470" x2="862" y2="620"/><line x1="908" y1="470" x2="908" y2="620"/>
@@ -486,8 +488,8 @@ window.CASE_ART.orpheum = {
 <rect x="848" y="56" width="120" height="190" fill="#a8823f" opacity="0.45"/>
 <rect x="872" y="104" width="72" height="126" fill="#c49a4c" opacity="0.4"/>
 <rect x="848" y="246" width="120" height="14" fill="#5c4327" opacity="0.7"/>
-<rect x="600" y="0" width="400" height="620" fill="url(#or-wings-spill)"/>
-<rect width="1000" height="620" fill="url(#or-wings-glow)"/>
+<rect x="600" y="0" width="400" height="620" fill="url(#or-wings-spill)" class="fx-glow" style="--d:1.6s"/>
+<rect width="1000" height="620" fill="url(#or-wings-glow)" class="fx-glow" style="--d:2.8s"/>
 <path d="M818 0 q-14 160 8 300 q22 150 -8 320 l-46 0 l0 -620 z" fill="#0e0b08" opacity="0.95"/>
 
 <!-- the grid above: ropes coming down out of the dark -->
@@ -504,7 +506,7 @@ window.CASE_ART.orpheum = {
 </g>
 
 <!-- sandbags hanging -->
-<g>
+<g class="fx-sway" style="--d:.9s;transform-origin:top center">
   <path d="M300 220 q-22 8 -22 40 q0 34 22 42 q22 -8 22 -42 q0 -32 -22 -40 z" fill="#6b5a3a"/>
   <path d="M300 224 q-16 8 -16 36 q0 28 16 36 q16 -8 16 -36 q0 -28 -16 -36 z" fill="#8a7648"/>
   <g stroke="#4a3524" stroke-width="2.4" opacity="0.9">
@@ -512,7 +514,7 @@ window.CASE_ART.orpheum = {
   </g>
   <path d="M292 220 q8 -12 16 0" fill="none" stroke="#4a3524" stroke-width="4"/>
 </g>
-<g>
+<g class="fx-sway" style="--d:2.2s;transform-origin:top center">
   <path d="M368 180 q-18 6 -18 32 q0 28 18 34 q18 -6 18 -34 q0 -26 -18 -32 z" fill="#6b5a3a"/>
   <path d="M368 184 q-13 6 -13 29 q0 22 13 28 q13 -6 13 -28 q0 -23 -13 -29 z" fill="#7d6c42"/>
   <g stroke="#4a3524" stroke-width="2" opacity="0.9">
@@ -549,10 +551,10 @@ window.CASE_ART.orpheum = {
     <circle cx="244" cy="316" r="7"/>
   </g>
   <g fill="none" stroke="#8a7648" stroke-width="4" opacity="0.9">
-    <path d="M28 290 q-22 24 -6 44 q16 20 -4 40"/>
-    <path d="M100 292 q-24 22 -8 44 q18 22 -6 42"/>
-    <path d="M172 292 q22 24 4 46 q-18 22 2 40"/>
-    <path d="M244 290 q24 26 6 48 q-16 20 4 38"/>
+    <path d="M28 290 q-22 24 -6 44 q16 20 -4 40" class="fx-sway" style="--d:.2s;transform-origin:top center"/>
+    <path d="M100 292 q-24 22 -8 44 q18 22 -6 42" class="fx-sway" style="--d:1.5s;transform-origin:top center"/>
+    <path d="M172 292 q22 24 4 46 q-18 22 2 40" class="fx-sway" style="--d:2.3s;transform-origin:top center"/>
+    <path d="M244 290 q24 26 6 48 q-16 20 4 38" class="fx-sway" style="--d:2.9s;transform-origin:top center"/>
   </g>
 </g>
 
@@ -761,7 +763,7 @@ window.CASE_ART.orpheum = {
     <path d="M186 452 q22 -6 30 4 l0 8 l-36 0 z" fill="#241b12"/>
     <path d="M158 452 q22 -6 30 4 l0 8 l-36 0 z" fill="#1b140d"/>
     <!-- stage light, edging him -->
-    <path d="M204 400 q10 26 4 52 l-8 0 q6 -26 -4 -50 z" fill="#d9a441" opacity="0.3"/>
+    <g class="fx-glow" style="--d:2.1s"><path d="M204 400 q10 26 4 52 l-8 0 q6 -26 -4 -50 z" fill="#d9a441" opacity="0.3"/></g>
   </g>
 </g>
 
@@ -873,9 +875,11 @@ window.CASE_ART.orpheum = {
   </g>
   <circle cx="104" cy="270" r="6" fill="#9b7a3f"/>
   <!-- a wrap on the door hook -->
-  <path d="M60 60 q26 -6 40 12 q12 60 -6 116 q-22 20 -42 -4 q-14 -66 8 -124 z" fill="url(#or-dress-silk)"/>
-  <g fill="none" stroke="#31242c" stroke-width="3" opacity="0.8">
-    <path d="M66 78 q14 60 4 106"/><path d="M84 72 q12 62 2 108"/>
+  <g class="fx-sway" style="--d:1.2s;transform-origin:top center">
+    <path d="M60 60 q26 -6 40 12 q12 60 -6 116 q-22 20 -42 -4 q-14 -66 8 -124 z" fill="url(#or-dress-silk)"/>
+    <g fill="none" stroke="#31242c" stroke-width="3" opacity="0.8">
+      <path d="M66 78 q14 60 4 106"/><path d="M84 72 q12 62 2 108"/>
+    </g>
   </g>
   <circle cx="76" cy="54" r="6" fill="#9b7a3f"/>
 </g>
@@ -955,7 +959,7 @@ window.CASE_ART.orpheum = {
       <circle cx="380" cy="130" r="9"/><circle cx="380" cy="180" r="9"/><circle cx="380" cy="230" r="9"/>
       <circle cx="380" cy="280" r="9"/><circle cx="380" cy="320" r="9"/>
       <circle cx="610" cy="130" r="9"/><circle cx="610" cy="180" r="9"/><circle cx="610" cy="230" r="9"/>
-      <circle cx="610" cy="280" r="9"/><circle cx="610" cy="320" r="9"/>
+      <circle cx="610" cy="280" r="9" class="fx-flicker" style="--d:2.35s"/><circle cx="610" cy="320" r="9"/>
       <circle cx="426" cy="320" r="9"/><circle cx="472" cy="320" r="9"/>
       <circle cx="518" cy="320" r="9"/><circle cx="564" cy="320" r="9"/>
     </g>
@@ -963,14 +967,14 @@ window.CASE_ART.orpheum = {
       <circle cx="380" cy="80" r="4.5"/><circle cx="426" cy="80" r="4.5"/><circle cx="472" cy="80" r="4.5"/>
       <circle cx="518" cy="80" r="4.5"/><circle cx="564" cy="80" r="4.5"/><circle cx="610" cy="80" r="4.5"/>
       <circle cx="380" cy="180" r="4.5"/><circle cx="380" cy="280" r="4.5"/>
-      <circle cx="610" cy="180" r="4.5"/><circle cx="610" cy="280" r="4.5"/>
+      <circle cx="610" cy="180" r="4.5"/><circle cx="610" cy="280" r="4.5" class="fx-flicker" style="--d:2.35s"/>
       <circle cx="472" cy="320" r="4.5"/><circle cx="518" cy="320" r="4.5"/>
     </g>
     <g fill="url(#or-dress-bulb)">
-      <circle cx="380" cy="80" r="30"/><circle cx="472" cy="80" r="30"/><circle cx="564" cy="80" r="30"/>
-      <circle cx="380" cy="180" r="30"/><circle cx="610" cy="180" r="30"/>
-      <circle cx="380" cy="280" r="30"/><circle cx="610" cy="280" r="30"/>
-      <circle cx="472" cy="320" r="30"/><circle cx="518" cy="320" r="30"/>
+      <circle cx="380" cy="80" r="30" class="fx-glow" style="--d:.1s"/><circle cx="472" cy="80" r="30" class="fx-glow" style="--d:1.4s"/><circle cx="564" cy="80" r="30" class="fx-glow" style="--d:2.7s"/>
+      <circle cx="380" cy="180" r="30" class="fx-glow" style="--d:.8s"/><circle cx="610" cy="180" r="30" class="fx-glow" style="--d:2.2s"/>
+      <circle cx="380" cy="280" r="30" class="fx-glow" style="--d:1.9s"/><circle cx="610" cy="280" r="30" class="fx-flicker" style="--d:2.35s"/>
+      <circle cx="472" cy="320" r="30" class="fx-glow" style="--d:.5s"/><circle cx="518" cy="320" r="30" class="fx-glow" style="--d:3s"/>
     </g>
   </g>
   <!-- two hundred telegrams, tucked all round the frame -->
@@ -1331,13 +1335,13 @@ window.CASE_ART.orpheum = {
 </g>
 
 <!-- the hanging lamp: the only light that matters -->
-<g>
+<g class="fx-sway" style="--d:2.4s;transform-origin:top center">
   <line x1="628" y1="0" x2="628" y2="66" stroke="#3a2d1e" stroke-width="4"/>
   <path d="M572 114 q56 -50 112 0 z" fill="#5f6b4a"/>
   <path d="M572 114 q56 -50 112 0 l0 6 q-56 -44 -112 0 z" fill="#7d8a62"/>
   <ellipse cx="628" cy="114" rx="56" ry="9" fill="#241b12"/>
-  <ellipse cx="628" cy="120" rx="18" ry="8" fill="#ffd98a"/>
-  <ellipse cx="628" cy="150" rx="126" ry="48" fill="url(#or-green-lamp)"/>
+  <ellipse cx="628" cy="120" rx="18" ry="8" fill="#ffd98a" class="fx-glow" style="--d:.7s"/>
+  <ellipse cx="628" cy="150" rx="126" ry="48" fill="url(#or-green-lamp)" class="fx-glow" style="--d:1.8s"/>
 </g>
 
 <!-- the sideboard and the tea urn -->
@@ -1393,7 +1397,7 @@ window.CASE_ART.orpheum = {
     <rect x="46" y="572" width="18" height="26"/><rect x="332" y="572" width="18" height="26"/>
   </g>
   <!-- the man -->
-  <g>
+  <g class="fx-breathe" style="--d:.4s">
     <path d="M150 520 q52 -14 104 0 l-6 -94 q-8 -60 -46 -62 q-38 2 -46 62 z" fill="#2b2537"/>
     <path d="M166 440 q36 -26 72 0 l6 82 l-84 0 z" fill="#3a3348"/>
     <!-- period shirt, laced, and the stain nobody will get out -->
@@ -1441,7 +1445,7 @@ window.CASE_ART.orpheum = {
   <g fill="#241b12">
     <rect x="680" y="572" width="18" height="26"/><rect x="936" y="572" width="18" height="26"/>
   </g>
-  <g>
+  <g class="fx-breathe" style="--d:2.6s">
     <path d="M778 522 q48 -14 96 0 l-4 -86 q-8 -56 -44 -58 q-36 2 -44 58 z" fill="#4a3743"/>
     <path d="M792 448 q34 -24 68 0 l4 74 l-76 0 z" fill="#5c4655"/>
     <path d="M810 440 l30 0 l-4 40 l-22 0 z" fill="#ded3b8"/>
@@ -1599,7 +1603,7 @@ window.CASE_ART.orpheum = {
   <line x1="0" y1="512" x2="1000" y2="512"/><line x1="0" y1="552" x2="1000" y2="552"/>
   <line x1="0" y1="596" x2="1000" y2="596"/>
 </g>
-<rect width="1000" height="620" fill="url(#or-off-glow)"/>
+<rect width="1000" height="620" fill="url(#or-off-glow)" class="fx-glow" style="--d:2.6s"/>
 
 <!-- posters of past triumphs: no letters, only ink and colour -->
 <g>
@@ -1651,17 +1655,19 @@ window.CASE_ART.orpheum = {
   </g>
   <path d="M676 304 L676 254 L712 254 L712 226 L748 226 L748 262 L788 262 L788 236 L826 236 L826 268 L866 268 L866 242 L900 242 L900 304 Z" fill="#131a29"/>
   <g fill="#d9a441" opacity="0.6">
-    <rect x="686" y="266" width="8" height="11"/><rect x="702" y="284" width="8" height="11"/>
-    <rect x="722" y="240" width="8" height="11"/><rect x="756" y="274" width="8" height="11"/>
-    <rect x="796" y="250" width="8" height="11"/><rect x="836" y="280" width="8" height="11"/>
+    <rect x="686" y="266" width="8" height="11"/><rect x="702" y="284" width="8" height="11" class="fx-glow" style="--d:.9s"/>
+    <rect x="722" y="240" width="8" height="11"/><rect x="756" y="274" width="8" height="11" class="fx-blink" style="--d:2.4s"/>
+    <rect x="796" y="250" width="8" height="11"/><rect x="836" y="280" width="8" height="11" class="fx-glow" style="--d:1.7s"/>
     <rect x="872" y="256" width="8" height="11"/><rect x="886" y="286" width="8" height="11"/>
   </g>
-  <g stroke="#8fa4c0" stroke-width="1.4" opacity="0.3">
-    <line x1="694" y1="88" x2="682" y2="128"/><line x1="732" y1="104" x2="720" y2="146"/>
-    <line x1="770" y1="86" x2="758" y2="126"/><line x1="828" y1="112" x2="816" y2="152"/>
-    <line x1="872" y1="92" x2="860" y2="134"/><line x1="908" y1="126" x2="896" y2="166"/>
+  <g class="fx-drift-slow" style="--d:.3s">
+    <g stroke="#8fa4c0" stroke-width="1.4" opacity="0.3">
+      <line x1="694" y1="88" x2="682" y2="128"/><line x1="732" y1="104" x2="720" y2="146"/>
+      <line x1="770" y1="86" x2="758" y2="126"/><line x1="828" y1="112" x2="816" y2="152"/>
+      <line x1="872" y1="92" x2="860" y2="134"/><line x1="908" y1="126" x2="896" y2="166"/>
+    </g>
   </g>
-  <circle cx="880" cy="112" r="14" fill="#cbd6e4" opacity="0.13"/>
+  <g class="fx-glow" style="--d:2.1s"><circle cx="880" cy="112" r="14" fill="#cbd6e4" opacity="0.13"/></g>
   <path d="M664 60 l278 0 l0 16 l-278 0 z" fill="#4a3524"/>
   <path d="M660 62 l40 0 l-4 244 q-20 10 -38 2 z" fill="#4a2a20"/>
   <path d="M906 62 l42 0 l4 248 q-22 10 -42 2 z" fill="#4a2a20"/>
@@ -1736,7 +1742,7 @@ window.CASE_ART.orpheum = {
 </g>
 
 <!-- THE DESK -->
-<rect x="120" y="300" width="420" height="320" fill="url(#or-off-lamp)"/>
+<rect x="120" y="300" width="420" height="320" fill="url(#or-off-lamp)" class="fx-flicker" style="--d:1.2s"/>
 <g>
   <rect x="104" y="470" width="712" height="26" rx="4" fill="#5c4327"/>
   <rect x="104" y="492" width="712" height="10" fill="#33271a"/>
@@ -1932,8 +1938,8 @@ window.CASE_ART.orpheum = {
     <path d="M520 66 L940 36 L940 300 L520 268 Z" fill="#150e09"/>
     <!-- dim brackets high on the far wall -->
     <g fill="#d9a441" opacity="0.28">
-      <ellipse cx="600" cy="106" rx="26" ry="18"/><ellipse cx="740" cy="90" rx="26" ry="18"/>
-      <ellipse cx="880" cy="74" rx="26" ry="18"/>
+      <ellipse cx="600" cy="106" rx="26" ry="18" class="fx-glow" style="--d:.3s"/><ellipse cx="740" cy="90" rx="26" ry="18" class="fx-glow" style="--d:1.6s"/>
+      <ellipse cx="880" cy="74" rx="26" ry="18" class="fx-glow" style="--d:2.7s"/>
     </g>
     <g fill="#ffd98a" opacity="0.5">
       <circle cx="600" cy="106" r="4"/><circle cx="740" cy="90" r="4"/><circle cx="880" cy="74" r="4"/>
@@ -1962,11 +1968,12 @@ window.CASE_ART.orpheum = {
       <path d="M520 280 Q730 244 940 226 L940 268 Q730 286 520 300 Z" fill="#0c0806"/>
     </g>
     <!-- a great chandelier hanging in the dark of the house -->
+    <g class="fx-sway" style="--d:2.2s;transform-origin:top center">
     <g transform="translate(-90 84)">
       <line x1="620" y1="20" x2="620" y2="52" stroke="#5c4327" stroke-width="3"/>
       <ellipse cx="620" cy="62" rx="46" ry="10" fill="none" stroke="#a8873f" stroke-width="4"/>
       <ellipse cx="620" cy="48" rx="27" ry="7" fill="none" stroke="#a8873f" stroke-width="3"/>
-      <g fill="#ffd98a">
+      <g fill="#ffd98a" class="fx-glow" style="--d:1.1s">
         <circle cx="584" cy="60" r="5"/><circle cx="602" cy="56" r="5"/><circle cx="620" cy="54" r="5"/>
         <circle cx="638" cy="56" r="5"/><circle cx="656" cy="60" r="5"/>
       </g>
@@ -1975,6 +1982,7 @@ window.CASE_ART.orpheum = {
         <rect x="640" y="62" width="4" height="16"/>
       </g>
       <ellipse cx="620" cy="58" rx="76" ry="30" fill="#d9a441" opacity="0.14"/>
+    </g>
     </g>
   </g>
 
@@ -1985,7 +1993,7 @@ window.CASE_ART.orpheum = {
     <path d="M96 118 L444 142 L444 158 L96 136 Z" fill="url(#or-box-gilt)" opacity="0.7"/>
     <path d="M112 152 L428 172 L428 366 L112 366 Z" fill="#1b1610"/>
     <path d="M124 170 L416 186 L416 358 L124 358 Z" fill="url(#or-box-stage)" opacity="0.62"/>
-    <ellipse cx="270" cy="280" rx="170" ry="110" fill="url(#or-box-flood)"/>
+    <ellipse cx="270" cy="280" rx="170" ry="110" fill="url(#or-box-flood)" class="fx-glow" style="--d:.8s"/>
     <!-- the Act III set, a lit doll's house away -->
     <g>
       <path d="M140 302 L140 194 L268 202 L268 302 Z" fill="#b58947"/>
@@ -2012,19 +2020,23 @@ window.CASE_ART.orpheum = {
       <path d="M278 324 q20 -6 32 2"/><path d="M276 346 q20 -2 30 -8"/>
     </g>
     <!-- footlights, a row of sparks -->
-    <g fill="#ffd98a" opacity="0.85">
+    <g fill="#ffd98a" opacity="0.85" class="fx-glow" style="--d:1.9s">
       <circle cx="136" cy="352" r="5"/><circle cx="172" cy="353" r="5"/><circle cx="208" cy="354" r="5"/>
       <circle cx="244" cy="355" r="5"/><circle cx="280" cy="356" r="5"/><circle cx="316" cy="357" r="5"/>
       <circle cx="352" cy="358" r="5"/><circle cx="388" cy="359" r="5"/>
     </g>
     <!-- house curtain, drawn back at the sides -->
-    <path d="M96 118 L164 122 L156 380 L96 380 Z" fill="url(#or-box-velvet)"/>
-    <g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
-      <path d="M112 124 l-4 254"/><path d="M136 126 l-3 252"/>
+    <g class="fx-sway" style="--d:.9s;transform-origin:top center">
+      <path d="M96 118 L164 122 L156 380 L96 380 Z" fill="url(#or-box-velvet)"/>
+      <g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
+        <path d="M112 124 l-4 254"/><path d="M136 126 l-3 252"/>
+      </g>
     </g>
-    <path d="M382 138 L444 142 L444 380 L390 380 Z" fill="url(#or-box-velvet)"/>
-    <g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
-      <path d="M400 140 l3 238"/><path d="M424 142 l3 238"/>
+    <g class="fx-sway" style="--d:2.5s;transform-origin:top center">
+      <path d="M382 138 L444 142 L444 380 L390 380 Z" fill="url(#or-box-velvet)"/>
+      <g fill="none" stroke="#2a100e" stroke-width="4" opacity="0.9">
+        <path d="M400 140 l3 238"/><path d="M424 142 l3 238"/>
+      </g>
     </g>
     <!-- and beyond the curtain leg, the wings: the prop table he was watching -->
     <path d="M382 150 q-10 60 -2 120 l-38 -6 l0 -116 z" fill="#0c0907" opacity="0.92"/>

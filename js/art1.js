@@ -51,11 +51,15 @@ window.CASE_ART.blackwood = {
     <line x1="135" y1="90" x2="135" y2="325"/><line x1="60" y1="200" x2="210" y2="200"/>
     <line x1="865" y1="90" x2="865" y2="325"/><line x1="790" y1="200" x2="940" y2="200"/>
   </g>
-  <g stroke="#8fa4c0" stroke-width="1.4" opacity="0.35">
-    <line x1="78" y1="110" x2="66" y2="150"/><line x1="112" y1="128" x2="100" y2="172"/>
-    <line x1="160" y1="104" x2="148" y2="146"/><line x1="192" y1="150" x2="180" y2="196"/>
-    <line x1="808" y1="120" x2="796" y2="162"/><line x1="846" y1="100" x2="834" y2="142"/>
-    <line x1="892" y1="140" x2="880" y2="184"/><line x1="924" y1="110" x2="912" y2="154"/>
+  <g opacity="0.4">
+    <g stroke="#8fa4c0" stroke-width="1.4" class="fx-drift-slow" style="--d:.5s">
+      <line x1="78" y1="110" x2="66" y2="150"/><line x1="112" y1="128" x2="100" y2="172"/>
+      <line x1="160" y1="104" x2="148" y2="146"/><line x1="192" y1="150" x2="180" y2="196"/>
+    </g>
+    <g stroke="#8fa4c0" stroke-width="1.4" class="fx-drift-slow" style="--d:2.4s">
+      <line x1="808" y1="120" x2="796" y2="162"/><line x1="846" y1="100" x2="834" y2="142"/>
+      <line x1="892" y1="140" x2="880" y2="184"/><line x1="924" y1="110" x2="912" y2="154"/>
+    </g>
   </g>
 </g>
 
@@ -70,15 +74,17 @@ window.CASE_ART.blackwood = {
     <rect x="569" y="66" width="7" height="22" rx="2"/>
   </g>
   <g fill="#ffd98a">
-    <ellipse cx="427" cy="62" rx="5" ry="9"/><ellipse cx="469" cy="55" rx="5" ry="9"/>
-    <ellipse cx="500" cy="50" rx="5.5" ry="10"/><ellipse cx="531" cy="55" rx="5" ry="9"/>
-    <ellipse cx="572" cy="62" rx="5" ry="9"/>
+    <ellipse cx="427" cy="62" rx="5" ry="9" class="fx-flame" style="--d:.2s"/>
+    <ellipse cx="469" cy="55" rx="5" ry="9" class="fx-flame" style="--d:1.9s"/>
+    <ellipse cx="500" cy="50" rx="5.5" ry="10" class="fx-flame" style="--d:.8s"/>
+    <ellipse cx="531" cy="55" rx="5" ry="9" class="fx-flame" style="--d:2.6s"/>
+    <ellipse cx="572" cy="62" rx="5" ry="9" class="fx-flame" style="--d:1.3s"/>
   </g>
-  <ellipse cx="500" cy="70" rx="150" ry="60" fill="#d9a441" opacity="0.13"/>
+  <g opacity="0.15"><ellipse cx="500" cy="70" rx="150" ry="60" fill="#d9a441" class="fx-glow" style="--d:.6s"/></g>
 </g>
 
 <!-- bunting, still hung -->
-<g>
+<g class="fx-sway" style="--d:1.6s">
   <path d="M0 108 Q 250 168 500 118 Q 750 168 1000 108" fill="none" stroke="#6b5326" stroke-width="3"/>
   <g opacity="0.9">
     <path d="M60 128 l22 0 l-11 26 z" fill="#7a5a6e"/><path d="M140 146 l22 0 l-11 26 z" fill="#5f6b4a"/>
@@ -119,9 +125,9 @@ window.CASE_ART.blackwood = {
   </g>
   <!-- candles down the centre -->
   <g>
-    <rect x="494" y="536" width="12" height="34" fill="#efe4c6"/><ellipse cx="500" cy="532" rx="5" ry="9" fill="#ffd98a"/>
-    <rect x="495" y="470" width="10" height="28" fill="#efe4c6"/><ellipse cx="500" cy="466" rx="4" ry="8" fill="#ffd98a"/>
-    <rect x="496" y="420" width="8" height="22" fill="#efe4c6"/><ellipse cx="500" cy="417" rx="3.5" ry="7" fill="#ffd98a"/>
+    <rect x="494" y="536" width="12" height="34" fill="#efe4c6"/><ellipse cx="500" cy="532" rx="5" ry="9" fill="#ffd98a" class="fx-flame" style="--d:.45s"/>
+    <rect x="495" y="470" width="10" height="28" fill="#efe4c6"/><ellipse cx="500" cy="466" rx="4" ry="8" fill="#ffd98a" class="fx-flame" style="--d:2.2s"/>
+    <rect x="496" y="420" width="8" height="22" fill="#efe4c6"/><ellipse cx="500" cy="417" rx="3.5" ry="7" fill="#ffd98a" class="fx-flame" style="--d:1.05s"/>
   </g>
   <!-- THE MASTER'S GLASS, standing apart: heavy crystal, dark dregs -->
   <g>
@@ -364,10 +370,12 @@ window.CASE_ART.blackwood = {
     <line x1="692" y1="82" x2="692" y2="298"/><line x1="586" y1="190" x2="798" y2="190"/>
   </g>
   <circle cx="762" cy="118" r="15" fill="#cbd6e4" opacity="0.14"/>
-  <g stroke="#8fa4c0" stroke-width="1.3" opacity="0.3">
-    <line x1="604" y1="98" x2="594" y2="134"/><line x1="640" y1="112" x2="630" y2="150"/>
-    <line x1="668" y1="94" x2="658" y2="132"/><line x1="712" y1="140" x2="702" y2="178"/>
-    <line x1="746" y1="160" x2="736" y2="198"/><line x1="778" y1="106" x2="768" y2="144"/>
+  <g opacity="0.34">
+    <g stroke="#8fa4c0" stroke-width="1.3" class="fx-drift-slow" style="--d:1.4s">
+      <line x1="604" y1="98" x2="594" y2="134"/><line x1="640" y1="112" x2="630" y2="150"/>
+      <line x1="668" y1="94" x2="658" y2="132"/><line x1="712" y1="140" x2="702" y2="178"/>
+      <line x1="746" y1="160" x2="736" y2="198"/><line x1="778" y1="106" x2="768" y2="144"/>
+    </g>
   </g>
   <path d="M540 76 l52 0 l-6 226 q-24 12 -48 4 z" fill="#4a2a20"/>
   <path d="M794 76 l58 0 l6 230 q-28 12 -54 4 z" fill="#4a2a20"/>
@@ -419,7 +427,7 @@ window.CASE_ART.blackwood = {
     <path d="M856 400 l108 0"/><path d="M856 428 l108 0"/><path d="M890 384 l0 86"/><path d="M930 384 l0 86"/>
   </g>
   <!-- the doctor -->
-  <path d="M846 470 q0 -66 44 -72 q46 6 46 72 z" fill="#1e1a16"/>
+  <path d="M846 470 q0 -66 44 -72 q46 6 46 72 z" fill="#1e1a16" class="fx-breathe" style="--d:2.8s"/>
   <path d="M866 412 q26 -22 52 0 l-6 58 l-40 0 z" fill="#26221c"/>
   <path d="M882 410 l22 0 l-5 30 l-12 0 z" fill="#e3d5ac"/>
   <path d="M890 412 l7 0 l-3 40 l-3 0 z" fill="#5d1f18"/>
@@ -451,7 +459,7 @@ window.CASE_ART.blackwood = {
 </g>
 
 <!-- the desk, locked -->
-<rect x="150" y="266" width="340" height="336" fill="url(#bw-study-lamp)"/>
+<rect x="150" y="266" width="340" height="336" fill="url(#bw-study-lamp)" class="fx-glow" style="--d:.3s"/>
 <g>
   <rect x="236" y="414" width="440" height="24" rx="3" fill="#3b2f22"/>
   <rect x="236" y="434" width="440" height="8" fill="#2b2118"/>
@@ -475,8 +483,8 @@ window.CASE_ART.blackwood = {
   <rect x="307" y="364" width="9" height="48" fill="#6b5326"/>
   <path d="M270 352 q42 -24 84 0 l0 16 q-42 12 -84 0 z" fill="#5f6b4a"/>
   <path d="M270 352 q42 -24 84 0 l0 5 q-42 -20 -84 0 z" fill="#7d8a62"/>
-  <ellipse cx="312" cy="370" rx="38" ry="10" fill="#ffd98a" opacity="0.55"/>
-  <ellipse cx="312" cy="414" rx="76" ry="14" fill="#ffd98a" opacity="0.14"/>
+  <g opacity="0.6"><ellipse cx="312" cy="370" rx="38" ry="10" fill="#ffd98a" class="fx-glow" style="--d:1.7s"/></g>
+  <g opacity="0.16"><ellipse cx="312" cy="414" rx="76" ry="14" fill="#ffd98a" class="fx-glow" style="--d:2.5s"/></g>
   <!-- open ledger, blotter, ink -->
   <path d="M370 414 q40 -14 74 0 q34 -14 74 0 l0 12 q-40 -12 -74 2 q-34 -14 -74 -2 z" fill="#f0e7ce"/>
   <path d="M444 414 l0 14" stroke="#9a8a63" stroke-width="2"/>
@@ -558,7 +566,7 @@ window.CASE_ART.blackwood = {
 
 <!-- the far end of the cellar, one lamp burning somewhere out of sight -->
 <path d="M418 302 q82 -118 164 0 l0 168 l-164 0 z" fill="#100d0a"/>
-<rect x="380" y="180" width="240" height="300" fill="url(#bw-cellar-deep)"/>
+<rect x="380" y="180" width="240" height="300" fill="url(#bw-cellar-deep)" class="fx-glow" style="--d:2.7s"/>
 <g fill="none" stroke="#2a241c" stroke-width="4" opacity="0.7">
   <path d="M446 300 q54 -78 108 0"/><path d="M468 300 q32 -46 64 0"/>
 </g>
@@ -732,15 +740,15 @@ window.CASE_ART.blackwood = {
 </g>
 
 <!-- the single lamp over the decanting bench -->
-<g>
+<g class="fx-sway" style="--d:.9s;transform-origin:50% 0">
   <line x1="762" y1="0" x2="762" y2="122" stroke="#2f2921" stroke-width="3"/>
   <path d="M716 156 l92 0 l-30 -34 l-32 0 z" fill="#3b2f22"/>
   <path d="M716 156 l92 0 l-6 6 l-80 0 z" fill="#241b12"/>
-  <ellipse cx="762" cy="166" rx="10" ry="13" fill="#ffd98a"/>
-  <ellipse cx="762" cy="164" rx="4" ry="6" fill="#fff6e0"/>
+  <ellipse cx="762" cy="166" rx="10" ry="13" fill="#ffd98a" class="fx-glow" style="--d:.15s"/>
+  <ellipse cx="762" cy="164" rx="4" ry="6" fill="#fff6e0" class="fx-glow" style="--d:1.8s"/>
 </g>
-<path d="M726 168 L540 620 L992 620 L798 168 Z" fill="#d9a441" opacity="0.09"/>
-<rect x="562" y="140" width="400" height="380" fill="url(#bw-cellar-lamp)" opacity="0.6"/>
+<g opacity="0.11"><path d="M726 168 L540 620 L992 620 L798 168 Z" fill="#d9a441" class="fx-glow" style="--d:.15s"/></g>
+<g opacity="0.62"><rect x="562" y="140" width="400" height="380" fill="url(#bw-cellar-lamp)" class="fx-glow" style="--d:2.2s"/></g>
 
 <!-- the decanting bench -->
 <g>
@@ -856,7 +864,7 @@ window.CASE_ART.blackwood = {
 </defs>
 
 <rect width="1000" height="620" fill="url(#bw-cons-night)"/>
-<rect x="20" y="-60" width="320" height="320" fill="url(#bw-cons-moon)"/>
+<rect x="20" y="-60" width="320" height="320" fill="url(#bw-cons-moon)" class="fx-drift-slow" style="--d:1.8s"/>
 <circle cx="180" cy="100" r="32" fill="#cbd6e4" opacity="0.2"/>
 <circle cx="172" cy="94" r="27" fill="#0e1520" opacity="0.35"/>
 <g fill="#cbd6e4" opacity="0.28">
@@ -905,18 +913,18 @@ window.CASE_ART.blackwood = {
 <rect width="1000" height="620" fill="url(#bw-cons-glow)"/>
 
 <!-- the hanging lantern -->
-<g>
+<g class="fx-sway" style="--d:.4s;transform-origin:50% 0">
   <line x1="470" y1="118" x2="470" y2="176" stroke="#2a2620" stroke-width="3"/>
   <path d="M448 182 l44 0 l0 44 l-44 0 z" fill="#1a1712" stroke="#6b5326" stroke-width="3"/>
   <path d="M444 182 l52 0 l-26 -16 z" fill="#3b2f22"/>
-  <ellipse cx="470" cy="206" rx="9" ry="13" fill="#ffd98a"/>
-  <ellipse cx="470" cy="204" rx="4" ry="6" fill="#fff6e0"/>
-  <rect x="330" y="76" width="280" height="280" fill="url(#bw-cons-lamp)" opacity="0.75"/>
+  <ellipse cx="470" cy="206" rx="9" ry="13" fill="#ffd98a" class="fx-glow" style="--d:1.1s"/>
+  <ellipse cx="470" cy="204" rx="4" ry="6" fill="#fff6e0" class="fx-glow" style="--d:2.4s"/>
+  <g opacity="0.78"><rect x="330" y="76" width="280" height="280" fill="url(#bw-cons-lamp)" class="fx-glow" style="--d:.2s"/></g>
 </g>
 
 <!-- a hundred plants: hanging baskets and vines -->
 <g>
-  <g>
+  <g class="fx-sway" style="--d:2.6s;transform-origin:50% 0">
     <path d="M290 190 l44 0 l-6 24 l-32 0 z" fill="#5a482c"/>
     <g stroke="#3f4a30" stroke-width="3" fill="none">
       <path d="M296 214 q-10 40 6 66"/><path d="M312 216 q6 44 -8 74"/><path d="M326 214 q14 36 4 58"/>
@@ -927,7 +935,7 @@ window.CASE_ART.blackwood = {
       <ellipse cx="330" cy="236" rx="7" ry="4"/><ellipse cx="332" cy="258" rx="6" ry="3.5"/>
     </g>
   </g>
-  <g>
+  <g class="fx-sway" style="--d:1.3s;transform-origin:50% 0">
     <path d="M660 176 l46 0 l-6 24 l-34 0 z" fill="#5a482c"/>
     <g stroke="#3f4a30" stroke-width="3" fill="none">
       <path d="M668 200 q-12 46 4 78"/><path d="M684 202 q4 50 -10 82"/><path d="M698 200 q16 40 6 64"/>
@@ -972,14 +980,14 @@ window.CASE_ART.blackwood = {
   <path d="M62 620 l0 -74 l100 0 l0 74 z" fill="#6b4632"/>
   <path d="M56 546 l112 0 l-6 14 l-100 0 z" fill="#7d543a"/>
   <rect x="104" y="410" width="16" height="138" fill="#4a3524"/>
-  <g fill="#3f4a30">
+  <g fill="#3f4a30" class="fx-breathe" style="--d:.9s">
     <path d="M112 412 q-70 -22 -104 -76 q56 20 104 56 z"/>
     <path d="M112 412 q-56 -50 -60 -114 q40 46 60 100 z"/>
     <path d="M112 412 q-8 -66 26 -114 q6 60 -16 110 z"/>
     <path d="M112 412 q54 -34 116 -34 q-52 30 -110 46 z"/>
     <path d="M112 412 q60 -60 74 -110 q-24 66 -62 116 z"/>
   </g>
-  <g fill="#5f6b4a" opacity="0.85">
+  <g fill="#5f6b4a" opacity="0.85" class="fx-breathe" style="--d:2.9s">
     <path d="M112 412 q-42 -26 -68 -62 q42 22 70 50 z"/>
     <path d="M112 412 q46 -22 96 -18 q-46 20 -92 32 z"/>
     <path d="M112 412 q-6 -50 18 -86 q4 46 -10 82 z"/>
@@ -1141,7 +1149,7 @@ window.CASE_ART.blackwood = {
 <g>
   <path d="M880 620 l0 -60 l120 0 l0 60 z" fill="#5a3c2a"/>
   <path d="M872 560 l136 0 l-8 16 l-120 0 z" fill="#6b4632"/>
-  <g fill="#2f3a26">
+  <g fill="#2f3a26" class="fx-breathe" style="--d:1.7s">
     <path d="M940 560 q-58 -18 -80 -66 q54 16 88 50 z"/>
     <path d="M940 560 q-40 -52 -30 -110 q30 48 42 100 z"/>
     <path d="M940 560 q22 -60 74 -86 q-32 50 -54 96 z"/>
@@ -1155,7 +1163,7 @@ window.CASE_ART.blackwood = {
 <g>
   <path d="M-10 620 l0 -50 l86 0 l0 50 z" fill="#5a3c2a"/>
   <path d="M-14 570 l98 0 l-6 14 l-86 0 z" fill="#6b4632"/>
-  <g fill="#2f3a26">
+  <g fill="#2f3a26" class="fx-breathe" style="--d:2.2s">
     <path d="M32 570 q-46 -20 -58 -60 q42 18 68 46 z"/>
     <path d="M32 570 q-16 -46 6 -84 q14 44 8 80 z"/>
     <path d="M32 570 q44 -22 84 -14 q-42 20 -74 30 z"/>
@@ -1260,13 +1268,13 @@ window.CASE_ART.blackwood = {
     <line x1="52" y1="452" x2="148" y2="452"/><line x1="70" y1="452" x2="70" y2="472"/>
     <line x1="100" y1="452" x2="100" y2="472"/><line x1="130" y1="452" x2="130" y2="472"/>
   </g>
-  <path d="M62 452 q10 -34 20 -12 q8 -40 22 -8 q10 -30 20 -6 q8 -16 14 26 z" fill="#a8352a"/>
-  <path d="M70 452 q8 -26 16 -8 q8 -28 18 -6 q8 -20 16 14 z" fill="#d9a441"/>
-  <path d="M84 450 q6 -18 12 -4 q6 -14 10 4 z" fill="#ffd98a"/>
-  <g fill="#5d1f18" opacity="0.9">
+  <path d="M62 452 q10 -34 20 -12 q8 -40 22 -8 q10 -30 20 -6 q8 -16 14 26 z" fill="#a8352a" class="fx-ember" style="--d:.3s"/>
+  <path d="M70 452 q8 -26 16 -8 q8 -28 18 -6 q8 -20 16 14 z" fill="#d9a441" class="fx-flame" style="--d:1.5s"/>
+  <path d="M84 450 q6 -18 12 -4 q6 -14 10 4 z" fill="#ffd98a" class="fx-flame" style="--d:2.7s"/>
+  <g fill="#5d1f18" class="fx-ember" style="--d:2.1s">
     <ellipse cx="72" cy="466" rx="12" ry="5"/><ellipse cx="104" cy="468" rx="14" ry="5"/><ellipse cx="134" cy="466" rx="11" ry="4"/>
   </g>
-  <rect x="-60" y="330" width="320" height="270" fill="url(#bw-kit-fire)"/>
+  <rect x="-60" y="330" width="320" height="270" fill="url(#bw-kit-fire)" class="fx-ember" style="--d:.9s"/>
   <!-- oven doors -->
   <rect x="168" y="378" width="112" height="66" fill="#2a2118" stroke="#3b2f22" stroke-width="4"/>
   <rect x="168" y="452" width="112" height="66" fill="#2a2118" stroke="#3b2f22" stroke-width="4"/>
@@ -1297,10 +1305,10 @@ window.CASE_ART.blackwood = {
   <line x1="560" y1="0" x2="560" y2="92" stroke="#332c24" stroke-width="3"/>
   <path d="M522 126 l76 0 l-24 -34 l-28 0 z" fill="#3b2f22"/>
   <path d="M522 126 l76 0 l-6 6 l-64 0 z" fill="#241b12"/>
-  <ellipse cx="560" cy="138" rx="10" ry="13" fill="#ffd98a"/>
-  <ellipse cx="560" cy="136" rx="4" ry="6" fill="#fff6e0"/>
+  <ellipse cx="560" cy="138" rx="10" ry="13" fill="#ffd98a" class="fx-flicker" style="--d:1.2s"/>
+  <ellipse cx="560" cy="136" rx="4" ry="6" fill="#fff6e0" class="fx-flicker" style="--d:1.2s"/>
 </g>
-<rect x="300" y="110" width="520" height="440" fill="url(#bw-kit-bulb)"/>
+<rect x="300" y="110" width="520" height="440" fill="url(#bw-kit-bulb)" class="fx-glow" style="--d:2.4s"/>
 
 <!-- the batterie de cuisine, hanging -->
 <g>
@@ -1664,7 +1672,7 @@ window.CASE_ART.blackwood = {
 </g>
 
 <!-- herbs and onions, hung to dry from the beam -->
-<g>
+<g class="fx-sway" style="--d:.7s;transform-origin:50% 0">
   <line x1="86" y1="38" x2="86" y2="70" stroke="#6b5a45" stroke-width="3"/>
   <g fill="#5f6b4a">
     <path d="M86 68 q-26 26 -20 62 q20 14 40 0 q6 -36 -20 -62 z"/>
@@ -1677,7 +1685,7 @@ window.CASE_ART.blackwood = {
   </g>
   <line x1="138" y1="38" x2="136" y2="76" stroke="#6b5a45" stroke-width="3"/>
 </g>
-<g>
+<g class="fx-sway" style="--d:2.5s;transform-origin:50% 0">
   <line x1="912" y1="38" x2="912" y2="72" stroke="#6b5a45" stroke-width="3"/>
   <path d="M912 70 q-24 24 -18 58 q18 12 36 0 q6 -34 -18 -58 z" fill="#4b553b"/>
   <g stroke="#3d4a30" stroke-width="2">
@@ -1779,15 +1787,17 @@ window.CASE_ART.blackwood = {
 <!-- =============== GORDON'S ROOM: papers everywhere, and a packed valise -->
 <g clip-path="url(#bw-gw-clipa)">
   <rect x="118" y="136" width="264" height="334" fill="#251d14"/>
-  <rect x="118" y="136" width="264" height="334" fill="url(#bw-gw-warm)" opacity="0.55"/>
+  <g opacity="0.58"><rect x="118" y="136" width="264" height="334" fill="url(#bw-gw-warm)" class="fx-glow" style="--d:2.8s"/></g>
   <rect x="118" y="372" width="264" height="98" fill="#1c1610"/>
   <rect x="118" y="368" width="264" height="7" fill="#3b2f22"/>
   <!-- window, curtain shoved aside -->
   <rect x="200" y="168" width="76" height="108" fill="url(#bw-gw-night)" stroke="#3a2d1e" stroke-width="6"/>
   <line x1="238" y1="168" x2="238" y2="276" stroke="#3a2d1e" stroke-width="4"/>
   <line x1="200" y1="222" x2="276" y2="222" stroke="#3a2d1e" stroke-width="4"/>
-  <g stroke="#8fa4c0" stroke-width="1.2" opacity="0.3">
-    <line x1="210" y1="180" x2="204" y2="204"/><line x1="252" y1="192" x2="246" y2="216"/>
+  <g opacity="0.34">
+    <g stroke="#8fa4c0" stroke-width="1.2" class="fx-drift-slow" style="--d:.6s">
+      <line x1="210" y1="180" x2="204" y2="204"/><line x1="252" y1="192" x2="246" y2="216"/>
+    </g>
   </g>
   <path d="M190 160 l26 0 l-4 122 q-12 6 -24 2 z" fill="#4a2a20"/>
   <path d="M276 160 l24 0 l-2 124 q-11 6 -22 2 z" fill="#4a2a20"/>
@@ -1803,8 +1813,8 @@ window.CASE_ART.blackwood = {
   <rect x="162" y="286" width="8" height="30" fill="#6b5326"/>
   <path d="M142 274 q24 -18 48 0 l0 12 q-24 8 -48 0 z" fill="#8a6c30"/>
   <path d="M142 274 q24 -18 48 0 l0 4 q-24 -14 -48 0 z" fill="#b08c42"/>
-  <ellipse cx="166" cy="290" rx="25" ry="8" fill="#ffd98a" opacity="0.6"/>
-  <rect x="96" y="220" width="180" height="200" fill="url(#bw-gw-sconce)" opacity="0.55"/>
+  <g opacity="0.64"><ellipse cx="166" cy="290" rx="25" ry="8" fill="#ffd98a" class="fx-glow" style="--d:1.5s"/></g>
+  <g opacity="0.58"><rect x="96" y="220" width="180" height="200" fill="url(#bw-gw-sconce)" class="fx-glow" style="--d:.4s"/></g>
   <!-- business papers, on the table and all over the floor -->
   <g fill="#e3d5ac">
     <path d="M126 314 l52 -8 l3 14 l-52 8 z"/>
@@ -2014,7 +2024,7 @@ window.CASE_ART.blackwood = {
 </g>
 
 <!-- the corridor sconce, and what little it can do -->
-<rect x="340" y="60" width="320" height="380" fill="url(#bw-gw-sconce)"/>
+<rect x="340" y="60" width="320" height="380" fill="url(#bw-gw-sconce)" class="fx-glow" style="--d:2.1s"/>
 <g>
   <path d="M486 246 l28 0 l-6 -28 l-16 0 z" fill="#3b2f22"/>
   <rect x="492" y="212" width="16" height="10" fill="#6b5326"/>
@@ -2024,9 +2034,11 @@ window.CASE_ART.blackwood = {
     <rect x="518" y="176" width="9" height="34" rx="2"/>
   </g>
   <g fill="#ffd98a">
-    <ellipse cx="478" cy="172" rx="5" ry="9"/><ellipse cx="500" cy="166" rx="5.5" ry="10"/><ellipse cx="522" cy="172" rx="5" ry="9"/>
+    <ellipse cx="478" cy="172" rx="5" ry="9" class="fx-flame" style="--d:.25s"/>
+    <ellipse cx="500" cy="166" rx="5.5" ry="10" class="fx-flame" style="--d:1.85s"/>
+    <ellipse cx="522" cy="172" rx="5" ry="9" class="fx-flame" style="--d:1.1s"/>
   </g>
-  <ellipse cx="500" cy="182" rx="70" ry="34" fill="#d9a441" opacity="0.14"/>
+  <g opacity="0.16"><ellipse cx="500" cy="182" rx="70" ry="34" fill="#d9a441" class="fx-glow" style="--d:.95s"/></g>
 </g>
 
 <!-- the dark landscape over the console; nobody has looked at it in years -->

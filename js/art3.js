@@ -113,8 +113,8 @@ window.CASE_ART.deadair = {
     <line x1="680" y1="204" x2="742" y2="204"/><line x1="680" y1="222" x2="742" y2="222"/>
   </g>
   <g fill="#d9a441" opacity="0.55">
-    <circle cx="690" cy="141" r="3"/><circle cx="704" cy="141" r="3"/><circle cx="718" cy="141" r="3"/>
-    <circle cx="770" cy="152" r="3"/><circle cx="786" cy="152" r="3"/><circle cx="802" cy="152" r="3"/>
+    <circle cx="690" cy="141" r="3"/><circle cx="704" cy="141" r="3" class="fx-blink" style="--d:.6s"/><circle cx="718" cy="141" r="3"/>
+    <circle cx="770" cy="152" r="3"/><circle cx="786" cy="152" r="3" class="fx-blink" style="--d:2.15s"/><circle cx="802" cy="152" r="3" class="fx-blink" style="--d:1.3s"/>
   </g>
   <path d="M666 320 L954 320 L920 246 L700 246 Z" fill="#101a22"/>
   <path d="M666 320 L954 320 L954 332 L666 332 Z" fill="#0c141b"/>
@@ -281,9 +281,9 @@ window.CASE_ART.deadair = {
   <path d="M326 54 L378 54 L370 66 L334 66 Z" fill="#5b4830"/>
   <ellipse cx="352" cy="100" rx="52" ry="12" fill="#6b5326"/>
   <ellipse cx="352" cy="106" rx="14" ry="17" fill="#ffd98a"/>
-  <ellipse cx="352" cy="106" rx="7" ry="9" fill="#fff3d0"/>
-  <ellipse cx="352" cy="112" rx="92" ry="40" fill="#d9a441" opacity="0.16"/>
-  <path d="M302 104 L402 104 L520 462 L188 462 Z" fill="#ffd98a" opacity="0.05"/>
+  <ellipse cx="352" cy="106" rx="7" ry="9" fill="#fff3d0" class="fx-ember" style="--d:.75s"/>
+  <g class="fx-glow" style="--d:0s"><ellipse cx="352" cy="112" rx="92" ry="40" fill="#d9a441" opacity="0.16"/></g>
+  <g class="fx-glow" style="--d:1.9s"><path d="M302 104 L402 104 L520 462 L188 462 Z" fill="#ffd98a" opacity="0.05"/></g>
 </g>
 
 <!-- roped off: stanchions and a velvet rope across the foreground -->
@@ -435,10 +435,10 @@ window.CASE_ART.deadair = {
   <circle cx="806" cy="88" r="4" fill="#ffd98a"/><circle cx="962" cy="236" r="4" fill="#ffd98a"/>
   <rect x="764" y="262" width="210" height="38" fill="#241b12"/>
   <g fill="#6f8a45" opacity="0.8">
-    <circle cx="790" cy="281" r="7"/><circle cx="822" cy="281" r="7"/>
+    <circle cx="790" cy="281" r="7" class="fx-blink" style="--d:.35s"/><circle cx="822" cy="281" r="7"/>
   </g>
   <g fill="#d9a441" opacity="0.75">
-    <circle cx="854" cy="281" r="7"/><circle cx="886" cy="281" r="7"/><circle cx="918" cy="281" r="7"/>
+    <circle cx="854" cy="281" r="7"/><circle cx="886" cy="281" r="7" class="fx-blink" style="--d:1.85s"/><circle cx="918" cy="281" r="7" class="fx-blink" style="--d:2.7s"/>
   </g>
   <circle cx="950" cy="281" r="7" fill="#5d1f18"/>
 </g>
@@ -456,6 +456,9 @@ window.CASE_ART.deadair = {
     <g fill="none" stroke="#4a3b28" stroke-width="1.4" opacity="0.7">
       <ellipse cx="106" cy="348" rx="52" ry="17"/><ellipse cx="106" cy="348" rx="46" ry="15"/><ellipse cx="106" cy="348" rx="30" ry="10"/>
     </g>
+    <g transform="translate(106 348) scale(1 0.33)">
+      <path class="fx-spin" style="--d:.25s" d="M-33 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M26 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0" fill="#9b7a3f" opacity="0.6"/>
+    </g>
     <path d="M158 330 l-42 16" stroke="#9b7a3f" stroke-width="4" stroke-linecap="round"/>
     <circle cx="160" cy="329" r="7" fill="#6b5326"/>
     <rect x="110" y="342" width="12" height="9" rx="2" fill="#241b12"/>
@@ -468,6 +471,9 @@ window.CASE_ART.deadair = {
     <circle cx="246" cy="378" r="2.5" fill="#e3d5ac"/>
     <g fill="none" stroke="#4a3b28" stroke-width="1.4" opacity="0.7">
       <ellipse cx="246" cy="378" rx="52" ry="17"/><ellipse cx="246" cy="378" rx="46" ry="15"/><ellipse cx="246" cy="378" rx="30" ry="10"/>
+    </g>
+    <g transform="translate(246 378) scale(1 0.33)">
+      <path class="fx-spin" style="--d:1.7s" d="M-33 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M26 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0" fill="#9b7a3f" opacity="0.6"/>
     </g>
     <path d="M298 360 l-42 16" stroke="#9b7a3f" stroke-width="4" stroke-linecap="round"/>
     <circle cx="300" cy="359" r="7" fill="#6b5326"/>
@@ -484,22 +490,22 @@ window.CASE_ART.deadair = {
     <rect x="356" y="304" width="92" height="42" rx="4" fill="#1b140d"/>
     <rect x="362" y="310" width="80" height="30" rx="3" fill="#d9a441" opacity="0.75"/>
     <path d="M368 336 q34 -20 68 0" fill="none" stroke="#14110d" stroke-width="1.6"/>
-    <path d="M420 334 l-14 -20" stroke="#14110d" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M420 334 l-14 -20" stroke="#14110d" stroke-width="2.4" stroke-linecap="round" class="fx-needle" style="--d:0s"/>
     <path d="M424 314 l14 4" stroke="#a8352a" stroke-width="3"/>
     <rect x="470" y="304" width="92" height="42" rx="4" fill="#1b140d"/>
     <rect x="476" y="310" width="80" height="30" rx="3" fill="#d9a441" opacity="0.75"/>
     <path d="M482 336 q34 -20 68 0" fill="none" stroke="#14110d" stroke-width="1.6"/>
-    <path d="M528 334 l-8 -22" stroke="#14110d" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M528 334 l-8 -22" stroke="#14110d" stroke-width="2.4" stroke-linecap="round" class="fx-needle" style="--d:.65s"/>
     <path d="M538 314 l14 4" stroke="#a8352a" stroke-width="3"/>
     <rect x="726" y="304" width="92" height="42" rx="4" fill="#1b140d"/>
     <rect x="732" y="310" width="80" height="30" rx="3" fill="#d9a441" opacity="0.55"/>
     <path d="M738 336 q34 -20 68 0" fill="none" stroke="#14110d" stroke-width="1.6"/>
-    <path d="M772 334 l-24 -14" stroke="#14110d" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M772 334 l-24 -14" stroke="#14110d" stroke-width="2.4" stroke-linecap="round" class="fx-needle" style="--d:1.45s"/>
     <path d="M794 314 l14 4" stroke="#a8352a" stroke-width="3"/>
     <rect x="840" y="304" width="92" height="42" rx="4" fill="#1b140d"/>
     <rect x="846" y="310" width="80" height="30" rx="3" fill="#d9a441" opacity="0.55"/>
     <path d="M852 336 q34 -20 68 0" fill="none" stroke="#14110d" stroke-width="1.6"/>
-    <path d="M886 334 l-24 -14" stroke="#14110d" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M886 334 l-24 -14" stroke="#14110d" stroke-width="2.4" stroke-linecap="round" class="fx-needle" style="--d:2.3s"/>
     <path d="M908 314 l14 4" stroke="#a8352a" stroke-width="3"/>
   </g>
   <path d="M336 354 L950 354 L982 452 L306 452 Z" fill="url(#da-ctrl-board)"/>
@@ -597,8 +603,8 @@ window.CASE_ART.deadair = {
   <path d="M690 226 q26 -2 32 14" fill="none" stroke="#4a3b28" stroke-width="6"/>
   <path d="M700 232 q30 -14 42 16 l-20 12 q-12 -22 -28 -14 z" fill="#5f6b4a"/>
   <path d="M700 232 q30 -14 42 16 l-6 4 q-12 -20 -32 -12 z" fill="#7d8a62"/>
-  <ellipse cx="726" cy="256" rx="18" ry="7" fill="#ffd98a" opacity="0.65"/>
-  <ellipse cx="742" cy="352" rx="110" ry="76" fill="#ffd98a" opacity="0.09"/>
+  <g class="fx-glow" style="--d:.9s"><ellipse cx="726" cy="256" rx="18" ry="7" fill="#ffd98a" opacity="0.65"/></g>
+  <g class="fx-glow" style="--d:2.4s"><ellipse cx="742" cy="352" rx="110" ry="76" fill="#ffd98a" opacity="0.09"/></g>
 </g>
 
 <!-- her cue watch, face up on the board -->
@@ -698,8 +704,10 @@ window.CASE_ART.deadair = {
     <circle cx="59" cy="94" r="4" fill="#4a5a5f"/>
     <rect x="92" y="86" width="34" height="60" rx="15" fill="url(#da-shop-tube)"/>
     <rect x="92" y="130" width="34" height="18" rx="4" fill="#241b12"/>
-    <line x1="109" y1="98" x2="109" y2="130" stroke="#d9a441" stroke-width="3"/>
-    <ellipse cx="109" cy="116" rx="13" ry="20" fill="#ffd98a" opacity="0.4"/>
+    <g class="fx-ember" style="--d:.95s">
+      <line x1="109" y1="98" x2="109" y2="130" stroke="#d9a441" stroke-width="3"/>
+      <ellipse cx="109" cy="116" rx="13" ry="20" fill="#ffd98a" opacity="0.4"/>
+    </g>
     <circle cx="109" cy="82" r="4" fill="#4a5a5f"/>
     <rect x="146" y="100" width="28" height="46" rx="12" fill="url(#da-shop-tube)"/>
     <rect x="146" y="132" width="28" height="16" rx="4" fill="#241b12"/>
@@ -723,8 +731,10 @@ window.CASE_ART.deadair = {
     <line x1="110" y1="200" x2="110" y2="218" stroke="#d9a441" stroke-width="2.5"/>
     <rect x="146" y="176" width="34" height="56" rx="15" fill="url(#da-shop-tube)"/>
     <rect x="146" y="216" width="34" height="18" rx="4" fill="#241b12"/>
-    <line x1="163" y1="188" x2="163" y2="216" stroke="#d9a441" stroke-width="3"/>
-    <ellipse cx="163" cy="204" rx="13" ry="19" fill="#ffd98a" opacity="0.42"/>
+    <g class="fx-ember" style="--d:2.1s">
+      <line x1="163" y1="188" x2="163" y2="216" stroke="#d9a441" stroke-width="3"/>
+      <ellipse cx="163" cy="204" rx="13" ry="19" fill="#ffd98a" opacity="0.42"/>
+    </g>
     <rect x="200" y="196" width="66" height="36" fill="#33271a"/>
     <rect x="206" y="202" width="54" height="24" fill="#241b12"/>
     <g stroke="#4a3b28" stroke-width="2"><line x1="216" y1="202" x2="216" y2="226"/><line x1="234" y1="202" x2="234" y2="226"/><line x1="250" y1="202" x2="250" y2="226"/></g>
@@ -891,13 +901,17 @@ window.CASE_ART.deadair = {
   <rect x="180" y="316" width="150" height="8" fill="#4a3b28"/>
   <g>
     <rect x="196" y="292" width="24" height="30" rx="10" fill="url(#da-shop-tube)"/>
-    <line x1="208" y1="300" x2="208" y2="318" stroke="#d9a441" stroke-width="3"/>
-    <ellipse cx="208" cy="308" rx="9" ry="12" fill="#ffd98a" opacity="0.45"/>
+    <g class="fx-ember" style="--d:.3s">
+      <line x1="208" y1="300" x2="208" y2="318" stroke="#d9a441" stroke-width="3"/>
+      <ellipse cx="208" cy="308" rx="9" ry="12" fill="#ffd98a" opacity="0.45"/>
+    </g>
     <rect x="234" y="288" width="26" height="34" rx="11" fill="url(#da-shop-tube)"/>
-    <line x1="247" y1="296" x2="247" y2="318" stroke="#d9a441" stroke-width="3"/>
-    <ellipse cx="247" cy="306" rx="10" ry="14" fill="#ffd98a" opacity="0.5"/>
+    <g class="fx-ember" style="--d:1.55s">
+      <line x1="247" y1="296" x2="247" y2="318" stroke="#d9a441" stroke-width="3"/>
+      <ellipse cx="247" cy="306" rx="10" ry="14" fill="#ffd98a" opacity="0.5"/>
+    </g>
     <rect x="274" y="296" width="22" height="26" rx="9" fill="url(#da-shop-tube)"/>
-    <line x1="285" y1="302" x2="285" y2="318" stroke="#d9a441" stroke-width="2.5"/>
+    <line x1="285" y1="302" x2="285" y2="318" stroke="#d9a441" stroke-width="2.5" class="fx-ember" style="--d:2.6s"/>
   </g>
   <g fill="none" stroke="#1b140d" stroke-width="3">
     <path d="M196 336 q20 14 40 0 q20 -14 40 0 q18 12 34 2"/>
@@ -913,7 +927,7 @@ window.CASE_ART.deadair = {
     <rect x="446" y="330" width="18" height="22" rx="5" fill="#33332e"/>
     <path d="M462 336 l58 -22" stroke="#5d1f18" stroke-width="9" stroke-linecap="round"/>
     <path d="M518 316 l26 -10" stroke="#8e8e88" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="548" cy="304" r="4" fill="#ffd98a"/>
+    <circle cx="548" cy="304" r="4" fill="#ffd98a" class="fx-ember" style="--d:1.75s"/>
     <path d="M550 298 q10 -22 -2 -40" fill="none" stroke="#cbd6e4" stroke-width="2.5" opacity="0.3"/>
     <path d="M552 294 q16 -18 8 -38" fill="none" stroke="#cbd6e4" stroke-width="2" opacity="0.22"/>
   </g>
@@ -921,9 +935,9 @@ window.CASE_ART.deadair = {
     <rect x="700" y="300" width="86" height="56" rx="5" fill="#2f2519"/>
     <rect x="708" y="308" width="70" height="30" rx="3" fill="#e3d5ac"/>
     <path d="M714 334 q29 -18 58 0" fill="none" stroke="#3b2f22" stroke-width="1.6"/>
-    <path d="M744 332 l-16 -16" stroke="#a8352a" stroke-width="2.4"/>
+    <path d="M744 332 l-16 -16" stroke="#a8352a" stroke-width="2.4" class="fx-needle" style="--d:1.2s"/>
     <circle cx="722" cy="348" r="5" fill="#9b7a3f"/><circle cx="764" cy="348" r="5" fill="#9b7a3f"/>
-    <circle cx="743" cy="348" r="6" fill="#5f6b4a"/>
+    <circle cx="743" cy="348" r="6" fill="#5f6b4a" class="fx-blink" style="--d:2.35s"/>
   </g>
 </g>
 
@@ -959,8 +973,8 @@ window.CASE_ART.deadair = {
   <path d="M536 296 q4 -50 60 -58" fill="none" stroke="#4a3b28" stroke-width="7"/>
   <path d="M566 226 q30 -10 46 12 l-26 22 q-14 -18 -32 -12 z" fill="#5f6b4a"/>
   <path d="M566 226 q30 -10 46 12 l-7 6 q-14 -16 -35 -10 z" fill="#7d8a62"/>
-  <ellipse cx="590" cy="256" rx="20" ry="8" fill="#ffd98a" opacity="0.7"/>
-  <path d="M566 258 L616 258 L700 452 L470 452 Z" fill="#ffd98a" opacity="0.06"/>
+  <g class="fx-glow" style="--d:.15s"><ellipse cx="590" cy="256" rx="20" ry="8" fill="#ffd98a" opacity="0.7"/></g>
+  <g class="fx-glow" style="--d:1.95s"><path d="M566 258 L616 258 L700 452 L470 452 Z" fill="#ffd98a" opacity="0.06"/></g>
 </g>
 
 <!-- foreground: the stool, a coil of wire, the tool chest -->
@@ -1130,13 +1144,13 @@ window.CASE_ART.deadair = {
   <path d="M486 168 L562 168 L558 160 L490 160 Z" fill="#241b12"/>
   <ellipse cx="524" cy="168" rx="38" ry="9" fill="#6b5326"/>
   <ellipse cx="524" cy="174" rx="12" ry="15" fill="#ffd98a"/>
-  <ellipse cx="524" cy="174" rx="6" ry="8" fill="#fff3d0"/>
-  <ellipse cx="524" cy="180" rx="76" ry="34" fill="#d9a441" opacity="0.15"/>
-  <path d="M488 172 L560 172 L660 486 L370 486 Z" fill="#ffd98a" opacity="0.05"/>
+  <ellipse cx="524" cy="174" rx="6" ry="8" fill="#fff3d0" class="fx-ember" style="--d:.4s"/>
+  <g class="fx-glow" style="--d:1.6s"><ellipse cx="524" cy="180" rx="76" ry="34" fill="#d9a441" opacity="0.15"/></g>
+  <g class="fx-glow" style="--d:.2s"><path d="M488 172 L560 172 L660 486 L370 486 Z" fill="#ffd98a" opacity="0.05"/></g>
 </g>
 
 <!-- THE THUNDER-SHEET CRATE: felt, rope handles, and something bright inside -->
-<rect x="240" y="360" width="330" height="230" fill="url(#da-fx-lamp)"/>
+<rect x="240" y="360" width="330" height="230" fill="url(#da-fx-lamp)" class="fx-glow" style="--d:2.7s"/>
 <g>
   <path d="M280 418 L470 402 L470 520 L280 536 Z" fill="url(#da-fx-wood)"/>
   <path d="M262 402 L452 386 L470 402 L280 418 Z" fill="#4a3b28"/>
@@ -1251,8 +1265,8 @@ window.CASE_ART.deadair = {
   <rect x="716" y="300" width="20" height="10" rx="3" fill="#3b2f22"/>
   <path d="M726 300 q-4 -34 26 -42" fill="none" stroke="#4a3b28" stroke-width="5"/>
   <path d="M746 254 q24 -6 30 12 l-22 10 q-6 -14 -16 -10 z" fill="#5f6b4a"/>
-  <ellipse cx="762" cy="276" rx="14" ry="6" fill="#ffd98a" opacity="0.6"/>
-  <ellipse cx="790" cy="340" rx="90" ry="60" fill="#ffd98a" opacity="0.08"/>
+  <g class="fx-glow" style="--d:2.1s"><ellipse cx="762" cy="276" rx="14" ry="6" fill="#ffd98a" opacity="0.6"/></g>
+  <g class="fx-glow" style="--d:1.1s"><ellipse cx="790" cy="340" rx="90" ry="60" fill="#ffd98a" opacity="0.08"/></g>
 </g>
 
 <!-- the organ bench, and Iris Bell, not playing -->
@@ -1506,14 +1520,14 @@ window.CASE_ART.deadair = {
 </g>
 
 <!-- the banker's lamp: the room's one lit corner -->
-<rect x="560" y="240" width="440" height="330" fill="url(#da-off-lamp)"/>
+<rect x="560" y="240" width="440" height="330" fill="url(#da-off-lamp)" class="fx-glow" style="--d:2.4s"/>
 <g>
   <ellipse cx="796" cy="386" rx="34" ry="9" fill="#6b5326"/>
   <rect x="790" y="330" width="12" height="56" fill="#6b5326"/>
   <path d="M748 318 q48 -30 96 0 l0 20 q-48 14 -96 0 z" fill="#4b553b"/>
   <path d="M748 318 q48 -30 96 0 l0 6 q-48 -24 -96 0 z" fill="#5f6b4a"/>
-  <ellipse cx="796" cy="338" rx="44" ry="10" fill="#ffd98a" opacity="0.5"/>
-  <ellipse cx="796" cy="390" rx="76" ry="13" fill="#ffd98a" opacity="0.12"/>
+  <g class="fx-glow" style="--d:.35s"><ellipse cx="796" cy="338" rx="44" ry="10" fill="#ffd98a" opacity="0.5"/></g>
+  <g class="fx-glow" style="--d:1.7s"><ellipse cx="796" cy="390" rx="76" ry="13" fill="#ffd98a" opacity="0.12"/></g>
 </g>
 
 <!-- the telephone that rang all week, and an ashtray -->
@@ -1704,8 +1718,8 @@ window.CASE_ART.deadair = {
   <rect x="36" y="106" width="76" height="180" fill="url(#da-lob-night)"/>
   <rect x="120" y="106" width="72" height="180" fill="url(#da-lob-night)"/>
   <g stroke="#8fa4c0" stroke-width="1.3" opacity="0.28">
-    <line x1="50" y1="120" x2="42" y2="152"/><line x1="78" y1="134" x2="70" y2="168"/><line x1="98" y1="114" x2="90" y2="146"/>
-    <line x1="136" y1="126" x2="128" y2="158"/><line x1="164" y1="140" x2="156" y2="172"/><line x1="182" y1="112" x2="174" y2="144"/>
+    <line x1="50" y1="120" x2="42" y2="152"/><line x1="78" y1="134" x2="70" y2="168" class="fx-drift-slow" style="--d:.2s"/><line x1="98" y1="114" x2="90" y2="146"/>
+    <line x1="136" y1="126" x2="128" y2="158"/><line x1="164" y1="140" x2="156" y2="172" class="fx-drift-slow" style="--d:2.9s"/><line x1="182" y1="112" x2="174" y2="144"/>
     <line x1="60" y1="188" x2="52" y2="220"/><line x1="146" y1="196" x2="138" y2="228"/>
   </g>
   <g fill="none" stroke="#3b2f22" stroke-width="3">
@@ -1735,8 +1749,8 @@ window.CASE_ART.deadair = {
     <circle cx="272" cy="278" r="7"/><circle cx="302" cy="278" r="7"/><circle cx="332" cy="278" r="7"/><circle cx="362" cy="278" r="7"/><circle cx="392" cy="278" r="7"/>
     <circle cx="272" cy="302" r="7"/><circle cx="302" cy="302" r="7"/><circle cx="332" cy="302" r="7"/><circle cx="362" cy="302" r="7"/><circle cx="392" cy="302" r="7"/>
   </g>
-  <circle cx="332" cy="302" r="7" fill="#d9a441" opacity="0.8"/>
-  <circle cx="392" cy="278" r="7" fill="#6f8a45" opacity="0.7"/>
+  <g class="fx-blink" style="--d:.4s"><circle cx="332" cy="302" r="7" fill="#d9a441" opacity="0.8"/></g>
+  <g class="fx-blink" style="--d:2.45s"><circle cx="392" cy="278" r="7" fill="#6f8a45" opacity="0.7"/></g>
   <rect x="238" y="330" width="192" height="34" fill="#3b2f22"/>
   <g fill="#241b12">
     <rect x="252" y="338" width="20" height="18" rx="3"/><rect x="282" y="338" width="20" height="18" rx="3"/><rect x="312" y="338" width="20" height="18" rx="3"/>
@@ -1769,7 +1783,7 @@ window.CASE_ART.deadair = {
     <path d="M604 112 q22 22 22 50"/><path d="M624 100 q34 32 34 62"/>
     <path d="M546 112 q-22 22 -22 50"/><path d="M526 100 q-34 32 -34 62"/>
   </g>
-  <circle cx="575" cy="112" r="7" fill="#d9a441"/>
+  <circle cx="575" cy="112" r="7" fill="#d9a441" class="fx-ember" style="--d:1.35s"/>
 </g>
 
 <!-- the wall clock, half past midnight -->
@@ -1830,7 +1844,7 @@ window.CASE_ART.deadair = {
 </g>
 
 <!-- the reception counter, the visitor book still open on it -->
-<rect x="380" y="290" width="400" height="280" fill="url(#da-lob-lamp)"/>
+<rect x="380" y="290" width="400" height="280" fill="url(#da-lob-lamp)" class="fx-glow" style="--d:.95s"/>
 <g>
   <path d="M446 372 L716 372 L744 400 L418 400 Z" fill="url(#da-lob-counter)"/>
   <path d="M446 372 L716 372 L718 379 L444 379 Z" fill="#7a6440"/>
@@ -1864,7 +1878,7 @@ window.CASE_ART.deadair = {
     <path d="M456 344 q22 -14 44 0 l0 6 q-22 -10 -44 0 z" fill="#4a3b28"/>
     <rect x="470" y="350" width="16" height="20" fill="#33271a"/>
     <ellipse cx="478" cy="344" rx="24" ry="7" fill="#5f6b4a"/>
-    <ellipse cx="478" cy="352" rx="16" ry="5" fill="#ffd98a" opacity="0.5"/>
+    <g class="fx-glow" style="--d:2.65s"><ellipse cx="478" cy="352" rx="16" ry="5" fill="#ffd98a" opacity="0.5"/></g>
   </g>
 </g>
 
@@ -1986,8 +2000,8 @@ window.CASE_ART.deadair = {
   <line x1="580" y1="18" x2="580" y2="66" stroke="#33271a" stroke-width="4"/>
   <path d="M544 104 q36 22 72 0 q-6 -40 -36 -40 q-30 0 -36 40 z" fill="#e3d5ac" opacity="0.55"/>
   <path d="M544 104 q36 22 72 0 l0 -8 q-36 20 -72 0 z" fill="#9b7a3f" opacity="0.6"/>
-  <ellipse cx="580" cy="90" rx="18" ry="14" fill="#ffd98a"/>
-  <ellipse cx="580" cy="102" rx="86" ry="34" fill="#d9a441" opacity="0.12"/>
+  <ellipse cx="580" cy="90" rx="18" ry="14" fill="#ffd98a" class="fx-glow" style="--d:.55s"/>
+  <g class="fx-glow" style="--d:1.8s"><ellipse cx="580" cy="102" rx="86" ry="34" fill="#d9a441" opacity="0.12"/></g>
 </g>
 
 <rect width="1000" height="620" fill="url(#da-lob-vig)"/>

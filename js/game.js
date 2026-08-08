@@ -60,7 +60,12 @@
     $("#btn-desk").textContent = T("desk");
     $("#btn-desk").title = T("deskTitle");
     $("#btn-accuse").textContent = T("accuse");
-    document.querySelectorAll(".btn-sound").forEach(syncSound);
+    $("#btn-casefile").textContent = T("caseFile");
+    const lb = $("#btn-lang");
+    lb.textContent = T("otherLangName");
+    lb.setAttribute("lang", LANG === "fa" ? "en" : "fa");
+    lb.title = T("switchTo");
+    document.querySelectorAll(".js-sound").forEach(syncSound);
     const pane = document.querySelector(".pane-label");
     if (pane) pane.textContent = T("premises");
     const tabNames = { evidence: "tabEvidence", people: "tabPeople", board: "tabBoard" };
@@ -343,7 +348,7 @@
       SFX.setMuted(nowMuted);
       if (!nowMuted) { SFX.unlock(); if (C && !$("#screen-game").hidden) SFX.room(C.id); SFX.play("paper"); }
       else { SFX.leaveRoom(); }
-      document.querySelectorAll(".btn-sound").forEach(syncSound);
+      document.querySelectorAll(".js-sound").forEach(syncSound);
     });
   }
 
@@ -355,7 +360,7 @@
     const s = $("#screen-title");
     s.innerHTML = "";
 
-    const soundBtn = el("button", "btn btn-sound");
+    const soundBtn = el("button", "btn btn-chip js-sound");
     wireSound(soundBtn);
     s.appendChild(soundBtn);
 
@@ -475,6 +480,23 @@
     };
     sheet.addEventListener("click", () => { if (current) current.skip(); });
     typeNext();
+  }
+
+  /* The briefing used to be destroyed the moment you pressed Begin — along
+     with the pinned note telling you your first move. It is now always at
+     hand, and reading it costs nothing. */
+  function openCaseFile() {
+    const m = openModal("modal-casefile");
+    m.box.innerHTML =
+      '<div class="disc-kicker">' + T("caseFileTitle") + "</div>" +
+      '<h3 class="disc-title">' + esc(C.title) + "</h3>" +
+      '<p class="brief-epigraph">' + esc(C.epigraph) + "</p>" +
+      '<div class="brief-paras">' + C.briefing.map((p) => "<p class='brief-p'>" + esc(p) + "</p>").join("") + "</div>" +
+      '<div class="brief-note"><span class="note-label">' + T("pinnedNote") + "</span> " + esc(C.detectiveNote) + "</div>" +
+      '<div class="brief-deadline">' + esc(C.deadlineLabel) + "</div>" +
+      '<div class="acc-actions"><span class="acc-count">' + T("caseFileFree") + "</span>" +
+      '<button class="btn btn-primary modal-ok">' + T("noted") + "</button></div>";
+    m.box.querySelector(".modal-ok").addEventListener("click", m.close);
   }
 
   /* ---------- main game ---------- */
@@ -651,7 +673,11 @@
       panel.appendChild(row);
     }
 
-    panel.appendChild(el("div", "loc-subhead", T("searchHead")));
+    const doneCount = loc.hotspots.filter((h) => G.searched.includes(h.id)).length;
+    const head = el("div", "loc-subhead");
+    head.innerHTML = T("searchHead") +
+      ' <span class="loc-progress">' + T("searchProgress", doneCount, loc.hotspots.length) + "</span>";
+    panel.appendChild(head);
     const hs = el("div", "hotspot-list");
     loc.hotspots.forEach((h) => {
       const state = hotspotState(h);
@@ -905,6 +931,7 @@
     const t = $("#tab-people");
     t.innerHTML = "";
     C.suspects.forEach((p) => {
+      const here = p.location === G.loc;
       const card = el("article", "person-card" + (p.witness ? " is-witness" : ""));
       const loc = locById(p.location);
       let notes = "";
@@ -917,6 +944,16 @@
         "<em>" + esc(p.role) + " · " + digits(p.age) + " · " + T("inRoom", esc(loc ? loc.name : "?")) + "</em></div></header>" +
         "<p>" + esc(p.blurb) + "</p>" +
         (notes ? '<ul class="person-notes">' + notes + "</ul>" : '<p class="empty-note">' + T("nothingOnRecord") + "</p>");
+      // reading about someone should be a way to reach them
+      const go = el("button", "btn btn-quiet person-go");
+      if (here) {
+        go.textContent = T("alreadyHere");
+        go.disabled = true;
+      } else {
+        go.textContent = T("goToRoom", loc ? loc.name : "?", COST.travel);
+        go.addEventListener("click", () => { travelTo(p.location); openTab("evidence"); });
+      }
+      card.appendChild(go);
       t.appendChild(card);
     });
   }
@@ -1210,6 +1247,8 @@
   /* ---------- wire chrome ---------- */
   function wire() {
     wireSound($("#btn-sound"));
+    $("#btn-casefile").addEventListener("click", openCaseFile);
+    $("#btn-lang").addEventListener("click", () => setLang(LANG === "fa" ? "en" : "fa", true));
     $("#btn-accuse").addEventListener("click", () => openAccuse(false));
     $("#btn-desk").addEventListener("click", () => { saveGame(); renderTitle(); });
     document.querySelectorAll(".jtab").forEach((tab) => {
@@ -1290,6 +1329,8 @@
       } else if (f.indexOf("t:") === 0) {
         G.elapsed = Math.min(C.timeBudget, +f.slice(2) || 0);
         renderClock();
+      } else if (f === "casefile") {
+        openCaseFile();
       } else if (f === "scene") {
         const loc = locById(G.loc), sc = sceneFor(G.loc);
         if (sc) openSceneViewer(loc, sc);

@@ -94,17 +94,17 @@ window.CASE_ART.meridian = {
   <path d="M340 186 q26 -14 50 -2 q26 -14 52 0 q28 -14 54 -2 q26 -10 56 -4 l0 138 l-212 0 z" fill="#b6c4d4"/>
   <path d="M340 222 q30 -12 56 0 q28 -12 58 2 q30 -10 56 0 l42 4 l0 88 l-212 0 z" fill="#c6d2e0"/>
   <path d="M340 262 q36 -12 68 0 q34 -10 68 4 q26 -6 44 -2 l0 52 l-180 0 z" fill="#d6dfe8"/>
-  <g fill="#8fa4c0" opacity="0.55">
+  <g class="fx-drift-slow" style="--d:-11s"><g fill="#8fa4c0" opacity="0.55">
     <path d="M348 236 q28 -10 54 2 l-52 8 z"/><path d="M436 254 q30 -8 54 4 l-56 8 z"/>
     <path d="M356 288 q28 -8 50 2 l-48 8 z"/><path d="M462 292 q26 -6 46 2 l-46 8 z"/>
-  </g>
-  <g stroke="#eef3f8" stroke-width="1.6" opacity="0.55">
+  </g></g>
+  <g class="fx-drift-slow"><g stroke="#eef3f8" stroke-width="1.6" opacity="0.55">
     <path d="M368 200 q22 -8 44 0"/><path d="M462 216 q24 -8 46 0"/><path d="M382 274 q26 -8 50 0"/>
-  </g>
-  <g stroke="#f0f4f8" stroke-width="1.4" opacity="0.45">
+  </g></g>
+  <g class="fx-drift-slow" style="--d:-6s"><g stroke="#f0f4f8" stroke-width="1.4" opacity="0.45">
     <path d="M346 174 l12 12 l-7 11"/><path d="M544 178 l-13 10 l7 12"/>
     <path d="M348 302 l14 -8"/><path d="M540 308 l-16 -7"/>
-  </g>
+  </g></g>
   <rect x="340" y="168" width="212" height="16" fill="#2b3548" opacity="0.85"/>
   <rect x="440" y="168" width="7" height="148" fill="#3b2f22"/>
   <rect x="330" y="158" width="232" height="8" fill="#6b5326"/>
@@ -142,14 +142,14 @@ window.CASE_ART.meridian = {
 
 <!-- berth lamp: the one warm thing in the room -->
 <g>
-  <rect x="606" y="176" width="220" height="200" fill="url(#mx-comp7-lamp)"/>
+  <rect class="fx-glow" x="606" y="176" width="220" height="200" fill="url(#mx-comp7-lamp)"/>
   <rect x="672" y="186" width="10" height="26" fill="#6b5326"/>
   <path d="M646 212 q31 -18 62 0 l-6 34 q-25 10 -50 0 z" fill="#8a6c30"/>
   <path d="M646 212 q31 -18 62 0 l-2 6 q-29 -14 -58 0 z" fill="#b28c3f"/>
-  <ellipse cx="677" cy="248" rx="26" ry="8" fill="#ffd98a" opacity="0.75"/>
-  <ellipse cx="677" cy="252" rx="72" ry="24" fill="#d9a441" opacity="0.12"/>
+  <g class="fx-glow" style="--d:-1.2s"><ellipse cx="677" cy="248" rx="26" ry="8" fill="#ffd98a" opacity="0.75"/></g>
+  <g class="fx-glow" style="--d:-2.6s"><ellipse cx="677" cy="252" rx="72" ry="24" fill="#d9a441" opacity="0.12"/></g>
 </g>
-<rect width="1000" height="620" fill="url(#mx-comp7-glow)"/>
+<rect class="fx-glow" style="--d:-3.4s" width="1000" height="620" fill="url(#mx-comp7-glow)"/>
 
 <!-- brass luggage racks on both walls -->
 <g stroke="#6b5326" stroke-width="5" fill="none">
@@ -480,15 +480,15 @@ window.CASE_ART.meridian = {
 
 <!-- night-lights turned down to embers, receding along the ceiling -->
 <g>
-  <rect x="150" y="0" width="200" height="140" fill="url(#mx-cor8-lamp)"/>
+  <rect class="fx-glow" x="150" y="0" width="200" height="140" fill="url(#mx-cor8-lamp)"/>
   <ellipse cx="248" cy="56" rx="26" ry="12" fill="#8a6c30"/>
-  <ellipse cx="248" cy="52" rx="20" ry="9" fill="#ffd98a" opacity="0.8"/>
+  <g class="fx-glow" style="--d:-1.1s"><ellipse cx="248" cy="52" rx="20" ry="9" fill="#ffd98a" opacity="0.8"/></g>
   <ellipse cx="418" cy="120" rx="17" ry="8" fill="#8a6c30"/>
-  <ellipse cx="418" cy="117" rx="12" ry="6" fill="#ffd98a" opacity="0.75"/>
+  <g class="fx-glow" style="--d:-2.4s"><ellipse cx="418" cy="117" rx="12" ry="6" fill="#ffd98a" opacity="0.75"/></g>
   <ellipse cx="512" cy="160" rx="11" ry="5" fill="#8a6c30"/>
-  <ellipse cx="512" cy="158" rx="8" ry="4" fill="#ffd98a" opacity="0.7"/>
+  <g class="fx-glow" style="--d:-3.6s"><ellipse cx="512" cy="158" rx="8" ry="4" fill="#ffd98a" opacity="0.7"/></g>
   <ellipse cx="566" cy="184" rx="8" ry="4" fill="#8a6c30"/>
-  <ellipse cx="566" cy="182" rx="5" ry="3" fill="#ffd98a" opacity="0.65"/>
+  <g class="fx-glow" style="--d:-4.7s"><ellipse cx="566" cy="182" rx="5" ry="3" fill="#ffd98a" opacity="0.65"/></g>
 </g>
 
 <!-- the north-side windows, the drift hissing along them -->
@@ -502,14 +502,14 @@ window.CASE_ART.meridian = {
   <path d="M786 316 L742 312 L742 340 L786 347 Z" fill="#8fa4c0" opacity="0.75"/>
   <path d="M995 344 L890 336 L890 365 L995 384 Z" fill="#c6d2e0" opacity="0.9"/>
   <path d="M872 336 L800 330 L800 350 L872 362 Z" fill="#c6d2e0" opacity="0.85"/>
-  <g stroke="#c6d2e0" stroke-width="1.6" opacity="0.4">
+  <g class="fx-drift-slow"><g stroke="#c6d2e0" stroke-width="1.6" opacity="0.4">
     <path d="M910 190 l64 -14"/><path d="M906 216 l72 -12"/><path d="M914 248 l62 -10"/>
     <path d="M818 222 l44 -8"/><path d="M814 250 l50 -6"/><path d="M752 240 l28 -4"/>
-  </g>
-  <g fill="#e8eef4" opacity="0.5">
+  </g></g>
+  <g class="fx-drift-slow" style="--d:-8s"><g fill="#e8eef4" opacity="0.5">
     <ellipse cx="946" cy="206" rx="9" ry="3"/><ellipse cx="930" cy="272" rx="7" ry="2.5"/>
     <ellipse cx="840" cy="238" rx="6" ry="2.2"/><ellipse cx="766" cy="266" rx="5" ry="2"/>
-  </g>
+  </g></g>
   <!-- brass frames and the intact lifting straps -->
   <g fill="none" stroke="#6b5326" stroke-width="7">
     <path d="M995 126 L890 171 L890 365 L995 384 Z"/>
@@ -575,7 +575,7 @@ window.CASE_ART.meridian = {
   <path d="M624 254 l24 4 l-4 26 l-22 -5 z" fill="#e3d5ac"/>
   <path d="M624 254 l24 4 l-1 6 l-23 -4 z" fill="#f0e7ce"/>
   <ellipse cx="592" cy="222" rx="16" ry="7" fill="#8a6c30"/>
-  <ellipse cx="592" cy="220" rx="11" ry="5" fill="#ffd98a" opacity="0.8"/>
+  <g class="fx-glow" style="--d:-2.9s"><ellipse cx="592" cy="220" rx="11" ry="5" fill="#ffd98a" opacity="0.8"/></g>
   <ellipse cx="592" cy="290" rx="120" ry="96" fill="#ffd98a" opacity="0.05"/>
 </g>
 
@@ -588,9 +588,9 @@ window.CASE_ART.meridian = {
   <path d="M96 214 L222 240 L222 348 L96 364 Z" fill="url(#mx-cor8-night)"/>
   <path d="M96 306 L222 300 L222 348 L96 364 Z" fill="#8fa4c0" opacity="0.85"/>
   <path d="M96 326 L222 318 L222 348 L96 364 Z" fill="#c6d2e0" opacity="0.85"/>
-  <g stroke="#c6d2e0" stroke-width="1.4" opacity="0.35">
+  <g class="fx-drift-slow" style="--d:-4s"><g stroke="#c6d2e0" stroke-width="1.4" opacity="0.35">
     <path d="M112 258 l60 8"/><path d="M120 282 l64 8"/>
-  </g>
+  </g></g>
   <path d="M96 214 L222 240 L222 348 L96 364 Z" fill="none" stroke="#6b5326" stroke-width="7"/>
   <path d="M156 226 L164 228 L164 356 L156 357 Z" fill="#4a3524" opacity="0.6"/>
   <path d="M92 352 L226 344 L226 360 L92 370 Z" fill="#4a3524"/>
@@ -711,7 +711,7 @@ window.CASE_ART.meridian = {
 <!-- brass fittings down the door wall: a sconce, a bell push, a coat hook -->
 <g>
   <path d="M258 200 l24 6 l-4 22 l-22 -6 z" fill="#8a6c30"/>
-  <path d="M262 206 l16 4 l-2 14 l-14 -4 z" fill="#ffd98a" opacity="0.55"/>
+  <g class="fx-glow" style="--d:-1.8s"><path d="M262 206 l16 4 l-2 14 l-14 -4 z" fill="#ffd98a" opacity="0.55"/></g>
   <ellipse cx="270" cy="216" rx="30" ry="22" fill="#ffd98a" opacity="0.07"/>
   <circle cx="386" cy="238" r="6" fill="#9b7a3f"/><circle cx="386" cy="238" r="2.6" fill="#e2c374"/>
   <circle cx="478" cy="252" r="5" fill="#9b7a3f"/>
@@ -810,11 +810,14 @@ window.CASE_ART.meridian = {
     <path d="M10 322 L130 314 L130 331 L10 340 Z"/><path d="M990 322 L870 314 L870 331 L990 340 Z"/>
     <path d="M150 312 L250 308 L250 321 L150 329 Z"/><path d="M850 312 L750 308 L750 321 L850 329 Z"/>
   </g>
-  <g stroke="#c6d2e0" stroke-width="1.5" opacity="0.35">
+  <g class="fx-drift-slow"><g stroke="#c6d2e0" stroke-width="1.5" opacity="0.35">
     <path d="M30 180 l70 12"/><path d="M26 218 l80 12"/><path d="M40 254 l64 10"/>
+    <path d="M170 210 l58 10"/>
+  </g></g>
+  <g class="fx-drift-slow" style="--d:-9s"><g stroke="#c6d2e0" stroke-width="1.5" opacity="0.35">
     <path d="M970 180 l-70 12"/><path d="M974 218 l-80 12"/><path d="M960 254 l-64 10"/>
-    <path d="M170 210 l58 10"/><path d="M830 210 l-58 10"/>
-  </g>
+    <path d="M830 210 l-58 10"/>
+  </g></g>
   <g fill="none" stroke="#6b5326" stroke-width="7">
     <path d="M10 115 L130 152 L130 331 L10 340 Z"/><path d="M150 158 L250 189 L250 321 L150 329 Z"/>
     <path d="M268 195 L350 220 L350 314 L268 320 Z"/>
@@ -829,15 +832,15 @@ window.CASE_ART.meridian = {
 
 <!-- low emergency lights down the centre of the ceiling -->
 <g>
-  <rect x="330" y="0" width="340" height="260" fill="url(#mx-diner-lamp)"/>
+  <rect class="fx-glow" x="330" y="0" width="340" height="260" fill="url(#mx-diner-lamp)"/>
   <ellipse cx="500" cy="64" rx="46" ry="16" fill="#5c4229"/>
-  <ellipse cx="500" cy="60" rx="38" ry="12" fill="#d9a441" opacity="0.7"/>
+  <g class="fx-glow"><ellipse cx="500" cy="60" rx="38" ry="12" fill="#d9a441" opacity="0.7"/></g>
   <ellipse cx="500" cy="132" rx="30" ry="11" fill="#5c4229"/>
-  <ellipse cx="500" cy="129" rx="24" ry="8" fill="#d9a441" opacity="0.62"/>
+  <g class="fx-glow" style="--d:-1.8s"><ellipse cx="500" cy="129" rx="24" ry="8" fill="#d9a441" opacity="0.62"/></g>
   <ellipse cx="500" cy="176" rx="20" ry="8" fill="#5c4229"/>
-  <ellipse cx="500" cy="174" rx="15" ry="5" fill="#d9a441" opacity="0.55"/>
+  <g class="fx-glow" style="--d:-3.5s"><ellipse cx="500" cy="174" rx="15" ry="5" fill="#d9a441" opacity="0.55"/></g>
 </g>
-<rect width="1000" height="620" fill="url(#mx-diner-glow)"/>
+<rect class="fx-glow" style="--d:-2.4s" width="1000" height="620" fill="url(#mx-diner-glow)"/>
 
 <!-- the pantry end: coffee kept alive on a spirit burner -->
 <g>
@@ -907,7 +910,7 @@ window.CASE_ART.meridian = {
   <g fill="#33271a">
     <rect x="352" y="344" width="42" height="26" rx="4"/><rect x="606" y="344" width="42" height="26" rx="4"/>
   </g>
-  <g fill="#5f6b4a">
+  <g class="fx-glow" style="--d:-4.4s" fill="#5f6b4a">
     <rect x="356" y="348" width="34" height="20" rx="3"/><rect x="610" y="348" width="34" height="20" rx="3"/>
   </g>
 </g>
@@ -940,7 +943,7 @@ window.CASE_ART.meridian = {
     <path d="M318 310 l24 0 l2 10 l-28 0 z" fill="#f0e7ce"/>
   </g>
   <rect x="238" y="428" width="46" height="30" rx="4" fill="#33271a"/>
-  <rect x="242" y="432" width="38" height="22" rx="3" fill="#5f6b4a"/>
+  <rect class="fx-glow" style="--d:-2.1s" x="242" y="432" width="38" height="22" rx="3" fill="#5f6b4a"/>
 </g>
 
 <!-- Harold Wexler and the wreckage of a working supper -->
@@ -1095,11 +1098,15 @@ window.CASE_ART.meridian = {
 <rect x="0" y="0" width="1000" height="86" fill="#191309"/>
 <g>
   <rect x="176" y="0" width="10" height="20" fill="#6b5326"/>
-  <ellipse cx="181" cy="34" rx="26" ry="18" fill="#e8dcbb" opacity="0.5"/>
-  <ellipse cx="181" cy="30" rx="18" ry="12" fill="#ffd98a" opacity="0.55"/>
+  <g class="fx-glow" style="--d:-1.5s">
+    <ellipse cx="181" cy="34" rx="26" ry="18" fill="#e8dcbb" opacity="0.5"/>
+    <ellipse cx="181" cy="30" rx="18" ry="12" fill="#ffd98a" opacity="0.55"/>
+  </g>
   <rect x="620" y="0" width="10" height="20" fill="#6b5326"/>
-  <ellipse cx="625" cy="34" rx="26" ry="18" fill="#e8dcbb" opacity="0.4"/>
-  <ellipse cx="625" cy="30" rx="18" ry="12" fill="#ffd98a" opacity="0.45"/>
+  <g class="fx-glow" style="--d:-3.7s">
+    <ellipse cx="625" cy="34" rx="26" ry="18" fill="#e8dcbb" opacity="0.4"/>
+    <ellipse cx="625" cy="30" rx="18" ry="12" fill="#ffd98a" opacity="0.45"/>
+  </g>
 </g>
 <rect x="0" y="86" width="1000" height="8" fill="#3b2f22"/>
 <g fill="none" stroke="#33271a" stroke-width="3">
@@ -1121,7 +1128,7 @@ window.CASE_ART.meridian = {
   <path d="M434 240 q60 -20 118 -6 q66 -18 128 4 q60 -16 146 -2 l0 128 l-392 0 z" fill="#2b3548"/>
   <path d="M434 300 q80 -18 150 -2 q70 -14 134 4 q56 -10 108 -2 l0 64 l-392 0 z" fill="#3d4a5e"/>
   <path d="M434 340 q92 -14 176 2 q84 -10 182 6 l0 16 l-358 0 z" fill="#54637a"/>
-  <g fill="#c6d2e0" opacity="0.75">
+  <g class="fx-drift-slow"><g fill="#c6d2e0" opacity="0.75">
     <ellipse cx="500" cy="188" rx="4" ry="4"/><ellipse cx="556" cy="212" rx="3" ry="3"/>
     <ellipse cx="618" cy="176" rx="4.5" ry="4.5"/><ellipse cx="676" cy="224" rx="3.4" ry="3.4"/>
     <ellipse cx="742" cy="184" rx="4" ry="4"/><ellipse cx="800" cy="230" rx="3" ry="3"/>
@@ -1129,11 +1136,11 @@ window.CASE_ART.meridian = {
     <ellipse cx="706" cy="288" rx="4" ry="4"/><ellipse cx="838" cy="264" rx="3.4" ry="3.4"/>
     <ellipse cx="530" cy="322" rx="3" ry="3"/><ellipse cx="650" cy="330" rx="3.6" ry="3.6"/>
     <ellipse cx="780" cy="316" rx="3" ry="3"/>
-  </g>
-  <g stroke="#8fa4c0" stroke-width="1.6" opacity="0.45">
+  </g></g>
+  <g class="fx-drift-slow" style="--d:-7s"><g stroke="#8fa4c0" stroke-width="1.6" opacity="0.45">
     <path d="M462 200 q30 16 22 44"/><path d="M600 240 q28 18 18 46"/>
     <path d="M736 206 q30 18 20 46"/><path d="M846 300 q22 14 14 36"/>
-  </g>
+  </g></g>
   <!-- the track that is not there anymore -->
   <g stroke="#8fa4c0" stroke-width="3" opacity="0.22">
     <path d="M556 364 L602 320"/><path d="M676 364 L630 320"/>
@@ -1310,7 +1317,7 @@ window.CASE_ART.meridian = {
 
 <!-- a low table with the only lamp still burning at this end -->
 <g>
-  <rect x="700" y="380" width="230" height="200" fill="url(#mx-lounge-lamp)"/>
+  <rect class="fx-glow" x="700" y="380" width="230" height="200" fill="url(#mx-lounge-lamp)"/>
   <ellipse cx="792" cy="452" rx="66" ry="18" fill="#4a3524"/>
   <ellipse cx="792" cy="446" rx="66" ry="18" fill="#5c4229"/>
   <rect x="784" y="460" width="16" height="72" fill="#3b2f22"/>
@@ -1318,12 +1325,12 @@ window.CASE_ART.meridian = {
   <rect x="786" y="392" width="10" height="50" fill="#6b5326"/>
   <path d="M756 356 q36 -22 72 0 l-8 34 q-28 10 -56 0 z" fill="#8a5a24"/>
   <path d="M756 356 q36 -22 72 0 l-2 6 q-34 -16 -68 0 z" fill="#b3763a"/>
-  <ellipse cx="792" cy="392" rx="30" ry="9" fill="#ffd98a" opacity="0.7"/>
-  <ellipse cx="792" cy="404" rx="86" ry="30" fill="#d9a441" opacity="0.12"/>
+  <g class="fx-glow" style="--d:-1.2s"><ellipse cx="792" cy="392" rx="30" ry="9" fill="#ffd98a" opacity="0.7"/></g>
+  <g class="fx-glow" style="--d:-2.8s"><ellipse cx="792" cy="404" rx="86" ry="30" fill="#d9a441" opacity="0.12"/></g>
   <path d="M726 440 l40 -4 l2 12 l-40 4 z" fill="#e3d5ac"/>
   <path d="M732 432 l38 -4 l1 8 l-38 4 z" fill="#f0e7ce"/>
 </g>
-<rect width="1000" height="620" fill="url(#mx-lounge-glow)"/>
+<rect class="fx-glow" style="--d:-4s" width="1000" height="620" fill="url(#mx-lounge-glow)"/>
 
 <!-- CALLAHAN'S CAMEL OVERCOAT, on the brass hook by the door -->
 <g>
@@ -1423,8 +1430,8 @@ window.CASE_ART.meridian = {
 <g>
   <rect x="184" y="0" width="12" height="26" fill="#6b5326"/>
   <path d="M150 26 q40 -20 80 0 l-8 26 q-32 10 -64 0 z" fill="#8a6c30"/>
-  <ellipse cx="190" cy="54" rx="30" ry="9" fill="#ffd98a" opacity="0.75"/>
-  <rect x="20" y="30" width="340" height="330" fill="url(#mx-vest-lamp)"/>
+  <g class="fx-glow"><ellipse cx="190" cy="54" rx="30" ry="9" fill="#ffd98a" opacity="0.75"/></g>
+  <rect class="fx-glow" style="--d:-2.2s" x="20" y="30" width="340" height="330" fill="url(#mx-vest-lamp)"/>
 </g>
 <rect width="1000" height="620" fill="url(#mx-vest-glow)"/>
 
@@ -1595,8 +1602,8 @@ window.CASE_ART.meridian = {
   <!-- roof lamps, cold and few -->
   <rect x="740" y="56" width="8" height="20" fill="#3b2f22"/>
   <path d="M722 76 q22 -12 44 0 l-6 18 q-16 6 -32 0 z" fill="#4a4a44"/>
-  <ellipse cx="744" cy="96" rx="18" ry="6" fill="#c6d2e0" opacity="0.6"/>
-  <rect x="620" y="60" width="260" height="300" fill="url(#mx-vest-icelamp)"/>
+  <g class="fx-glow" style="--d:-3.3s"><ellipse cx="744" cy="96" rx="18" ry="6" fill="#c6d2e0" opacity="0.6"/></g>
+  <rect class="fx-glow" style="--d:-4.5s" x="620" y="60" width="260" height="300" fill="url(#mx-vest-icelamp)"/>
   <rect x="928" y="60" width="6" height="16" fill="#3b2f22"/>
   <ellipse cx="931" cy="82" rx="12" ry="5" fill="#c6d2e0" opacity="0.4"/>
   <!-- the far wall of trunks, stacked to the roof lamps -->
@@ -1749,17 +1756,17 @@ window.CASE_ART.meridian = {
 <!-- the pass: mountain shoulders, and the snow going sideways -->
 <path d="M0 250 L120 150 L210 236 L300 120 L430 260 L560 190 L700 268 L830 200 L1000 280 L1000 400 L0 400 Z" fill="#141b28"/>
 <path d="M0 300 L160 226 L320 300 L470 244 L640 314 L810 258 L1000 330 L1000 420 L0 420 Z" fill="#1b2436"/>
-<g stroke="#c6d2e0" stroke-width="1.6" opacity="0.28">
+<g class="fx-drift-slow"><g stroke="#c6d2e0" stroke-width="1.6" opacity="0.28">
   <path d="M40 90 l52 -18"/><path d="M180 60 l56 -16"/><path d="M330 110 l50 -18"/>
   <path d="M520 70 l54 -16"/><path d="M690 120 l52 -18"/><path d="M860 60 l56 -16"/>
   <path d="M120 190 l50 -16"/><path d="M420 170 l52 -16"/><path d="M760 200 l50 -16"/>
   <path d="M240 300 l48 -14"/><path d="M600 330 l50 -14"/><path d="M900 270 l48 -14"/>
-</g>
-<g fill="#e8eef4" opacity="0.5">
+</g></g>
+<g class="fx-drift" style="--d:-3s"><g fill="#e8eef4" opacity="0.5">
   <circle cx="140" cy="120" r="2.4"/><circle cx="300" cy="70" r="2"/><circle cx="470" cy="140" r="2.6"/>
   <circle cx="640" cy="80" r="2.2"/><circle cx="820" cy="150" r="2.4"/><circle cx="950" cy="100" r="2"/>
   <circle cx="220" cy="230" r="2"/><circle cx="560" cy="250" r="2.4"/><circle cx="880" cy="230" r="2.2"/>
-</g>
+</g></g>
 
 <!-- the pole line, marching off into the pass -->
 <g stroke="#141b28" stroke-width="7">
@@ -1878,13 +1885,13 @@ window.CASE_ART.meridian = {
   <rect x="108" y="140" width="56" height="46" rx="6" fill="#2b3037"/>
   <ellipse cx="136" cy="162" rx="18" ry="17" fill="#ffd98a"/>
   <ellipse cx="136" cy="162" rx="10" ry="9" fill="#fff4d6"/>
-  <circle cx="136" cy="162" r="86" fill="url(#mx-head-head)"/>
+  <circle class="fx-glow" cx="136" cy="162" r="86" fill="url(#mx-head-head)"/>
   <path d="M136 162 L400 300 L360 420 L136 190 Z" fill="#ffd98a" opacity="0.06"/>
   <!-- stack and the steam torn flat by the wind -->
   <rect x="106" y="96" width="62" height="46" rx="4" fill="#2b3037"/>
   <rect x="98" y="88" width="78" height="14" rx="4" fill="#3d444c"/>
-  <path d="M110 90 q60 -60 150 -46 q90 12 170 -14 q-60 46 -160 42 q-90 -4 -160 18 z" fill="#c6d2e0" opacity="0.16"/>
-  <path d="M120 72 q70 -44 160 -34 q-70 26 -160 34 z" fill="#c6d2e0" opacity="0.1"/>
+  <g class="fx-drift-slow"><path d="M110 90 q60 -60 150 -46 q90 12 170 -14 q-60 46 -160 42 q-90 -4 -160 18 z" fill="#c6d2e0" opacity="0.16"/></g>
+  <g class="fx-drift-slow" style="--d:-8s"><path d="M120 72 q70 -44 160 -34 q-70 26 -160 34 z" fill="#c6d2e0" opacity="0.1"/></g>
   <!-- boiler bands, handrail, and the cab -->
   <g fill="#3d444c">
     <rect x="40" y="356" width="196" height="10"/><rect x="40" y="410" width="196" height="10"/>
@@ -1903,8 +1910,8 @@ window.CASE_ART.meridian = {
   <path d="M270 268 q16 -10 32 0 l4 46 l-40 0 z" fill="#14171b"/>
   <ellipse cx="286" cy="256" rx="11" ry="12" fill="#14171b"/>
   <rect x="252" y="356" width="156" height="70" fill="#191d22"/>
-  <path d="M264 372 q34 -18 60 6 q-26 26 -60 8 z" fill="#d9a441" opacity="0.55"/>
-  <path d="M272 380 q22 -12 40 4 q-18 16 -40 6 z" fill="#ffd98a" opacity="0.6"/>
+  <g class="fx-ember"><path d="M264 372 q34 -18 60 6 q-26 26 -60 8 z" fill="#d9a441" opacity="0.55"/></g>
+  <g class="fx-ember" style="--d:-1.4s"><path d="M272 380 q22 -12 40 4 q-18 16 -40 6 z" fill="#ffd98a" opacity="0.6"/></g>
   <!-- the drivers, most of them under the drift -->
   <g fill="#191d22">
     <circle cx="132" cy="452" r="52"/><circle cx="252" cy="452" r="52"/><circle cx="372" cy="452" r="46"/>
@@ -1961,10 +1968,10 @@ window.CASE_ART.meridian = {
   <g>
     <path d="M552 520 l40 0 l-4 -14 l-32 0 z" fill="#8a6c30"/>
     <rect x="556" y="470" width="32" height="42" rx="4" fill="#ffd98a"/>
-    <rect x="560" y="474" width="24" height="34" rx="3" fill="#fff4d6"/>
+    <rect class="fx-flame" x="560" y="474" width="24" height="34" rx="3" fill="#fff4d6"/>
     <path d="M556 470 l32 0 l-4 -14 l-24 0 z" fill="#6b5326"/>
     <rect x="566" y="446" width="12" height="12" rx="4" fill="none" stroke="#6b5326" stroke-width="3"/>
-    <circle cx="572" cy="494" r="76" fill="url(#mx-head-lant)"/>
+    <circle class="fx-glow" style="--d:-1.9s" cx="572" cy="494" r="76" fill="url(#mx-head-lant)"/>
   </g>
   <g>
     <path d="M812 380 l10 -4 l52 148 l-10 4 z" fill="#5c4229"/>
@@ -1989,7 +1996,7 @@ window.CASE_ART.meridian = {
   </g>
   <path d="M228 520 l-14 52 l14 4 l14 -50 z" fill="#20252b"/>
   <path d="M204 570 l24 0 l-2 26 l-20 0 z" fill="#8a6c30"/>
-  <circle cx="216" cy="580" r="34" fill="url(#mx-head-lant)"/>
+  <circle class="fx-flame" style="--d:-1.3s" cx="216" cy="580" r="34" fill="url(#mx-head-lant)"/>
   <g fill="#c6d2e0" opacity="0.22">
     <path d="M272 480 q22 -12 34 -2 q-16 10 -34 2 z"/>
   </g>
@@ -2010,13 +2017,13 @@ window.CASE_ART.meridian = {
 </g>
 
 <!-- steam bleeding sideways along the ground -->
-<g fill="#c6d2e0" opacity="0.14">
+<g class="fx-drift-slow" style="--d:-5s"><g fill="#c6d2e0" opacity="0.14">
   <path d="M60 430 q90 -30 180 -6 q80 22 160 0 q-90 34 -180 18 q-90 -16 -160 -12 z"/>
   <path d="M120 470 q80 -20 150 -2 q-80 22 -150 2 z"/>
-</g>
-<g fill="#c6d2e0" opacity="0.1">
+</g></g>
+<g class="fx-drift" style="--d:-2s"><g fill="#c6d2e0" opacity="0.1">
   <path d="M240 396 q110 -34 220 -4 q-110 28 -220 4 z"/>
-</g>
+</g></g>
 
 <!-- boot tracks in the fresh snow -->
 <g fill="#8fa4c0" opacity="0.45">

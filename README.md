@@ -62,11 +62,16 @@ Adding a fifth case is just another `window.CASES.push({...})` file following th
 
 ### Debug boot
 
-Append a hash to the URL to jump straight to a screen (skips saving):
+Append a hash beginning with `debug` to jump straight to a screen. The `debug`
+token is required — otherwise a shared link could hand someone every clue in a
+murder mystery, and silently disable their saving. Debug boots never write to
+storage.
 
 ```
-#case:blackwood                 game screen, fresh
-#case:blackwood,demo,board      evidence pre-collected, corkboard open
-#case:meridian,talk:corliss     interrogation open
-#brief:orpheum                  briefing screen
+#debug,case:blackwood                 game screen, fresh
+#debug,case:blackwood,demo,board      evidence pre-collected, corkboard open
+#debug,case:meridian,talk:corliss     interrogation open
+#debug,case:blackwood,demo,acc:4      the charge sheet
+#debug,brief:orpheum                  briefing screen
+#debug,case:blackwood,fa              Persian edition
 ```

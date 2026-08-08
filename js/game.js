@@ -143,14 +143,27 @@
     return out;
   }
 
-  /* ---------- persistence ---------- */
+  /* ---------- persistence ----------
+     Every write is guarded: private-browsing and full-quota both throw on
+     setItem, and an uncaught throw here would abort the action that triggered
+     it (a search would spend time and then render nothing). Play continues in
+     memory; the player is told once. */
+  let storageWarned = false;
+  function storageFailed() {
+    if (storageWarned) return;
+    storageWarned = true;
+    toast("clock", T("saveFailed"), T("saveFailedBody"));
+  }
   function saveGame() {
-    if (G && !DEBUG) localStorage.setItem(SAVE_KEY, JSON.stringify(G));
+    if (!G || DEBUG) return;
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(G)); } catch (e) { storageFailed(); }
   }
   function loadGame() {
     try { return JSON.parse(localStorage.getItem(SAVE_KEY)); } catch (e) { return null; }
   }
-  function clearSave() { localStorage.removeItem(SAVE_KEY); }
+  function clearSave() {
+    try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* nothing to clear */ }
+  }
   function getResults() {
     try { return JSON.parse(localStorage.getItem(RESULTS_KEY)) || {}; } catch (e) { return {}; }
   }
@@ -159,7 +172,7 @@
     const prev = r[caseId];
     const order = { perfect: 3, partial: 2, wrong: 1, timeout: 0 };
     if (!prev || order[res.tier] > order[prev.tier]) { r[caseId] = res; }
-    localStorage.setItem(RESULTS_KEY, JSON.stringify(r));
+    try { localStorage.setItem(RESULTS_KEY, JSON.stringify(r)); } catch (e) { storageFailed(); }
   }
 
   /* ---------- time ---------- */
@@ -192,6 +205,7 @@
     if (!G || G.over) return;
     G.elapsed = Math.min(C.timeBudget, G.elapsed + min);
     renderClock();
+    costChip(min);
     const left = timeLeft();
     if (left <= 120 && !warned120) { warned120 = true; toast("clock", T("toastNightOld"), T("toastNightOldBody")); }
     if (left <= 60 && !warned60) { warned60 = true; toast("clock", T("toastOneHour"), T("toastOneHourBody")); }
@@ -225,6 +239,23 @@
     return { skip: () => { stopped = true; node.textContent = text; if (done) done(); } };
   }
 
+  /* ---------- feedback: the cost of a minute ----------
+     The clock is the whole game, and it used to change in silence behind a
+     modal. Spending now leaves a mark where the player is looking. */
+  let ptr = { x: 0, y: 0 };
+  document.addEventListener("pointerdown", (e) => { ptr = { x: e.clientX, y: e.clientY }; }, true);
+  function costChip(min) {
+    const chip = el("div", "cost-chip", "−" + T("minutesShort", min));
+    const x = ptr.x || window.innerWidth / 2;
+    const y = ptr.y || window.innerHeight / 2;
+    chip.style.left = x + "px";
+    chip.style.top = y + "px";
+    document.body.appendChild(chip);
+    setTimeout(() => chip.remove(), 1100);
+    const clock = $("#topbar-clock");
+    if (clock) { clock.classList.remove("ticked"); void clock.offsetWidth; clock.classList.add("ticked"); }
+  }
+
   /* ---------- toasts ---------- */
   function toast(kind, title, body) {
     const root = $("#toast-root");
@@ -248,8 +279,12 @@
     overlay.appendChild(box);
     root.appendChild(overlay);
     const returnTo = document.activeElement;
+    let closing = false;
     const close = () => {
-      overlay.remove();
+      if (closing) return;
+      closing = true;
+      overlay.classList.add("is-closing");
+      setTimeout(() => overlay.remove(), REDUCED ? 0 : 150);
       document.removeEventListener("keydown", keys, true);
       if (returnTo && returnTo.focus) returnTo.focus();
     };
@@ -466,6 +501,7 @@
       if (!pos) return;
       const state = hotspotState(h);
       const pin = el("button", "scene-pin pin-" + state);
+      pin.dataset.hs = h.id;
       pin.style.left = pos.x + "%";
       pin.style.top = pos.y + "%";
       pin.innerHTML = '<span class="scene-pin-dot"></span><span class="scene-pin-label">' + esc(h.name) + "</span>";
@@ -595,6 +631,9 @@
     const fresh = grantClues(h.gives || []);
     renderMap();
     renderLocation();
+    // renderLocation has already run; ping the freshly redrawn pin
+    const pinEl = document.querySelector('.scene-pin[data-hs="' + h.id + '"]');
+    if (pinEl) pinEl.classList.add("just-found");
     showDiscovery(loc, h, fresh);
     saveGame();
   }
@@ -626,25 +665,44 @@
     m.box.addEventListener("click", (e) => { if (e.target.id !== "disc-ok") t.skip(); });
   }
 
+  // clue ids logged since the player last looked at the Evidence tab
+  let freshClues = [];
   function grantClues(ids) {
     const fresh = [];
     ids.forEach((cid) => {
       if (!G.clues.includes(cid)) { G.clues.push(cid); fresh.push(cid); }
     });
     if (fresh.length) {
+      freshClues = freshClues.concat(fresh);
       fresh.forEach((cid) => toast("clue", T("toastEvidence"), C.clues[cid] ? C.clues[cid].name : cid));
       checkDeductions();
       renderJournal();
+      bump("count-evidence");
+      flagTab("evidence");
     }
     return fresh;
   }
+  function bump(id) {
+    const n = $("#" + id);
+    if (!n) return;
+    n.classList.remove("bumped"); void n.offsetWidth; n.classList.add("bumped");
+  }
+  // mark a journal tab as holding something unread, unless it is already open
+  function flagTab(name) {
+    const tab = document.querySelector('.jtab[data-tab="' + name + '"]');
+    if (tab && !tab.classList.contains("active")) tab.classList.add("flagged");
+  }
 
+  let newDeductions = [];   // revealed with the string-draw next time the board renders
   function checkDeductions() {
     C.deductions.forEach((d) => {
       if (G.deductions.includes(d.id)) return;
       if (d.requires.every((cid) => G.clues.includes(cid))) {
         G.deductions.push(d.id);
+        newDeductions.push(d.id);
         toast("deduction", T("toastDeduction", d.name), d.text.length > 110 ? d.text.slice(0, 107) + "…" : d.text);
+        bump("count-board");
+        flagTab("board");
       }
     });
   }
@@ -758,13 +816,23 @@
     const t = $("#tab-evidence");
     t.innerHTML = "";
     if (!G.clues.length) {
-      t.appendChild(el("p", "empty-note", T("noEvidenceYet")));
+      // an empty panel taught nothing; this is the only place the rules exist
+      const intro = el("div", "evidence-empty");
+      intro.innerHTML =
+        '<p class="empty-note">' + T("noEvidenceYet") + "</p>" +
+        '<div class="legend"><h5>' + T("legendTitle") + "</h5><ul>" +
+        '<li><span class="legend-dot legend-open"></span>' + T("legendPin") + "</li>" +
+        '<li><span class="legend-dot legend-done"></span>' + T("legendDone") + "</li>" +
+        '<li><span class="legend-dot legend-chip">VB</span>' + T("legendChip") + "</li>" +
+        "</ul>" +
+        '<p class="legend-cost">' + T("legendCost", COST.search, COST.ask, COST.travel) + "</p></div>";
+      t.appendChild(intro);
       return;
     }
     G.clues.forEach((cid, i) => {
       const c = C.clues[cid];
       if (!c) return;
-      const card = el("article", "clue-card");
+      const card = el("article", "clue-card" + (freshClues.includes(cid) ? " is-fresh" : ""));
       card.innerHTML =
         '<span class="exhibit">' + T("exhibit", exhibitLetter(i)) + "</span>" +
         "<h4>" + esc(c.name) + "</h4>" +
@@ -808,8 +876,11 @@
       const c = C.clues[cid];
       if (!c) return;
       const pin = el("div", "pin-card");
+      pin.style.setProperty("--i", Math.min(i, 12));
       pin.innerHTML = '<span class="pin"></span><span class="pin-exhibit">' + exhibitLetter(i) + "</span><strong>" + esc(c.name) + "</strong>";
       pin.title = c.desc;
+      // the description was title-only, so keyboard and touch never reached it
+      pin.setAttribute("aria-label", c.name + " — " + c.desc);
       pinsWrap.appendChild(pin);
       pinMap[cid] = pin;
     });
@@ -821,11 +892,12 @@
       const made = G.deductions.includes(d.id);
       const card = el("div", "ded-card" + (made ? " made" : " unmade"));
       if (made) {
+        if (newDeductions.includes(d.id)) card.classList.add("is-new");
         card.innerHTML = '<span class="pin pin-red"></span><span class="ded-label">' + T("deductionLabel") + '</span><h4>' + esc(d.name) + "</h4><p>" + esc(d.text) + "</p>";
         dedMap[d.id] = card;
       } else {
         const have = d.requires.filter((r) => G.clues.includes(r)).length;
-        card.innerHTML = '<span class="ded-label">' + T("unformedLabel") + '</span><h4>؟ ؟ ؟</h4><p class="empty-note">' +
+        card.innerHTML = '<span class="ded-label">' + T("unformedLabel") + '</span><h4>' + T("unformedTitle") + '</h4><p class="empty-note">' +
           T("threads", have, d.requires.length) + "</p>";
       }
       dedWrap.appendChild(card);
@@ -860,10 +932,17 @@
           path.setAttribute("d", "M" + px + "," + py + " Q" + (px + dx) / 2 + "," + midY + " " + dx + "," + dy);
           path.setAttribute("class", "string");
           svg.appendChild(path);
+          // a newly-closed deduction ties its own string
+          if (newDeductions.includes(d.id) && !REDUCED && path.getTotalLength) {
+            const len = path.getTotalLength();
+            path.style.setProperty("--len", len);
+            path.style.strokeDasharray = len;
+            path.classList.add("drawing");
+          }
         });
       });
     };
-    requestAnimationFrame(draw);
+    requestAnimationFrame(() => { draw(); newDeductions = []; });
     window.addEventListener("resize", draw, { passive: true });
   }
 
@@ -882,11 +961,16 @@
     m.box.querySelector("#acc-give").addEventListener("click", () => { m.close(); finishCase("timeout", null, null, []); });
   }
 
-  function openAccuse(forced) {
+  function openAccuse(forced, startStep) {
     if (G.over) return;
     const m = openModal("modal-accuse");
     if (forced) m.overlay.dataset.locked = "1";
     const state = { suspect: null, motive: null, evidence: [] };
+    if (startStep > 1) {   // inspection entry: prefill so the step can render
+      state.suspect = C.suspects.filter((x) => !x.witness)[0].id;
+      state.motive = C.motiveOptions[0].id;
+      if (startStep > 3) state.evidence = G.clues.slice(0, 3);
+    }
     const render = (step) => {
       if (step === 1) {
         m.box.innerHTML =
@@ -917,35 +1001,69 @@
           list.appendChild(b);
         });
         m.box.querySelector("#acc-back").addEventListener("click", () => render(1));
-      } else {
-        const s = C.suspects.find((x) => x.id === state.suspect);
+      } else if (step === 3) {
         m.box.innerHTML =
           '<div class="acc-kicker">' + T("accStep3") + "</div>" +
           "<h3 class='acc-title'>" + T("whatProves") + " <span class='acc-sub'>" + T("chooseThree") + "</span></h3>" +
           '<div class="acc-evidence" id="acc-ev"></div>' +
           '<div class="acc-actions">' +
+          '<span class="acc-count" id="acc-count" aria-live="polite"></span>' +
           '<button class="btn btn-quiet" id="acc-back">' + T("back") + "</button>" +
-          '<button class="btn btn-accuse-final" id="acc-final">' + T("accuseFinal", esc(s.name)) + "</button></div>";
+          '<button class="btn btn-accuse-final" id="acc-review">' + T("reviewCharge") + "</button></div>";
         const evBox = m.box.querySelector("#acc-ev");
-        const finalBtn = m.box.querySelector("#acc-final");
+        const reviewBtn = m.box.querySelector("#acc-review");
+        const countEl = m.box.querySelector("#acc-count");
+        // With no evidence at all the player may still proceed — otherwise the
+        // deadline could strand them with no way to finish the case.
+        const need = G.clues.length ? 1 : 0;
+        const sync = () => {
+          countEl.textContent = T("chosenCount", state.evidence.length, 3);
+          reviewBtn.disabled = state.evidence.length < need;
+        };
         if (!G.clues.length) evBox.appendChild(el("p", "empty-note", T("noEvidenceWarn")));
         G.clues.forEach((cid, i) => {
           const c = C.clues[cid];
           if (!c) return;
           const b = el("button", "acc-clue");
+          b.setAttribute("aria-pressed", "false");
           b.innerHTML = "<span class='exhibit'>" + exhibitLetter(i) + "</span> " + esc(c.name);
           b.addEventListener("click", () => {
             const at = state.evidence.indexOf(cid);
-            if (at >= 0) { state.evidence.splice(at, 1); b.classList.remove("picked"); }
-            else if (state.evidence.length < 3) { state.evidence.push(cid); b.classList.add("picked"); }
+            if (at >= 0) { state.evidence.splice(at, 1); b.classList.remove("picked"); b.setAttribute("aria-pressed", "false"); }
+            else if (state.evidence.length < 3) { state.evidence.push(cid); b.classList.add("picked"); b.setAttribute("aria-pressed", "true"); }
+            sync();
           });
+          if (state.evidence.includes(cid)) { b.classList.add("picked"); b.setAttribute("aria-pressed", "true"); }
           evBox.appendChild(b);
         });
+        sync();
         m.box.querySelector("#acc-back").addEventListener("click", () => render(2));
-        finalBtn.addEventListener("click", () => { m.close(); resolveAccusation(state); });
+        reviewBtn.addEventListener("click", () => render(4));
+      } else {
+        // The charge sheet — the last reversible moment, written as a document.
+        const s = C.suspects.find((x) => x.id === state.suspect);
+        const mo = (C.motiveOptions.find((x) => x.id === state.motive) || {}).label || "";
+        const exhibits = state.evidence
+          .map((cid) => T("exhibit", exhibitLetter(G.clues.indexOf(cid))) + " — " + esc(C.clues[cid].name));
+        m.box.innerHTML =
+          '<div class="acc-kicker">' + T("chargeKicker") + "</div>" +
+          "<h3 class='acc-title'>" + T("chargeTitle") + "</h3>" +
+          '<div class="charge-sheet">' +
+          "<p>" + T("chargeIntro", esc(s.name), esc(s.role)) + "</p>" +
+          "<p>" + T("chargeMotive", esc(mo)) + "</p>" +
+          (exhibits.length
+            ? "<p>" + T("chargeEvidence") + "</p><ul class='charge-exhibits'><li>" + exhibits.join("</li><li>") + "</li></ul>"
+            : "<p>" + T("chargeNoEvidence") + "</p>") +
+          '<p class="charge-warn">' + T("chargeWarn") + "</p>" +
+          "</div>" +
+          '<div class="acc-actions">' +
+          '<button class="btn btn-quiet" id="acc-back">' + T("goBack") + "</button>" +
+          '<button class="btn btn-accuse-final" id="acc-final">' + T("signWarrant") + "</button></div>";
+        m.box.querySelector("#acc-back").addEventListener("click", () => render(3));
+        m.box.querySelector("#acc-final").addEventListener("click", () => { m.close(); resolveAccusation(state); });
       }
     };
-    render(1);
+    render(startStep || 1);
   }
 
   function resolveAccusation(state) {
@@ -1032,17 +1150,38 @@
     $("#btn-accuse").addEventListener("click", () => openAccuse(false));
     $("#btn-desk").addEventListener("click", () => { saveGame(); renderTitle(); });
     document.querySelectorAll(".jtab").forEach((tab) => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".jtab").forEach((t) => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
-        tab.classList.add("active");
-        tab.setAttribute("aria-selected", "true");
-        document.querySelectorAll(".tab-panel").forEach((p) => { p.hidden = true; p.classList.remove("active"); });
-        const panel = $("#tab-" + tab.dataset.tab);
-        panel.hidden = false;
-        panel.classList.add("active");
-        if (tab.dataset.tab === "board") renderBoardTab();
-      });
+      tab.addEventListener("click", () => openTab(tab.dataset.tab));
     });
+    // 1 / 2 / 3 jump between journal tabs while playing
+    document.addEventListener("keydown", (e) => {
+      if ($("#screen-game").hidden) return;
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      if (document.querySelector(".overlay")) return;
+      const t = e.target;
+      if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+      const map = { "1": "evidence", "2": "people", "3": "board" };
+      if (map[e.key]) { e.preventDefault(); openTab(map[e.key], true); }
+    });
+  }
+
+  function openTab(name, focusTab) {
+    const tab = document.querySelector('.jtab[data-tab="' + name + '"]');
+    if (!tab) return;
+    document.querySelectorAll(".jtab").forEach((t) => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+    tab.classList.add("active");
+    tab.classList.remove("flagged");
+    tab.setAttribute("aria-selected", "true");
+    document.querySelectorAll(".tab-panel").forEach((p) => { p.hidden = true; p.classList.remove("active"); });
+    const panel = $("#tab-" + name);
+    panel.hidden = false;
+    panel.classList.add("active");
+    if (name === "board") renderBoardTab();
+    if (name === "evidence" && freshClues.length) {
+      // the player has now seen them; retire the markers on the next render
+      freshClues = [];
+      setTimeout(renderEvidenceTab, 900);
+    }
+    if (focusTab) tab.focus();
   }
 
   /* ---------- boot ---------- */
@@ -1050,6 +1189,10 @@
   // flags: demo, board, people, talk:<suspectId>, accuse, fa (force Persian)
   function bootFromHash() {
     const parts = location.hash.slice(1).split(",");
+    // Gated behind an explicit token: a bare #case:… URL used to hand out every
+    // clue in the mystery and silently disable saving.
+    if (parts[0] !== "debug") return false;
+    parts.shift();
     if (parts.includes("fa")) setLang("fa", false);
     if (parts.includes("en")) setLang("en", false);
     const head = (parts[0] || "").match(/^(case|brief):([a-z0-9]+)$/);
@@ -1079,6 +1222,8 @@
         if (p) openInterrogation(p.id);
       } else if (f === "accuse") {
         openAccuse(false);
+      } else if (f.indexOf("acc:") === 0) {
+        openAccuse(false, +f.slice(4) || 1);
       } else if (f === "scene") {
         const loc = locById(G.loc), sc = sceneFor(G.loc);
         if (sc) openSceneViewer(loc, sc);

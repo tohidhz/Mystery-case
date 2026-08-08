@@ -4,9 +4,6 @@
 window.CALLOWAY_UI = {
   en: {
     dir: "ltr",
-    langName: "English",
-    otherLangName: "فارسی",
-    switchTo: "Switch to Persian",
     numbers: ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"],
 
     agency: "CALLOWAY &amp; ASSOCIATES · CONFIDENTIAL INQUIRIES · EST. 1924",
@@ -73,7 +70,6 @@ window.CALLOWAY_UI = {
     zoomIn: "Zoom in",
     zoomOut: "Zoom out",
     zoomReset: "Fit",
-    unsearchedMark: "Not yet examined",
 
     done: "Done",
     witnessLong: "WITNESS — NOT A SUSPECT",
@@ -118,7 +114,6 @@ window.CALLOWAY_UI = {
     chooseThree: "Choose up to three exhibits.",
     notYet: "Not yet — keep digging",
     back: "Back",
-    accuseFinal: "Accuse %1",
     noEvidenceWarn: "You hold no evidence. This will not go well — but you may still point a finger.",
     chosenCount: "%1 of %2 chosen",
     reviewCharge: "Review the charge",
@@ -134,8 +129,6 @@ window.CALLOWAY_UI = {
     unformedTitle: "? ? ?",
     saveFailed: "Progress can\u2019t be saved",
     saveFailedBody: "This browser is blocking storage. The case will play out, but it won\u2019t be here when you come back.",
-    soundOn: "Sound on",
-    soundOff: "Sound off",
     settings: "Settings",
     rules: "How to play",
     rulesTitle: "How to play",
@@ -161,7 +154,6 @@ window.CALLOWAY_UI = {
     caseFileFree: "Reading the file costs you nothing.",
     goToRoom: "go to %1 · %2m",
     searchProgress: "%1 of %2 examined",
-    alreadyHere: "you are here",
 
     finalReport: "CASE FILE No. %1 — FINAL REPORT",
     youAccused: "You accused <strong>%1</strong>%2.",
@@ -190,9 +182,6 @@ window.CALLOWAY_UI = {
 
   fa: {
     dir: "rtl",
-    langName: "فارسی",
-    otherLangName: "English",
-    switchTo: "تغییر زبان به انگلیسی",
     numbers: ["هیچ", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت"],
 
     agency: "کالووی و شرکا · تحقیقاتِ محرمانه · تأسیس ۱۹۲۴",
@@ -259,7 +248,6 @@ window.CALLOWAY_UI = {
     zoomIn: "بزرگ‌نمایی",
     zoomOut: "کوچک‌نمایی",
     zoomReset: "اندازهٔ اصلی",
-    unsearchedMark: "هنوز وارسی نشده",
 
     done: "تمام",
     witnessLong: "شاهد — مظنون نیست",
@@ -304,7 +292,6 @@ window.CALLOWAY_UI = {
     chooseThree: "تا سه مدرک انتخاب کنید.",
     notYet: "هنوز نه — بیشتر می‌گردم",
     back: "بازگشت",
-    accuseFinal: "متهم کردنِ %1",
     noEvidenceWarn: "دستتان خالی است. این‌طور به جایی نمی‌رسد — اما باز هم می‌توانید انگشت اتهام را نشانه بگیرید.",
     chosenCount: "%1 از %2 انتخاب شد",
     reviewCharge: "مرور کیفرخواست",
@@ -320,8 +307,6 @@ window.CALLOWAY_UI = {
     unformedTitle: "؟ ؟ ؟",
     saveFailed: "چیزی ذخیره نمی‌شود",
     saveFailedBody: "این مرورگر اجازهٔ ذخیره نمی‌دهد. پرونده تا آخر پیش می‌رود، اما وقتی برگردید دیگر اینجا نیست.",
-    soundOn: "صدا روشن",
-    soundOff: "صدا خاموش",
     settings: "تنظیمات",
     rules: "راهنمای بازی",
     rulesTitle: "راهنمای بازی",
@@ -347,7 +332,6 @@ window.CALLOWAY_UI = {
     caseFileFree: "خواندنِ پرونده وقت نمی‌برد.",
     goToRoom: "رفتن به %1 · %2 دقیقه",
     searchProgress: "%1 از %2 وارسی شد",
-    alreadyHere: "همین‌جایید",
 
     finalReport: "پروندهٔ شمارهٔ %1 — گزارش نهایی",
     youAccused: "<strong>%1</strong> را متهم کردید%2.",

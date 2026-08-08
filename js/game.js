@@ -1114,11 +1114,12 @@
         "<em>" + esc(p.role) + " · " + digits(p.age) + " · " + T("inRoom", esc(loc ? loc.name : "?")) + "</em></div></header>" +
         "<p>" + esc(p.blurb) + "</p>" +
         (notes ? '<ul class="person-notes">' + notes + "</ul>" : '<p class="empty-note">' + T("nothingOnRecord") + "</p>");
-      // reading about someone should be a way to reach them
+      // reading about someone should be a way to reach them — and if you are
+      // already standing there, a way to question them, not a dead control
       const go = el("button", "btn btn-quiet person-go");
       if (here) {
-        go.textContent = T("alreadyHere");
-        go.disabled = true;
+        go.textContent = T("questionCost", COST.ask);
+        go.addEventListener("click", () => openInterrogation(p.id));
       } else {
         go.textContent = T("goToRoom", loc ? loc.name : "?", COST.travel);
         go.addEventListener("click", () => { travelTo(p.location); openTab("evidence"); });

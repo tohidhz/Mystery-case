@@ -1609,13 +1609,46 @@ path.string {
 #screen-title { position: relative; }
 
 /* Persian edition: Naskh for prose, Vazirmatn for labels and figures */
+/* Persian typography.
+   One family in many weights rather than a Latin-style serif/sans pair:
+   Persian doesn't carry that contrast, and the Arabic-naskh face we used
+   before drew Arabic kaf and yeh, which reads as foreign to a Persian eye.
+   Persian also needs more size and more air than Latin at the same nominal
+   scale, and it must never be letter-spaced — tracking severs the joins. */
 body.lang-fa {
   --font-type: "Vazirmatn", "Tahoma", sans-serif;
-  --font-body: "Noto Naskh Arabic", "Vazirmatn", serif;
+  --font-body: "Vazirmatn", "Tahoma", sans-serif;
   --font-mono: "Vazirmatn", "Tahoma", sans-serif;
-  font-size: 16px;
-  line-height: 1.95;
+  font-size: 17.5px;
+  line-height: 2.05;
+  font-weight: 300;
+  letter-spacing: 0;
 }
+body.lang-fa * { letter-spacing: 0 !important; }
+body.lang-fa strong, body.lang-fa b { font-weight: 700; }
+/* display and labels earn their weight instead of a second family */
+body.lang-fa .game-title,
+body.lang-fa .brief-title,
+body.lang-fa .dossier-title,
+body.lang-fa .acc-title,
+body.lang-fa .disc-title { font-weight: 800; }
+body.lang-fa .agency-line,
+body.lang-fa .dossier-tab,
+body.lang-fa .loc-kicker,
+body.lang-fa .loc-subhead,
+body.lang-fa .topics-label,
+body.lang-fa .acc-kicker,
+body.lang-fa .disc-kicker,
+body.lang-fa .ded-label,
+body.lang-fa .exhibit,
+body.lang-fa .brief-head { font-weight: 600; }
+body.lang-fa .btn, body.lang-fa .jtab { font-weight: 500; }
+body.lang-fa .brief-p,
+body.lang-fa .dlg-a-p,
+body.lang-fa .loc-desc,
+body.lang-fa .clue-card p,
+body.lang-fa .ded-card p { font-weight: 300; line-height: 2.15; }
+body.lang-fa .brief-epigraph { font-weight: 400; font-style: normal; }
 body.lang-fa .game-title { font-weight: 700; letter-spacing: 0; }
 body.lang-fa .agency-line,
 body.lang-fa .dossier-tab,
@@ -1627,7 +1660,7 @@ body.lang-fa .acc-kicker,
 body.lang-fa .disc-kicker { letter-spacing: 0; }
 body.lang-fa .brief-p,
 body.lang-fa .dlg-a-p,
-body.lang-fa .loc-desc { text-align: justify; }
+body.lang-fa .loc-desc { text-align: start; text-wrap: pretty; }
 body.lang-fa .clock-time { letter-spacing: 0; }
 
 /* RTL flips for the handful of physically-placed pieces */
@@ -2128,8 +2161,7 @@ body[data-case="meridian"] .atmos-b {
   color: var(--kraft);
 }
 .btn-chip:hover { border-color: var(--kraft); color: var(--paper); }
-.js-sound.is-muted { color: var(--ink-soft); border-color: rgba(85, 73, 58, .5); }
-#screen-title .js-sound {
+#screen-title .title-settings {
   position: absolute;
   top: 1.2rem;
   inset-inline-start: 1.4rem;
@@ -2143,7 +2175,7 @@ body[data-case="meridian"] .atmos-b {
 }
 @media (max-width: 640px) {
   #grain { opacity: .035; }
-  #screen-title .js-sound { position: static; display: block; margin: 0 auto .6rem; }
+  #screen-title .title-settings { position: static; display: block; margin: 0 auto .6rem; }
 }
 
 /* ============================================================
@@ -2266,4 +2298,51 @@ body[data-case="meridian"] .atmos-b {
 @media (max-width: 560px) {
   #btn-casefile { font-size: 0; padding-inline: .7em; }         /* keep the control, drop the label */
   #btn-casefile::before { content: "☰"; font-size: .95rem; }
+}
+
+/* --- settings: preferences, not actions, so they live behind one gear --- */
+.modal-settings { width: min(520px, 100%); }
+.set-list { margin: 1.2rem 0 1.6rem; }
+.set-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(85, 73, 58, .22);
+}
+.set-row:first-child { border-top: none; padding-top: .2rem; }
+.set-label {
+  font-family: var(--font-type);
+  font-size: .95rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.set-label em {
+  display: block;
+  margin-top: .3rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .82rem;
+  color: #6b5636;
+  max-width: 34ch;
+}
+.set-opts { display: flex; gap: .4rem; flex: none; }
+.set-opt {
+  font-family: var(--font-type);
+  font-size: .8rem;
+  padding: .5em 1.1em;
+  min-height: 40px;
+  border: 1px solid rgba(85, 73, 58, .4);
+  border-radius: 3px;
+  color: #6b5636;
+  background: rgba(255, 255, 255, .3);
+  transition: background-color var(--dur) var(--ease-out-quart), color var(--dur) var(--ease-out-quart), border-color var(--dur) var(--ease-out-quart);
+}
+.set-opt:hover { color: var(--ink); border-color: var(--ink-soft); }
+.set-opt.is-on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
 }

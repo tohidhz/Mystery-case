@@ -61,11 +61,9 @@
     $("#btn-desk").title = T("deskTitle");
     $("#btn-accuse").textContent = T("accuse");
     $("#btn-casefile").textContent = T("caseFile");
-    const lb = $("#btn-lang");
-    lb.textContent = T("otherLangName");
-    lb.setAttribute("lang", LANG === "fa" ? "en" : "fa");
-    lb.title = T("switchTo");
-    document.querySelectorAll(".js-sound").forEach(syncSound);
+    const gear = $("#btn-settings");
+    gear.title = T("settings");
+    gear.setAttribute("aria-label", T("settings"));
     const pane = document.querySelector(".pane-label");
     if (pane) pane.textContent = T("premises");
     const tabNames = { evidence: "tabEvidence", people: "tabPeople", board: "tabBoard" };
@@ -332,23 +330,52 @@
     return { box, close, overlay };
   }
 
-  // one control, two homes (topbar and desk); they stay in sync
-  function syncSound(btn) {
-    const off = SFX.isMuted();
-    btn.textContent = off ? "♪̸" : "♪";
-    btn.classList.toggle("is-muted", off);
-    btn.setAttribute("aria-pressed", off ? "false" : "true");
-    btn.setAttribute("aria-label", off ? T("soundOff") : T("soundOn"));
-    btn.title = off ? T("soundOff") : T("soundOn");
+  function setSound(on) {
+    SFX.setMuted(!on);
+    if (on) { SFX.unlock(); if (C && !$("#screen-game").hidden) SFX.room(C.id); SFX.play("paper"); }
+    else { SFX.leaveRoom(); }
   }
-  function wireSound(btn) {
-    syncSound(btn);
-    btn.addEventListener("click", () => {
-      const nowMuted = !SFX.isMuted();
-      SFX.setMuted(nowMuted);
-      if (!nowMuted) { SFX.unlock(); if (C && !$("#screen-game").hidden) SFX.room(C.id); SFX.play("paper"); }
-      else { SFX.leaveRoom(); }
-      document.querySelectorAll(".js-sound").forEach(syncSound);
+
+  // Sound and language used to sit loose in the bar. They are preferences,
+  // not actions, so they live behind one gear now.
+  function openSettings() {
+    const m = openModal("modal-settings");
+    const row = (key, hint, opts) =>
+      '<div class="set-row"><div class="set-label">' + T(key) + "<em>" + T(hint) + "</em></div>" +
+      '<div class="set-opts">' + opts + "</div></div>";
+    const seg = (name, items) => items.map((it) =>
+      '<button class="set-opt' + (it.on ? " is-on" : "") + '" data-set="' + name + '" data-val="' + it.val +
+      '" role="radio" aria-checked="' + (it.on ? "true" : "false") + '"' + (it.lang ? ' lang="' + it.lang + '"' : "") +
+      ">" + esc(it.label) + "</button>").join("");
+    const soundOn = !SFX.isMuted();
+    m.box.innerHTML =
+      '<div class="acc-kicker">' + T("settingsTitle") + "</div>" +
+      '<div class="set-list">' +
+      row("settingSound", "settingSoundHint", seg("sound", [
+        { val: "on", label: T("optOn"), on: soundOn },
+        { val: "off", label: T("optOff"), on: !soundOn },
+      ])) +
+      row("settingLanguage", "settingLanguageHint", seg("lang", [
+        { val: "en", label: "English", on: LANG === "en", lang: "en" },
+        { val: "fa", label: "فارسی", on: LANG === "fa", lang: "fa" },
+      ])) +
+      "</div>" +
+      '<div class="acc-actions"><button class="btn btn-primary modal-ok">' + T("close") + "</button></div>";
+    m.box.querySelector(".modal-ok").addEventListener("click", m.close);
+    m.box.querySelectorAll(".set-opt").forEach((b) => {
+      b.addEventListener("click", () => {
+        if (b.dataset.set === "sound") {
+          setSound(b.dataset.val === "on");
+          m.box.querySelectorAll('[data-set="sound"]').forEach((o) => {
+            const on = o === b;
+            o.classList.toggle("is-on", on);
+            o.setAttribute("aria-checked", on ? "true" : "false");
+          });
+        } else if (b.dataset.val !== LANG) {
+          m.close();
+          setLang(b.dataset.val, true);
+        }
+      });
     });
   }
 
@@ -360,15 +387,11 @@
     const s = $("#screen-title");
     s.innerHTML = "";
 
-    const soundBtn = el("button", "btn btn-chip js-sound");
-    wireSound(soundBtn);
-    s.appendChild(soundBtn);
-
-    const langBtn = el("button", "lang-toggle", esc(T("otherLangName")));
-    langBtn.title = T("switchTo");
-    langBtn.setAttribute("lang", LANG === "fa" ? "en" : "fa");
-    langBtn.addEventListener("click", () => setLang(LANG === "fa" ? "en" : "fa", true));
-    s.appendChild(langBtn);
+    const gear = el("button", "btn btn-chip title-settings", "⚙");
+    gear.title = T("settings");
+    gear.setAttribute("aria-label", T("settings"));
+    gear.addEventListener("click", openSettings);
+    s.appendChild(gear);
 
     const head = el("header", "title-head");
     head.appendChild(el("div", "agency-line", T("agency")));
@@ -1246,9 +1269,8 @@
 
   /* ---------- wire chrome ---------- */
   function wire() {
-    wireSound($("#btn-sound"));
+    $("#btn-settings").addEventListener("click", openSettings);
     $("#btn-casefile").addEventListener("click", openCaseFile);
-    $("#btn-lang").addEventListener("click", () => setLang(LANG === "fa" ? "en" : "fa", true));
     $("#btn-accuse").addEventListener("click", () => openAccuse(false));
     $("#btn-desk").addEventListener("click", () => { saveGame(); renderTitle(); });
     document.querySelectorAll(".jtab").forEach((tab) => {
@@ -1329,6 +1351,8 @@
       } else if (f.indexOf("t:") === 0) {
         G.elapsed = Math.min(C.timeBudget, +f.slice(2) || 0);
         renderClock();
+      } else if (f === "settings") {
+        openSettings();
       } else if (f === "casefile") {
         openCaseFile();
       } else if (f === "scene") {

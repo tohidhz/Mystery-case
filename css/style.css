@@ -2491,3 +2491,22 @@ body[data-case="meridian"] .atmos-b {
 .modal .set-opt.is-on:focus-visible,
 .modal .btn-primary:focus-visible,
 .modal .btn-accuse-final:focus-visible { outline-color: var(--lamp); }
+
+/* --- the accusation now mirrors the board's own grouping --- */
+.acc-group { margin-bottom: 1.1rem; }
+.acc-group-head {
+  font-family: var(--font-type);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #6b5636;
+  margin-bottom: .5rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid rgba(85, 73, 58, .25);
+}
+.acc-group-loose .acc-group-head { color: #7c6a4e; border-bottom-style: dashed; }
+.acc-group-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
+
+/* a brief wait while a case's plates arrive */
+body.busy { cursor: progress; }
+body.busy .dossier { opacity: .55; pointer-events: none; }

@@ -4,8 +4,9 @@
 
   const CASES = window.CASES || [];
   const UI = window.CALLOWAY_UI || {};
-  const ART = window.CASE_ART || {};
-  const TEXT = window.CASE_TEXT || {};
+  // read live: the art and translation packs arrive after boot
+  const ART = () => window.CASE_ART || {};
+  const TEXT = () => window.CASE_TEXT || {};
   const COST = { travel: 10, search: 20, ask: 10 };
   const SAVE_KEY = "calloway_save_v1";
   const RESULTS_KEY = "calloway_results_v1";
@@ -51,6 +52,10 @@
     return list[n] || digits(n);
   }
   function setLang(lang, rerender) {
+    if (lang === "fa" && !TEXT()["blackwood_fa"]) {
+      withBusy(ensureLang("fa")).then(() => setLang(lang, rerender));
+      return;
+    }
     LANG = UI[lang] ? lang : "en";
     try { localStorage.setItem(LANG_KEY, LANG); } catch (e) { /* private mode */ }
     document.documentElement.lang = LANG;
@@ -85,7 +90,7 @@
   function baseCase(id) { return CASES.find((c) => c.id === id); }
   function localizeCase(base) {
     if (!base) return base;
-    const pack = TEXT[base.id + "_" + LANG];
+    const pack = TEXT()[base.id + "_" + LANG];
     if (!pack) return base;
     const pick = (o, k, d) => (o && o[k] !== undefined ? o[k] : d);
     const out = Object.assign({}, base);
@@ -146,6 +151,37 @@
       out.epilogues[k] = (pack.epilogues || {})[k] || base.epilogues[k];
     });
     return out;
+  }
+
+  /* ---------- lazy assets ----------
+     Every case pack, art file and translation used to load on every visit:
+     1.03 MB of JS to play one case in one language. Scene art and the Persian
+     packs now arrive only when they are actually needed. */
+  const loaded = {};
+  function loadScript(src) {
+    if (loaded[src]) return loaded[src];
+    loaded[src] = new Promise((resolve) => {
+      const s = document.createElement("script");
+      s.src = src;
+      s.onload = () => resolve(true);
+      s.onerror = () => resolve(false);   // a missing plate must not stop play
+      document.head.appendChild(s);
+    });
+    return loaded[src];
+  }
+  const CASE_NO = { blackwood: 1, orpheum: 2, deadair: 3, meridian: 4 };
+  function ensureArt(caseId) {
+    const n = CASE_NO[caseId];
+    return n ? loadScript("js/art" + n + ".js") : Promise.resolve(false);
+  }
+  // the desk lists every case, so Persian needs all four packs at once
+  function ensureLang(lang) {
+    if (lang !== "fa") return Promise.resolve(true);
+    return Promise.all([1, 2, 3, 4].map((n) => loadScript("js/case" + n + ".fa.js")));
+  }
+  function withBusy(p) {
+    document.body.classList.add("busy");
+    return p.then((v) => { document.body.classList.remove("busy"); return v; });
   }
 
   /* ---------- persistence ----------
@@ -505,6 +541,9 @@
 
   /* ---------- briefing ---------- */
   function startCase(caseId) {
+    withBusy(ensureArt(caseId)).then(() => startCaseNow(caseId));
+  }
+  function startCaseNow(caseId) {
     C = localizeCase(baseCase(caseId));
     G = {
       caseId: caseId, elapsed: 0, loc: C.locations[0].id,
@@ -515,6 +554,9 @@
     renderBriefing();
   }
   function resumeCase(save) {
+    withBusy(ensureArt(save.caseId)).then(() => resumeCaseNow(save));
+  }
+  function resumeCaseNow(save) {
     C = localizeCase(baseCase(save.caseId));
     if (!C) { clearSave(); renderTitle(); return; }
     G = save;
@@ -638,7 +680,7 @@
 
   /* ---------- the scene: an illustrated room you can search by eye ---------- */
   function sceneFor(locId) {
-    const set = ART[C.id];
+    const set = ART()[C.id];
     return set ? set[locId] : null;
   }
   function hotspotState(h) {
@@ -1310,6 +1352,11 @@
         });
         m.box.querySelector("#acc-back").addEventListener("click", () => render(1));
       } else if (step === 3) {
+        /* The board already models the player's reasoning: which exhibits
+           produced which conclusion. This step used to discard that and show
+           one flat list of every clue in discovery order — at the exact moment
+           the player is asked to defend their thinking. It is now grouped by
+           the deductions they actually closed. */
         m.box.innerHTML =
           '<div class="acc-kicker">' + T("accStep3") + "</div>" +
           "<h3 class='acc-title'>" + T("whatProves") + " <span class='acc-sub'>" + T("chooseThree") + "</span></h3>" +
@@ -1321,29 +1368,59 @@
         const evBox = m.box.querySelector("#acc-ev");
         const reviewBtn = m.box.querySelector("#acc-review");
         const countEl = m.box.querySelector("#acc-count");
-        // With no evidence at all the player may still proceed — otherwise the
-        // deadline could strand them with no way to finish the case.
         const need = G.clues.length ? 1 : 0;
+        const chips = {};      // cid -> [buttons]  (a clue can support two conclusions)
         const sync = () => {
           countEl.textContent = T("chosenCount", state.evidence.length, 3);
           reviewBtn.disabled = state.evidence.length < need;
+          Object.keys(chips).forEach((cid) => {
+            const on = state.evidence.includes(cid);
+            chips[cid].forEach((b) => {
+              b.classList.toggle("picked", on);
+              b.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+          });
         };
-        if (!G.clues.length) evBox.appendChild(el("p", "empty-note", T("noEvidenceWarn")));
-        G.clues.forEach((cid, i) => {
+        const chip = (cid) => {
           const c = C.clues[cid];
-          if (!c) return;
           const b = el("button", "acc-clue");
           b.setAttribute("aria-pressed", "false");
-          b.innerHTML = "<span class='exhibit'>" + exhibitLetter(i) + "</span> " + esc(c.name);
+          b.innerHTML = "<span class='exhibit'>" + exhibitLetter(G.clues.indexOf(cid)) + "</span> " + esc(c.name);
           b.addEventListener("click", () => {
             const at = state.evidence.indexOf(cid);
-            if (at >= 0) { state.evidence.splice(at, 1); b.classList.remove("picked"); b.setAttribute("aria-pressed", "false"); }
-            else if (state.evidence.length < 3) { state.evidence.push(cid); b.classList.add("picked"); b.setAttribute("aria-pressed", "true"); }
+            if (at >= 0) state.evidence.splice(at, 1);
+            else if (state.evidence.length < 3) state.evidence.push(cid);
             sync();
           });
-          if (state.evidence.includes(cid)) { b.classList.add("picked"); b.setAttribute("aria-pressed", "true"); }
-          evBox.appendChild(b);
+          (chips[cid] = chips[cid] || []).push(b);
+          return b;
+        };
+
+        if (!G.clues.length) evBox.appendChild(el("p", "empty-note", T("noEvidenceWarn")));
+
+        const made = C.deductions.filter((d) => G.deductions.includes(d.id));
+        const connected = new Set();
+        made.forEach((d) => d.requires.forEach((cid) => { if (G.clues.includes(cid)) connected.add(cid); }));
+
+        made.forEach((d) => {
+          const g = el("div", "acc-group");
+          g.appendChild(el("div", "acc-group-head", esc(d.name)));
+          const row = el("div", "acc-group-chips");
+          d.requires.forEach((cid) => { if (G.clues.includes(cid)) row.appendChild(chip(cid)); });
+          g.appendChild(row);
+          evBox.appendChild(g);
         });
+
+        const loose = G.clues.filter((cid) => !connected.has(cid));
+        if (loose.length) {
+          const g = el("div", "acc-group acc-group-loose");
+          g.appendChild(el("div", "acc-group-head", T("boardLoose")));
+          const row = el("div", "acc-group-chips");
+          loose.forEach((cid) => row.appendChild(chip(cid)));
+          g.appendChild(row);
+          evBox.appendChild(g);
+        }
+
         sync();
         m.box.querySelector("#acc-back").addEventListener("click", () => render(2));
         reviewBtn.addEventListener("click", () => render(4));
@@ -1518,6 +1595,12 @@
     if (!base) return false;
     DEBUG = true;
     if (head[1] === "brief") { startCase(base.id); return true; }
+    // the plates are lazy now, so the debug route must wait for them too
+    withBusy(ensureArt(base.id)).then(() => bootCase(base, parts));
+    return true;
+  }
+
+  function bootCase(base, parts) {
     C = localizeCase(base);
     G = { caseId: base.id, elapsed: 0, loc: C.locations[0].id, clues: [], searched: [], asked: [], deductions: [], over: false };
     if (parts.includes("demo")) {
@@ -1559,13 +1642,20 @@
         if (sc) openSceneViewer(loc, sc);
       }
     });
-    return true;
   }
 
   document.body.classList.add("has-atmos");
   let saved = null;
   try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
-  setLang(saved || (navigator.language && /^fa/i.test(navigator.language) ? "fa" : "en"), false);
-  wire();
-  if (!bootFromHash()) renderTitle();
+  const bootHash = location.hash.slice(1).split(",");
+  let initialLang = saved || (navigator.language && /^fa/i.test(navigator.language) ? "fa" : "en");
+  if (bootHash.includes("fa")) initialLang = "fa";
+  if (bootHash.includes("en")) initialLang = "en";
+  // nothing renders until the chosen language has its prose, or the desk would
+  // flash English titles inside an RTL layout
+  withBusy(ensureLang(initialLang)).then(() => {
+    setLang(initialLang, false);
+    wire();
+    if (!bootFromHash()) renderTitle();
+  });
 })();

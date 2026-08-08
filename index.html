@@ -11,8 +11,11 @@
 </head>
 <body>
 
+<!-- weather and grain behind the desk; the case decides which -->
+<div id="atmos" aria-hidden="true"><span class="atmos-a"></span><span class="atmos-b"></span></div>
 <!-- the night burning down behind the desk; opacity is driven by the clock -->
 <div id="dawn" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
 
 <header id="topbar" hidden>
   <div class="topbar-case">
@@ -24,6 +27,7 @@
     <span class="clock-deadline" id="clock-deadline"></span>
   </div>
   <div class="topbar-actions">
+    <button class="btn btn-sound" id="btn-sound" aria-pressed="true">♪</button>
     <button class="btn btn-quiet" id="btn-desk" title="Return to the desk (progress is saved)">Desk</button>
     <button class="btn btn-accuse" id="btn-accuse">Make an Accusation</button>
   </div>
@@ -61,6 +65,8 @@
 
 <!-- interface strings -->
 <script src="js/i18n.js"></script>
+<!-- procedural sound -->
+<script src="js/audio.js"></script>
 <!-- case data (English) -->
 <script src="js/case1.js"></script>
 <script src="js/case2.js"></script>

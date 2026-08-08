@@ -36,6 +36,19 @@ Each case has its own floor plan, five suspects (plus witnesses), around two doz
 
 Progress and best results are saved in the browser (localStorage).
 
+## Sound
+
+Every sound is synthesized in the browser with Web Audio — there are no audio
+files, because the game is a folder you open. Each case gets its own room tone
+(rain on the manor glass, dust-quiet in the theatre, mains hum in the radio
+studio, wind against the stalled train) plus short cues: a clock tick when a
+minute leaves, paper when an exhibit is logged, a struck string when a
+deduction closes, a stamp on the verdict.
+
+The `♪` toggle sits beside the clock and on the desk; the choice is remembered.
+Browsers keep audio suspended until you interact with the page, so the room
+fades in after your first click rather than the moment it loads.
+
 ## Languages
 
 Use the toggle in the corner of the desk screen; the choice is remembered. Persian runs the game right-to-left with Persian numerals (۹:۴۰ ب.ظ), Persian exhibit letters (مدرک الف / ب / پ), and Naskh for narrative prose. The floor plan and the scene plates deliberately keep their geography — a room doesn't move house because you changed language.
@@ -48,6 +61,7 @@ Translation is a text pack layered over the English structure, so anything untra
 index.html      shell and screens
 css/style.css   the whole look — desk, dossiers, corkboard, stamps, scenes
 js/i18n.js      interface strings, English + Persian
+js/audio.js     procedural sound: room tone per case, cues, mute state
 js/case1.js     Case 001 data (locations, suspects, dialogue, clues, deductions, endings)
 js/case2-4.js   Cases 002–004
 js/case1.fa.js  Persian text pack for case 001 (…and case2-4.fa.js)

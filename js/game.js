@@ -11,6 +11,7 @@
   const RESULTS_KEY = "calloway_results_v1";
   const LANG_KEY = "calloway_lang_v1";
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SFX = window.CallowayAudio || { play: function () {}, room: function () {}, leaveRoom: function () {}, unlock: function () {}, isMuted: function () { return true; }, setMuted: function () {} };
 
   let LANG = "en";
   let G = null;          // active game state
@@ -59,6 +60,7 @@
     $("#btn-desk").textContent = T("desk");
     $("#btn-desk").title = T("deskTitle");
     $("#btn-accuse").textContent = T("accuse");
+    document.querySelectorAll(".btn-sound").forEach(syncSound);
     const pane = document.querySelector(".pane-label");
     if (pane) pane.textContent = T("premises");
     const tabNames = { evidence: "tabEvidence", people: "tabPeople", board: "tabBoard" };
@@ -209,6 +211,7 @@
     G.elapsed = Math.min(C.timeBudget, G.elapsed + min);
     renderClock();
     costChip(min);
+    SFX.play("tick");
     const left = timeLeft();
     if (left <= 120 && !warned120) { warned120 = true; toast("clock", T("toastNightOld"), T("toastNightOldBody")); }
     if (left <= 60 && !warned60) { warned60 = true; toast("clock", T("toastOneHour"), T("toastOneHourBody")); }
@@ -235,6 +238,7 @@
       const step = 2;
       i = Math.min(text.length, i + step);
       node.textContent = text.slice(0, i);
+      SFX.play("key");
       if (i < text.length) setTimeout(tick, speed);
       else if (done) done();
     };
@@ -246,7 +250,8 @@
      The clock is the whole game, and it used to change in silence behind a
      modal. Spending now leaves a mark where the player is looking. */
   let ptr = { x: 0, y: 0 };
-  document.addEventListener("pointerdown", (e) => { ptr = { x: e.clientX, y: e.clientY }; }, true);
+  document.addEventListener("pointerdown", (e) => { ptr = { x: e.clientX, y: e.clientY }; SFX.unlock(); }, true);
+  document.addEventListener("keydown", () => SFX.unlock(), true);
   function costChip(min) {
     const chip = el("div", "cost-chip", "−" + T("minutesShort", min));
     const x = ptr.x || window.innerWidth / 2;
@@ -314,6 +319,7 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     };
     document.addEventListener("keydown", keys, true);
+    SFX.play("open");
     requestAnimationFrame(() => {
       const first = box.querySelector(FOCUSABLE);
       (first || box).focus();
@@ -321,11 +327,37 @@
     return { box, close, overlay };
   }
 
+  // one control, two homes (topbar and desk); they stay in sync
+  function syncSound(btn) {
+    const off = SFX.isMuted();
+    btn.textContent = off ? "♪̸" : "♪";
+    btn.classList.toggle("is-muted", off);
+    btn.setAttribute("aria-pressed", off ? "false" : "true");
+    btn.setAttribute("aria-label", off ? T("soundOff") : T("soundOn"));
+    btn.title = off ? T("soundOff") : T("soundOn");
+  }
+  function wireSound(btn) {
+    syncSound(btn);
+    btn.addEventListener("click", () => {
+      const nowMuted = !SFX.isMuted();
+      SFX.setMuted(nowMuted);
+      if (!nowMuted) { SFX.unlock(); if (C && !$("#screen-game").hidden) SFX.room(C.id); SFX.play("paper"); }
+      else { SFX.leaveRoom(); }
+      document.querySelectorAll(".btn-sound").forEach(syncSound);
+    });
+  }
+
   /* ---------- title screen ---------- */
   function renderTitle() {
     document.documentElement.style.setProperty("--dawn", "0");
+    delete document.body.dataset.case;   // back to the agency's own rain
+    SFX.leaveRoom();
     const s = $("#screen-title");
     s.innerHTML = "";
+
+    const soundBtn = el("button", "btn btn-sound");
+    wireSound(soundBtn);
+    s.appendChild(soundBtn);
 
     const langBtn = el("button", "lang-toggle", esc(T("otherLangName")));
     langBtn.title = T("switchTo");
@@ -447,6 +479,9 @@
 
   /* ---------- main game ---------- */
   function enterGame() {
+    document.body.dataset.case = C.id;
+    document.body.classList.add("has-atmos");
+    SFX.room(C.id);
     $("#topbar-file").textContent = T("fileNo", C.fileNo);
     $("#topbar-title").textContent = C.title;
     renderClock();
@@ -494,6 +529,7 @@
     renderLocation();
     const panel = $("#location-panel");
     panel.classList.remove("swapping"); void panel.offsetWidth; panel.classList.add("swapping");
+    SFX.play("step");
   }
 
   /* ---------- the scene: an illustrated room you can search by eye ---------- */
@@ -634,6 +670,7 @@
     if (G.over) return;
     const done = G.searched.includes(h.id);
     if (h.requiresClue && !G.clues.includes(h.requiresClue) && !done) {
+      SFX.play("thunk");
       const m = openModal("modal-discovery");
       m.box.innerHTML =
         '<div class="disc-kicker">' + esc(loc.name) + "</div>" +
@@ -695,6 +732,7 @@
     });
     if (fresh.length) {
       freshClues = freshClues.concat(fresh);
+      SFX.play("paper");
       fresh.forEach((cid) => toast("clue", T("toastEvidence"), C.clues[cid] ? C.clues[cid].name : cid));
       checkDeductions();
       renderJournal();
@@ -721,6 +759,7 @@
       if (d.requires.every((cid) => G.clues.includes(cid))) {
         G.deductions.push(d.id);
         newDeductions.push(d.id);
+        SFX.play("chime");
         toast("deduction", T("toastDeduction", d.name), d.text.length > 110 ? d.text.slice(0, 107) + "…" : d.text);
         bump("count-board");
         flagTab("board");
@@ -1118,6 +1157,7 @@
 
   function finishCase(tier, accusedId, motiveId, evidence) {
     G.over = true;
+    SFX.play("stamp");
     saveGame();
     const accused = accusedId ? C.suspects.find((s) => s.id === accusedId) : null;
     const rank = rankFor(tier);
@@ -1169,6 +1209,7 @@
 
   /* ---------- wire chrome ---------- */
   function wire() {
+    wireSound($("#btn-sound"));
     $("#btn-accuse").addEventListener("click", () => openAccuse(false));
     $("#btn-desk").addEventListener("click", () => { saveGame(); renderTitle(); });
     document.querySelectorAll(".jtab").forEach((tab) => {
@@ -1257,6 +1298,7 @@
     return true;
   }
 
+  document.body.classList.add("has-atmos");
   let saved = null;
   try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
   setLang(saved || (navigator.language && /^fa/i.test(navigator.language) ? "fa" : "en"), false);

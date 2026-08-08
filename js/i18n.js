@@ -131,6 +131,8 @@ window.CALLOWAY_UI = {
     unformedTitle: "? ? ?",
     saveFailed: "Progress can\u2019t be saved",
     saveFailedBody: "This browser is blocking storage. The case will play out, but it won\u2019t be here when you come back.",
+    soundOn: "Sound on",
+    soundOff: "Sound off",
 
     finalReport: "CASE FILE No. %1 — FINAL REPORT",
     youAccused: "You accused <strong>%1</strong>%2.",
@@ -286,6 +288,8 @@ window.CALLOWAY_UI = {
     unformedTitle: "؟ ؟ ؟",
     saveFailed: "پیشرفت ذخیره نمی‌شود",
     saveFailedBody: "این مرورگر اجازهٔ ذخیره نمی‌دهد. پرونده تا آخر پیش می‌رود، اما وقتی برگردید اینجا نخواهد بود.",
+    soundOn: "صدا روشن",
+    soundOff: "صدا خاموش",
 
     finalReport: "پروندهٔ شمارهٔ %1 — گزارش نهایی",
     youAccused: "شما <strong>%1</strong> را متهم کردید%2.",

@@ -222,7 +222,14 @@
     if (left <= 0) onTimeUp();
   }
 
-  /* ---------- screens ---------- */
+  /* ---------- screens ----------
+     Where the browser has View Transitions the screens cross-dissolve as one
+     film cut, and a dossier morphs into the case file it opens. Without them
+     the swap is instant and nothing is lost. */
+  /* Deliberately synchronous. Wrapping this in a View Transition made the DOM
+     swap async, so anything measuring layout straight afterwards — the
+     corkboard's string geometry, the loupe — read zero-size rects and drew in
+     the wrong place. The screen-in keyframe already carries the cut. */
   function showScreen(id) {
     ["#screen-title", "#screen-briefing", "#screen-game", "#screen-verdict"].forEach((s) => {
       $(s).hidden = s !== id;
@@ -610,7 +617,58 @@
       frame.appendChild(pin);
     });
     fig.appendChild(frame);
+    if (!big) attachLoupe(frame, scene);
     return fig;
+  }
+
+  /* A loupe over the plate: a second copy of the same vector art, scaled and
+     offset so the point under the glass is genuinely magnified — not a zoom
+     of a bitmap, so it stays sharp at any power. Vector-only, so it works
+     wherever SVG does; skipped entirely on coarse pointers and under reduced
+     motion, where the enlarge-and-pan viewer is the better tool anyway. */
+  function attachLoupe(frame, scene) {
+    if (REDUCED || window.matchMedia("(pointer: coarse)").matches) return;
+    const POWER = 2.6;
+    const lens = el("div", "loupe");
+    lens.innerHTML = '<div class="loupe-glass"></div>';
+    frame.appendChild(lens);
+    const glass = lens.querySelector(".loupe-glass");
+    let art = null, raf = 0, px = 0, py = 0, on = false;
+    // built on first hover, not on every room change; and the copy is stripped
+    // of fx classes so the plate's animations are not running twice
+    const build = () => {
+      if (art) return;
+      const still = String(scene.svg).replace(/\sclass="fx-[^"]*"/g, "");
+      glass.innerHTML = '<svg class="loupe-art" viewBox="' + scene.viewBox +
+        '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + still + "</svg>";
+      art = glass.querySelector(".loupe-art");
+    };
+    const place = () => {
+      raf = 0;
+      if (!art) return;
+      const r = frame.getBoundingClientRect();
+      const w = r.width * POWER, h = r.height * POWER;
+      art.style.width = w + "px";
+      art.style.height = h + "px";
+      // keep the point under the cursor at the centre of the glass
+      art.style.transform = "translate(" + (-px * POWER + 90) + "px," + (-py * POWER + 90) + "px)";
+      lens.style.transform = "translate(" + (px - 90) + "px," + (py - 90) + "px)";
+    };
+    frame.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      if (e.target.closest(".scene-pin")) { lens.classList.remove("on"); on = false; return; }
+      const r = frame.getBoundingClientRect();
+      px = e.clientX - r.left; py = e.clientY - r.top;
+      if (!on) { build(); on = true; lens.classList.add("on"); }
+      if (!raf) raf = requestAnimationFrame(place);
+    });
+    frame.addEventListener("pointerleave", () => { on = false; lens.classList.remove("on"); });
+    lens._show = (fx, fy) => {   // debug boot only
+      const r = frame.getBoundingClientRect();
+      px = r.width * fx; py = r.height * fy;
+      build(); on = true; lens.classList.add("on"); place();
+    };
+    frame._lens = lens;
   }
 
   function openSceneViewer(loc, scene) {
@@ -981,6 +1039,56 @@
     });
   }
 
+  /* A real board is something you arrange. Slips can be dragged anywhere and
+     stay put; the strings recompute from live geometry, so the web of
+     reasoning physically follows your hand. Touch and mouse both work, and a
+     slip that is never dragged behaves exactly as before. */
+  let redrawStrings = () => {};
+  function makeDraggable(node, cid) {
+    let sx = 0, sy = 0, ox = 0, oy = 0, dragging = false, moved = false;
+    node.addEventListener("pointerdown", (e) => {
+      if (e.button != null && e.button !== 0) return;
+      dragging = true; moved = false;
+      const off = G.pins[cid] || [0, 0];
+      ox = off[0]; oy = off[1];
+      sx = e.clientX; sy = e.clientY;
+      node.setPointerCapture(e.pointerId);
+      node.classList.add("lifted");
+      e.preventDefault();
+    });
+    node.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      const dx = ox + (e.clientX - sx), dy = oy + (e.clientY - sy);
+      if (Math.abs(e.clientX - sx) > 3 || Math.abs(e.clientY - sy) > 3) moved = true;
+      node.style.transform = "translate(" + dx + "px," + dy + "px)";
+      G.pins[cid] = [dx, dy];
+      redrawStrings();
+    });
+    const end = () => {
+      if (!dragging) return;
+      dragging = false;
+      node.classList.remove("lifted");
+      if (moved) { node.classList.add("settling"); setTimeout(() => node.classList.remove("settling"), 420); saveGame(); }
+      redrawStrings();
+    };
+    node.addEventListener("pointerup", end);
+    node.addEventListener("pointercancel", end);
+    // keyboard: nudge a slip without a pointer
+    node.setAttribute("tabindex", "0");
+    node.addEventListener("keydown", (e) => {
+      const step = e.shiftKey ? 24 : 6;
+      const d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[e.key];
+      if (!d) return;
+      e.preventDefault();
+      const off = G.pins[cid] || [0, 0];
+      const n = [off[0] + d[0], off[1] + d[1]];
+      G.pins[cid] = n;
+      node.style.transform = "translate(" + n[0] + "px," + n[1] + "px)";
+      redrawStrings();
+      saveGame();
+    });
+  }
+
   function renderBoardTab() {
     const t = $("#tab-board");
     t.innerHTML = "";
@@ -994,12 +1102,17 @@
     }
 
     const letterOf = (cid) => exhibitLetter(G.clues.indexOf(cid));
+    G.pins = G.pins || {};
     const slip = (cid) => {
       const c = C.clues[cid];
       const pin = el("div", "pin-card");
+      pin.dataset.cid = cid;
       pin.innerHTML = '<span class="pin"></span><span class="pin-exhibit">' + letterOf(cid) + "</span><strong>" + esc(c.name) + "</strong>";
       pin.title = c.desc;
       pin.setAttribute("aria-label", c.name + " — " + c.desc);
+      const off = G.pins[cid];
+      if (off) pin.style.transform = "translate(" + off[0] + "px," + off[1] + "px)";
+      makeDraggable(pin, cid);
       return pin;
     };
 
@@ -1089,6 +1202,7 @@
     t.appendChild(board);
 
     const drawAll = () => board.querySelectorAll(".ded-group").forEach((g) => g._draw && g._draw());
+    redrawStrings = drawAll;
     requestAnimationFrame(() => { drawAll(); newDeductions = []; });
     window.addEventListener("resize", drawAll, { passive: true });
   }
@@ -1255,6 +1369,11 @@
     s.innerHTML = "";
     const sheet = el("div", "verdict-sheet");
     sheet.appendChild(el("div", "verdict-stamp stamp-" + tier, stampText(tier)));
+    if (!REDUCED) {
+      const shock = el("span", "stamp-shock");
+      sheet.appendChild(shock);
+      sheet.classList.add("struck");
+    }
     sheet.appendChild(el("div", "brief-head", T("finalReport", C.fileNo)));
     sheet.appendChild(el("h2", "brief-title", esc(C.title)));
     if (accused) {
@@ -1378,6 +1497,10 @@
       } else if (f.indexOf("t:") === 0) {
         G.elapsed = Math.min(C.timeBudget, +f.slice(2) || 0);
         renderClock();
+      } else if (f.indexOf("loupe") === 0) {
+        const fr = document.querySelector(".scene-frame");
+        const parts2 = f.split(":");
+        if (fr && fr._lens) fr._lens._show(+parts2[1] || 0.5, +parts2[2] || 0.55);
       } else if (f === "settings") {
         openSettings();
       } else if (f === "casefile") {

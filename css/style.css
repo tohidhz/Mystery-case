@@ -2404,3 +2404,84 @@ body[data-case="meridian"] .atmos-b {
   .ded-group .group-pins { margin-bottom: 2rem; }
   .ded-group { padding: .7rem .6rem .8rem; }
 }
+
+/* --- the loupe: a real magnifier, not a zoom --- */
+.loupe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 180px; height: 180px;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms var(--ease-out-quart);
+  will-change: transform;
+}
+.loupe.on { opacity: 1; }
+.loupe-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #14110d;
+  box-shadow:
+    0 0 0 2px rgba(43, 38, 32, .9),
+    0 0 0 5px rgba(201, 174, 126, .55),
+    0 10px 26px rgba(0, 0, 0, .6),
+    inset 0 0 26px rgba(0, 0, 0, .55);
+}
+/* the glass itself: a highlight arc and a warm rim, so it reads as an object */
+.loupe-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, 0) 42%),
+    radial-gradient(circle at 50% 50%, rgba(217, 164, 65, 0) 62%, rgba(217, 164, 65, .10) 100%);
+}
+/* the reset's `svg { max-width: 100% }` would clamp the magnified copy back
+   down to the width of the glass, so it must opt out explicitly */
+.loupe-art { position: absolute; top: 0; left: 0; display: block; max-width: none; }
+
+/* --- a slip you have picked up --- */
+.pin-card { cursor: grab; touch-action: none; }
+.pin-card.lifted {
+  cursor: grabbing;
+  z-index: 5;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, .55));
+  transition: none;
+}
+.pin-card.settling { transition: transform 380ms var(--ease-out-quint); }
+
+@media (prefers-reduced-motion: reduce) {
+  .loupe { display: none; }
+  .pin-card.settling { transition: none; }
+}
+
+/* the stamp lands and the sheet answers */
+.verdict-sheet.struck { animation: sheet-jolt 320ms var(--ease-out-quart) both; }
+@keyframes sheet-jolt {
+  0%   { transform: translateY(-2px) rotate(-.12deg); }
+  40%  { transform: translateY(1px) rotate(.06deg); }
+  100% { transform: none; }
+}
+.stamp-shock {
+  position: absolute;
+  top: 2.6rem;
+  inset-inline-end: 2.6rem;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px solid var(--stamp-red);
+  animation: shock 620ms var(--ease-out-expo) 180ms both;
+}
+@keyframes shock {
+  0%   { opacity: .55; transform: scale(1); }
+  100% { opacity: 0; transform: scale(22); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verdict-sheet.struck { animation: none; }
+  .stamp-shock { display: none; }
+}

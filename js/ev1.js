@@ -2262,11 +2262,11 @@ window.CLUE_ART.blackwood = {
     <stop offset="0" stop-color="#4a3520"/><stop offset="0.55" stop-color="#241a0f"/><stop offset="1" stop-color="#0d0906"/>
   </linearGradient>
   <radialGradient id="ev1-call-pool" cx="0.28" cy="0.12" r="0.86">
-    <stop offset="0" stop-color="#f4d79c" stop-opacity="0.3"/><stop offset="1" stop-color="#f4d79c" stop-opacity="0"/>
+    <stop offset="0" stop-color="#f4d79c" stop-opacity="0.42"/><stop offset="1" stop-color="#f4d79c" stop-opacity="0"/>
   </radialGradient>
   <linearGradient id="ev1-call-japan" x1="0" y1="0" x2="1" y2="0.2">
-    <stop offset="0" stop-color="#5b5750"/><stop offset="0.16" stop-color="#2a2723"/><stop offset="0.55" stop-color="#0d0c0b"/>
-    <stop offset="0.85" stop-color="#201d1a"/><stop offset="1" stop-color="#4a4640"/>
+    <stop offset="0" stop-color="#8b857a"/><stop offset="0.14" stop-color="#3e3a34"/><stop offset="0.52" stop-color="#151312"/>
+    <stop offset="0.84" stop-color="#2e2a26"/><stop offset="1" stop-color="#6d675e"/>
   </linearGradient>
   <linearGradient id="ev1-call-cord" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#6a6258"/><stop offset="0.5" stop-color="#2e2a25"/><stop offset="1" stop-color="#14120f"/>
@@ -2300,6 +2300,7 @@ window.CLUE_ART.blackwood = {
 <ellipse cx="256" cy="420" rx="74" ry="18" fill="#0c0b0a" opacity="0.6"/>
 <path d="M180 412 Q 220 396 300 400" fill="none" stroke="#cfc8bc" stroke-width="6" opacity="0.5" stroke-linecap="round"/>
 <ellipse cx="256" cy="410" rx="44" ry="12" fill="url(#ev1-call-japan)"/>
+<path d="M214 406 Q 240 396 296 400" fill="none" stroke="#d8d1c4" stroke-width="3" opacity="0.45"/>
 <path d="M240 408 L272 408 L268 200 L244 200 Z" fill="url(#ev1-call-japan)"/>
 <path d="M245 404 L249 202" fill="none" stroke="#cbc4b8" stroke-width="5" opacity="0.6"/>
 <path d="M252 404 L256 202" fill="none" stroke="#8b847a" stroke-width="2" opacity="0.35"/>
@@ -3071,6 +3072,195 @@ window.CLUE_ART.blackwood = {
 <ellipse cx="300" cy="360" rx="20" ry="7" fill="#fffbe6" opacity="0.4"/>
 
 <rect width="640" height="520" fill="url(#ev1-hl-vig)"/>
+`,
+  },
+  /* The kitchen garden path, last Tuesday: two people stood here a while, facing
+     each other, and one of them was asking about wine. */
+  c1_asked: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-ask-night" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1a2226"/><stop offset="0.55" stop-color="#131a18"/><stop offset="1" stop-color="#0a0d0b"/>
+  </linearGradient>
+  <radialGradient id="ev1-ask-lamp" cx="0.14" cy="0.16" r="0.9">
+    <stop offset="0" stop-color="#f6d99a" stop-opacity="0.5"/><stop offset="1" stop-color="#f6d99a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-ask-earth" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#7d6540"/><stop offset="0.45" stop-color="#3d2f1b"/><stop offset="1" stop-color="#15100a"/>
+  </linearGradient>
+  <linearGradient id="ev1-ask-hedge" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#49603a"/><stop offset="0.5" stop-color="#26341d"/><stop offset="1" stop-color="#0f150c"/>
+  </linearGradient>
+  <linearGradient id="ev1-ask-trug" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#d9b578"/><stop offset="0.45" stop-color="#a17c42"/><stop offset="1" stop-color="#4e3819"/>
+  </linearGradient>
+  <filter id="ev1-ask-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-ask-vig" cx="0.36" cy="0.38" r="0.78">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.84"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-ask-night)"/>
+<rect width="640" height="520" fill="url(#ev1-ask-lamp)"/>
+<!-- the box hedge, clipped square, black in the dark -->
+<path d="M0 96 L640 82 L640 208 Q 320 226 0 212 Z" fill="url(#ev1-ask-hedge)"/>
+<path d="M0 96 L640 82 L640 104 Q 320 122 0 118 Z" fill="#6d8a56" opacity="0.4"/>
+<g fill="#0d130a" opacity="0.6">
+  <ellipse cx="90" cy="170" rx="60" ry="26"/><ellipse cx="300" cy="182" rx="70" ry="26"/><ellipse cx="520" cy="168" rx="64" ry="24"/>
+</g>
+<g fill="#5e7a48" opacity="0.3">
+  <ellipse cx="150" cy="120" rx="46" ry="14"/><ellipse cx="400" cy="112" rx="52" ry="14"/><ellipse cx="600" cy="106" rx="36" ry="12"/>
+</g>
+<path d="M0 208 Q 320 226 640 208 L640 224 Q 320 244 0 226 Z" fill="#0a0e07" opacity="0.7"/>
+
+<!-- the path: raked earth, still damp -->
+<path d="M0 214 Q 320 236 640 214 L640 520 L0 520 Z" fill="url(#ev1-ask-earth)"/>
+<g fill="none" stroke="#241a0d" stroke-width="2.4" opacity="0.5">
+  <path d="M0 268 Q 320 288 640 266"/><path d="M0 330 Q 320 352 640 328"/><path d="M0 400 Q 320 424 640 398"/><path d="M0 470 Q 320 494 640 468"/>
+</g>
+<g fill="none" stroke="#8d7145" stroke-width="1.4" opacity="0.22">
+  <path d="M0 276 Q 320 296 640 274"/><path d="M0 408 Q 320 432 640 406"/>
+</g>
+<g fill="#8a6f45" opacity="0.3">
+  <ellipse cx="70" cy="300" rx="34" ry="10"/><ellipse cx="560" cy="340" rx="40" ry="11"/><ellipse cx="330" cy="486" rx="52" ry="13"/>
+</g>
+<g fill="#16100a" opacity="0.7">
+  <ellipse cx="120" cy="360" rx="20" ry="7"/><ellipse cx="470" cy="290" rx="18" ry="6"/><ellipse cx="250" cy="452" rx="22" ry="7"/>
+</g>
+
+<!-- his boots, standing where he stood, toes toward her -->
+<g transform="rotate(-7 196 308)"><ellipse cx="196" cy="308" rx="54" ry="25" fill="#100b06" opacity="0.9"/><ellipse cx="122" cy="314" rx="27" ry="19" fill="#100b06" opacity="0.9"/><ellipse cx="196" cy="303" rx="52" ry="20" fill="#3d2f1b" opacity="0.55"/><path d="M144 302 Q 196 278 248 302" fill="none" stroke="#9c7d4c" stroke-width="4.0" opacity="0.45"/><path d="M96 310 Q 122 292 148 310" fill="none" stroke="#9c7d4c" stroke-width="3.4" opacity="0.4"/><path d="M160 294 L160 322" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M184 294 L184 322" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M208 294 L208 322" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M232 294 L232 322" stroke="#54432a" stroke-width="4.0" opacity="0.5"/></g>
+<g transform="rotate(-5 158 382)"><ellipse cx="158" cy="382" rx="54" ry="25" fill="#100b06" opacity="0.9"/><ellipse cx="84" cy="388" rx="27" ry="19" fill="#100b06" opacity="0.9"/><ellipse cx="158" cy="377" rx="52" ry="20" fill="#3d2f1b" opacity="0.55"/><path d="M106 376 Q 158 352 210 376" fill="none" stroke="#9c7d4c" stroke-width="4.0" opacity="0.45"/><path d="M58 384 Q 84 366 110 384" fill="none" stroke="#9c7d4c" stroke-width="3.4" opacity="0.4"/><path d="M122 368 L122 396" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M146 368 L146 396" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M170 368 L170 396" stroke="#54432a" stroke-width="4.0" opacity="0.5"/><path d="M194 368 L194 396" stroke="#54432a" stroke-width="4.0" opacity="0.5"/></g>
+<!-- and hers, smaller, facing him -->
+<g transform="rotate(6 456 322)"><ellipse cx="456" cy="322" rx="44" ry="20" fill="#100b06" opacity="0.9"/><ellipse cx="517" cy="327" rx="22" ry="16" fill="#100b06" opacity="0.9"/><ellipse cx="456" cy="318" rx="43" ry="16" fill="#3d2f1b" opacity="0.55"/><path d="M413 317 Q 456 297 499 317" fill="none" stroke="#9c7d4c" stroke-width="3.3" opacity="0.45"/><path d="M495 324 Q 517 309 538 324" fill="none" stroke="#9c7d4c" stroke-width="2.8" opacity="0.4"/><path d="M426 311 L426 333" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M446 311 L446 333" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M466 311 L466 333" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M486 311 L486 333" stroke="#54432a" stroke-width="3.3" opacity="0.5"/></g>
+<g transform="rotate(4 494 388)"><ellipse cx="494" cy="388" rx="44" ry="20" fill="#100b06" opacity="0.9"/><ellipse cx="555" cy="393" rx="22" ry="16" fill="#100b06" opacity="0.9"/><ellipse cx="494" cy="384" rx="43" ry="16" fill="#3d2f1b" opacity="0.55"/><path d="M451 383 Q 494 363 537 383" fill="none" stroke="#9c7d4c" stroke-width="3.3" opacity="0.45"/><path d="M533 390 Q 555 375 576 390" fill="none" stroke="#9c7d4c" stroke-width="2.8" opacity="0.4"/><path d="M464 377 L464 399" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M484 377 L484 399" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M504 377 L504 399" stroke="#54432a" stroke-width="3.3" opacity="0.5"/><path d="M524 377 L524 399" stroke="#54432a" stroke-width="3.3" opacity="0.5"/></g>
+
+<!-- the trug she had set down, herbs cut and never used -->
+<ellipse cx="300" cy="440" rx="118" ry="26" fill="#000" opacity="0.6" filter="url(#ev1-ask-soft)"/>
+<path d="M212 386 Q 300 370 392 388 L378 434 Q 300 452 224 432 Z" fill="url(#ev1-ask-trug)"/>
+<g stroke="#3f2c12" stroke-width="2.4" opacity="0.55" fill="none">
+  <path d="M228 384 L238 436"/><path d="M262 378 L268 444"/><path d="M300 376 L302 448"/><path d="M338 378 L336 444"/><path d="M370 384 L364 434"/>
+</g>
+<g stroke="#e6c489" stroke-width="1.8" opacity="0.4" fill="none">
+  <path d="M216 396 Q 300 380 388 398"/><path d="M220 414 Q 300 398 384 416"/>
+</g>
+<path d="M212 386 Q 300 370 392 388" fill="none" stroke="#f0d29a" stroke-width="4" opacity="0.5"/>
+<path d="M232 384 Q 300 336 372 386" fill="none" stroke="#6d4c22" stroke-width="8" stroke-linecap="round"/>
+<path d="M232 380 Q 300 334 372 382" fill="none" stroke="#c49a5c" stroke-width="2.4" opacity="0.5"/>
+<g stroke="#4e6a35" stroke-width="5" fill="none" stroke-linecap="round">
+  <path d="M248 388 Q 224 366 196 358"/><path d="M270 386 Q 258 356 236 340"/><path d="M330 386 Q 348 358 378 346"/><path d="M356 388 Q 384 372 412 372"/>
+</g>
+<g fill="#5e7c40" opacity="0.9">
+  <ellipse cx="192" cy="354" rx="16" ry="8" transform="rotate(-28 192 354)"/>
+  <ellipse cx="232" cy="336" rx="14" ry="7" transform="rotate(-52 232 336)"/>
+  <ellipse cx="382" cy="342" rx="15" ry="7" transform="rotate(28 382 342)"/>
+  <ellipse cx="416" cy="370" rx="13" ry="6" transform="rotate(12 416 370)"/>
+</g>
+<g fill="#8fae62" opacity="0.5">
+  <ellipse cx="188" cy="350" rx="7" ry="3" transform="rotate(-28 188 350)"/><ellipse cx="378" cy="338" rx="6" ry="3" transform="rotate(28 378 338)"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-ask-vig)"/>
+`,
+  },
+
+  /* Gordon's valise, strapped and standing by the door before anyone asked him
+     to stay: a thief's luggage, packed early. */
+  c1_gordonconfess: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-gc-bg" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4a4032"/><stop offset="0.55" stop-color="#231d15"/><stop offset="1" stop-color="#0b0906"/>
+  </linearGradient>
+  <radialGradient id="ev1-gc-pool" cx="0.24" cy="0.1" r="0.88">
+    <stop offset="0" stop-color="#f4d79c" stop-opacity="0.3"/><stop offset="1" stop-color="#f4d79c" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-gc-hide" x1="0.1" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#a87a44"/><stop offset="0.3" stop-color="#75512a"/><stop offset="0.72" stop-color="#3f2b14"/><stop offset="1" stop-color="#6b4a26"/>
+  </linearGradient>
+  <linearGradient id="ev1-gc-strap" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#6d4a24"/><stop offset="0.4" stop-color="#3d2911"/><stop offset="1" stop-color="#5b3d1c"/>
+  </linearGradient>
+  <linearGradient id="ev1-gc-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#f4dfa2"/><stop offset="0.35" stop-color="#bd932e"/><stop offset="0.8" stop-color="#5d4310"/><stop offset="1" stop-color="#a8801f"/>
+  </linearGradient>
+  <linearGradient id="ev1-gc-felt" x1="0.1" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#6d6455"/><stop offset="0.45" stop-color="#413a30"/><stop offset="1" stop-color="#1b1712"/>
+  </linearGradient>
+  <filter id="ev1-gc-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-gc-vig" cx="0.44" cy="0.42" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-gc-bg)"/>
+<rect width="640" height="520" fill="url(#ev1-gc-pool)"/>
+<g stroke="#241c13" stroke-width="2" opacity="0.35" fill="none">
+  <path d="M70 0 L70 300"/><path d="M250 0 L250 300"/><path d="M430 0 L430 300"/><path d="M600 0 L600 300"/>
+</g>
+<path d="M0 292 L640 282 L640 520 L0 520 Z" fill="#33260f"/>
+<g stroke="#120c05" stroke-width="3" opacity="0.6" fill="none">
+  <path d="M0 344 Q 200 332 400 344 Q 540 352 640 338"/><path d="M0 420 Q 200 408 400 420 Q 540 428 640 414"/>
+  <path d="M0 494 Q 200 482 400 494"/>
+</g>
+<path d="M0 292 L640 282 L640 294 L0 304 Z" fill="#8d6a3c" opacity="0.5"/>
+
+<ellipse cx="336" cy="452" rx="230" ry="38" fill="#000" opacity="0.62" filter="url(#ev1-gc-soft)"/>
+
+<!-- the valise -->
+<path d="M108 236 Q 108 214 132 212 L508 200 Q 532 200 534 222 L544 414 Q 544 436 520 438 L128 452 Q 104 452 102 430 Z" fill="url(#ev1-gc-hide)"/>
+<path d="M108 236 Q 108 214 132 212 L508 200 Q 532 200 534 222 L536 246 L110 262 Z" fill="#c29155" opacity="0.4"/>
+<path d="M102 430 Q 104 452 128 452 L520 438 Q 544 436 544 414 L542 392 L104 408 Z" fill="#1e1409" opacity="0.55"/>
+<path d="M112 256 L538 240" fill="none" stroke="#54391a" stroke-width="4" opacity="0.6"/>
+<path d="M112 250 L538 234" fill="none" stroke="#d9a969" stroke-width="2.4" opacity="0.4"/>
+<g fill="#5e4222" opacity="0.25">
+  <circle cx="180" cy="330" r="2.6"/><circle cx="250" cy="300" r="2.2"/><circle cx="330" cy="342" r="2.4"/><circle cx="420" cy="312" r="2"/>
+  <circle cx="480" cy="352" r="2.6"/><circle cx="150" cy="388" r="2.2"/><circle cx="380" cy="392" r="2"/>
+</g>
+<!-- straps, buckled tight -->
+<path d="M188 218 L232 216 L246 448 L202 450 Z" fill="url(#ev1-gc-strap)"/>
+<path d="M192 222 L228 220" fill="none" stroke="#a8772f" stroke-width="3" opacity="0.4"/>
+<path d="M196 340 L242 338 L244 366 L198 368 Z" fill="url(#ev1-gc-brass)"/>
+<path d="M198 344 L240 342" fill="none" stroke="#fbeeb8" stroke-width="2.4" opacity="0.6"/>
+<path d="M212 344 L214 364" fill="none" stroke="#3d2c08" stroke-width="4" opacity="0.7"/>
+<path d="M404 210 L448 208 L462 440 L418 442 Z" fill="url(#ev1-gc-strap)"/>
+<path d="M408 214 L444 212" fill="none" stroke="#a8772f" stroke-width="3" opacity="0.35"/>
+<path d="M412 332 L458 330 L460 358 L414 360 Z" fill="url(#ev1-gc-brass)"/>
+<path d="M428 336 L430 356" fill="none" stroke="#3d2c08" stroke-width="4" opacity="0.7"/>
+<!-- locks and corners -->
+<path d="M296 244 L356 240 L360 288 L300 292 Z" fill="url(#ev1-gc-brass)"/>
+<path d="M300 248 L352 244 L352 256 L300 260 Z" fill="#fbeeb8" opacity="0.55"/>
+<path d="M310 266 L346 264 L348 282 L312 284 Z" fill="#3d2c08" opacity="0.7"/>
+<circle cx="328" cy="274" r="6" fill="#f4dfa2" opacity="0.8"/>
+<path d="M102 412 Q 100 442 128 452 L172 448 Q 128 442 122 408 Z" fill="#8a6236" opacity="0.6"/>
+<path d="M544 400 Q 546 430 520 438 L478 436 Q 520 430 526 398 Z" fill="#8a6236" opacity="0.5"/>
+<!-- handle -->
+<path d="M258 214 Q 268 158 336 156 Q 404 158 412 212" fill="none" stroke="#3d2911" stroke-width="17" stroke-linecap="round"/>
+<path d="M262 206 Q 274 168 336 166 Q 398 168 408 204" fill="none" stroke="#a8772f" stroke-width="4" opacity="0.4"/>
+<path d="M282 188 Q 298 172 336 170" fill="none" stroke="#d9a969" stroke-width="3" opacity="0.35"/>
+<ellipse cx="262" cy="212" rx="13" ry="10" fill="url(#ev1-gc-brass)"/>
+<ellipse cx="410" cy="210" rx="13" ry="10" fill="url(#ev1-gc-brass)"/>
+<!-- the label tied on for a journey he had already decided to take -->
+<path d="M414 234 Q 452 258 474 286" fill="none" stroke="#cfc5a4" stroke-width="3"/>
+<path d="M470 276 L536 258 L552 320 L486 338 Z" fill="#e8dfc4"/>
+<path d="M536 258 L552 320 L486 338 Q 522 320 536 258 Z" fill="#c9bf9e" opacity="0.55"/>
+<path d="M470 276 L536 258 L537 264 L471 282 Z" fill="#fdf9ec" opacity="0.6"/>
+<g stroke="#8b8269" stroke-width="2.2" opacity="0.6" fill="none">
+  <path d="M486 294 L534 281"/><path d="M492 312 L538 299"/>
+</g>
+<circle cx="480" cy="284" r="5" fill="#8a7d5c"/>
+
+<!-- his hat, set on top because there was no room inside -->
+<path d="M132 208 Q 214 178 320 176 Q 300 158 300 138 Q 300 106 254 100 Q 206 102 200 138 Q 198 160 210 178 Q 166 186 132 208 Z" fill="url(#ev1-gc-felt)"/>
+<path d="M200 138 Q 206 104 252 100 Q 288 102 298 128 Q 268 112 236 120 Q 208 128 200 138 Z" fill="#8a8070" opacity="0.35"/>
+<path d="M204 156 Q 250 140 296 152" fill="none" stroke="#191510" stroke-width="12" opacity="0.7"/>
+<path d="M204 150 Q 250 134 296 146" fill="none" stroke="#6d6455" stroke-width="3" opacity="0.4"/>
+<path d="M132 208 Q 214 178 320 176" fill="none" stroke="#8a8070" stroke-width="4" opacity="0.3"/>
+<path d="M140 210 Q 216 184 316 182" fill="none" stroke="#100d0a" stroke-width="5" opacity="0.5"/>
+
+<rect width="640" height="520" fill="url(#ev1-gc-vig)"/>
 `,
   },
 };

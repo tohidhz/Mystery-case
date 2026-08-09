@@ -1853,55 +1853,83 @@ window.CASE_ART.orpheum = {
 <!-- bay one: the company's coats and costumes, on a rail -->
 <g>
   <rect x="18" y="150" width="278" height="11" rx="4" fill="#5c4327"/>
+  <path d="M20 151 L294 151" stroke="#a3814d" stroke-width="1.4" opacity="0.45"/>
+  <path d="M18 160 L296 160" stroke="#160f09" stroke-width="1.6" opacity="0.6"/>
   <g fill="#3a352d">
     <rect x="50" y="161" width="8" height="16" rx="3"/><rect x="118" y="161" width="8" height="16" rx="3"/>
     <rect x="188" y="161" width="8" height="16" rx="3"/><rect x="252" y="161" width="8" height="16" rx="3"/>
   </g>
+  <path d="M57 163 l0 12 M125 163 l0 12 M195 163 l0 12 M259 163 l0 12" stroke="#8e8a7d" stroke-width="1.2" opacity="0.5"/>
   <path d="M54 172 q34 -8 52 22 q16 62 6 122 l-96 0 q-10 -66 8 -122 q12 -26 30 -22 z" fill="#2b2537"/>
+  <path d="M84 176 q22 4 32 26 q14 60 4 114 l-14 0 q10 -56 -4 -114 q-8 -22 -22 -26 z" fill="#3e3852" opacity="0.55"/>
   <g fill="none" stroke="#1e1a28" stroke-width="4" opacity="0.9">
     <path d="M34 200 q-8 60 -2 116"/><path d="M92 198 q10 60 4 112"/>
   </g>
+  <path d="M37 200 q-8 60 -2 116 M95 198 q10 60 4 112" fill="none" stroke="#463f5c" stroke-width="1.3" opacity="0.4"/>
   <path d="M54 172 q34 -8 52 22 l-8 10 q-20 -24 -44 -18 z" fill="#3a3348"/>
   <path d="M124 174 q30 -8 46 20 q14 56 4 110 l-84 0 q-8 -58 6 -110 q10 -24 28 -20 z" fill="#5d1f18"/>
+  <path d="M150 178 q18 4 26 24 q13 54 3 106 l-13 0 q9 -50 -3 -104 q-6 -20 -18 -24 z" fill="#7e2f26" opacity="0.55"/>
   <g fill="none" stroke="#3d130f" stroke-width="4" opacity="0.9">
     <path d="M110 202 q-6 54 0 102"/><path d="M156 200 q8 54 2 104"/>
   </g>
+  <path d="M113 202 q-6 54 0 102 M159 200 q8 54 2 104" fill="none" stroke="#8e3b31" stroke-width="1.3" opacity="0.35"/>
   <path d="M194 176 q28 -6 42 18 q12 50 4 100 l-78 0 q-8 -52 6 -100 q10 -22 26 -18 z" fill="#5f6b4a"/>
+  <path d="M216 180 q16 4 24 22 q11 48 3 96 l-12 0 q8 -46 -3 -94 q-6 -18 -16 -22 z" fill="#7f8e62" opacity="0.5"/>
   <g fill="none" stroke="#3c452e" stroke-width="4" opacity="0.9">
     <path d="M182 200 q-6 48 0 92"/><path d="M222 200 q6 48 0 92"/>
   </g>
+  <path d="M185 200 q-6 48 0 92 M225 200 q6 48 0 92" fill="none" stroke="#8b9a68" stroke-width="1.3" opacity="0.35"/>
+  <!-- the rail throws its row of shadows on the wall behind -->
+  <path d="M12 316 L118 316 L112 194 L18 194 Z" fill="#080604" opacity="0.16"/>
   <ellipse cx="256" cy="196" rx="30" ry="10" fill="#241b12"/>
   <path d="M234 194 q22 -30 44 0 z" fill="#33271a"/>
+  <path d="M242 184 q14 -10 28 0 l-4 5 q-10 -7 -20 0 z" fill="#6b5231" opacity="0.5"/>
+  <ellipse cx="256" cy="198" rx="24" ry="5" fill="#0d0906" opacity="0.5"/>
   <path d="M234 190 q22 -8 44 0" fill="none" stroke="#5d1f18" stroke-width="5"/>
 </g>
 
 <!-- bay three: framed production photographs, and a clock -->
 <g>
   <g>
+    <path d="M656 102 L664 96 L664 216 L656 222 Z" fill="#080604" opacity="0.35"/>
     <rect x="662" y="96" width="96" height="120" fill="#5c4327"/>
+    <path d="M664 98 L756 98" stroke="#a3814d" stroke-width="1.4" opacity="0.45"/>
+    <path d="M662 214 L758 214" stroke="#1b1209" stroke-width="1.6" opacity="0.55"/>
     <rect x="670" y="104" width="80" height="104" fill="#241b12"/>
     <rect x="670" y="104" width="80" height="104" fill="#4a4a3c" opacity="0.6"/>
     <ellipse cx="694" cy="146" rx="14" ry="17" fill="#b3a184" opacity="0.55"/>
     <path d="M676 208 q18 -44 40 -6 q12 20 30 6 z" fill="#1d1b16" opacity="0.8"/>
     <ellipse cx="726" cy="152" rx="12" ry="15" fill="#b3a184" opacity="0.45"/>
+    <path d="M670 208 L718 104 L740 104 L692 208 Z" fill="#f0e7ce" opacity="0.07"/>
   </g>
   <g>
+    <path d="M768 78 L776 72 L776 180 L768 186 Z" fill="#080604" opacity="0.35"/>
     <rect x="774" y="72" width="86" height="108" fill="#5c4327"/>
+    <path d="M776 74 L858 74" stroke="#a3814d" stroke-width="1.4" opacity="0.45"/>
     <rect x="782" y="80" width="70" height="92" fill="#3f4038"/>
     <path d="M782 172 q22 -56 40 -12 q12 28 30 12 z" fill="#1d1b16" opacity="0.75"/>
     <ellipse cx="812" cy="112" rx="13" ry="16" fill="#b3a184" opacity="0.5"/>
+    <path d="M782 172 L826 80 L844 80 L800 172 Z" fill="#f0e7ce" opacity="0.06"/>
   </g>
   <g>
+    <path d="M776 206 L784 200 L784 270 L776 276 Z" fill="#080604" opacity="0.35"/>
     <rect x="782" y="200" width="90" height="70" fill="#5c4327"/>
+    <path d="M784 202 L870 202" stroke="#a3814d" stroke-width="1.4" opacity="0.45"/>
     <rect x="790" y="208" width="74" height="54" fill="#3a3a32"/>
     <g fill="#b3a184" opacity="0.45">
       <ellipse cx="806" cy="230" rx="9" ry="11"/><ellipse cx="828" cy="228" rx="9" ry="11"/><ellipse cx="850" cy="232" rx="9" ry="11"/>
     </g>
     <path d="M790 262 q36 -22 74 0 z" fill="#1d1b16" opacity="0.7"/>
+    <path d="M790 262 L826 208 L842 208 L806 262 Z" fill="#f0e7ce" opacity="0.06"/>
   </g>
   <g>
+    <ellipse cx="912" cy="184" rx="42" ry="8" fill="#080604" opacity="0.3"/>
     <circle cx="920" cy="140" r="42" fill="#5c4327"/>
+    <path d="M886 112 q34 -22 68 0" fill="none" stroke="#a3814d" stroke-width="2" opacity="0.4"/>
+    <path d="M886 168 q34 22 68 0" fill="none" stroke="#1b1209" stroke-width="2.4" opacity="0.5"/>
     <circle cx="920" cy="140" r="33" fill="#e3d5ac"/>
+    <path d="M896 118 q26 -12 50 4 q-22 20 -50 -4 z" fill="#fffaea" opacity="0.4"/>
+    <path d="M898 164 q24 10 46 -2" fill="none" stroke="#9a9078" stroke-width="3" opacity="0.35"/>
     <g stroke="#4a3f31" stroke-width="3">
       <line x1="920" y1="112" x2="920" y2="118"/><line x1="948" y1="140" x2="942" y2="140"/>
       <line x1="920" y1="168" x2="920" y2="162"/><line x1="892" y1="140" x2="898" y2="140"/>
@@ -1988,8 +2016,8 @@ window.CASE_ART.orpheum = {
   <ellipse cx="628" cy="120" rx="18" ry="8" fill="#ffd98a" class="fx-glow" style="--d:.7s"/>
   <ellipse cx="628" cy="119" rx="9" ry="4" fill="#fffbee" opacity="0.85"/>
   <!-- the cone it drops into the room, thick with cigarette smoke -->
-  <path d="M584 118 L672 118 L810 440 L446 440 Z" fill="url(#or-green-cone)"/>
-  <path d="M600 118 L656 118 L742 440 L514 440 Z" fill="#ffe6b4" opacity="0.045"/>
+  <path d="M584 118 L672 118 L810 440 L446 440 Z" fill="url(#or-green-cone)" opacity="0.7"/>
+  <path d="M596 118 L660 118 L756 440 L500 440 Z" fill="url(#or-green-cone)" opacity="0.55"/>
   <ellipse cx="628" cy="150" rx="126" ry="48" fill="url(#or-green-lamp)" class="fx-glow" style="--d:1.8s"/>
 </g>
 
@@ -2214,18 +2242,46 @@ window.CASE_ART.orpheum = {
 <g transform="translate(-160 0)">
   <path d="M368 566 L640 566 L664 620 L344 620 Z" fill="#4a3524"/>
   <path d="M368 566 L640 566 L642 576 L366 576 Z" fill="#5c4327"/>
+  <path d="M368 566 L640 566" stroke="#8a6a3f" stroke-width="1.6" opacity="0.45"/>
+  <!-- the varnish is white-ringed and burnt: cigarettes left to go out on it -->
+  <g fill="none" stroke="#c9b48a" stroke-width="2" opacity="0.22">
+    <ellipse cx="470" cy="600" rx="24" ry="8"/><ellipse cx="574" cy="592" rx="20" ry="7"/>
+    <ellipse cx="398" cy="606" rx="22" ry="7"/>
+  </g>
+  <g fill="#1b1109" opacity="0.65">
+    <ellipse cx="608" cy="600" rx="11" ry="3.4"/><ellipse cx="440" cy="614" rx="10" ry="3"/>
+    <ellipse cx="546" cy="608" rx="9" ry="2.8"/>
+  </g>
+  <g fill="#6b4a24" opacity="0.5">
+    <ellipse cx="608" cy="599" rx="14" ry="4.4"/><ellipse cx="440" cy="613" rx="13" ry="4"/>
+    <ellipse cx="546" cy="607" rx="12" ry="3.8"/>
+  </g>
+  <g fill="#080604" opacity="0.4">
+    <ellipse cx="440" cy="600" rx="22" ry="5"/><ellipse cx="524" cy="596" rx="34" ry="6"/>
+    <ellipse cx="596" cy="594" rx="30" ry="5"/>
+  </g>
   <g fill="#f4ecd6">
     <path d="M420 578 l30 0 l-4 20 l-22 0 z"/><ellipse cx="435" cy="578" rx="15" ry="5"/>
   </g>
+  <path d="M420 578 l6 0 l-2 20 l-4 0 z" fill="#fffaea" opacity="0.7"/>
+  <path d="M446 580 l4 -2 l-4 20 l-3 0 z" fill="#9a9078" opacity="0.6"/>
   <ellipse cx="435" cy="578" rx="10" ry="3" fill="#3b2f22"/>
+  <ellipse cx="437" cy="578" rx="5" ry="1.4" fill="#6b4a24" opacity="0.6"/>
   <ellipse cx="520" cy="588" rx="30" ry="10" fill="#3a352d"/>
+  <ellipse cx="520" cy="586" rx="30" ry="9" fill="#5b564b" opacity="0.4"/>
   <ellipse cx="520" cy="586" rx="22" ry="6" fill="#241b12"/>
+  <path d="M500 584 q20 -6 40 0" fill="none" stroke="#8e8a7d" stroke-width="1.4" opacity="0.45"/>
+  <g fill="#3a2a18" opacity="0.7">
+    <ellipse cx="514" cy="588" rx="7" ry="2.4"/><ellipse cx="528" cy="587" rx="5" ry="2"/>
+  </g>
   <g fill="#cbb98f">
     <rect x="508" y="580" width="20" height="6" rx="3"/><rect x="524" y="586" width="18" height="5" rx="2"/>
   </g>
+  <path d="M509 581 l18 0 M525 587 l16 0" stroke="#f4ecd6" stroke-width="1.2" opacity="0.6"/>
   <g fill="#e3d5ac" opacity="0.85">
     <path d="M566 576 l50 -4 l3 16 l-50 6 z"/>
   </g>
+  <path d="M566 576 l50 -4 l1 5 l-50 4 z" fill="#fffaea" opacity="0.5"/>
 </g>
 
 <rect width="1000" height="620" fill="url(#or-green-vig)"/>
@@ -2267,16 +2323,72 @@ window.CASE_ART.orpheum = {
     <stop offset="0.4" stop-color="#000" stop-opacity="0"/>
     <stop offset="1" stop-color="#000" stop-opacity="0.8"/>
   </radialGradient>
+  <linearGradient id="or-off-panel" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#4e3a25"/><stop offset="0.4" stop-color="#33271a"/><stop offset="1" stop-color="#1a1209"/>
+  </linearGradient>
+  <linearGradient id="or-off-boards" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2c2116"/><stop offset="1" stop-color="#150f0a"/>
+  </linearGradient>
+  <linearGradient id="or-off-steel" x1="0" y1="0" x2="1" y2="0.2">
+    <stop offset="0" stop-color="#5a5a4e"/><stop offset="0.28" stop-color="#43433a"/>
+    <stop offset="0.72" stop-color="#33332c"/><stop offset="1" stop-color="#1f1f1a"/>
+  </linearGradient>
+  <linearGradient id="or-off-bake" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#7d7768"/><stop offset="0.3" stop-color="#4d4740"/>
+    <stop offset="1" stop-color="#1e1b17"/>
+  </linearGradient>
+  <linearGradient id="or-off-glass" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#e8b968" stop-opacity="0.55"/>
+    <stop offset="0.22" stop-color="#f6dfa8" stop-opacity="0.7"/>
+    <stop offset="0.6" stop-color="#8a5620" stop-opacity="0.6"/>
+    <stop offset="1" stop-color="#4d2f10" stop-opacity="0.65"/>
+  </linearGradient>
+  <linearGradient id="or-off-deskwood" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7a5a33"/><stop offset="0.36" stop-color="#4a3524"/><stop offset="1" stop-color="#1d150d"/>
+  </linearGradient>
+  <linearGradient id="or-off-brass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e0c581"/><stop offset="0.3" stop-color="#a8873f"/><stop offset="1" stop-color="#54401a"/>
+  </linearGradient>
+  <linearGradient id="or-off-castR" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0" stop-color="#0a0705" stop-opacity="0.5"/>
+    <stop offset="0.7" stop-color="#0a0705" stop-opacity="0.12"/>
+    <stop offset="1" stop-color="#0a0705" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="or-off-pool" cx="0.34" cy="0.1" r="0.8">
+    <stop offset="0" stop-color="#ffd98a" stop-opacity="0.20"/>
+    <stop offset="0.55" stop-color="#d9a441" stop-opacity="0.06"/>
+    <stop offset="1" stop-color="#d9a441" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 
 <rect width="1000" height="620" fill="url(#or-off-wall)"/>
 
 <!-- cornice, picture rail, wainscot, floor -->
+<!-- the paper above the rail: a fine repeating stripe, faded, water-marked -->
+<path d="M40 71 L40 384 M92 71 L92 384 M144 71 L144 384 M196 71 L196 384 M248 71 L248 384 M300 71 L300 384 M352 71 L352 384 M404 71 L404 384 M456 71 L456 384 M508 71 L508 384 M560 71 L560 384 M612 71 L612 384 M664 71 L664 384 M716 71 L716 384 M768 71 L768 384 M820 71 L820 384 M872 71 L872 384 M924 71 L924 384 M976 71 L976 384" stroke="#5a4429" stroke-width="6" opacity="0.22"/>
+<g fill="#12100a" opacity="0.2">
+  <path d="M420 300 q70 -28 148 -6 q58 30 -12 66 q-92 22 -140 -18 z"/>
+  <path d="M0 130 q56 -22 104 -2 q44 26 -12 50 q-72 16 -98 -14 z"/>
+</g>
 <rect x="0" y="0" width="1000" height="22" fill="#241b12"/>
 <rect x="0" y="22" width="1000" height="7" fill="#4a3524"/>
+<path d="M0 22 L1000 22" stroke="#8a6a3f" stroke-width="1.4" opacity="0.4"/>
+<path d="M0 29 L1000 29" stroke="#0a0705" stroke-width="2.4" opacity="0.5"/>
 <rect x="0" y="66" width="1000" height="5" fill="#33271a"/>
+<path d="M0 66 L1000 66" stroke="#7d5c33" stroke-width="1.2" opacity="0.45"/>
+<path d="M0 71 L1000 71" stroke="#0a0705" stroke-width="2" opacity="0.4"/>
 <rect x="0" y="384" width="1000" height="96" fill="#241b12"/>
 <rect x="0" y="384" width="1000" height="6" fill="#4a3524"/>
+<path d="M0 384 L1000 384" stroke="#8a6a3f" stroke-width="1.6" opacity="0.4"/>
+<g fill="url(#or-off-panel)">
+  <rect x="20" y="400" width="90" height="60"/><rect x="130" y="400" width="90" height="60"/>
+  <rect x="240" y="400" width="90" height="60"/><rect x="350" y="400" width="90" height="60"/>
+  <rect x="460" y="400" width="90" height="60"/><rect x="570" y="400" width="90" height="60"/>
+  <rect x="680" y="400" width="90" height="60"/><rect x="790" y="400" width="90" height="60"/>
+  <rect x="900" y="400" width="86" height="60"/>
+</g>
+<path d="M20 400 L110 400 M130 400 L220 400 M240 400 L330 400 M350 400 L440 400 M460 400 L550 400 M570 400 L660 400 M680 400 L770 400 M790 400 L880 400 M900 400 L986 400" stroke="#0d0906" stroke-width="2.4" opacity="0.6"/>
+<path d="M20 460 L110 460 M130 460 L220 460 M240 460 L330 460 M350 460 L440 460 M460 460 L550 460 M570 460 L660 460 M680 460 L770 460 M790 460 L880 460 M900 460 L986 460" stroke="#755530" stroke-width="2" opacity="0.45"/>
 <g fill="none" stroke="#33271a" stroke-width="3">
   <rect x="20" y="400" width="90" height="60"/><rect x="130" y="400" width="90" height="60"/>
   <rect x="240" y="400" width="90" height="60"/><rect x="350" y="400" width="90" height="60"/>
@@ -2285,16 +2397,22 @@ window.CASE_ART.orpheum = {
   <rect x="900" y="400" width="86" height="60"/>
 </g>
 <rect x="0" y="472" width="1000" height="10" fill="#1b140d"/>
-<rect x="0" y="482" width="1000" height="138" fill="#1d160f"/>
+<rect x="0" y="482" width="1000" height="138" fill="url(#or-off-boards)"/>
 <g stroke="#2a2016" stroke-width="2">
   <line x1="0" y1="512" x2="1000" y2="512"/><line x1="0" y1="552" x2="1000" y2="552"/>
   <line x1="0" y1="596" x2="1000" y2="596"/>
 </g>
+<path d="M0 515 L1000 515 M0 555 L1000 555 M0 599 L1000 599" stroke="#63492c" stroke-width="0.9" opacity="0.2"/>
+<path d="M210 482 L196 620 M540 482 L536 620 M820 482 L840 620" stroke="#100b07" stroke-width="1.6" opacity="0.55"/>
+<rect x="0" y="482" width="1000" height="138" fill="url(#or-off-pool)"/>
 <rect width="1000" height="620" fill="url(#or-off-glow)" class="fx-glow" style="--d:2.6s"/>
 
 <!-- posters of past triumphs: no letters, only ink and colour -->
 <g>
+  <path d="M182 92 L190 86 L190 298 L182 304 Z" fill="#080604" opacity="0.4"/>
   <rect x="34" y="86" width="150" height="212" fill="#5c4327"/>
+  <path d="M36 88 L182 88 M36 88 L36 296" stroke="#a3814d" stroke-width="1.6" opacity="0.45"/>
+  <path d="M34 296 L184 296 M182 88 L182 296" stroke="#1b1209" stroke-width="1.8" opacity="0.55"/>
   <rect x="42" y="94" width="134" height="196" fill="#e3d5ac"/>
   <rect x="42" y="94" width="134" height="52" fill="#6b2a24"/>
   <g stroke="#f0e7ce" stroke-width="5" opacity="0.8">
@@ -2306,9 +2424,14 @@ window.CASE_ART.orpheum = {
   <g stroke="#5c4327" stroke-width="3" opacity="0.8">
     <line x1="56" y1="272" x2="160" y2="272"/><line x1="66" y1="282" x2="150" y2="282"/>
   </g>
+  <path d="M42 290 L128 94 L154 94 L68 290 Z" fill="#f0e7ce" opacity="0.07"/>
+  <path d="M42 94 L176 94 L176 108 q-66 8 -134 0 z" fill="#0a0705" opacity="0.22"/>
 </g>
 <g>
+  <path d="M336 118 L344 112 L344 298 L336 304 Z" fill="#080604" opacity="0.4"/>
   <rect x="206" y="112" width="132" height="186" fill="#5c4327"/>
+  <path d="M208 114 L336 114 M208 114 L208 296" stroke="#a3814d" stroke-width="1.6" opacity="0.45"/>
+  <path d="M206 296 L338 296 M336 114 L336 296" stroke="#1b1209" stroke-width="1.8" opacity="0.55"/>
   <rect x="214" y="120" width="116" height="170" fill="#cbb98f"/>
   <path d="M214 290 L214 216 L246 216 L246 190 L280 190 L280 220 L312 220 L312 200 L330 200 L330 290 Z" fill="#1b2436"/>
   <circle cx="290" cy="158" r="24" fill="#d9a441" opacity="0.75"/>
@@ -2318,9 +2441,14 @@ window.CASE_ART.orpheum = {
   <g stroke="#8d7c62" stroke-width="2.5" opacity="0.75">
     <line x1="226" y1="272" x2="318" y2="272"/><line x1="236" y1="282" x2="308" y2="282"/>
   </g>
+  <path d="M214 290 L288 120 L310 120 L236 290 Z" fill="#f0e7ce" opacity="0.06"/>
+  <path d="M214 120 L330 120 L330 132 q-58 8 -116 0 z" fill="#0a0705" opacity="0.22"/>
 </g>
 <g transform="rotate(-3 420 200)">
+  <path d="M482 132 L490 126 L490 290 L482 296 Z" fill="#080604" opacity="0.4"/>
   <rect x="358" y="126" width="126" height="164" fill="#5c4327"/>
+  <path d="M360 128 L482 128 M360 128 L360 288" stroke="#a3814d" stroke-width="1.6" opacity="0.45"/>
+  <path d="M358 288 L484 288 M482 128 L482 288" stroke="#1b1209" stroke-width="1.8" opacity="0.55"/>
   <rect x="366" y="134" width="110" height="148" fill="#f0e7ce"/>
   <path d="M366 282 q56 -96 110 0 z" fill="#7a5a6e"/>
   <g fill="#a8352a" opacity="0.85">
@@ -2332,6 +2460,8 @@ window.CASE_ART.orpheum = {
   <g stroke="#8d7c62" stroke-width="2.4" opacity="0.7">
     <line x1="378" y1="256" x2="464" y2="256"/><line x1="386" y1="266" x2="456" y2="266"/>
   </g>
+  <path d="M366 282 L436 134 L458 134 L388 282 Z" fill="#f0e7ce" opacity="0.06"/>
+  <path d="M366 134 L476 134 L476 146 q-56 8 -110 0 z" fill="#0a0705" opacity="0.22"/>
 </g>
 
 <!-- the window over the box office: Bay City at night -->
@@ -2355,30 +2485,64 @@ window.CASE_ART.orpheum = {
     </g>
   </g>
   <g class="fx-glow" style="--d:2.1s"><circle cx="880" cy="112" r="14" fill="#cbd6e4" opacity="0.13"/></g>
+  <!-- rain on the outside of the glass, and the city glow smeared through it -->
+  <rect x="676" y="72" width="252" height="232" fill="#8fa4c0" opacity="0.05"/>
+  <g fill="#c3d2e2" opacity="0.16">
+    <ellipse cx="700" cy="160" rx="2.4" ry="5"/><ellipse cx="742" cy="212" rx="2" ry="4"/>
+    <ellipse cx="784" cy="132" rx="2.6" ry="5.4"/><ellipse cx="836" cy="196" rx="2" ry="4.4"/>
+    <ellipse cx="880" cy="236" rx="2.4" ry="5"/><ellipse cx="716" cy="252" rx="2" ry="4"/>
+    <ellipse cx="908" cy="160" rx="2.2" ry="4.6"/><ellipse cx="762" cy="288" rx="2" ry="4"/>
+  </g>
+  <path d="M700 100 q4 40 -6 74 M812 118 q5 46 -4 84 M886 140 q4 40 -5 76" fill="none" stroke="#c3d2e2" stroke-width="1.2" opacity="0.14"/>
+  <path d="M676 72 L928 72 L928 96 q-126 14 -252 0 z" fill="#0a0d16" opacity="0.4"/>
+  <g stroke="#3a2d1e" stroke-width="6">
+    <line x1="802" y1="72" x2="802" y2="304"/><line x1="676" y1="188" x2="928" y2="188"/>
+  </g>
+  <path d="M805 72 L805 304 M676 191 L928 191" stroke="#7d5c33" stroke-width="1.4" opacity="0.4"/>
+  <path d="M799 72 L799 304 M676 185 L928 185" stroke="#100b07" stroke-width="1.6" opacity="0.5"/>
   <path d="M664 60 l278 0 l0 16 l-278 0 z" fill="#4a3524"/>
+  <path d="M664 60 l278 0" stroke="#8a6a3f" stroke-width="1.6" opacity="0.45"/>
+  <path d="M664 76 l278 0" stroke="#100b07" stroke-width="1.6" opacity="0.55"/>
+  <!-- curtains: heavy cotton, the light falling off round each fold -->
   <path d="M660 62 l40 0 l-4 244 q-20 10 -38 2 z" fill="#4a2a20"/>
   <path d="M906 62 l42 0 l4 248 q-22 10 -42 2 z" fill="#4a2a20"/>
+  <path d="M676 62 l10 0 l-3 242 l-9 2 z" fill="#6e4231" opacity="0.5"/>
+  <path d="M926 62 l10 0 l4 244 l-10 2 z" fill="#6e4231" opacity="0.5"/>
   <g fill="none" stroke="#2f1a14" stroke-width="3" opacity="0.9">
     <path d="M672 66 l-4 238"/><path d="M686 66 l-3 240"/>
     <path d="M920 66 l3 240"/><path d="M936 66 l5 240"/>
   </g>
+  <path d="M660 300 q20 10 38 0 l0 8 q-20 10 -38 0 z" fill="#0a0705" opacity="0.4"/>
+  <path d="M910 302 q22 10 42 0 l0 8 q-22 10 -42 0 z" fill="#0a0705" opacity="0.4"/>
 </g>
 
 <!-- a filing cabinet and the safe, in the corner -->
 <g>
-  <rect x="512" y="256" width="128" height="216" fill="#3a3a32"/>
+  <path d="M640 264 L648 258 L648 472 L640 472 Z" fill="#080604" opacity="0.4"/>
+  <rect x="512" y="256" width="128" height="216" fill="url(#or-off-steel)"/>
   <rect x="512" y="256" width="128" height="10" fill="#4d4d43"/>
+  <path d="M512 257 L640 257" stroke="#9b968a" stroke-width="1.4" opacity="0.5"/>
+  <path d="M512 266 L640 266" stroke="#16150f" stroke-width="1.6" opacity="0.6"/>
   <g fill="none" stroke="#242420" stroke-width="3">
     <rect x="522" y="274" width="108" height="60"/><rect x="522" y="342" width="108" height="60"/>
     <rect x="522" y="410" width="108" height="54"/>
   </g>
+  <path d="M522 276 L630 276 M522 344 L630 344 M522 412 L630 412" stroke="#6a685c" stroke-width="1.2" opacity="0.45"/>
+  <path d="M522 334 L630 334 M522 402 L630 402 M522 464 L630 464" stroke="#100f0c" stroke-width="1.6" opacity="0.6"/>
+  <!-- steel takes a long soft highlight down its rolled front edge -->
+  <path d="M526 268 q6 100 2 200 l-8 0 q-4 -100 -2 -200 z" fill="#8e8c80" opacity="0.22"/>
+  <path d="M604 288 q4 6 -2 10 q-6 -2 -2 -9 z" fill="#16150f" opacity="0.5"/>
   <g fill="#8e8e88">
     <rect x="558" y="298" width="36" height="8" rx="3"/><rect x="558" y="366" width="36" height="8" rx="3"/>
     <rect x="558" y="432" width="36" height="8" rx="3"/>
   </g>
+  <path d="M559 299 l34 0 M559 367 l34 0 M559 433 l34 0" stroke="#d5d0bf" stroke-width="1.2" opacity="0.55"/>
+  <path d="M558 305 l36 0 M558 373 l36 0 M558 439 l36 0" stroke="#14130f" stroke-width="1.4" opacity="0.6"/>
   <g fill="#e3d5ac" opacity="0.9">
     <rect x="536" y="238" width="46" height="18"/><rect x="586" y="234" width="42" height="22"/>
   </g>
+  <path d="M536 238 l46 0 l0 3 l-46 0 z M586 234 l42 0 l0 3 l-42 0 z" fill="#fffaea" opacity="0.6"/>
+  <path d="M536 252 l46 0 l0 4 l-46 0 z M586 250 l42 0 l0 6 l-42 0 z" fill="#0a0705" opacity="0.35"/>
   <g stroke="#8d7c62" stroke-width="1.5"><line x1="542" y1="246" x2="576" y2="246"/><line x1="592" y1="244" x2="622" y2="244"/></g>
 </g>
 
@@ -2391,6 +2555,9 @@ window.CASE_ART.orpheum = {
   </g>
   <!-- the man himself: a checked suit at the end of a long night -->
   <path d="M566 470 q0 -84 68 -92 l44 0 q68 8 68 92 z" fill="#4a4232"/>
+  <!-- the desk lamp is down and to his left; it edges that whole side -->
+  <path d="M566 470 q0 -80 62 -91 l6 8 q-54 12 -54 83 z" fill="#ffd98a" opacity="0.16"/>
+  <path d="M746 470 q0 -80 -62 -91 l-6 8 q54 12 54 83 z" fill="#0a0705" opacity="0.28"/>
   <g stroke="#5f573f" stroke-width="2" opacity="0.65">
     <line x1="580" y1="400" x2="580" y2="470"/><line x1="608" y1="392" x2="608" y2="470"/>
     <line x1="636" y1="386" x2="636" y2="470"/><line x1="664" y1="384" x2="664" y2="470"/>
@@ -2415,6 +2582,8 @@ window.CASE_ART.orpheum = {
   <line x1="650" y1="364" x2="670" y2="364" stroke="#6b5a45" stroke-width="2.6" stroke-linecap="round"/>
   <path d="M636 374 q24 12 48 0 l0 12 q-24 10 -48 0 z" fill="#b39a7a"/>
   <ellipse cx="660" cy="322" rx="20" ry="6" fill="#4a453c" opacity="0.5"/>
+  <path d="M632 328 q-6 22 6 38 l6 -4 q-10 -16 -5 -34 z" fill="#ffd98a" opacity="0.22"/>
+  <path d="M688 330 q6 22 -6 38 l-6 -4 q10 -16 5 -34 z" fill="#0a0705" opacity="0.3"/>
   <!-- both hands flat on the desk, defending it -->
   <path d="M566 424 q-24 14 -26 34 l26 4 z" fill="#4a4232"/>
   <path d="M754 424 q24 14 26 34 l-26 4 z" fill="#4a4232"/>
@@ -2431,23 +2600,35 @@ window.CASE_ART.orpheum = {
 <!-- THE DESK -->
 <rect x="120" y="300" width="420" height="320" fill="url(#or-off-lamp)" class="fx-flicker" style="--d:1.2s"/>
 <g>
-  <rect x="104" y="470" width="712" height="26" rx="4" fill="#5c4327"/>
+  <rect x="104" y="470" width="712" height="26" rx="4" fill="url(#or-off-deskwood)"/>
+  <path d="M106 471 L814 471" stroke="#a3814d" stroke-width="1.8" opacity="0.5"/>
+  <path d="M104 494 L816 494" stroke="#100b07" stroke-width="1.8" opacity="0.6"/>
+  <path d="M180 476 q140 -4 280 0 M500 484 q150 -4 296 0" fill="none" stroke="#6a4d2c" stroke-width="1" opacity="0.35"/>
   <rect x="104" y="492" width="712" height="10" fill="#33271a"/>
   <rect x="128" y="502" width="664" height="118" fill="#3b2f22"/>
+  <rect x="128" y="502" width="664" height="118" fill="url(#or-off-castR)" opacity="0.55"/>
   <rect x="326" y="502" width="268" height="118" fill="#241b12"/>
   <!-- right pedestal, shut -->
   <g fill="none" stroke="#4a3524" stroke-width="3">
     <rect x="616" y="514" width="152" height="34"/><rect x="616" y="556" width="152" height="34"/>
     <rect x="616" y="598" width="152" height="22"/>
   </g>
-  <g fill="#9b7a3f">
+  <path d="M616 514 L768 514 M616 556 L768 556 M616 598 L768 598" stroke="#0d0906" stroke-width="1.6" opacity="0.55"/>
+  <path d="M616 548 L768 548 M616 590 L768 590" stroke="#7d5c33" stroke-width="1.4" opacity="0.4"/>
+  <g fill="url(#or-off-brass)">
     <ellipse cx="692" cy="531" rx="16" ry="5"/><ellipse cx="692" cy="573" rx="16" ry="5"/>
+  </g>
+  <g fill="#f6e5b0" opacity="0.4">
+    <ellipse cx="692" cy="530" rx="9" ry="1.6"/><ellipse cx="692" cy="572" rx="9" ry="1.6"/>
   </g>
   <!-- LEFT PEDESTAL: the drawer standing open on its papers -->
   <g fill="none" stroke="#4a3524" stroke-width="3">
     <rect x="152" y="556" width="152" height="34"/><rect x="152" y="598" width="152" height="22"/>
   </g>
-  <ellipse cx="228" cy="573" rx="16" ry="5" fill="#9b7a3f"/>
+  <path d="M152 556 L304 556 M152 598 L304 598" stroke="#0d0906" stroke-width="1.6" opacity="0.55"/>
+  <path d="M152 590 L304 590" stroke="#7d5c33" stroke-width="1.4" opacity="0.4"/>
+  <ellipse cx="228" cy="573" rx="16" ry="5" fill="url(#or-off-brass)"/>
+  <ellipse cx="228" cy="572" rx="9" ry="1.6" fill="#f6e5b0" opacity="0.4"/>
   <g>
     <path d="M126 500 L330 500 L330 552 L126 552 Z" fill="#4a3524"/>
     <path d="M126 500 L330 500 L322 490 L134 490 Z" fill="#5c4327"/>
@@ -2475,47 +2656,84 @@ window.CASE_ART.orpheum = {
   </g>
   <!-- top of the desk -->
   <rect x="150" y="452" width="180" height="20" rx="3" fill="#5d1f18" opacity="0.9"/>
+  <path d="M150 452 L330 452" stroke="#8e3327" stroke-width="1.6" opacity="0.6"/>
+  <path d="M152 470 L328 470" stroke="#2c0d0a" stroke-width="1.6" opacity="0.6"/>
+  <g fill="#3a0f0b" opacity="0.35">
+    <path d="M180 458 q34 -5 66 2 q-32 7 -68 2 z"/><path d="M264 460 q26 -4 50 2 q-24 6 -52 2 z"/>
+  </g>
   <rect x="156" y="444" width="168" height="10" fill="#3a2418"/>
-  <!-- the bottle of rye at low tide, and a glass -->
+  <path d="M156 444 L324 444" stroke="#7d5c33" stroke-width="1.2" opacity="0.4"/>
+  <!-- the bottle of rye at low tide: glass, so it holds one hard specular
+       and passes the lamp through what is left in it -->
+  <ellipse cx="360" cy="470" rx="26" ry="5" fill="#080604" opacity="0.45"/>
   <g>
     <path d="M356 470 l0 -52 q0 -10 -8 -16 l0 -22 l24 0 l0 22 q-8 6 -8 16 l0 52 z" fill="#8a6636" opacity="0.55"/>
     <path d="M356 470 l0 -30 l8 0 l0 30 z" fill="url(#or-off-rye)"/>
-    <path d="M348 442 l24 0 l0 28 l-24 0 z" fill="url(#or-off-rye)"/>
+    <path d="M348 442 l24 0 l0 28 l-24 0 z" fill="url(#or-off-glass)"/>
+    <path d="M348 442 l24 0 l0 3 l-24 0 z" fill="#f6dfa8" opacity="0.7"/>
+    <path d="M368 444 l4 0 l0 26 l-4 0 z" fill="#3a2208" opacity="0.55"/>
     <rect x="352" y="374" width="16" height="12" rx="3" fill="#241b12"/>
+    <path d="M353 375 l4 0 l0 10 l-4 0 z" fill="#6b5a45" opacity="0.6"/>
     <rect x="348" y="404" width="24" height="20" fill="#a8352a" opacity="0.6"/>
+    <path d="M348 404 l24 0 l0 3 l-24 0 z" fill="#d8695a" opacity="0.5"/>
     <g stroke="#e3d5ac" stroke-width="1.5" opacity="0.7">
       <line x1="352" y1="410" x2="368" y2="410"/><line x1="352" y1="416" x2="364" y2="416"/>
     </g>
-    <path d="M354 424 l0 40" stroke="#ffffff" stroke-width="2.5" opacity="0.3"/>
+    <path d="M354 424 l0 40" stroke="#ffffff" stroke-width="2.5" opacity="0.35"/>
+    <path d="M351 390 l0 78" stroke="#ffffff" stroke-width="1.2" opacity="0.25"/>
+    <path d="M370 392 l0 76" stroke="#100b04" stroke-width="1.4" opacity="0.4"/>
   </g>
+  <ellipse cx="401" cy="470" rx="20" ry="4" fill="#080604" opacity="0.4"/>
   <g>
     <path d="M388 470 l0 -34 l26 0 l0 34 z" fill="#efe8d2" opacity="0.9"/>
     <path d="M388 470 l0 -14 l26 0 l0 14 z" fill="#8a5620"/>
+    <path d="M388 456 l26 0 l0 3 l-26 0 z" fill="#e8b968" opacity="0.7"/>
+    <path d="M389 438 l4 0 l0 30 l-4 0 z" fill="#ffffff" opacity="0.45"/>
+    <path d="M410 438 l4 0 l0 30 l-4 0 z" fill="#4d3a1a" opacity="0.4"/>
     <ellipse cx="401" cy="436" rx="13" ry="4" fill="#f4ecd6" opacity="0.9"/>
+    <ellipse cx="399" cy="436" rx="7" ry="1.8" fill="#ffffff" opacity="0.5"/>
   </g>
   <!-- an ashtray, over-used -->
+  <ellipse cx="472" cy="470" rx="38" ry="6" fill="#080604" opacity="0.4"/>
   <ellipse cx="470" cy="462" rx="34" ry="11" fill="#3a352d"/>
+  <ellipse cx="470" cy="460" rx="34" ry="10" fill="#6a6457" opacity="0.4"/>
   <ellipse cx="470" cy="459" rx="26" ry="7" fill="#241b12"/>
+  <path d="M448 456 q22 -6 44 0" fill="none" stroke="#8e8a7d" stroke-width="1.4" opacity="0.4"/>
+  <g fill="#3a2a18" opacity="0.7">
+    <ellipse cx="462" cy="461" rx="8" ry="2.6"/><ellipse cx="480" cy="460" rx="6" ry="2.2"/>
+  </g>
   <g fill="#cbb98f">
     <rect x="452" y="452" width="22" height="6" rx="3"/><rect x="470" y="458" width="20" height="6" rx="3"/>
     <rect x="460" y="446" width="18" height="5" rx="2"/>
   </g>
+  <path d="M453 453 l20 0 M471 459 l18 0 M461 447 l16 0" stroke="#f4ecd6" stroke-width="1.1" opacity="0.6"/>
+  <g fill="#1b1109" opacity="0.7">
+    <rect x="470" y="452" width="5" height="6" rx="2"/><rect x="486" y="458" width="5" height="6" rx="2"/>
+  </g>
   <!-- THE TELEPHONE and its pad -->
   <g transform="translate(-104 12)">
+    <ellipse cx="862" cy="472" rx="54" ry="9" fill="#080604" opacity="0.4"/>
     <ellipse cx="856" cy="466" rx="48" ry="14" fill="#3a352d"/>
-    <ellipse cx="856" cy="462" rx="40" ry="11" fill="#4d4740"/>
+    <ellipse cx="856" cy="462" rx="40" ry="11" fill="url(#or-off-bake)"/>
+    <ellipse cx="844" cy="458" rx="16" ry="4" fill="#9b968a" opacity="0.4"/>
     <path d="M832 452 q24 -16 48 0 l0 -10 q-24 -14 -48 0 z" fill="#5b564b"/>
+    <path d="M834 444 q22 -12 44 0" fill="none" stroke="#a8a294" stroke-width="1.4" opacity="0.5"/>
     <rect x="848" y="376" width="16" height="70" fill="#4d4740"/>
     <rect x="852" y="376" width="5" height="70" fill="#7d7768"/>
+    <path d="M862 378 l2 0 l0 66 l-2 0 z" fill="#16150f" opacity="0.6"/>
     <path d="M836 374 q20 -14 40 0 l0 10 q-20 -12 -40 0 z" fill="#6f6a5e"/>
     <ellipse cx="856" cy="372" rx="20" ry="7" fill="#8e8e88"/>
+    <ellipse cx="850" cy="370" rx="8" ry="2.4" fill="#d5d0bf" opacity="0.6"/>
     <ellipse cx="856" cy="370" rx="11" ry="4" fill="#241b12"/>
     <!-- the receiver, set back on its fork askew -->
     <g transform="translate(0 20) rotate(-11 856 352)">
-      <path d="M814 346 q42 -20 84 0 l-5 16 q-37 -18 -74 0 z" fill="#4d4740"/>
+      <path d="M814 346 q42 -20 84 0 l-5 16 q-37 -18 -74 0 z" fill="url(#or-off-bake)"/>
       <path d="M814 346 q42 -20 84 0 l-2 6 q-40 -18 -80 0 z" fill="#6f6a5e"/>
+      <path d="M818 344 q38 -16 76 0" fill="none" stroke="#c2bdae" stroke-width="1.4" opacity="0.5"/>
       <ellipse cx="812" cy="354" rx="15" ry="12" fill="#5b564b"/>
       <ellipse cx="900" cy="354" rx="15" ry="12" fill="#5b564b"/>
+      <path d="M802 350 q4 -8 12 -8" fill="none" stroke="#b3aea0" stroke-width="2" opacity="0.4"/>
+      <path d="M890 350 q4 -8 12 -8" fill="none" stroke="#b3aea0" stroke-width="2" opacity="0.4"/>
       <ellipse cx="812" cy="354" rx="8" ry="6" fill="#1b1814"/>
       <ellipse cx="900" cy="354" rx="8" ry="6" fill="#1b1814"/>
     </g>
@@ -2524,8 +2742,11 @@ window.CASE_ART.orpheum = {
   </g>
   <!-- the pad: the top sheet torn off, the impression still there -->
   <g transform="translate(-64 34) rotate(4 726 428)">
+    <rect x="680" y="414" width="100" height="52" rx="2" fill="#080604" opacity="0.4"/>
     <rect x="676" y="410" width="100" height="52" rx="2" fill="#cbb98f"/>
     <rect x="676" y="410" width="100" height="44" rx="2" fill="#f0e7ce"/>
+    <path d="M676 410 l100 0 l0 3 l-100 0 z" fill="#fffaea" opacity="0.6"/>
+    <path d="M676 448 l100 0 l0 6 l-100 0 z" fill="#a89a7c" opacity="0.4"/>
     <path d="M676 410 l100 0 l0 5 l-100 0 z" fill="#a8352a" opacity="0.75"/>
     <path d="M760 410 l16 0 l0 16 z" fill="#e3d5ac"/>
     <g stroke="#a89a7c" stroke-width="2.4" opacity="0.95">
@@ -2547,8 +2768,13 @@ window.CASE_ART.orpheum = {
 <!-- a wastebasket of crumpled paper, beside the open drawer -->
 <g>
   <ellipse cx="66" cy="586" rx="46" ry="12" fill="#0d0a07" opacity="0.6"/>
-  <path d="M28 500 l76 0 l-10 84 l-56 0 z" fill="#4a453c"/>
+  <path d="M28 500 l76 0 l-10 84 l-56 0 z" fill="url(#or-off-steel)"/>
   <path d="M28 500 l76 0 l-2 14 l-72 0 z" fill="#6f6a5e"/>
+  <path d="M28 500 l76 0" stroke="#b3aea0" stroke-width="1.4" opacity="0.5"/>
+  <path d="M30 514 l72 0" stroke="#16150f" stroke-width="1.4" opacity="0.55"/>
+  <!-- galvanised tin: one long soft highlight, then a hard dark rib -->
+  <path d="M36 516 q-2 32 0 66 l10 0 q-3 -34 -1 -66 z" fill="#9b968a" opacity="0.28"/>
+  <path d="M86 516 q3 32 2 66 l6 0 q-2 -34 -4 -66 z" fill="#100f0c" opacity="0.4"/>
   <g stroke="#2f2b26" stroke-width="3" opacity="0.8">
     <line x1="46" y1="516" x2="42" y2="578"/><line x1="66" y1="516" x2="66" y2="578"/>
     <line x1="86" y1="516" x2="90" y2="578"/>
@@ -2557,16 +2783,31 @@ window.CASE_ART.orpheum = {
     <path d="M36 496 q18 -20 38 -6 q16 12 -2 20 q-24 8 -36 -14 z"/>
     <path d="M74 494 q14 -16 30 -4 q12 10 -4 16 q-20 6 -26 -12 z"/>
   </g>
+  <path d="M40 492 q16 -14 32 -4 M78 490 q12 -10 24 -2" fill="none" stroke="#fffaea" stroke-width="1.6" opacity="0.5"/>
+  <path d="M44 506 q16 6 30 -2 M84 504 q12 4 22 -2" fill="none" stroke="#8d7c62" stroke-width="1.6" opacity="0.5"/>
+  <ellipse cx="136" cy="588" rx="30" ry="5" fill="#080604" opacity="0.4"/>
   <path d="M112 570 q22 -20 44 -4 q14 12 -6 20 q-28 8 -38 -16 z" fill="#cbb98f"/>
+  <path d="M116 568 q20 -16 38 -2" fill="none" stroke="#f4ecd6" stroke-width="1.6" opacity="0.6"/>
+  <path d="M118 580 q18 6 32 -2" fill="none" stroke="#8d7c62" stroke-width="1.6" opacity="0.5"/>
 </g>
 
 <!-- foreground: the visitor's chair, seen from behind -->
 <g>
   <path d="M754 620 L1010 620 L1010 500 q-136 -24 -270 4 Z" fill="#1b140d"/>
   <path d="M740 512 q136 -28 270 -4" fill="none" stroke="#4a3524" stroke-width="6"/>
+  <path d="M742 516 q134 -26 268 -4" fill="none" stroke="#7d5c33" stroke-width="1.6" opacity="0.4"/>
+  <path d="M754 620 L1010 620 L1010 500 q-136 -24 -270 4 Z" fill="url(#or-off-castR)" opacity="0.5"/>
   <g fill="#2b1f14">
     <circle cx="812" cy="546" r="5"/><circle cx="888" cy="538" r="5"/><circle cx="962" cy="536" r="5"/>
   </g>
+</g>
+
+<!-- the room's air: smoke off the ashtray, standing in the lamplight -->
+<g class="fx-drift-slow" style="--d:1.1s" fill="#e6d3ae">
+  <ellipse cx="486" cy="410" rx="26" ry="9" opacity="0.05"/>
+  <ellipse cx="502" cy="360" rx="34" ry="11" opacity="0.045"/>
+  <ellipse cx="480" cy="312" rx="42" ry="13" opacity="0.035"/>
+  <ellipse cx="508" cy="262" rx="50" ry="15" opacity="0.028"/>
 </g>
 
 <rect width="1000" height="620" fill="url(#or-off-vig)"/>
@@ -2612,6 +2853,33 @@ window.CASE_ART.orpheum = {
     <stop offset="0.36" stop-color="#000" stop-opacity="0"/>
     <stop offset="1" stop-color="#000" stop-opacity="0.84"/>
   </radialGradient>
+  <linearGradient id="or-box-nap" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#000000" stop-opacity="0.5"/>
+    <stop offset="0.5" stop-color="#000000" stop-opacity="0.06"/>
+    <stop offset="0.82" stop-color="#ffcf86" stop-opacity="0.06"/>
+    <stop offset="1" stop-color="#ffcf86" stop-opacity="0.14"/>
+  </linearGradient>
+  <linearGradient id="or-box-haze" x1="0" y1="1" x2="0.55" y2="0">
+    <stop offset="0" stop-color="#c39a56" stop-opacity="0.22"/>
+    <stop offset="0.5" stop-color="#9d8a6a" stop-opacity="0.10"/>
+    <stop offset="1" stop-color="#6d6c5a" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="or-box-giltroll" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#8a6a34"/><stop offset="0.2" stop-color="#f6dfa8"/>
+    <stop offset="0.5" stop-color="#c0993f"/><stop offset="1" stop-color="#5c4327"/>
+  </linearGradient>
+  <linearGradient id="or-box-carpet" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#5d1f18"/><stop offset="0.5" stop-color="#48160f"/><stop offset="1" stop-color="#2a0e0a"/>
+  </linearGradient>
+  <linearGradient id="or-box-castR" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#080604" stop-opacity="0"/>
+    <stop offset="0.45" stop-color="#080604" stop-opacity="0.18"/>
+    <stop offset="1" stop-color="#080604" stop-opacity="0.5"/>
+  </linearGradient>
+  <linearGradient id="or-box-nickel" x1="0" y1="0" x2="1" y2="0.3">
+    <stop offset="0" stop-color="#a8a294"/><stop offset="0.3" stop-color="#6f6a5e"/>
+    <stop offset="0.72" stop-color="#413c34"/><stop offset="1" stop-color="#26231e"/>
+  </linearGradient>
 </defs>
 
 <rect width="1000" height="620" fill="url(#or-box-air)"/>
@@ -2754,6 +3022,18 @@ window.CASE_ART.orpheum = {
     <ellipse cx="442" cy="376" rx="22" ry="11"/>
   </g>
 </g>
+<!-- the house is deep, and full of the dust the stage light throws up:
+     everything past the proscenium loses contrast into it -->
+<rect x="60" y="30" width="880" height="384" fill="url(#or-box-haze)"/>
+<g fill="#c9a568" opacity="0.05">
+  <ellipse cx="330" cy="310" rx="330" ry="130"/><ellipse cx="250" cy="366" rx="260" ry="80"/>
+</g>
+<g fill="#0c0907" opacity="0.28">
+  <ellipse cx="880" cy="150" rx="240" ry="180"/>
+</g>
+<g fill="#7d7160" opacity="0.06">
+  <ellipse cx="700" cy="250" rx="300" ry="150"/>
+</g>
 <rect width="1000" height="620" fill="url(#or-box-glow)"/>
 
 <!-- the box: velvet walls left and right -->
@@ -2762,12 +3042,26 @@ window.CASE_ART.orpheum = {
   <g fill="none" stroke="#2a100e" stroke-width="5" opacity="0.9">
     <path d="M14 0 L2 620"/><path d="M46 0 L30 620"/><path d="M80 0 L58 620"/><path d="M112 0 L86 620"/>
   </g>
+  <!-- the nap takes the stage light along the shoulder of each fold -->
+  <path d="M8 0 L-4 620 M40 0 L24 620 M74 0 L52 620 M106 0 L80 620" stroke="#94382e" stroke-width="1.8" opacity="0.35"/>
+  <path d="M-10 0 L128 0 L104 620 L-10 620 Z" fill="url(#or-box-nap)"/>
   <path d="M1010 0 L900 0 L924 620 L1010 620 Z" fill="url(#or-box-velvet)"/>
   <g fill="none" stroke="#2a100e" stroke-width="5" opacity="0.9">
     <path d="M986 0 L996 620"/><path d="M956 0 L972 620"/><path d="M926 0 L948 620"/>
   </g>
+  <path d="M980 0 L990 620 M950 0 L966 620 M920 0 L942 620" stroke="#7d2d24" stroke-width="1.6" opacity="0.25"/>
+  <path d="M1010 0 L900 0 L924 620 L1010 620 Z" fill="url(#or-box-nap)"/>
+  <path d="M1010 0 L900 0 L924 620 L1010 620 Z" fill="url(#or-box-castR)" opacity="0.5"/>
+  <!-- the gilt paterae: high-relief plaster, chipped through to red bole -->
   <g fill="url(#or-box-gilt)" opacity="0.9">
     <circle cx="58" cy="186" r="22"/><circle cx="952" cy="186" r="22"/>
+  </g>
+  <path d="M40 176 q18 -14 36 -2" fill="none" stroke="#fbeec2" stroke-width="2.4" opacity="0.55"/>
+  <path d="M40 196 q18 12 36 2" fill="none" stroke="#4a3416" stroke-width="2.4" opacity="0.6"/>
+  <path d="M934 176 q18 -14 36 -2" fill="none" stroke="#fbeec2" stroke-width="2" opacity="0.35"/>
+  <g fill="#8e3327" opacity="0.7">
+    <path d="M70 172 q7 -3 9 3 q-6 4 -10 -1 z"/><path d="M46 200 q6 -2 8 3 q-6 3 -9 -1 z"/>
+    <path d="M962 196 q6 -2 8 3 q-6 3 -9 -1 z"/>
   </g>
   <g fill="#431916">
     <circle cx="58" cy="186" r="10"/><circle cx="952" cy="186" r="10"/>
@@ -2775,15 +3069,26 @@ window.CASE_ART.orpheum = {
   <g fill="none" stroke="#a8873f" stroke-width="3" opacity="0.7">
     <circle cx="58" cy="186" r="33"/><circle cx="952" cy="186" r="33"/>
   </g>
+  <path d="M32 164 q28 -22 56 -2" fill="none" stroke="#f0d492" stroke-width="1.6" opacity="0.45"/>
+  <path d="M28 204 q30 24 60 4" fill="none" stroke="#3a2a10" stroke-width="1.8" opacity="0.5"/>
   <!-- the swagged pelmet overhead -->
   <path d="M-10 0 L1010 0 L1010 40 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -124 0 Z" fill="url(#or-box-velvet)"/>
+  <path d="M1010 40 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -128 0 q-64 62 -124 0" fill="none" stroke="#8e3327" stroke-width="2" opacity="0.3"/>
+  <path d="M-10 32 q30 50 60 4 M118 32 q30 50 60 4 M246 32 q30 50 60 4 M374 32 q30 50 60 4 M502 32 q30 50 60 4 M630 32 q30 50 60 4 M758 32 q30 50 60 4 M886 32 q30 50 60 4" fill="none" stroke="#1c0a09" stroke-width="4" opacity="0.4"/>
+  <rect x="-10" y="0" width="1020" height="80" fill="#000000" opacity="0.24"/>
   <g fill="url(#or-box-gilt)">
     <circle cx="-10" cy="68" r="9"/><circle cx="118" cy="68" r="9"/><circle cx="246" cy="68" r="9"/>
     <circle cx="374" cy="68" r="9"/><circle cx="502" cy="68" r="9"/><circle cx="630" cy="68" r="9"/>
     <circle cx="758" cy="68" r="9"/><circle cx="886" cy="68" r="9"/><circle cx="1010" cy="68" r="9"/>
   </g>
+  <g fill="#fbeec2" opacity="0.4">
+    <circle cx="115" cy="65" r="3"/><circle cx="243" cy="65" r="3"/><circle cx="371" cy="65" r="3"/>
+    <circle cx="499" cy="65" r="3"/><circle cx="627" cy="65" r="3"/><circle cx="755" cy="65" r="3"/>
+    <circle cx="883" cy="65" r="3"/>
+  </g>
   <rect x="-10" y="0" width="1020" height="14" fill="#14110d"/>
   <path d="M-10 14 L1010 14 L1010 22 L-10 22 Z" fill="url(#or-box-gilt)" opacity="0.5"/>
+  <path d="M-10 14 L1010 14" stroke="#f0d492" stroke-width="1.4" opacity="0.35"/>
 </g>
 
 <!-- THE GILT RAIL -->
@@ -2797,23 +3102,46 @@ window.CASE_ART.orpheum = {
     <rect x="708" y="414" width="13" height="34"/><rect x="780" y="414" width="13" height="34"/>
     <rect x="852" y="414" width="13" height="34"/>
   </g>
-  <rect x="98" y="356" width="826" height="30" rx="10" fill="url(#or-box-gilt)"/>
+  <path d="M138 416 l7 0 l0 32 l-7 0 z M210 416 l7 0 l0 32 l-7 0 z M282 416 l7 0 l0 32 l-7 0 z M354 416 l7 0 l0 32 l-7 0 z M426 416 l7 0 l0 32 l-7 0 z M498 416 l7 0 l0 32 l-7 0 z M570 416 l7 0 l0 32 l-7 0 z M642 416 l7 0 l0 32 l-7 0 z M714 416 l7 0 l0 32 l-7 0 z M786 416 l7 0 l0 32 l-7 0 z M858 416 l7 0 l0 32 l-7 0 z" fill="#3a2a10" opacity="0.55"/>
+  <path d="M133 416 l3 0 l0 32 l-3 0 z M205 416 l3 0 l0 32 l-3 0 z M277 416 l3 0 l0 32 l-3 0 z M349 416 l3 0 l0 32 l-3 0 z M421 416 l3 0 l0 32 l-3 0 z M493 416 l3 0 l0 32 l-3 0 z M565 416 l3 0 l0 32 l-3 0 z M637 416 l3 0 l0 32 l-3 0 z M709 416 l3 0 l0 32 l-3 0 z M781 416 l3 0 l0 32 l-3 0 z M853 416 l3 0 l0 32 l-3 0 z" fill="#fbeec2" opacity="0.4"/>
+  <!-- the top roll of the rail: fifty years of forearms have worn the gilt
+       through to the red bole under it -->
+  <rect x="98" y="356" width="826" height="30" rx="10" fill="url(#or-box-giltroll)"/>
   <rect x="104" y="360" width="814" height="8" rx="4" fill="#f4dda0" opacity="0.65"/>
+  <rect x="104" y="360" width="814" height="3" rx="2" fill="#fffaea" opacity="0.5"/>
+  <path d="M98 382 L924 382" stroke="#3a2a10" stroke-width="2" opacity="0.5"/>
+  <g fill="#8e3327" opacity="0.45">
+    <path d="M242 366 q46 -6 90 2 q-44 8 -92 2 z"/><path d="M486 368 q54 -6 106 2 q-52 8 -110 2 z"/>
+    <path d="M700 366 q40 -5 78 2 q-38 7 -80 2 z"/>
+  </g>
+  <g fill="#3a2a10" opacity="0.35">
+    <path d="M330 374 q26 -3 50 1 q-24 5 -52 1 z"/><path d="M620 376 q22 -3 42 1 q-20 4 -44 1 z"/>
+  </g>
   <rect x="98" y="386" width="826" height="12" fill="#7d6132"/>
+  <path d="M98 386 L924 386" stroke="#c0993f" stroke-width="1.4" opacity="0.5"/>
+  <path d="M98 396 L924 396" stroke="#2c2010" stroke-width="1.6" opacity="0.6"/>
   <rect x="98" y="398" width="826" height="16" fill="#5d1f18"/>
   <g fill="none" stroke="#d7b064" stroke-width="3" opacity="0.55">
     <path d="M150 404 q34 -12 68 0"/><path d="M242 404 q34 -12 68 0"/><path d="M334 404 q34 -12 68 0"/>
     <path d="M426 404 q34 -12 68 0"/><path d="M518 404 q34 -12 68 0"/><path d="M610 404 q34 -12 68 0"/>
     <path d="M702 404 q34 -12 68 0"/><path d="M794 404 q34 -12 68 0"/>
   </g>
+  <path d="M150 406 q34 -12 68 0 M242 406 q34 -12 68 0 M334 406 q34 -12 68 0 M426 406 q34 -12 68 0 M518 406 q34 -12 68 0 M610 406 q34 -12 68 0 M702 406 q34 -12 68 0 M794 406 q34 -12 68 0" fill="none" stroke="#4a2a10" stroke-width="1.4" opacity="0.5"/>
+  <path d="M96 414 L926 414 L936 448 L88 448 Z" fill="url(#or-box-castR)" opacity="0.6"/>
 </g>
 
 <!-- the floor of the box -->
 <path d="M88 448 L936 448 L960 620 L64 620 Z" fill="#2b1d14"/>
-<path d="M120 470 L904 470 L920 620 L104 620 Z" fill="#5d1f18" opacity="0.45"/>
+<path d="M120 470 L904 470 L920 620 L104 620 Z" fill="url(#or-box-carpet)" opacity="0.6"/>
 <g stroke="#7d2d24" stroke-width="4" opacity="0.35" fill="none">
   <path d="M260 620 L266 476"/><path d="M470 620 L470 476"/><path d="M680 620 L676 476"/>
 </g>
+<!-- carpet pile, walked flat down the middle of the box -->
+<g fill="#8e3327" opacity="0.10">
+  <path d="M330 620 L640 620 L604 480 L392 480 Z"/>
+</g>
+<path d="M180 500 q300 -8 640 0 M160 550 q320 -10 690 0" fill="none" stroke="#2a0e0a" stroke-width="7" opacity="0.25"/>
+<path d="M88 448 L936 448 L960 620 L64 620 Z" fill="url(#or-box-castR)" opacity="0.45"/>
 
 <!-- THE CHAIR, with his coat over it -->
 <g>
@@ -2825,13 +3153,20 @@ window.CASE_ART.orpheum = {
   </g>
   <path d="M628 448 L776 448 L776 260 q0 -28 -32 -30 l-84 0 q-32 2 -32 30 Z" fill="#3b2f22"/>
   <path d="M644 444 L760 444 L760 278 q0 -20 -26 -22 l-64 0 q-26 2 -26 22 Z" fill="#5d1f18"/>
+  <path d="M644 444 L760 444 L760 278 q0 -20 -26 -22 l-64 0 q-26 2 -26 22 Z" fill="url(#or-box-castR)" opacity="0.5"/>
   <g fill="none" stroke="#3f1613" stroke-width="3" opacity="0.85">
     <path d="M682 258 l0 186"/><path d="M722 258 l0 186"/>
   </g>
+  <path d="M679 258 l0 186 M719 258 l0 186" fill="none" stroke="#8e3327" stroke-width="1.3" opacity="0.3"/>
   <path d="M628 256 q74 -36 148 0 l0 14 q-74 -32 -148 0 z" fill="url(#or-box-gilt)"/>
-  <!-- the coat, thrown over the back -->
+  <path d="M630 254 q74 -34 144 0" fill="none" stroke="#fbeec2" stroke-width="1.8" opacity="0.4"/>
+  <!-- the coat, thrown over the back: wool, so the light on it is broad and soft -->
   <path d="M598 278 q76 -50 158 -18 q38 16 44 70 q10 84 -8 158 l-62 -6 q12 -90 -6 -150 q-46 -24 -96 6 q-24 46 -16 144 l-52 -6 q-16 -112 38 -198 z" fill="#1e1a28"/>
+  <path d="M598 278 q40 -26 82 -26 l0 10 q-38 2 -74 26 z" fill="#3a3350" opacity="0.5"/>
+  <path d="M604 306 q-24 42 -20 148 l-16 -2 q-14 -104 26 -156 z" fill="#3a3350" opacity="0.35"/>
+  <path d="M756 260 q38 16 44 70 q10 84 -8 158 l-20 -2 q16 -80 6 -156 q-6 -48 -32 -62 z" fill="#0e0c16" opacity="0.5"/>
   <path d="M612 296 q64 -38 132 -14" fill="none" stroke="#2b2537" stroke-width="7"/>
+  <path d="M614 293 q62 -36 128 -14" fill="none" stroke="#4a4260" stroke-width="1.8" opacity="0.4"/>
   <g fill="none" stroke="#15121d" stroke-width="4" opacity="0.9">
     <path d="M598 340 q-10 78 4 146"/><path d="M786 348 q12 70 2 138"/>
   </g>
@@ -2851,16 +3186,30 @@ window.CASE_ART.orpheum = {
   <ellipse cx="660" cy="574" rx="98" ry="20" fill="#0d0a07" opacity="0.65"/>
   <path d="M578 486 L742 486 L756 564 L568 564 Z" fill="url(#or-box-hide)"/>
   <path d="M578 486 L742 486 L745 506 L575 506 Z" fill="#8f6a3d"/>
+  <path d="M578 486 L742 486" stroke="#c09456" stroke-width="1.6" opacity="0.45"/>
+  <!-- bridle hide: grained, and rubbed pale where it has been carried -->
+  <g fill="#3d2a16" opacity="0.3">
+    <path d="M586 512 q40 -6 80 -4 l0 12 q-42 -2 -82 6 z"/>
+    <path d="M676 514 q34 -5 68 -3 l0 12 q-36 -2 -70 5 z"/>
+  </g>
+  <path d="M578 486 L742 486 L756 564 L568 564 Z" fill="url(#or-box-castR)" opacity="0.5"/>
   <path d="M568 564 L756 564 L754 574 L570 574 Z" fill="#241b12"/>
   <path d="M575 506 L745 506 L750 542 L570 542 Z" fill="#5a3f22"/>
+  <path d="M575 506 L745 506" stroke="#a3814d" stroke-width="1.4" opacity="0.4"/>
   <path d="M570 542 L750 542 L749 550 L571 550 Z" fill="#3d2a16"/>
+  <g fill="#a8926a" opacity="0.4">
+    <path d="M572 552 q6 -12 4 -22 l-6 0 q0 12 -4 22 z"/><path d="M750 552 q-6 -12 -4 -22 l6 0 q0 12 4 22 z"/>
+  </g>
   <g fill="#a8873f">
     <rect x="618" y="530" width="20" height="28" rx="4"/><rect x="684" y="530" width="20" height="28" rx="4"/>
   </g>
+  <path d="M620 532 l0 24 M686 532 l0 24" stroke="#fbeec2" stroke-width="1.6" opacity="0.5"/>
+  <path d="M636 532 l0 24 M702 532 l0 24" stroke="#3a2a10" stroke-width="1.6" opacity="0.55"/>
   <g fill="#3d2a16">
     <rect x="623" y="536" width="10" height="15" rx="3"/><rect x="689" y="536" width="10" height="15" rx="3"/>
   </g>
   <path d="M596 486 q34 -22 66 0" fill="none" stroke="#8a6636" stroke-width="9"/>
+  <path d="M598 484 q33 -20 62 0" fill="none" stroke="#c09456" stroke-width="2" opacity="0.4"/>
   <!-- drafts riding up out of the top; under them, older paper, water-stained -->
   <g transform="rotate(-6 634 468)">
     <rect x="584" y="440" width="102" height="50" fill="#f0e7ce"/>
@@ -2889,11 +3238,19 @@ window.CASE_ART.orpheum = {
   <ellipse cx="260" cy="382" rx="56" ry="11" fill="#0d0a07" opacity="0.45"/>
   <rect x="208" y="308" width="48" height="64" rx="11" fill="#241b12"/>
   <rect x="266" y="308" width="48" height="64" rx="11" fill="#241b12"/>
+  <!-- barrels covered in black morocco: a soft sheen down the lit side -->
+  <path d="M212 316 q-2 26 0 50 l9 0 q-3 -26 0 -50 z" fill="#6b6156" opacity="0.4"/>
+  <path d="M270 316 q-2 26 0 50 l8 0 q-3 -26 0 -50 z" fill="#6b6156" opacity="0.3"/>
+  <path d="M248 314 q3 28 0 54 l6 0 q3 -28 0 -54 z" fill="#000000" opacity="0.4"/>
+  <path d="M306 314 q3 28 0 54 l5 0 q3 -28 0 -54 z" fill="#000000" opacity="0.45"/>
   <rect x="208" y="318" width="48" height="17" fill="#3a352d"/>
   <rect x="266" y="318" width="48" height="17" fill="#3a352d"/>
+  <path d="M208 319 l48 0 M266 319 l48 0" stroke="#8e8a7d" stroke-width="1.2" opacity="0.45"/>
   <rect x="252" y="324" width="20" height="38" rx="5" fill="#a8873f"/>
+  <path d="M254 326 l0 34" stroke="#fbeec2" stroke-width="1.6" opacity="0.5"/>
   <ellipse cx="232" cy="308" rx="24" ry="9" fill="#a8873f"/>
   <ellipse cx="290" cy="308" rx="24" ry="9" fill="#a8873f"/>
+  <path d="M212 306 q18 -8 38 0 M270 306 q18 -8 38 0" fill="none" stroke="#fbeec2" stroke-width="1.6" opacity="0.4"/>
   <ellipse cx="232" cy="308" rx="16" ry="6" fill="#8fa4c0" opacity="0.65"/>
   <ellipse cx="290" cy="308" rx="16" ry="6" fill="#8fa4c0" opacity="0.65"/>
   <ellipse cx="228" cy="306" rx="6" ry="3" fill="#f7f2e2" opacity="0.8"/>
@@ -2907,14 +3264,21 @@ window.CASE_ART.orpheum = {
 
 <!-- THE ASHTRAY on the rail: one cigar, one letter that did not burn enough -->
 <g>
+  <ellipse cx="480" cy="384" rx="74" ry="12" fill="#0d0a07" opacity="0.4"/>
   <ellipse cx="474" cy="376" rx="70" ry="21" fill="#3a352d"/>
-  <ellipse cx="474" cy="371" rx="62" ry="17" fill="#4d4740"/>
+  <ellipse cx="474" cy="371" rx="62" ry="17" fill="url(#or-box-nickel)"/>
+  <path d="M420 366 q40 -14 84 -4" fill="none" stroke="#d5d0bf" stroke-width="2.4" opacity="0.45"/>
   <ellipse cx="474" cy="371" rx="47" ry="12" fill="#1b1814"/>
+  <path d="M434 368 q40 -10 80 -2" fill="none" stroke="#7d7768" stroke-width="1.4" opacity="0.4"/>
   <g fill="#5b564b">
     <path d="M412 362 l18 -7 l4 9 l-18 7 z"/><path d="M522 358 l18 7 l-4 9 l-18 -7 z"/>
   </g>
+  <path d="M413 361 l18 -7 M523 357 l17 7" stroke="#a8a294" stroke-width="1.2" opacity="0.5"/>
   <ellipse cx="458" cy="371" rx="21" ry="7" fill="#6f6a5e" opacity="0.85"/>
   <ellipse cx="492" cy="373" rx="15" ry="5" fill="#5b564b" opacity="0.85"/>
+  <g fill="#c2bdae" opacity="0.3">
+    <ellipse cx="452" cy="369" rx="10" ry="2.4"/><ellipse cx="488" cy="371" rx="7" ry="1.8"/>
+  </g>
   <!-- the cigar, gone out -->
   <g transform="rotate(-14 506 362)">
     <rect x="470" y="356" width="76" height="16" rx="8" fill="#7d5c36"/>

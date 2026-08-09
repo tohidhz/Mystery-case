@@ -6,6 +6,7 @@
   const UI = window.CALLOWAY_UI || {};
   // read live: the art and translation packs arrive after boot
   const ART = () => window.CASE_ART || {};
+  const EVID = () => window.CLUE_ART || {};   // close-up plate per exhibit
   const TEXT = () => window.CASE_TEXT || {};
   const COST = { travel: 10, search: 20, ask: 10 };
   const SAVE_KEY = "calloway_save_v1";
@@ -172,7 +173,8 @@
   const CASE_NO = { blackwood: 1, orpheum: 2, deadair: 3, meridian: 4 };
   function ensureArt(caseId) {
     const n = CASE_NO[caseId];
-    return n ? loadScript("js/art" + n + ".js") : Promise.resolve(false);
+    if (!n) return Promise.resolve(false);
+    return Promise.all([loadScript("js/art" + n + ".js"), loadScript("js/ev" + n + ".js")]);
   }
   // the desk lists every case, so Persian needs all four packs at once
   function ensureLang(lang) {
@@ -935,6 +937,8 @@
         const card = el("div", "clue-mini" + (isNew ? " fresh" : ""));
         card.style.setProperty("--i", cluesBox.children.length);
         card.innerHTML = '<span class="clue-mini-label">' + (isNew ? T("evidenceLoggedLabel") : T("inEvidenceLabel")) + "</span><strong>" + esc(c.name) + "</strong>";
+        const plate = cluePlate(cid);
+        if (plate) card.insertBefore(plate, card.firstChild);
         cluesBox.appendChild(card);
       });
       okBtn.style.visibility = "";
@@ -986,6 +990,35 @@
         flagTab("board");
       }
     });
+  }
+
+  /* An exhibit is a thing, and a thing deserves to be looked at. Each clue
+     has a close-up plate; where one is missing the text stands alone. */
+  function cluePlate(cid, cls) {
+    const set = EVID()[C.id] || {};
+    const art = set[cid];
+    if (!art) return null;
+    const fig = el("div", "clue-plate " + (cls || ""));
+    const vb = String(art.viewBox).trim().split(/\s+/);
+    if (vb.length === 4 && +vb[3]) fig.style.setProperty("--ar", (+vb[2] / +vb[3]).toFixed(4));
+    fig.innerHTML = '<svg viewBox="' + art.viewBox + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="' +
+      esc(C.clues[cid].name) + '">' + art.svg + "</svg>";
+    return fig;
+  }
+
+  function openExhibit(cid) {
+    const c = C.clues[cid];
+    if (!c) return;
+    const m = openModal("modal-exhibit");
+    m.box.innerHTML =
+      '<div class="disc-kicker">' + T("exhibit", exhibitLetter(G.clues.indexOf(cid))) + "</div>" +
+      '<h3 class="disc-title">' + esc(c.name) + "</h3>" +
+      '<div id="ex-plate"></div>' +
+      '<p class="disc-text">' + esc(c.desc) + "</p>" +
+      '<div class="acc-actions"><button class="btn btn-primary modal-ok">' + T("noted") + "</button></div>";
+    const plate = cluePlate(cid, "is-large");
+    if (plate) m.box.querySelector("#ex-plate").appendChild(plate);
+    m.box.querySelector(".modal-ok").addEventListener("click", m.close);
   }
 
   /* ---------- interrogation ---------- */
@@ -1113,6 +1146,15 @@
         '<span class="exhibit">' + T("exhibit", exhibitLetter(i)) + "</span>" +
         "<h4>" + esc(c.name) + "</h4>" +
         "<p>" + esc(c.desc) + "</p>";
+      const plate = cluePlate(cid, "is-thumb");
+      if (plate) {
+        card.classList.add("has-plate");
+        card.insertBefore(plate, card.querySelector("h4"));
+        const open = el("button", "clue-open");
+        open.setAttribute("aria-label", c.name);
+        open.addEventListener("click", () => openExhibit(cid));
+        card.appendChild(open);
+      }
       t.appendChild(card);
     });
   }

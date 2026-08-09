@@ -2613,3 +2613,46 @@ body.lang-fa .clock-time { letter-spacing: 0; }
 @media (prefers-reduced-motion: reduce) {
   .scene-pin.under-glass .scene-pin-dot { transform: none; }
 }
+
+/* ============================================================
+   19. EXHIBIT PLATES — a close-up of the thing itself
+   ============================================================ */
+
+.clue-plate {
+  aspect-ratio: var(--ar, 1.25);
+  width: 100%;
+  margin: 0 0 .7rem;
+  border: 1px solid rgba(43, 38, 32, .45);
+  border-radius: 2px;
+  background: #17130e;
+  box-shadow: inset 0 0 26px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .35);
+  overflow: hidden;
+  line-height: 0;
+}
+.clue-plate svg { display: block; width: 100%; height: 100%; }
+
+/* on a journal card the plate is a stamp-sized print you can open */
+.clue-card.has-plate { position: relative; }
+.clue-plate.is-thumb {
+  width: 88px;
+  float: inline-start;
+  margin: .1rem .8rem .4rem 0;
+}
+[dir="rtl"] .clue-plate.is-thumb { margin: .1rem 0 .4rem .8rem; }
+.clue-card.has-plate::after { content: ""; display: block; clear: both; }
+.clue-open {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-in;
+  border-radius: 2px;
+}
+.clue-open:hover { background: rgba(217, 164, 65, .06); }
+
+.modal-exhibit { width: min(620px, 100%); }
+.clue-plate.is-large { margin-bottom: 1.1rem; }
+.disc-clues .clue-plate { width: 120px; float: inline-start; margin-inline-end: .8rem; }
+
+@media (max-width: 560px) {
+  .clue-plate.is-thumb { width: 66px; }
+  .disc-clues .clue-plate { width: 88px; }
+}

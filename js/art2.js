@@ -627,6 +627,7 @@ window.CASE_ART.orpheum = {
     viewBox: "0 0 1000 620",
     hotspots: {
       h_callboard: { x: 72, y: 23 },
+      h_keyboard: { x: 43, y: 17 },
       h_proplog: { x: 45, y: 64 },
       h_firebucket: { x: 31, y: 81 },
     },
@@ -864,6 +865,24 @@ window.CASE_ART.orpheum = {
     <path d="M30 290 q-22 24 -6 44 q16 20 -4 40"/><path d="M102 292 q-24 22 -8 44 q18 22 -6 42"/>
     <path d="M174 292 q22 24 4 46 q-18 22 2 40"/><path d="M246 290 q24 26 6 48 q-16 20 4 38"/>
   </g>
+</g>
+
+<!-- THE STAGE-DOOR KEY BOARD: numbered hooks, one ring missing, one key too many -->
+<g>
+  <path d="M378 64 L384 56 L384 152 L378 144 Z" fill="#080604" opacity="0.45"/>
+  <rect x="384" y="56" width="82" height="96" rx="3" fill="url(#or-wings-wood)"/>
+  <path d="M464 58 L464 150 M386 56 L464 56" stroke="#a8814a" stroke-width="1.6" opacity="0.4"/>
+  <path d="M384 150 L466 150 M386 58 L386 150" stroke="#1b1209" stroke-width="1.6" opacity="0.6"/>
+  <rect x="390" y="62" width="70" height="84" fill="url(#or-wings-rail)"/>
+  <path d="M392 72 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M410 72 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M428 72 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M446 72 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M392 112 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M410 112 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M428 112 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z M446 112 l5 0 l0 9 q0 4 4 4 l0 4 q-9 0 -9 -8 z" fill="#3a352d"/>
+  <path d="M393 73 l0 12 M411 73 l0 12 M429 73 l0 12 M447 73 l0 12 M393 113 l0 12 M411 113 l0 12 M429 113 l0 12 M447 113 l0 12" stroke="#8e8a7d" stroke-width="1.1" opacity="0.5"/>
+  <path d="M393 93 a5.5 5.5 0 1 0 11 0 a5.5 5.5 0 1 0 -11 0 M398.5 98.5 L398.5 109 M411 93 a5.5 5.5 0 1 0 11 0 a5.5 5.5 0 1 0 -11 0 M416.5 98.5 L416.5 109 M447 93 a5.5 5.5 0 1 0 11 0 a5.5 5.5 0 1 0 -11 0 M452.5 98.5 L452.5 109 M393 133 a5.5 5.5 0 1 0 11 0 a5.5 5.5 0 1 0 -11 0 M398.5 138.5 L398.5 143 M411 132 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M417 138 L417 145" fill="none" stroke="#8a6f3c" stroke-width="2.2"/>
+  <path d="M398.5 105 l5 0 l0 3 l-5 0 z M398.5 109 l4 0 l0 3 l-4 0 z M416.5 105 l5 0 l0 3 l-5 0 z M452.5 105 l4 0 l0 3 l-4 0 z M452.5 109 l5 0 l0 3 l-5 0 z M398.5 141 l4 0 l0 3 l-4 0 z M417 140 l6 0 l0 3 l-6 0 z M417 145 l5 0 l0 3 l-5 0 z" fill="#8a6f3c"/>
+  <path d="M395 90 q4 -3 8 0 M413 90 q4 -3 8 0 M449 90 q4 -3 8 0 M395 130 q4 -3 8 0 M413 129 q5 -3 9 0" fill="none" stroke="#f0dba2" stroke-width="1.1" opacity="0.65"/>
+  <path d="M423 134 L431 130" stroke="#8d7c62" stroke-width="1.2" opacity="0.9"/>
+  <rect x="430" y="124" width="24" height="14" rx="2" fill="#e8dcb8" transform="rotate(-6 442 131)"/>
+  <path d="M435 129 l14 0 M435 133 l11 0" stroke="#5b564b" stroke-width="1.4" opacity="0.75" transform="rotate(-6 442 131)"/>
+  <rect x="384" y="56" width="82" height="96" rx="3" fill="url(#or-wings-brickface)" opacity="0.5"/>
 </g>
 
 <!-- THE CALL BOARD: chalked calls for the evening -->
@@ -1200,6 +1219,7 @@ window.CASE_ART.orpheum = {
     hotspots: {
       h_door: { x: 20, y: 62 },
       h_vanity: { x: 43, y: 68 },
+      h_compartment: { x: 59, y: 51 },
       h_trunk: { x: 80, y: 73 },
     },
     svg: `
@@ -1501,6 +1521,24 @@ window.CASE_ART.orpheum = {
   </g>
 </g>
 
+<!-- THE LOCKED COMPARTMENT: a shallow drawer in the mirror's own frame -->
+<g>
+  <path d="M568 300 L614 300 L614 332 L568 332 Z" fill="#0d0906" opacity="0.55"/>
+  <rect x="570" y="302" width="42" height="28" rx="2" fill="url(#or-dress-woodlit)"/>
+  <path d="M571 303 L611 303" stroke="#c49a52" stroke-width="1.4" opacity="0.55"/>
+  <path d="M570 328 L612 328 M610 304 L610 328" stroke="#120c07" stroke-width="1.4" opacity="0.6"/>
+  <rect x="574" y="306" width="34" height="20" rx="2" fill="none" stroke="#4a3524" stroke-width="2"/>
+  <path d="M574 306 L608 306" stroke="#7d5c33" stroke-width="1" opacity="0.5"/>
+  <path d="M574 324 L608 324" stroke="#120c07" stroke-width="1.1" opacity="0.5"/>
+  <ellipse cx="591" cy="316" rx="5.4" ry="6.4" fill="url(#or-dress-brass)"/>
+  <ellipse cx="591" cy="313.6" rx="3.2" ry="1.4" fill="#fbeec2" opacity="0.55"/>
+  <path d="M591 313 q2.2 0 2.2 2.2 q0 1.5 -1.5 2.2 l1.5 4 l-4.4 0 l1.5 -4 q-1.5 -0.7 -1.5 -2.2 q0 -2.2 2.2 -2.2 z" fill="#100b07"/>
+  <path d="M584 311 l-5 -2 M583 320 l-6 3 M585 322 l-3 3 M598 312 l4 -2" stroke="#f4e6bc" stroke-width="0.9" opacity="0.38"/>
+  <path d="M597 317 q4 1 6 -1 M582 315 q-3 -2 -6 -1" fill="none" stroke="#c9a961" stroke-width="0.8" opacity="0.3"/>
+  <path d="M576 312 l6 0 M576 320 l5 0" stroke="#120c07" stroke-width="1" opacity="0.35"/>
+  <path d="M570 302 L612 302 L612 330 L570 330 Z" fill="url(#or-dress-castR)" opacity="0.3"/>
+</g>
+
 <!-- THE VANITY: greasepaint, roses going brown, the drawer of letters -->
 <g>
   <ellipse cx="520" cy="478" rx="230" ry="16" fill="#080604" opacity="0.5"/>
@@ -1732,6 +1770,7 @@ window.CASE_ART.orpheum = {
     viewBox: "0 0 1000 620",
     hotspots: {
       h_teaurn: { x: 44, y: 22 },
+      h_letterrack: { x: 17, y: 15 },
       h_knitting: { x: 60, y: 85 },
     },
     svg: `
@@ -1849,6 +1888,40 @@ window.CASE_ART.orpheum = {
 <path d="M330 500 q160 -8 340 0 M300 542 q200 -10 410 0" fill="none" stroke="#2a170f" stroke-width="6" opacity="0.25"/>
 <path d="M120 618 l760 0" stroke="#8a7648" stroke-width="4" opacity="0.3"/>
 <rect width="1000" height="620" fill="url(#or-green-glow)"/>
+
+<!-- THE COMPANY LETTER RACK: sixteen pigeonholes, and one with a door on it -->
+<g>
+  <path d="M62 56 L70 46 L70 142 L62 132 Z" fill="#080604" opacity="0.4"/>
+  <rect x="70" y="46" width="200" height="96" rx="4" fill="url(#or-green-panel)"/>
+  <path d="M72 48 L268 48 M72 48 L72 140" stroke="#a3814d" stroke-width="1.6" opacity="0.45"/>
+  <path d="M70 140 L270 140 M268 48 L268 140" stroke="#160f09" stroke-width="1.8" opacity="0.6"/>
+  <rect x="78" y="54" width="184" height="80" fill="#1b140d"/>
+  <path d="M124 54 l0 80 M170 54 l0 80 M216 54 l0 80 M78 74 l184 0 M78 94 l184 0 M78 114 l184 0" stroke="#3b2f22" stroke-width="4"/>
+  <path d="M125 54 l0 80 M171 54 l0 80 M217 54 l0 80 M78 74 l184 0 M78 94 l184 0 M78 114 l184 0" stroke="#7d5c33" stroke-width="1.1" opacity="0.45"/>
+  <path d="M78 56 l184 0 M78 76 l184 0 M78 96 l184 0 M78 116 l184 0" stroke="#0a0705" stroke-width="4" opacity="0.55"/>
+  <g fill="#f0e7ce">
+    <path d="M84 80 l32 -3 l1 13 l-32 3 z"/><path d="M90 82 l30 -4 l1 12 l-30 4 z"/>
+    <path d="M130 100 l32 -2 l1 12 l-32 2 z"/><path d="M176 78 l32 -3 l1 13 l-32 3 z"/>
+    <path d="M84 120 l30 -3 l1 13 l-30 3 z"/><path d="M222 100 l32 -3 l1 13 l-32 3 z"/>
+    <path d="M132 122 l28 -2 l1 11 l-28 2 z"/>
+  </g>
+  <g fill="#c9b48a" opacity="0.75">
+    <path d="M96 84 l28 -3 l1 11 l-28 3 z"/><path d="M136 102 l28 -2 l1 10 l-28 2 z"/>
+    <path d="M182 82 l26 -3 l1 10 l-26 3 z"/><path d="M90 124 l26 -3 l1 11 l-26 3 z"/>
+  </g>
+  <path d="M84 80 l32 -3 l1 4 l-32 3 z M130 100 l32 -2 l1 4 l-32 2 z M176 78 l32 -3 l1 4 l-32 3 z M84 120 l30 -3 l1 4 l-30 3 z M222 100 l32 -3 l1 4 l-32 3 z" fill="#fffaea" opacity="0.5"/>
+  <path d="M88 90 l26 -3 M92 86 l24 -3 M134 108 l26 -2 M180 88 l24 -3 M88 130 l24 -2" stroke="#8d7c62" stroke-width="1.1" opacity="0.75"/>
+  <rect x="218" y="56" width="42" height="16" rx="2" fill="url(#or-green-brass)"/>
+  <path d="M219 57 l40 0" stroke="#f6e5b0" stroke-width="1.2" opacity="0.6"/>
+  <path d="M218 70 l42 0 M258 58 l0 12" stroke="#3d2f14" stroke-width="1.3" opacity="0.6"/>
+  <circle cx="251" cy="64" r="4.6" fill="#5a4a1e"/>
+  <path d="M251 61.6 q2 0 2 2 q0 1.4 -1.4 2 l1.4 3.2 l-4 0 l1.4 -3.2 q-1.4 -0.6 -1.4 -2 q0 -2 2 -2 z" fill="#0d0906"/>
+  <path d="M219 58 l0 5 M219 65 l0 5" stroke="#4a3a14" stroke-width="2.4" opacity="0.7"/>
+  <rect x="222" y="58" width="22" height="12" rx="1" fill="#6b5a2a"/>
+  <rect x="223.5" y="59.5" width="19" height="9" fill="#f0e7ce"/>
+  <path d="M226 64 l13 0" stroke="#5b564b" stroke-width="1.5" opacity="0.85"/>
+  <path d="M70 46 L270 46 L270 142 L70 142 Z" fill="#0a0705" opacity="0.22"/>
+</g>
 
 <!-- bay one: the company's coats and costumes, on a rail -->
 <g>

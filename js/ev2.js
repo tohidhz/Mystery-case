@@ -3860,5 +3860,410 @@ window.CLUE_ART.orpheum = {
 `,
   },
 
+  /* The passkey: a long-shanked dressing-room key on a pine board, hung under
+     a tag that was written for something else, on string that is far too new. */
+  c2_passkey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev2-pass-bg" x1="0" y1="0" x2="0.25" y2="1">
+    <stop offset="0" stop-color="#3a2c1d"/><stop offset="0.55" stop-color="#1d150d"/><stop offset="1" stop-color="#0a0705"/>
+  </linearGradient>
+  <radialGradient id="ev2-pass-pool" cx="0.32" cy="0.16" r="0.78">
+    <stop offset="0" stop-color="#ffd98a" stop-opacity="0.22"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev2-pass-plank" x1="0" y1="0" x2="1" y2="0.1">
+    <stop offset="0" stop-color="#7c5c36"/><stop offset="0.4" stop-color="#4e3a22"/><stop offset="1" stop-color="#241a0f"/>
+  </linearGradient>
+  <linearGradient id="ev2-pass-brass" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#f4dfa4"/><stop offset="0.24" stop-color="#c9a961"/><stop offset="0.6" stop-color="#8a6f3c"/><stop offset="1" stop-color="#3d2f16"/>
+  </linearGradient>
+  <linearGradient id="ev2-pass-brasslip" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff2cd"/><stop offset="0.5" stop-color="#d9bb74"/><stop offset="1" stop-color="#6b552b"/>
+  </linearGradient>
+  <linearGradient id="ev2-pass-iron" x1="0" y1="0" x2="1" y2="0.4">
+    <stop offset="0" stop-color="#8c8a80"/><stop offset="0.45" stop-color="#4a473f"/><stop offset="1" stop-color="#1a1815"/>
+  </linearGradient>
+  <linearGradient id="ev2-pass-card" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#f6ecd0"/><stop offset="0.6" stop-color="#ddcea6"/><stop offset="1" stop-color="#a3946f"/>
+  </linearGradient>
+  <filter id="ev2-pass-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev2-pass-vig" cx="0.4" cy="0.34" r="0.8">
+    <stop offset="0.34" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.86"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev2-pass-bg)"/>
+<!-- the pine board behind: four planks, the light dying to the right -->
+<rect width="640" height="520" fill="url(#ev2-pass-plank)" opacity="0.85"/>
+<g stroke="#1a1209" stroke-width="4" opacity="0.6" fill="none">
+  <path d="M148 0 L154 520"/><path d="M336 0 L344 520"/><path d="M508 0 L520 520"/>
+</g>
+<g stroke="#9a7442" stroke-width="1.2" opacity="0.28" fill="none">
+  <path d="M153 0 L159 520"/><path d="M341 0 L349 520"/><path d="M513 0 L525 520"/>
+</g>
+<g stroke="#33240f" stroke-width="1.6" opacity="0.45" fill="none">
+  <path d="M40 0 Q 62 250 44 520"/><path d="M92 0 Q 74 250 96 520"/>
+  <path d="M212 0 Q 236 250 220 520"/><path d="M268 0 Q 250 250 276 520"/>
+  <path d="M398 0 Q 418 250 404 520"/><path d="M452 0 Q 436 250 460 520"/>
+  <path d="M566 0 Q 586 250 574 520"/>
+</g>
+<g stroke="#8e6c3d" stroke-width="0.8" opacity="0.22" fill="none">
+  <path d="M46 0 Q 68 250 50 520"/><path d="M218 0 Q 242 250 226 520"/><path d="M404 0 Q 424 250 410 520"/>
+</g>
+<ellipse cx="112" cy="360" rx="16" ry="26" fill="#2a1c0c" opacity="0.6"/>
+<ellipse cx="112" cy="360" rx="8" ry="14" fill="#43301a" opacity="0.7"/>
+<ellipse cx="470" cy="120" rx="12" ry="19" fill="#241809" opacity="0.55"/>
+<rect width="640" height="520" fill="url(#ev2-pass-pool)"/>
+
+<!-- the iron hook, screwed to the board -->
+<g filter="url(#ev2-pass-soft)" opacity="0.6">
+  <path d="M214 40 L292 40 L308 116 L228 118 Z" fill="#000"/>
+</g>
+<path d="M222 24 L262 24 L262 74 q0 26 26 26 l0 22 q-48 0 -48 -46 z" fill="url(#ev2-pass-iron)"/>
+<path d="M222 24 L234 24 L234 76 q0 16 10 24 l-8 14 q-14 -14 -14 -36 z" fill="#b0aca0" opacity="0.4"/>
+<path d="M252 24 L262 24 L262 74 q0 20 16 24 l-2 20 q-30 -8 -30 -42 z" fill="#0f0e0c" opacity="0.55"/>
+<ellipse cx="242" cy="24" rx="20" ry="7" fill="#5b584e"/>
+<ellipse cx="242" cy="22" rx="12" ry="3" fill="#a8a498" opacity="0.6"/>
+
+<!-- the passkey, hanging: bow, collar, long shank, wards -->
+<g filter="url(#ev2-pass-soft)" opacity="0.62">
+  <path d="M238 128 q78 0 78 66 q0 44 -40 60 l16 176 l72 4 l-4 44 l-118 -6 l-16 -216 q-40 -18 -40 -62 q0 -66 52 -66 Z" fill="#000"/>
+</g>
+<path d="M228 96 q66 0 66 62 q0 62 -66 62 q-66 0 -66 -62 q0 -62 66 -62 z" fill="url(#ev2-pass-brass)"/>
+<path d="M228 128 q34 0 34 30 q0 30 -34 30 q-34 0 -34 -30 q0 -30 34 -30 z" fill="#160f08"/>
+<path d="M228 130 q32 0 32 28 q0 6 -2 11 q-6 -26 -30 -33 q-24 -7 -32 8 q4 -14 32 -14 z" fill="#0a0705" opacity="0.7"/>
+<path d="M180 118 q18 -14 48 -14 q30 0 48 14 l-8 8 q-18 -12 -40 -12 q-22 0 -40 12 z" fill="#ffefc0" opacity="0.55"/>
+<path d="M172 176 q16 24 56 24 q40 0 56 -24 l6 8 q-18 26 -62 26 q-44 0 -62 -26 z" fill="#2a1f0c" opacity="0.55"/>
+<path d="M166 140 q-2 30 12 48 l10 -8 q-12 -16 -10 -40 z" fill="#f7e6b4" opacity="0.35"/>
+<path d="M282 138 q4 30 -10 50 l-10 -8 q12 -18 8 -42 z" fill="#1d1508" opacity="0.5"/>
+<path d="M214 216 l30 0 l3 22 l-36 0 z" fill="url(#ev2-pass-brasslip)"/>
+<path d="M214 216 l8 0 l1 22 l-9 0 z" fill="#fff3cf" opacity="0.5"/>
+<path d="M238 216 l6 0 l3 22 l-7 0 z" fill="#241a08" opacity="0.5"/>
+<path d="M216 238 l28 0 l10 176 l-32 0 z" fill="url(#ev2-pass-brass)"/>
+<path d="M216 238 l8 0 l6 176 l-8 0 z" fill="#ffefc0" opacity="0.4"/>
+<path d="M238 238 l6 0 l10 176 l-7 0 z" fill="#221808" opacity="0.55"/>
+<path d="M220 274 l26 0 l1 8 l-27 0 z M222 320 l26 0 l1 8 l-27 0 z" fill="#3d2f16" opacity="0.4"/>
+<path d="M222 414 l32 0 l4 66 l-42 0 z" fill="url(#ev2-pass-brasslip)"/>
+<path d="M254 414 l84 0 l6 30 l-88 0 z" fill="url(#ev2-pass-brass)"/>
+<path d="M254 414 l84 0 l2 9 l-85 0 z" fill="#fff3cf" opacity="0.45"/>
+<path d="M258 444 l88 0 l4 20 l-90 0 z" fill="#241a08" opacity="0.45"/>
+<path d="M258 448 l56 0 l3 34 l-58 0 z" fill="url(#ev2-pass-brass)"/>
+<path d="M258 448 l10 0 l2 34 l-10 0 z" fill="#f4dfa4" opacity="0.4"/>
+<path d="M282 448 l10 0 l3 22 l-11 0 z" fill="#100b05"/>
+<path d="M300 448 l8 0 l2 34 l-9 0 z" fill="#100b05"/>
+<path d="M222 414 l10 0 l2 66 l-11 0 z" fill="#ffefc0" opacity="0.35"/>
+<path d="M246 414 l8 0 l4 66 l-9 0 z" fill="#1d1508" opacity="0.5"/>
+<!-- handling: the brass is worn bright where fingers take it, dull elsewhere -->
+<g fill="#f6e2ae" opacity="0.2">
+  <ellipse cx="196" cy="150" rx="14" ry="30"/><ellipse cx="230" cy="330" rx="7" ry="44"/>
+</g>
+<g fill="#2a2010" opacity="0.35">
+  <ellipse cx="268" cy="186" rx="12" ry="16"/><ellipse cx="248" cy="392" rx="6" ry="28"/>
+</g>
+<g fill="#4a3a1c" opacity="0.5">
+  <circle cx="204" cy="196" r="3"/><circle cx="236" cy="300" r="2.4"/><circle cx="286" cy="428" r="3"/>
+  <circle cx="176" cy="132" r="2.2"/>
+</g>
+
+<!-- the tag: buff card on string that has not been on this board a week -->
+<g transform="rotate(7 452 250)">
+  <g filter="url(#ev2-pass-soft)" opacity="0.55">
+    <path d="M370 176 L570 168 L578 322 L378 330 Z" fill="#000"/>
+  </g>
+  <path d="M362 162 L556 154 L564 300 L370 308 Z" fill="url(#ev2-pass-card)"/>
+  <path d="M362 162 L556 154 L557 166 L363 174 Z" fill="#fffaea" opacity="0.6"/>
+  <path d="M366 296 L562 288 L564 300 L370 308 Z" fill="#6e6045" opacity="0.5"/>
+  <path d="M362 162 L556 154 L558 176 L364 184 Z" fill="#8c7c58" opacity="0.14"/>
+  <circle cx="396" cy="196" r="13" fill="#7f6d4c"/>
+  <circle cx="396" cy="196" r="9" fill="#120d07"/>
+  <circle cx="396" cy="193" r="7" fill="#a8946a" opacity="0.5"/>
+  <g stroke="#2f3a4e" stroke-width="5" opacity="0.85" stroke-linecap="round">
+    <path d="M424 200 L520 196"/><path d="M392 240 L534 234"/><path d="M392 266 L470 262"/>
+  </g>
+  <g stroke="#4a5468" stroke-width="2" opacity="0.5" stroke-linecap="round">
+    <path d="M424 208 L512 204"/><path d="M392 248 L520 243"/>
+  </g>
+  <g fill="#9a8a64" opacity="0.35">
+    <path d="M470 160 q34 44 8 88 q-18 30 -40 54 l-18 1 q34 -34 46 -68 q18 -44 -12 -74 z"/>
+  </g>
+  <g fill="#7d6a48" opacity="0.3">
+    <ellipse cx="520" cy="272" rx="26" ry="16"/><ellipse cx="404" cy="288" rx="18" ry="10"/>
+  </g>
+</g>
+<path d="M242 116 q40 -34 108 -6 q52 22 96 42" fill="none" stroke="#efe3c2" stroke-width="6" stroke-linecap="round"/>
+<path d="M242 116 q40 -34 108 -6 q52 22 96 42" fill="none" stroke="#fffaea" stroke-width="2" opacity="0.6"/>
+<path d="M248 122 q40 -30 104 -4 q50 22 94 42" fill="none" stroke="#3a2c17" stroke-width="2.4" opacity="0.35"/>
+
+<g fill="#d6c9a6" opacity="0.16">
+  <circle cx="520" cy="90" r="2"/><circle cx="96" cy="256" r="1.6"/><circle cx="600" cy="400" r="1.8"/>
+  <circle cx="140" cy="466" r="1.4"/><circle cx="352" cy="66" r="1.5"/>
+</g>
+<rect width="640" height="520" fill="url(#ev2-pass-vig)"/>
+`,
+  },
+
+  /* The letterbox key: small, flat, brass, the bow stamped with a hotel crest —
+     and the torn claim stub that came out of the drawer beside it. */
+  c2_boxkey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <radialGradient id="ev2-bkey-bg" cx="0.34" cy="0.2" r="0.82">
+    <stop offset="0" stop-color="#2e2a24"/><stop offset="0.55" stop-color="#14120e"/><stop offset="1" stop-color="#050403"/>
+  </radialGradient>
+  <linearGradient id="ev2-bkey-felt" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4a3d2c"/><stop offset="0.5" stop-color="#2a2118"/><stop offset="1" stop-color="#120e09"/>
+  </linearGradient>
+  <linearGradient id="ev2-bkey-brass" x1="0.05" y1="0" x2="0.95" y2="1">
+    <stop offset="0" stop-color="#ffeeba"/><stop offset="0.22" stop-color="#d9bb74"/><stop offset="0.58" stop-color="#96793f"/><stop offset="1" stop-color="#40311a"/>
+  </linearGradient>
+  <linearGradient id="ev2-bkey-edge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f6e3ae"/><stop offset="1" stop-color="#5d4a24"/>
+  </linearGradient>
+  <linearGradient id="ev2-bkey-stub" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#f2e7cb"/><stop offset="0.6" stop-color="#d6c8a2"/><stop offset="1" stop-color="#95886a"/>
+  </linearGradient>
+  <filter id="ev2-bkey-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="6"/>
+  </filter>
+  <radialGradient id="ev2-bkey-vig" cx="0.42" cy="0.38" r="0.78">
+    <stop offset="0.34" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev2-bkey-bg)"/>
+<!-- the drawer bottom the key came out of: old baize, pressed flat -->
+<rect width="640" height="520" fill="url(#ev2-bkey-felt)" opacity="0.9"/>
+<g fill="#6b5a40" opacity="0.10">
+  <ellipse cx="180" cy="130" rx="150" ry="90"/><ellipse cx="470" cy="380" rx="140" ry="80"/>
+</g>
+<g stroke="#5c4c36" stroke-width="0.8" opacity="0.2" fill="none">
+  <path d="M0 96 Q 320 82 640 100"/><path d="M0 210 Q 320 196 640 214"/>
+  <path d="M0 330 Q 320 318 640 336"/><path d="M0 446 Q 320 432 640 450"/>
+</g>
+<g fill="#8a7a5c" opacity="0.14">
+  <circle cx="86" cy="180" r="2.4"/><circle cx="300" cy="120" r="1.8"/><circle cx="560" cy="230" r="2.2"/>
+  <circle cx="150" cy="420" r="2"/><circle cx="420" cy="466" r="1.6"/><circle cx="596" cy="132" r="1.8"/>
+</g>
+
+<!-- the claim stub, torn across, lying behind -->
+<g transform="rotate(-11 420 330)">
+  <g filter="url(#ev2-bkey-soft)" opacity="0.6">
+    <path d="M310 268 L580 250 L590 396 L320 414 Z" fill="#000"/>
+  </g>
+  <path d="M300 256 L566 238 L576 380 L310 398 Z" fill="url(#ev2-bkey-stub)"/>
+  <path d="M300 256 L566 238 L567 250 L301 268 Z" fill="#fffaea" opacity="0.6"/>
+  <path d="M306 368 L572 350 L576 380 L310 398 Z" fill="#6b6047" opacity="0.45"/>
+  <path d="M300 256 L316 262 L302 272 L318 280 L304 290 L320 298 L306 308 L322 316 L308 326 L324 334 L310 344 L310 398 L300 398 Z" fill="#15110b"/>
+  <path d="M304 258 L318 264 L306 272 L320 280 L308 288 L322 296 L310 306 L324 314 L312 324 L326 332 L314 342" fill="none" stroke="#fffaea" stroke-width="1.6" opacity="0.35"/>
+  <g stroke="#3b4256" stroke-width="5" opacity="0.8" stroke-linecap="round">
+    <path d="M348 292 L500 282"/><path d="M348 322 L458 314"/>
+  </g>
+  <g stroke="#5b6274" stroke-width="2.2" opacity="0.45" stroke-linecap="round">
+    <path d="M348 302 L482 293"/><path d="M348 332 L436 325"/>
+  </g>
+  <g stroke="#7d2a22" stroke-width="4" opacity="0.65" stroke-linecap="round">
+    <path d="M470 336 L546 330"/>
+  </g>
+  <path d="M494 258 q28 40 6 78 q-14 24 -34 42 l-16 1 q28 -28 40 -58 q16 -38 -12 -62 z" fill="#9a8c68" opacity="0.28"/>
+  <g fill="#8a7c58" opacity="0.3">
+    <ellipse cx="530" cy="300" rx="22" ry="12"/><ellipse cx="360" cy="360" rx="16" ry="9"/>
+  </g>
+</g>
+
+<!-- the key itself: flat brass, a hotel bow, a short bit -->
+<g transform="rotate(-16 260 250)">
+  <g filter="url(#ev2-bkey-soft)" opacity="0.6">
+    <path d="M118 224 q0 -78 78 -78 q78 0 78 78 q0 44 -30 64 l142 17 l32 4 l-6 54 l-32 -4 l-146 -18 q-116 -2 -116 -117 Z" fill="#000"/>
+  </g>
+  <path d="M104 210 q0 -76 76 -76 q76 0 76 76 q0 76 -76 76 q-76 0 -76 -76 z" fill="url(#ev2-bkey-brass)"/>
+  <path d="M180 152 q58 0 58 58 q0 58 -58 58 q-58 0 -58 -58 q0 -58 58 -58 z" fill="#3a2e18"/>
+  <path d="M180 164 q46 0 46 46 q0 46 -46 46 q-46 0 -46 -46 q0 -46 46 -46 z" fill="url(#ev2-bkey-brass)"/>
+  <path d="M180 174 q36 0 36 36 q0 36 -36 36 q-36 0 -36 -36 q0 -36 36 -36 z" fill="#5d4a24" opacity="0.55"/>
+  <!-- the crest: two crossed keys struck into the bow, shallow and worn -->
+  <g stroke="#f2dda6" stroke-width="6" stroke-linecap="round" opacity="0.75">
+    <path d="M158 190 L204 232"/><path d="M204 190 L158 232"/>
+  </g>
+  <g stroke="#33280f" stroke-width="3" stroke-linecap="round" opacity="0.85">
+    <path d="M160 193 L202 231"/><path d="M202 193 L160 231"/>
+  </g>
+  <g fill="none" stroke="#f2dda6" stroke-width="4" opacity="0.6">
+    <circle cx="156" cy="187" r="7"/><circle cx="206" cy="187" r="7"/>
+  </g>
+  <g fill="none" stroke="#33280f" stroke-width="2" opacity="0.7">
+    <circle cx="157" cy="189" r="7"/><circle cx="207" cy="189" r="7"/>
+  </g>
+  <path d="M198 228 l10 6 M166 228 l-10 6" stroke="#33280f" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <path d="M112 174 q22 -32 68 -32 q46 0 68 32 l-12 12 q-20 -26 -56 -26 q-36 0 -56 26 z" fill="#fff3cf" opacity="0.5"/>
+  <path d="M114 250 q22 32 66 32 q44 0 66 -32 l10 10 q-24 36 -76 36 q-52 0 -76 -36 z" fill="#241a08" opacity="0.5"/>
+  <path d="M252 196 l150 18 l-4 34 l-150 -18 z" fill="url(#ev2-bkey-brass)"/>
+  <path d="M252 196 l150 18 l-1 9 l-150 -18 z" fill="#ffeeba" opacity="0.55"/>
+  <path d="M250 240 l150 18 l-2 10 l-150 -18 z" fill="#241a08" opacity="0.5"/>
+  <path d="M398 214 l30 4 l-6 52 l-30 -4 z" fill="url(#ev2-bkey-edge)"/>
+  <path d="M398 214 l8 1 l-6 52 l-8 -1 z" fill="#fff3cf" opacity="0.45"/>
+  <path d="M404 232 l16 2 l-1 10 l-16 -2 z" fill="#0e0a05"/>
+  <path d="M406 252 l14 2 l-1 9 l-14 -2 z" fill="#0e0a05"/>
+  <path d="M420 218 l8 1 l-6 52 l-8 -1 z" fill="#241a08" opacity="0.45"/>
+  <!-- the thumb has polished one face of the bow bright -->
+  <ellipse cx="140" cy="196" rx="16" ry="30" fill="#ffeeba" opacity="0.22"/>
+  <ellipse cx="224" cy="240" rx="12" ry="20" fill="#241a08" opacity="0.3"/>
+  <g fill="#4a3a1c" opacity="0.45">
+    <circle cx="130" cy="238" r="2.6"/><circle cx="300" cy="228" r="2.2"/><circle cx="352" cy="236" r="2"/>
+    <circle cx="196" cy="150" r="2"/>
+  </g>
+</g>
+
+<g fill="#d8cba8" opacity="0.15">
+  <circle cx="92" cy="76" r="2"/><circle cx="590" cy="106" r="1.6"/><circle cx="70" cy="446" r="1.8"/>
+  <circle cx="560" cy="470" r="1.5"/>
+</g>
+<rect width="640" height="520" fill="url(#ev2-bkey-vig)"/>
+`,
+  },
+
+  /* Five years of a dead man's royalties, forwarded and refused: a taped bundle,
+     every sheet struck across the face with the same returning stamp. */
+  c2_royalties: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <radialGradient id="ev2-roy-bg" cx="0.3" cy="0.16" r="0.84">
+    <stop offset="0" stop-color="#33302a"/><stop offset="0.55" stop-color="#161310"/><stop offset="1" stop-color="#060505"/>
+  </radialGradient>
+  <linearGradient id="ev2-roy-paper" x1="0" y1="0" x2="0.22" y2="1">
+    <stop offset="0" stop-color="#f6eed6"/><stop offset="0.45" stop-color="#e2d6b4"/><stop offset="1" stop-color="#a2967a"/>
+  </linearGradient>
+  <linearGradient id="ev2-roy-under" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#ded0ac"/><stop offset="1" stop-color="#7e735a"/>
+  </linearGradient>
+  <linearGradient id="ev2-roy-tape" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#c8b487"/><stop offset="0.5" stop-color="#9c8a63"/><stop offset="1" stop-color="#4f4630"/>
+  </linearGradient>
+  <linearGradient id="ev2-roy-edge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fffaea"/><stop offset="1" stop-color="#8d8067"/>
+  </linearGradient>
+  <filter id="ev2-roy-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev2-roy-vig" cx="0.4" cy="0.34" r="0.8">
+    <stop offset="0.34" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.86"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev2-roy-bg)"/>
+<g fill="#6a5f4c" opacity="0.1">
+  <ellipse cx="200" cy="120" rx="180" ry="100"/>
+</g>
+<g stroke="#3a332a" stroke-width="2" opacity="0.5" fill="none">
+  <path d="M0 128 L640 104"/><path d="M0 300 L640 274"/><path d="M0 470 L640 442"/>
+</g>
+
+<!-- the bundle: the sheets below, fanned by five years of handling -->
+<g filter="url(#ev2-roy-soft)" opacity="0.68">
+  <path d="M96 156 L560 116 L586 448 L122 490 Z" fill="#000"/>
+</g>
+<path d="M92 176 L544 136 L562 428 L110 470 Z" fill="url(#ev2-roy-under)"/>
+<path d="M86 166 L540 126 L558 420 L104 462 Z" fill="url(#ev2-roy-under)"/>
+<path d="M80 158 L536 118 L554 414 L98 456 Z" fill="url(#ev2-roy-under)"/>
+<g stroke="#7c705a" stroke-width="1.6" opacity="0.6" fill="none">
+  <path d="M92 176 L544 136"/><path d="M86 166 L540 126"/>
+</g>
+<g stroke="#fffaea" stroke-width="1.2" opacity="0.35" fill="none">
+  <path d="M92 172 L544 132"/><path d="M86 162 L540 122"/><path d="M80 154 L536 114"/>
+</g>
+<!-- the top sheet -->
+<path d="M74 150 L530 110 L548 408 L92 450 Z" fill="url(#ev2-roy-paper)"/>
+<path d="M74 150 L530 110 L531 124 L75 164 Z" fill="#fffaea" opacity="0.65"/>
+<path d="M88 436 L544 394 L548 408 L92 450 Z" fill="#7b6f57" opacity="0.45"/>
+<path d="M74 150 L88 148 L106 448 L92 450 Z" fill="#fffaea" opacity="0.28"/>
+<!-- the mill's laid lines, and the fold it has been kept in -->
+<path d="M292 130 L310 428" stroke="#8d8167" stroke-width="3" opacity="0.35"/>
+<path d="M294 130 L312 428" stroke="#fffaea" stroke-width="1.4" opacity="0.4"/>
+<!-- foxing, and where a thumb has come back to the same corner for years -->
+<g fill="#a8895c" opacity="0.22">
+  <ellipse cx="150" cy="400" rx="34" ry="22"/><ellipse cx="500" cy="170" rx="26" ry="16"/>
+  <ellipse cx="420" cy="392" rx="20" ry="13"/>
+</g>
+<g fill="#8d6f42" opacity="0.3">
+  <circle cx="180" cy="220" r="3"/><circle cx="384" cy="176" r="2.4"/><circle cx="260" cy="360" r="2.8"/>
+  <circle cx="470" cy="290" r="2.2"/><circle cx="120" cy="300" r="2.6"/>
+</g>
+
+<!-- a royalty statement is a ruled account: heading, columns, a rule, a total -->
+<g stroke="#2f3a4e" stroke-width="6" opacity="0.85" stroke-linecap="round">
+  <path d="M110 190 L300 174"/>
+</g>
+<g stroke="#4a5468" stroke-width="3" opacity="0.6" stroke-linecap="round">
+  <path d="M110 206 L242 195"/>
+</g>
+<g stroke="#3b4356" stroke-width="4" opacity="0.7" stroke-linecap="round">
+  <path d="M112 246 L268 232"/><path d="M114 274 L286 259"/><path d="M116 302 L252 289"/>
+  <path d="M118 330 L276 316"/><path d="M120 358 L240 347"/>
+</g>
+<g stroke="#3b4356" stroke-width="4" opacity="0.7" stroke-linecap="round">
+  <path d="M380 232 L468 224"/><path d="M382 259 L470 251"/><path d="M384 287 L472 279"/>
+  <path d="M386 314 L474 306"/><path d="M388 342 L476 334"/>
+</g>
+<path d="M330 224 L344 412" stroke="#5a6273" stroke-width="1.6" opacity="0.5"/>
+<path d="M368 220 L382 410" stroke="#5a6273" stroke-width="1.6" opacity="0.5"/>
+<path d="M120 376 L482 344" stroke="#2f3a4e" stroke-width="2.4" opacity="0.7"/>
+<g stroke="#2f3a4e" stroke-width="6" opacity="0.85" stroke-linecap="round">
+  <path d="M392 372 L482 364"/>
+</g>
+<path d="M120 392 L486 360" stroke="#2f3a4e" stroke-width="2" opacity="0.55"/>
+<path d="M124 400 L486 368" stroke="#2f3a4e" stroke-width="2" opacity="0.55"/>
+
+<!-- THE STAMP: struck across the face, over the figures, in tired violet ink -->
+<g transform="rotate(-9 320 300)">
+  <g fill="none" stroke="#5c3f72" stroke-width="7" opacity="0.62">
+    <rect x="126" y="248" width="380" height="104" rx="8"/>
+  </g>
+  <g stroke="#5c3f72" stroke-width="16" opacity="0.6" stroke-linecap="square">
+    <path d="M158 288 L290 282"/><path d="M320 282 L346 281"/><path d="M376 280 L470 276"/>
+  </g>
+  <g stroke="#5c3f72" stroke-width="12" opacity="0.5" stroke-linecap="square">
+    <path d="M158 322 L246 318"/><path d="M272 318 L354 314"/><path d="M380 314 L468 310"/>
+  </g>
+  <g stroke="#7b5c94" stroke-width="4" opacity="0.35" stroke-linecap="square">
+    <path d="M160 280 L288 274"/><path d="M160 314 L244 310"/><path d="M382 306 L466 302"/>
+  </g>
+  <g fill="#f2e6d0" opacity="0.4">
+    <path d="M196 276 l6 26 M244 274 l5 26 M330 272 l5 26 M410 270 l6 26 M206 312 l5 22 M300 308 l5 22 M420 304 l5 22"/>
+    <rect x="196" y="276" width="4" height="26"/><rect x="252" y="274" width="3" height="26"/>
+    <rect x="336" y="272" width="4" height="26"/><rect x="412" y="270" width="3" height="26"/>
+    <rect x="208" y="312" width="3" height="22"/><rect x="304" y="308" width="4" height="22"/>
+    <rect x="424" y="304" width="3" height="22"/>
+  </g>
+</g>
+
+<!-- the tape that ties the bundle, and the knot pulled tight -->
+<path d="M212 119 L248 115 L270 454 L234 458 Z" fill="url(#ev2-roy-tape)" opacity="0.95"/>
+<path d="M212 119 L222 118 L244 456 L234 458 Z" fill="#e0cda0" opacity="0.4"/>
+<path d="M240 116 L248 115 L270 454 L262 455 Z" fill="#2c2618" opacity="0.5"/>
+<path d="M56 276 L556 232 L559 260 L59 304 Z" fill="url(#ev2-roy-tape)"/>
+<path d="M56 276 L556 232 L557 240 L57 284 Z" fill="#e0cda0" opacity="0.45"/>
+<path d="M58 296 L558 252 L559 260 L59 304 Z" fill="#2c2618" opacity="0.5"/>
+<g filter="url(#ev2-roy-soft)" opacity="0.42">
+  <path d="M228 252 L292 246 L298 296 L234 302 Z" fill="#000"/>
+</g>
+<path d="M222 254 q22 -10 40 -2 q13 7 3 19 q-13 12 -28 6 q-16 -7 -15 -23 z" fill="url(#ev2-roy-tape)"/>
+<path d="M226 256 q20 -8 36 -2 q-19 3 -36 2 z" fill="#f0dcac" opacity="0.5"/>
+<path d="M230 276 q20 8 34 -5 q-9 16 -28 13 z" fill="#241f14" opacity="0.55"/>
+<path d="M262 264 q34 6 54 -6" fill="none" stroke="#9c8a63" stroke-width="8"/>
+<path d="M262 260 q34 6 54 -6" fill="none" stroke="#e0cda0" stroke-width="2.2" opacity="0.45"/>
+<path d="M244 282 q6 34 -6 54" fill="none" stroke="#9c8a63" stroke-width="7"/>
+<path d="M240 282 q6 34 -6 54" fill="none" stroke="#e0cda0" stroke-width="2" opacity="0.4"/>
+
+<g fill="#d8cba8" opacity="0.15">
+  <circle cx="580" cy="120" r="2"/><circle cx="70" cy="120" r="1.6"/><circle cx="596" cy="470" r="1.8"/>
+  <circle cx="52" cy="466" r="1.4"/>
+</g>
+<rect width="640" height="520" fill="url(#ev2-roy-vig)"/>
+`,
+  },
+
 /*BATCHEND*/
 };

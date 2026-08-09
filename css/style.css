@@ -2656,3 +2656,75 @@ body.lang-fa .clock-time { letter-spacing: 0; }
   .clue-plate.is-thumb { width: 66px; }
   .disc-clues .clue-plate { width: 88px; }
 }
+
+/* ============================================================
+   20. THE WORKSPACE — your strings, your notes
+   ============================================================ */
+
+.board-tie-hint {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: #241b10;
+  opacity: .85;
+  text-align: center;
+  margin: -0.4rem 0 1rem;
+}
+.user-string-layer {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 4;              /* your twine crosses everything; pins stay clickable above */
+  pointer-events: none;
+  overflow: visible;
+}
+path.twine {
+  stroke: #d9b36a;
+  stroke-width: 2.4;
+  stroke-dasharray: none;
+  fill: none;
+  opacity: .9;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.5));
+}
+.pin-card { position: relative; z-index: 5; }
+.pin-card.tying {
+  outline: 2px solid #d9b36a;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(217, 179, 106, .18);
+}
+.pin-card .clue-plate.is-pin {
+  width: 100%;
+  max-width: 120px;
+  margin: .2rem auto .35rem;
+  border-width: 1px;
+}
+
+.board-notes { margin-top: 1.8rem; position: relative; z-index: 5; }
+.notes-hint {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .78rem;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: .8;
+}
+.notes-pad {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  resize: vertical;
+  padding: .9rem 1rem;
+  font-family: var(--font-body);
+  font-size: .98rem;
+  color: var(--ink);
+  border: 1px solid rgba(43, 38, 32, .45);
+  border-radius: 2px;
+  /* a ruled pad, in the case's own paper */
+  background:
+    repeating-linear-gradient(0deg,
+      rgba(43, 38, 32, 0) 0px, rgba(43, 38, 32, 0) 27px,
+      rgba(122, 90, 110, .25) 27px, rgba(122, 90, 110, .25) 28px),
+    linear-gradient(175deg, #f4ecd9 0%, var(--paper-dim) 140%);
+  line-height: 28px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, .12), 0 2px 6px rgba(0, 0, 0, .3);
+}
+.notes-pad:focus-visible { outline: 2px solid #8a5f17; outline-offset: 2px; }
+body.lang-fa .notes-pad { line-height: 30px; }

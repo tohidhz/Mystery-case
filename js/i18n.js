@@ -97,6 +97,10 @@ window.CALLOWAY_UI = {
     threads: "%1 of %2 threads in hand. Keep pulling.",
     boardBare: "The board is bare. It won't stay that way.",
     boardLoose: "Pinned, not yet connected",
+    boardTieHint: "Click one exhibit, then another, to tie your own string. Click the same pair again to cut it.",
+    boardTying: "Tying from %1 — now click a second exhibit.",
+    notesLabel: "Field notes",
+    notesHint: "Yours alone. The county never reads them.",
     boardPending: "Still forming",
     boardLeads: "%1 exhibits · %2 connected",
 
@@ -275,6 +279,10 @@ window.CALLOWAY_UI = {
     threads: "%1 رشته از %2 در دست دارید. سرِ نخ را ول نکنید.",
     boardBare: "فعلاً تخته خالی است — خالی نمی‌ماند.",
     boardLoose: "سنجاق‌شده، هنوز وصل‌نشده",
+    boardTieHint: "روی یک مدرک کلیک کنید، بعد روی مدرک دیگر، تا نخِ خودتان را ببندید. دوباره روی همان دو کلیک کنید تا بریده شود.",
+    boardTying: "نخ از %1 — حالا مدرک دوم را انتخاب کنید.",
+    notesLabel: "یادداشت‌های میدانی",
+    notesHint: "فقط مالِ شماست. شهرستان هرگز نمی‌خواندشان.",
     boardPending: "در حالِ شکل‌گرفتن",
     boardLeads: "%1 مدرک · %2 وصل‌شده",
 

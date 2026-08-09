@@ -558,6 +558,7 @@
     G = {
       caseId: caseId, elapsed: 0, loc: C.locations[0].id,
       clues: [], searched: [], asked: [], deductions: [], over: false,
+      links: [], notes: "",
     };
     warned120 = warned60 = false;
     saveGame();
@@ -570,6 +571,7 @@
     C = localizeCase(baseCase(save.caseId));
     if (!C) { clearSave(); renderTitle(); return; }
     G = save;
+    G.links = G.links || []; G.notes = G.notes || "";   // saves from before the workspace
     warned120 = timeLeft() <= 120; warned60 = timeLeft() <= 60;
     enterGame();
     toast("clock", T("toastResumed"), T("toastResumedBody", fmtClock(C.startMinutes + G.elapsed)));
@@ -1204,6 +1206,7 @@
      reasoning physically follows your hand. Touch and mouse both work, and a
      slip that is never dragged behaves exactly as before. */
   let redrawStrings = () => {};
+  let onSlipTap = null;   // set by the board while it is open
   function makeDraggable(node, cid) {
     let sx = 0, sy = 0, ox = 0, oy = 0, dragging = false, moved = false;
     node.addEventListener("pointerdown", (e) => {
@@ -1229,6 +1232,7 @@
       dragging = false;
       node.classList.remove("lifted");
       if (moved) { node.classList.add("settling"); setTimeout(() => node.classList.remove("settling"), 420); saveGame(); }
+      else if (onSlipTap) onSlipTap(cid, node);   // a click that wasn't a drag ties string
       redrawStrings();
     };
     node.addEventListener("pointerup", end);
@@ -1236,6 +1240,7 @@
     // keyboard: nudge a slip without a pointer
     node.setAttribute("tabindex", "0");
     node.addEventListener("keydown", (e) => {
+      if ((e.key === "Enter" || e.key === " ") && onSlipTap) { e.preventDefault(); onSlipTap(cid, node); return; }
       const step = e.shiftKey ? 24 : 6;
       const d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[e.key];
       if (!d) return;
@@ -1268,6 +1273,8 @@
       const pin = el("div", "pin-card");
       pin.dataset.cid = cid;
       pin.innerHTML = '<span class="pin"></span><span class="pin-exhibit">' + letterOf(cid) + "</span><strong>" + esc(c.name) + "</strong>";
+      const plate = cluePlate(cid, "is-pin");
+      if (plate) pin.insertBefore(plate, pin.querySelector("strong"));
       pin.title = c.desc;
       pin.setAttribute("aria-label", c.name + " — " + c.desc);
       const off = G.pins[cid];
@@ -1361,7 +1368,75 @@
 
     t.appendChild(board);
 
-    const drawAll = () => board.querySelectorAll(".ded-group").forEach((g) => g._draw && g._draw());
+    /* --- your own strings ---
+       Click one exhibit, then another, and a twine string ties them; the same
+       pair again cuts it. The case's red strings are its conclusions; the
+       twine ones are yours, and they are saved with the case. */
+    board.appendChild(el("p", "board-tie-hint", T("boardTieHint")));
+    const userSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    userSvg.setAttribute("class", "user-string-layer");
+    board.appendChild(userSvg);
+    let tying = null;
+    onSlipTap = (cid, node) => {
+      if (!tying) {
+        tying = { cid, node };
+        node.classList.add("tying");
+        toast("clue", T("boardTying", C.clues[cid].name), "");
+        return;
+      }
+      const a = tying.cid, b = cid;
+      tying.node.classList.remove("tying");
+      tying = null;
+      if (a === b) return;
+      const at = G.links.findIndex((L) => (L[0] === a && L[1] === b) || (L[0] === b && L[1] === a));
+      if (at >= 0) G.links.splice(at, 1);
+      else G.links.push([a, b]);
+      SFX.play(at >= 0 ? "paper" : "chime");
+      saveGame();
+      drawAll();
+    };
+
+    const drawUser = () => {
+      const bb = board.getBoundingClientRect();
+      userSvg.setAttribute("width", board.scrollWidth);
+      userSvg.setAttribute("height", board.scrollHeight);
+      userSvg.innerHTML = "";
+      const nodeFor = (cid) => board.querySelector('.pin-card[data-cid="' + cid + '"]');
+      (G.links || []).forEach((L) => {
+        const na = nodeFor(L[0]), nb = nodeFor(L[1]);
+        if (!na || !nb) return;
+        const ra = na.getBoundingClientRect(), rb = nb.getBoundingClientRect();
+        const ax = ra.left - bb.left + ra.width / 2, ay = ra.top - bb.top + 8;
+        const bx = rb.left - bb.left + rb.width / 2, by = rb.top - bb.top + 8;
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        const sag = Math.min(60, Math.hypot(bx - ax, by - ay) / 4) + 18;
+        path.setAttribute("d", "M" + ax + "," + ay + " Q" + (ax + bx) / 2 + "," + (Math.max(ay, by) + sag) + " " + bx + "," + by);
+        path.setAttribute("class", "twine");
+        userSvg.appendChild(path);
+      });
+    };
+
+    /* --- field notes: a pad that is the player's own --- */
+    const notes = el("div", "board-notes");
+    notes.innerHTML = '<div class="board-head">' + T("notesLabel") +
+      ' <span class="notes-hint">' + T("notesHint") + "</span></div>";
+    const pad = document.createElement("textarea");
+    pad.className = "notes-pad";
+    pad.textContent = G.notes || "";   // defaultValue, so it survives serialization too
+    pad.setAttribute("aria-label", T("notesLabel"));
+    let noteTimer = 0;
+    pad.addEventListener("input", () => {
+      G.notes = pad.value;
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(saveGame, 400);
+    });
+    notes.appendChild(pad);
+    board.appendChild(notes);
+
+    const drawAll = () => {
+      board.querySelectorAll(".ded-group").forEach((g) => g._draw && g._draw());
+      drawUser();
+    };
     redrawStrings = drawAll;   // the resize handler is bound once, at boot
     requestAnimationFrame(() => { drawAll(); newDeductions = []; });
   }
@@ -1645,6 +1720,7 @@
        glance away on any other tab. */
     const screen = $("#screen-game");
     if (screen) screen.classList.toggle("board-wide", name === "board");
+    if (name !== "board") onSlipTap = null;   // tying only works on the open board
     if (name === "board") {
       renderBoardTab();
       // the columns just changed, so the strings must be measured again

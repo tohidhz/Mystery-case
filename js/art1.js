@@ -1089,6 +1089,7 @@ window.CASE_ART.blackwood = {
       h_vault: { x: 17, y: 62 },
       h_ledger: { x: 66, y: 68 },
       h_bench: { x: 87, y: 71 },
+      h_cage: { x: 37, y: 45 },
     },
     svg: `
 <defs>
@@ -1131,6 +1132,9 @@ window.CASE_ART.blackwood = {
     <stop offset="0" stop-color="#d9a441" stop-opacity="0.22"/>
     <stop offset="1" stop-color="#d9a441" stop-opacity="0"/>
   </radialGradient>
+  <linearGradient id="bw-cellar-iron" x1="0" y1="0" x2="1" y2="0.4">
+    <stop offset="0" stop-color="#221f1a"/><stop offset="0.6" stop-color="#453f35"/><stop offset="1" stop-color="#6a6252"/>
+  </linearGradient>
   <radialGradient id="bw-cellar-vig" cx="0.5" cy="0.45" r="0.78">
     <stop offset="0.42" stop-color="#000" stop-opacity="0"/>
     <stop offset="1" stop-color="#000" stop-opacity="0.78"/>
@@ -1248,6 +1252,29 @@ window.CASE_ART.blackwood = {
     <circle cx="312" cy="270" r="2.5"/><circle cx="344" cy="270" r="2.5"/><circle cx="397" cy="326" r="2.5"/>
     <circle cx="328" cy="378" r="2.5"/><circle cx="412" cy="380" r="2.5"/><circle cx="344" cy="432" r="2.5"/>
   </g>
+</g>
+
+<!-- the master's private bin: an iron lattice door, padlocked across the hasp -->
+<g>
+  <rect x="296" y="248" width="148" height="222" fill="#0a0906" opacity="0.34"/>
+  <g fill="url(#bw-cellar-iron)">
+    <rect x="288" y="240" width="164" height="10"/><rect x="288" y="466" width="164" height="10"/>
+    <rect x="288" y="240" width="10" height="236"/><rect x="442" y="240" width="10" height="236"/>
+  </g>
+  <path d="M308 252 L308 464 M326 252 L326 464 M344 252 L344 464 M362 252 L362 464 M380 252 L380 464 M398 252 L398 464 M416 252 L416 464 M434 252 L434 464" fill="none" stroke="#2b2822" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M300 300 L440 300 M300 356 L440 356 M300 412 L440 412" fill="none" stroke="#2b2822" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M310 252 L310 464 M346 252 L346 464 M400 252 L400 464 M302 302 L442 302" fill="none" stroke="#8b8272" stroke-width="0.9" opacity="0.4"/>
+  <rect x="300" y="252" width="140" height="212" fill="none" stroke="#3d382f" stroke-width="5"/>
+  <g fill="#4b463c">
+    <rect x="292" y="292" width="18" height="13" rx="3"/><rect x="292" y="410" width="18" height="13" rx="3"/>
+  </g>
+  <rect x="430" y="342" width="26" height="14" rx="3" fill="#57503f"/>
+  <path d="M440 346 l14 0" fill="none" stroke="#211e18" stroke-width="3"/>
+  <path d="M446 358 q0 -12 8 -12 q8 0 8 12" fill="none" stroke="#9a9180" stroke-width="4.5"/>
+  <rect x="440" y="356" width="28" height="24" rx="5" fill="#6d6455"/>
+  <rect x="442" y="358" width="24" height="7" rx="3" fill="#b3a892" opacity="0.55"/>
+  <circle cx="454" cy="369" r="3.4" fill="#161310"/>
+  <ellipse cx="370" cy="474" rx="88" ry="8" fill="#000" opacity="0.42"/>
 </g>
 
 <!-- rack wall, right, above the bench -->
@@ -2003,6 +2030,7 @@ window.CASE_ART.blackwood = {
     hotspots: {
       h_dumbwaiter: { x: 72, y: 44 },
       h_tray: { x: 90, y: 59 },
+      h_keyboard: { x: 54, y: 57 },
     },
     svg: `
 <defs>
@@ -2212,6 +2240,28 @@ window.CASE_ART.blackwood = {
   </g>
   <path d="M330 300 q12 20 22 0 z" fill="#8e8e88"/>
   <ellipse cx="470" cy="292" rx="16" ry="7" fill="#6b6558"/>
+</g>
+
+<!-- the key board by the back door: a dozen brass hooks, one of them wiped clean -->
+<g>
+  <rect x="495" y="319" width="94" height="78" fill="#0e0b07" opacity="0.45"/>
+  <rect x="490" y="314" width="94" height="78" rx="2" fill="url(#bw-kit-wood)"/>
+  <rect x="490" y="314" width="94" height="5" fill="#6b5a45"/>
+  <ellipse cx="557" cy="352" rx="17" ry="21" fill="#ffe0a3" opacity="0.14"/>
+  <g fill="#cbb98f" opacity="0.32">
+    <path d="M498 328 l15 0 l0 5 l-15 0 z M522 328 l15 0 l0 5 l-15 0 z M546 328 l15 0 l0 5 l-15 0 z M570 328 l12 0 l0 5 l-12 0 z M498 360 l15 0 l0 5 l-15 0 z M522 360 l15 0 l0 5 l-15 0 z M546 360 l15 0 l0 5 l-15 0 z M570 360 l12 0 l0 5 l-12 0 z"/>
+  </g>
+  <g fill="none" stroke="#b58a45" stroke-width="2.4" stroke-linecap="round">
+    <path d="M503 337 q0 6 5 7 M527 337 q0 6 5 7 M551 337 q0 6 5 7 M575 337 q0 6 5 7 M503 369 q0 6 5 7 M527 369 q0 6 5 7 M551 369 q0 6 5 7 M575 369 q0 6 5 7"/>
+  </g>
+  <g fill="#7d6432">
+    <path d="M505 343 q6 0 6 5 q0 4 -3 5 l0 12 l4 0 l0 3 l-4 0 l0 4 l3 0 l0 3 l-6 0 l0 -22 q-3 -1 -3 -5 q0 -5 6 -5 z"/>
+    <path d="M529 343 q6 0 6 5 q0 4 -3 5 l0 16 l4 0 l0 3 l-4 0 l0 5 l-3 0 l0 -24 q-3 -1 -3 -5 q0 -5 6 -5 z"/>
+    <path d="M577 343 q6 0 6 5 q0 4 -3 5 l0 18 l4 0 l0 3 l-7 0 l0 -21 q-3 -1 -3 -5 q0 -5 6 -5 z"/>
+    <path d="M505 375 q6 0 6 5 q0 4 -3 5 l0 11 l4 0 l0 3 l-7 0 l0 -14 q-3 -1 -3 -5 q0 -5 6 -5 z"/>
+  </g>
+  <path d="M553 342 q7 0 7 6 q0 5 -4 6 l0 13 l5 0 l0 3 l-5 0 l0 4 l4 0 l0 3 l-7 0 l0 -23 q-4 -1 -4 -6 q0 -6 7 -6 z" fill="#e8d4a0"/>
+  <rect x="490" y="314" width="4" height="78" fill="#ffe0a3" opacity="0.18"/>
 </g>
 
 <!-- the dumbwaiter: the house's ear -->
@@ -2583,6 +2633,7 @@ window.CASE_ART.blackwood = {
     hotspots: {
       h_valise: { x: 26, y: 62 },
       h_bag: { x: 74, y: 54 },
+      h_jewelcase: { x: 36, y: 24 },
     },
     svg: `
 <defs>
@@ -2852,6 +2903,21 @@ window.CASE_ART.blackwood = {
     <rect x="345" y="188" width="28" height="80" fill="none" stroke="#241b12" stroke-width="3"/>
     <rect x="345" y="280" width="28" height="80" fill="none" stroke="#241b12" stroke-width="3"/>
     <ellipse cx="342" cy="272" rx="4" ry="8" fill="#9b7a3f"/>
+  </g>
+  <!-- put away on the top of the press: a lady's travelling jewel case, locked -->
+  <g>
+    <ellipse cx="348" cy="163" rx="33" ry="4" fill="#000" opacity="0.55"/>
+    <rect x="317" y="145" width="62" height="18" rx="2" fill="url(#bw-gw-leather)"/>
+    <path d="M317 146 q31 -13 62 0 z" fill="#54402a"/>
+    <path d="M319 145 q29 -11 58 0" fill="none" stroke="#8f6f47" stroke-width="1.6" opacity="0.75"/>
+    <rect x="317" y="150" width="62" height="3" fill="#1d140c" opacity="0.75"/>
+    <rect x="319" y="154" width="58" height="3" fill="#7a5836" opacity="0.45"/>
+    <g fill="#9b7a3f">
+      <rect x="317" y="145" width="5" height="18"/><rect x="374" y="145" width="5" height="18"/>
+      <rect x="341" y="148" width="12" height="10" rx="2"/>
+    </g>
+    <rect x="345" y="151" width="4" height="4" rx="1" fill="#e8dcbb"/>
+    <rect x="317" y="160" width="62" height="3" fill="#120c07" opacity="0.6"/>
   </g>
 </g>
 <rect x="100" y="118" width="300" height="368" fill="none" stroke="#33271a" stroke-width="16"/>

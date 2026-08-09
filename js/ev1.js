@@ -3263,4 +3263,556 @@ window.CLUE_ART.blackwood = {
 <rect width="640" height="520" fill="url(#ev1-gc-vig)"/>
 `,
   },
+
+  /* The little silver key on its black ribbon, lying where it lay under the
+     diary: fine work, thumb-worn, and far too small for furniture. */
+  c1_silverkey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-sk-desk" x1="0" y1="0" x2="0.35" y2="1">
+    <stop offset="0" stop-color="#3d2e1d"/><stop offset="0.5" stop-color="#241a10"/><stop offset="1" stop-color="#100b06"/>
+  </linearGradient>
+  <radialGradient id="ev1-sk-pool" cx="0.38" cy="0.24" r="0.82">
+    <stop offset="0" stop-color="#f2cf80" stop-opacity="0.3"/><stop offset="1" stop-color="#f2cf80" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-sk-silver" x1="0" y1="0" x2="0.24" y2="1">
+    <stop offset="0" stop-color="#f6f8fa"/><stop offset="0.2" stop-color="#c6ccd2"/><stop offset="0.52" stop-color="#7b838a"/>
+    <stop offset="0.78" stop-color="#464d53"/><stop offset="1" stop-color="#9ba3aa"/>
+  </linearGradient>
+  <linearGradient id="ev1-sk-shaft" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fdfefe"/><stop offset="0.24" stop-color="#d2d9df"/><stop offset="0.68" stop-color="#545b61"/><stop offset="1" stop-color="#aab2b8"/>
+  </linearGradient>
+  <linearGradient id="ev1-sk-ribbon" x1="0" y1="0" x2="0.35" y2="1">
+    <stop offset="0" stop-color="#514d46"/><stop offset="0.45" stop-color="#2b2825"/><stop offset="1" stop-color="#131110"/>
+  </linearGradient>
+  <filter id="ev1-sk-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+  <radialGradient id="ev1-sk-vig" cx="0.44" cy="0.44" r="0.74">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-sk-desk)"/>
+<rect width="640" height="520" fill="url(#ev1-sk-pool)"/>
+<!-- desk leather, tooled and rubbed -->
+<g fill="none" stroke="#120c06" stroke-width="2.4" opacity="0.5">
+  <path d="M0 58 Q 190 42 388 62 Q 530 78 640 62"/>
+  <path d="M0 152 Q 220 130 420 154 Q 552 170 640 152"/>
+  <path d="M0 286 Q 200 264 396 288 Q 534 304 640 284"/>
+  <path d="M0 402 Q 214 380 412 404 Q 546 420 640 402"/>
+  <path d="M0 488 Q 196 468 398 492 Q 540 506 640 488"/>
+</g>
+<g fill="none" stroke="#6f4f2c" stroke-width="1" opacity="0.28">
+  <path d="M0 68 Q 200 52 400 72 Q 540 88 640 72"/>
+  <path d="M0 296 Q 200 276 400 298 Q 540 314 640 296"/>
+  <path d="M0 414 Q 214 392 412 416 Q 546 430 640 414"/>
+</g>
+<g fill="none" stroke="#8a6537" stroke-width="1.6" opacity="0.22">
+  <rect x="34" y="34" width="572" height="452" rx="6"/>
+  <rect x="46" y="46" width="548" height="428" rx="4"/>
+</g>
+<g fill="#d8c9a8" opacity="0.15">
+  <circle cx="88" cy="404" r="2.4"/><circle cx="142" cy="446" r="1.6"/><circle cx="524" cy="384" r="2.2"/>
+  <circle cx="566" cy="438" r="1.4"/><circle cx="74" cy="118" r="1.8"/><circle cx="548" cy="112" r="2"/>
+  <circle cx="296" cy="472" r="1.6"/><circle cx="206" cy="98" r="1.5"/><circle cx="392" cy="88" r="1.3"/>
+</g>
+
+<!-- the ribbon, gone grey, curling away to the right -->
+<g transform="translate(10 12)" opacity="0.55" filter="url(#ev1-sk-soft)">
+  <path d="M330 258 Q 430 226 512 268 Q 570 300 596 372" fill="none" stroke="#000" stroke-width="26"/>
+</g>
+<path d="M326 254 Q 428 220 510 264 Q 570 298 598 372" fill="none" stroke="url(#ev1-sk-ribbon)" stroke-width="24" stroke-linecap="round"/>
+<path d="M328 246 Q 428 214 508 256 Q 566 288 594 358" fill="none" stroke="#6a655c" stroke-width="3.4" opacity="0.4"/>
+<path d="M330 264 Q 430 232 512 274 Q 570 306 598 380" fill="none" stroke="#0a0908" stroke-width="4" opacity="0.55"/>
+<path d="M446 234 Q 460 252 452 276" fill="none" stroke="#0a0908" stroke-width="6" opacity="0.35"/>
+<path d="M544 288 Q 556 306 550 330" fill="none" stroke="#0a0908" stroke-width="6" opacity="0.3"/>
+<g fill="none" stroke="#7c766b" stroke-width="1.4" opacity="0.35" stroke-linecap="round">
+  <path d="M600 380 l16 20"/><path d="M606 372 l20 16"/><path d="M594 386 l10 26"/>
+</g>
+
+<g transform="rotate(-16 300 270)">
+  <!-- cast shadow -->
+  <g transform="translate(12 16)" opacity="0.6" filter="url(#ev1-sk-soft)">
+    <ellipse cx="196" cy="268" rx="66" ry="60" fill="#000"/>
+    <rect x="242" y="248" width="150" height="40" rx="16" fill="#000"/>
+    <rect x="352" y="248" width="58" height="86" rx="8" fill="#000"/>
+  </g>
+
+  <!-- bow: a lozenge with a pierced heart, the way a lady's box key is cut -->
+  <path d="M196 202 Q 262 210 266 268 Q 262 328 196 334 Q 130 328 126 268 Q 130 210 196 202 Z" fill="url(#ev1-sk-silver)"/>
+  <path d="M196 208 Q 256 216 260 268 Q 256 322 196 328 Q 136 322 132 268 Q 136 216 196 208 Z" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.5"/>
+  <path d="M196 212 Q 240 218 250 244 Q 214 226 176 234 Q 146 244 140 272 Q 134 232 196 212 Z" fill="#ffffff" opacity="0.34"/>
+  <path d="M152 318 Q 214 338 258 302 Q 244 330 196 332 Q 168 330 152 318 Z" fill="#2c3238" opacity="0.6"/>
+  <path d="M196 240 Q 214 224 224 240 Q 230 254 196 282 Q 162 254 168 240 Q 178 224 196 240 Z" fill="#0d0f11"/>
+  <path d="M196 244 Q 212 230 220 244 Q 224 254 196 276 Q 168 254 172 244 Q 180 230 196 244 Z" fill="none" stroke="#e6ecf1" stroke-width="1.6" opacity="0.4"/>
+  <path d="M176 240 Q 186 232 194 240" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.55"/>
+  <ellipse cx="196" cy="304" rx="30" ry="16" fill="none" stroke="#3a4046" stroke-width="2.2" opacity="0.8"/>
+  <ellipse cx="196" cy="302" rx="30" ry="16" fill="none" stroke="#eef3f7" stroke-width="1.2" opacity="0.35"/>
+
+  <!-- collar and shaft -->
+  <rect x="256" y="248" width="20" height="42" rx="6" fill="url(#ev1-sk-silver)"/>
+  <rect x="258" y="250" width="6" height="38" rx="3" fill="#ffffff" opacity="0.5"/>
+  <rect x="270" y="250" width="5" height="38" rx="2" fill="#242a2f" opacity="0.5"/>
+  <rect x="274" y="252" width="94" height="34" rx="12" fill="url(#ev1-sk-shaft)"/>
+  <rect x="278" y="257" width="86" height="6" rx="3" fill="#ffffff" opacity="0.72"/>
+  <rect x="278" y="277" width="86" height="5" rx="2" fill="#242a2f" opacity="0.48"/>
+  <rect x="352" y="246" width="17" height="46" rx="6" fill="url(#ev1-sk-silver)"/>
+  <rect x="354" y="250" width="5" height="38" rx="2" fill="#ffffff" opacity="0.48"/>
+
+  <!-- the bit: two small wards, no more than a jewel box wants -->
+  <path d="M362 246 L404 246 L404 340 L382 340 L382 318 L362 318 L362 300 L388 300 L388 282 L362 282 Z" fill="url(#ev1-sk-silver)"/>
+  <path d="M364 248 L400 248 L400 258 L364 258 Z" fill="#ffffff" opacity="0.48"/>
+  <path d="M398 252 L398 336" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.5"/>
+  <path d="M366 284 L386 284 M366 302 L386 302" fill="none" stroke="#20262b" stroke-width="2.6" opacity="0.55"/>
+  <path d="M382 318 L382 338 L402 338" fill="none" stroke="#20262b" stroke-width="2.6" opacity="0.5"/>
+
+  <!-- wear: hairline scratches, and the tarnish a thumb leaves -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.1" opacity="0.4">
+    <path d="M290 264 L330 258"/><path d="M304 274 L350 270"/><path d="M148 254 L172 242"/><path d="M228 300 L250 312"/>
+  </g>
+  <g fill="none" stroke="#2b3238" stroke-width="1" opacity="0.5">
+    <path d="M286 274 L328 268"/><path d="M158 292 L182 314"/><path d="M212 226 L242 234"/>
+  </g>
+  <g fill="none" stroke="#b9a37a" stroke-width="1.4" opacity="0.22">
+    <path d="M214 254 q 10 12 -2 22"/><path d="M222 246 q 18 20 -2 38"/><path d="M230 240 q 24 26 -2 50"/>
+  </g>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-sk-vig)"/>
+`,
+  },
+
+  /* Margaret's jewel case, opened: violet velvet, a thin gold band, and one
+     foxglove bell pressed flat in a square of note-paper. */
+  c1_keepsake: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-kp-wood" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#332617"/><stop offset="0.55" stop-color="#1e160d"/><stop offset="1" stop-color="#0d0906"/>
+  </linearGradient>
+  <radialGradient id="ev1-kp-pool" cx="0.44" cy="0.26" r="0.8">
+    <stop offset="0" stop-color="#f0cd86" stop-opacity="0.28"/><stop offset="1" stop-color="#f0cd86" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-kp-moroc" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#7c5b38"/><stop offset="0.45" stop-color="#4a3320"/><stop offset="1" stop-color="#241708"/>
+  </linearGradient>
+  <radialGradient id="ev1-kp-velvet" cx="0.42" cy="0.34" r="0.78">
+    <stop offset="0" stop-color="#53415c"/><stop offset="0.48" stop-color="#332639"/><stop offset="1" stop-color="#17111d"/>
+  </radialGradient>
+  <linearGradient id="ev1-kp-gold" x1="0" y1="0" x2="0.25" y2="1">
+    <stop offset="0" stop-color="#ffeeb4"/><stop offset="0.24" stop-color="#d9ae4f"/><stop offset="0.56" stop-color="#8a6320"/>
+    <stop offset="0.82" stop-color="#54390f"/><stop offset="1" stop-color="#c19a44"/>
+  </linearGradient>
+  <linearGradient id="ev1-kp-paper" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#efe3c2"/><stop offset="0.42" stop-color="#dccfa8"/><stop offset="1" stop-color="#a89a76"/>
+  </linearGradient>
+  <linearGradient id="ev1-kp-petal" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#a77f9a"/><stop offset="0.5" stop-color="#7d5a74"/><stop offset="1" stop-color="#4a3446"/>
+  </linearGradient>
+  <filter id="ev1-kp-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+  <radialGradient id="ev1-kp-vig" cx="0.46" cy="0.44" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-kp-wood)"/>
+<rect width="640" height="520" fill="url(#ev1-kp-pool)"/>
+<g fill="none" stroke="#0d0905" stroke-width="2.6" opacity="0.5">
+  <path d="M0 46 Q 210 30 410 50 Q 546 64 640 48"/>
+  <path d="M0 470 Q 200 452 400 474 Q 540 488 640 470"/>
+  <path d="M0 500 Q 210 482 410 504 Q 546 516 640 500"/>
+</g>
+
+<!-- the lid, laid back -->
+<g transform="translate(0 -4)">
+  <path d="M104 116 L536 116 Q 548 118 548 130 L548 168 L92 168 L92 130 Q 92 118 104 116 Z" fill="url(#ev1-kp-moroc)"/>
+  <path d="M104 120 L536 120 Q 542 122 542 130 L542 140 L98 140 L98 130 Q 98 122 104 120 Z" fill="#8f6a42" opacity="0.4"/>
+  <rect x="92" y="160" width="456" height="10" fill="#1a1108"/>
+  <rect x="118" y="146" width="404" height="14" rx="4" fill="#2b2036"/>
+  <g fill="#9b7a3f">
+    <rect x="92" y="120" width="14" height="48" rx="3"/><rect x="534" y="120" width="14" height="48" rx="3"/>
+    <rect x="296" y="150" width="48" height="20" rx="4"/>
+  </g>
+  <rect x="312" y="156" width="16" height="10" rx="2" fill="#d8dee4"/>
+  <circle cx="320" cy="161" r="2.6" fill="#14181c"/>
+</g>
+
+<!-- the body of the case, open to the room -->
+<g transform="translate(12 20)" opacity="0.6" filter="url(#ev1-kp-soft)">
+  <rect x="92" y="176" width="456" height="248" rx="10" fill="#000"/>
+</g>
+<rect x="92" y="176" width="456" height="244" rx="10" fill="url(#ev1-kp-moroc)"/>
+<rect x="92" y="176" width="456" height="16" fill="#150d05" opacity="0.6"/>
+<rect x="92" y="406" width="456" height="14" rx="6" fill="#0f0904" opacity="0.55"/>
+<g fill="#9b7a3f">
+  <rect x="92" y="176" width="16" height="244" rx="4"/><rect x="532" y="176" width="16" height="244" rx="4"/>
+  <rect x="92" y="176" width="456" height="7"/>
+</g>
+<g fill="#ffe6ab" opacity="0.28">
+  <rect x="94" y="180" width="4" height="238"/><rect x="94" y="178" width="452" height="3"/>
+</g>
+<!-- velvet bed, rubbed thin at the middle -->
+<rect x="116" y="196" width="408" height="204" rx="6" fill="url(#ev1-kp-velvet)"/>
+<g fill="#8a6c96" opacity="0.16">
+  <ellipse cx="240" cy="256" rx="76" ry="34"/><ellipse cx="404" cy="330" rx="70" ry="30"/>
+</g>
+<g fill="none" stroke="#22182b" stroke-width="2" opacity="0.5">
+  <path d="M116 232 Q 320 224 524 234"/><path d="M116 300 Q 320 292 524 302"/><path d="M116 366 Q 320 358 524 368"/>
+</g>
+<g fill="none" stroke="#a086ac" stroke-width="1.1" opacity="0.2">
+  <path d="M140 210 L140 388"/><path d="M262 202 L262 392"/><path d="M386 202 L386 392"/><path d="M498 210 L498 386"/>
+</g>
+<rect x="116" y="196" width="408" height="204" rx="6" fill="none" stroke="#150e1c" stroke-width="6" opacity="0.6"/>
+
+<!-- the ring: worn thin, engraved inside where nobody was meant to read it -->
+<g transform="translate(8 12)" opacity="0.55" filter="url(#ev1-kp-soft)">
+  <ellipse cx="234" cy="300" rx="62" ry="46" fill="#000"/>
+</g>
+<ellipse cx="230" cy="296" rx="62" ry="46" fill="url(#ev1-kp-gold)"/>
+<ellipse cx="230" cy="298" rx="48" ry="34" fill="url(#ev1-kp-velvet)"/>
+<ellipse cx="230" cy="298" rx="48" ry="34" fill="none" stroke="#3d2a0c" stroke-width="4" opacity="0.7"/>
+<path d="M174 282 Q 186 254 230 250 Q 274 254 286 282" fill="none" stroke="#fff0c0" stroke-width="5" opacity="0.7"/>
+<path d="M180 320 Q 200 342 230 344 Q 262 342 282 320" fill="none" stroke="#3d2a0c" stroke-width="5" opacity="0.55"/>
+<path d="M188 268 Q 210 258 234 258" fill="none" stroke="#ffffff" stroke-width="2.6" opacity="0.55"/>
+<path d="M196 330 Q 216 340 240 340" fill="none" stroke="#ffe7ac" stroke-width="2" opacity="0.35"/>
+<g fill="none" stroke="#6a4a16" stroke-width="1.4" opacity="0.55">
+  <path d="M198 262 L204 274"/><path d="M252 258 L256 270"/><path d="M170 300 L184 304"/><path d="M288 302 L276 306"/>
+</g>
+<g fill="none" stroke="#2f2008" stroke-width="2.2" opacity="0.45">
+  <path d="M206 322 q 24 10 48 0"/>
+</g>
+
+<!-- the note-paper, unfolded, with the pressed bell on it -->
+<g transform="translate(10 14)" opacity="0.5" filter="url(#ev1-kp-soft)">
+  <path d="M330 232 L502 244 L494 384 L322 372 Z" fill="#000"/>
+</g>
+<path d="M328 228 L500 240 L492 380 L320 368 Z" fill="url(#ev1-kp-paper)"/>
+<path d="M328 228 L500 240 L498 262 L326 250 Z" fill="#f7edcf" opacity="0.5"/>
+<g fill="none" stroke="#a89670" stroke-width="1.6" opacity="0.6">
+  <path d="M406 232 L400 374"/><path d="M324 300 L496 310"/>
+</g>
+<g fill="none" stroke="#6f6248" stroke-width="1" opacity="0.4">
+  <path d="M410 232 L404 374"/><path d="M324 306 L496 316"/>
+</g>
+<g fill="#8f8060" opacity="0.3">
+  <path d="M320 368 L492 380 L490 386 L318 374 Z"/>
+</g>
+<!-- three words in his hand, rendered as ink only, no letters -->
+<g fill="none" stroke="#3a2f1e" stroke-width="2.4" opacity="0.6" stroke-linecap="round">
+  <path d="M344 344 q 14 -8 24 2 q 10 8 22 -2"/>
+  <path d="M400 348 q 12 -8 22 2 q 8 8 18 -2"/>
+  <path d="M450 350 q 10 -8 20 2"/>
+</g>
+<!-- the foxglove bell, pressed until it is more stain than flower -->
+<g transform="rotate(-12 408 296)">
+  <path d="M400 246 Q 388 282 372 318 Q 380 340 396 332 Q 408 346 422 330 Q 440 338 446 314 Q 428 280 416 246 Q 408 238 400 246 Z" fill="url(#ev1-kp-petal)" opacity="0.94"/>
+  <path d="M403 252 Q 392 284 378 316 Q 386 334 398 327 Q 409 340 421 325 Q 436 332 441 312 Q 425 282 414 252 Q 408 245 403 252 Z" fill="none" stroke="#c6a3bd" stroke-width="1.5" opacity="0.38"/>
+  <path d="M401 250 Q 392 282 380 312 Q 384 288 392 262 Q 395 250 401 250 Z" fill="#c9a8c2" opacity="0.34"/>
+  <path d="M374 314 Q 410 336 444 310 Q 440 336 420 332 Q 406 346 394 331 Q 380 334 374 314 Z" fill="#241a28" opacity="0.62"/>
+  <path d="M380 306 Q 410 326 440 302 Q 412 318 380 306 Z" fill="#100b13" opacity="0.55"/>
+  <g fill="#33243a" opacity="0.8">
+    <ellipse cx="398" cy="300" rx="4.6" ry="6.4"/><ellipse cx="414" cy="296" rx="4.2" ry="6"/>
+    <ellipse cx="406" cy="314" rx="4" ry="5.6"/><ellipse cx="422" cy="308" rx="3.6" ry="5"/>
+  </g>
+  <path d="M408 242 q 4 -18 -6 -32" fill="none" stroke="#5f6b45" stroke-width="4" stroke-linecap="round"/>
+  <path d="M406 240 q 2 -14 -6 -26" fill="none" stroke="#8b9663" stroke-width="1.6" opacity="0.5"/>
+  <path d="M394 246 q -14 -4 -18 -16" fill="none" stroke="#5f6b45" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <g fill="none" stroke="#2c1f2e" stroke-width="1.2" opacity="0.38">
+    <path d="M394 260 Q 384 292 380 314"/><path d="M420 262 Q 432 292 440 310"/>
+  </g>
+</g>
+<!-- the brown halo the flower has printed into the paper over six years -->
+<g fill="#8a6a4a" opacity="0.18">
+  <ellipse cx="410" cy="298" rx="52" ry="58"/>
+</g>
+<g fill="#6a4a2c" opacity="0.14">
+  <ellipse cx="410" cy="300" rx="40" ry="46"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-kp-vig)"/>
+`,
+  },
+
+  /* The cage key on the one hook in thirty years of kitchen soot that
+     somebody has been wiping clean. */
+  c1_cagekey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-ck-board" x1="0" y1="0" x2="0.22" y2="1">
+    <stop offset="0" stop-color="#5b4830"/><stop offset="0.5" stop-color="#3a2d1c"/><stop offset="1" stop-color="#1c1409"/>
+  </linearGradient>
+  <radialGradient id="ev1-ck-pool" cx="0.5" cy="0.22" r="0.82">
+    <stop offset="0" stop-color="#f2cf80" stop-opacity="0.3"/><stop offset="1" stop-color="#f2cf80" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="ev1-ck-clean" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#c9a86a" stop-opacity="0.4"/><stop offset="0.7" stop-color="#c9a86a" stop-opacity="0.12"/>
+    <stop offset="1" stop-color="#c9a86a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-ck-brass" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#f8e6a8"/><stop offset="0.25" stop-color="#c99f45"/><stop offset="0.6" stop-color="#845d1e"/>
+    <stop offset="1" stop-color="#a37b31"/>
+  </linearGradient>
+  <linearGradient id="ev1-ck-iron" x1="0" y1="0" x2="0.28" y2="1">
+    <stop offset="0" stop-color="#a9a294"/><stop offset="0.22" stop-color="#6e675a"/><stop offset="0.58" stop-color="#3a352d"/>
+    <stop offset="0.84" stop-color="#22201b"/><stop offset="1" stop-color="#5f594d"/>
+  </linearGradient>
+  <linearGradient id="ev1-ck-bright" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e3dcc9"/><stop offset="0.3" stop-color="#9d9585"/><stop offset="0.72" stop-color="#4a453a"/>
+    <stop offset="1" stop-color="#847d6d"/>
+  </linearGradient>
+  <filter id="ev1-ck-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+  <radialGradient id="ev1-ck-vig" cx="0.48" cy="0.42" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-ck-board)"/>
+<rect width="640" height="520" fill="url(#ev1-ck-pool)"/>
+<!-- deal boards, thirty years of range soot laid on even -->
+<g fill="none" stroke="#171004" stroke-width="7" opacity="0.65">
+  <path d="M172 0 L164 520"/><path d="M462 0 L472 520"/>
+</g>
+<g fill="none" stroke="#7a6141" stroke-width="2" opacity="0.3">
+  <path d="M180 0 L172 520"/><path d="M470 0 L480 520"/>
+</g>
+<g fill="none" stroke="#221809" stroke-width="2.6" opacity="0.55">
+  <path d="M0 74 Q 200 56 400 78 Q 540 92 640 74"/>
+  <path d="M0 210 Q 210 190 410 212 Q 548 228 640 208"/>
+  <path d="M0 356 Q 196 336 398 358 Q 540 372 640 354"/>
+  <path d="M0 468 Q 210 448 410 470 Q 548 486 640 468"/>
+</g>
+<g fill="none" stroke="#8a6c42" stroke-width="1" opacity="0.24">
+  <path d="M0 86 Q 200 68 400 90 Q 540 104 640 86"/>
+  <path d="M0 368 Q 196 348 398 370 Q 540 384 640 366"/>
+</g>
+<g fill="#0c0803" opacity="0.2" filter="url(#ev1-ck-soft)">
+  <ellipse cx="46" cy="96" rx="120" ry="96"/><ellipse cx="606" cy="128" rx="112" ry="102"/>
+  <ellipse cx="60" cy="452" rx="130" ry="92"/><ellipse cx="600" cy="448" rx="118" ry="86"/>
+</g>
+<g fill="#0c0803" opacity="0.22">
+  <ellipse cx="320" cy="496" rx="200" ry="50"/>
+</g>
+<!-- the one clean patch: soot wiped off by a sleeve, over and over -->
+<ellipse cx="322" cy="272" rx="152" ry="176" fill="url(#ev1-ck-clean)"/>
+<g fill="none" stroke="#c9a86a" stroke-width="2" opacity="0.16">
+  <path d="M196 200 Q 320 172 448 206"/><path d="M188 340 Q 320 372 452 338"/>
+</g>
+
+<!-- a neighbouring hook, still furred with soot -->
+<g opacity="0.75">
+  <path d="M92 168 q 0 34 26 38" fill="none" stroke="#6b5326" stroke-width="11" stroke-linecap="round"/>
+  <path d="M92 168 q 0 34 26 38" fill="none" stroke="#1b1204" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+  <circle cx="92" cy="164" r="9" fill="#5c4a22"/>
+</g>
+
+<!-- the hook that has no dust on it, and what hangs from it -->
+<g transform="translate(14 20)" opacity="0.6" filter="url(#ev1-ck-soft)">
+  <path d="M320 158 q 0 40 30 44" fill="none" stroke="#000" stroke-width="16"/>
+  <rect x="300" y="212" width="66" height="230" rx="24" fill="#000"/>
+</g>
+<circle cx="318" cy="150" r="15" fill="url(#ev1-ck-brass)"/>
+<circle cx="318" cy="150" r="15" fill="none" stroke="#ffeeb8" stroke-width="2" opacity="0.4"/>
+<circle cx="314" cy="146" r="5" fill="#fff2c8" opacity="0.5"/>
+<path d="M318 152 q 0 40 30 46" fill="none" stroke="url(#ev1-ck-brass)" stroke-width="13" stroke-linecap="round"/>
+<path d="M316 156 q 0 34 26 40" fill="none" stroke="#ffeab4" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+<path d="M322 156 q 0 38 28 44" fill="none" stroke="#3d2a08" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+
+<g transform="rotate(6 344 320)">
+  <!-- bow: a plain iron ring, the sort a cellar padlock gets -->
+  <ellipse cx="344" cy="212" rx="46" ry="44" fill="url(#ev1-ck-iron)"/>
+  <ellipse cx="344" cy="212" rx="26" ry="25" fill="#241d10"/>
+  <ellipse cx="344" cy="212" rx="26" ry="25" fill="none" stroke="#0d0a06" stroke-width="4"/>
+  <path d="M306 194 Q 322 168 356 168" fill="none" stroke="#e6e0d0" stroke-width="4" opacity="0.5"/>
+  <path d="M316 248 Q 348 264 380 240" fill="none" stroke="#15130f" stroke-width="5" opacity="0.6"/>
+  <path d="M322 188 Q 336 178 352 178" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.35"/>
+  <!-- collar -->
+  <rect x="326" y="250" width="36" height="20" rx="7" fill="url(#ev1-ck-iron)"/>
+  <rect x="329" y="252" width="30" height="6" rx="3" fill="#d5cfbe" opacity="0.5"/>
+  <rect x="329" y="264" width="30" height="5" rx="2" fill="#100e0a" opacity="0.55"/>
+  <!-- shaft, worn bright where a thumb turns it -->
+  <rect x="330" y="266" width="28" height="140" rx="9" fill="url(#ev1-ck-bright)"/>
+  <rect x="333" y="272" width="7" height="128" rx="3" fill="#f2ecdb" opacity="0.62"/>
+  <rect x="350" y="272" width="6" height="128" rx="3" fill="#0f0d09" opacity="0.5"/>
+  <ellipse cx="344" cy="316" rx="16" ry="26" fill="#efe8d4" opacity="0.22"/>
+  <!-- bit: two heavy wards, cut for a padlock and nothing finer -->
+  <path d="M330 400 L330 468 L392 468 L392 442 L360 442 L360 428 L386 428 L386 404 L360 404 L360 388 L330 388 Z" fill="url(#ev1-ck-bright)"/>
+  <path d="M332 390 L358 390 L358 402 L332 402 Z" fill="#f4eedd" opacity="0.6"/>
+  <path d="M334 404 L334 464" fill="none" stroke="#efe9d8" stroke-width="4" opacity="0.6"/>
+  <path d="M330 388 L360 388 L360 404 L386 404 L386 428 L360 428 L360 442 L392 442 L392 468" fill="none" stroke="#0d0b08" stroke-width="2.6" opacity="0.6"/>
+  <path d="M362 430 L384 430 M362 444 L390 444" fill="none" stroke="#100e0a" stroke-width="3" opacity="0.55"/>
+  <path d="M330 464 L390 464" fill="none" stroke="#100e0a" stroke-width="4" opacity="0.5"/>
+  <!-- rust in the ward cuts, polish everywhere a hand goes -->
+  <g fill="#7a4a1e" opacity="0.35">
+    <ellipse cx="374" cy="452" rx="12" ry="7"/><ellipse cx="352" cy="418" rx="8" ry="5"/><ellipse cx="330" cy="226" rx="9" ry="6"/>
+  </g>
+  <g fill="none" stroke="#fdf6e2" stroke-width="1.1" opacity="0.4">
+    <path d="M336 292 L340 342"/><path d="M348 300 L350 356"/><path d="M318 200 L330 190"/>
+  </g>
+  <g fill="none" stroke="#14120d" stroke-width="1" opacity="0.5">
+    <path d="M344 288 L346 340"/><path d="M356 314 L354 366"/>
+  </g>
+</g>
+
+<!-- the label card under the hook, and what thirty years of soot did to it -->
+<g transform="rotate(-3 250 176)">
+  <rect x="196" y="160" width="108" height="32" rx="3" fill="#cbb98f" opacity="0.55"/>
+  <rect x="196" y="160" width="108" height="9" rx="3" fill="#f0e4bd" opacity="0.4"/>
+  <g fill="none" stroke="#2e2517" stroke-width="3" opacity="0.4" stroke-linecap="round">
+    <path d="M208 180 q 12 -7 22 1 q 10 8 20 -1"/><path d="M258 180 q 10 -6 18 1"/>
+  </g>
+</g>
+<g fill="#0c0803" opacity="0.35">
+  <ellipse cx="250" cy="192" rx="66" ry="14"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-ck-vig)"/>
+`,
+  },
+
+  /* Inside the cage: the master's stone cradle, cut for six, empty — and one
+     slot where the dust has been dragged clean and recently. */
+  c1_sixthbottle: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-sb-stone" x1="0" y1="0" x2="0.28" y2="1">
+    <stop offset="0" stop-color="#544d42"/><stop offset="0.5" stop-color="#2e2923"/><stop offset="1" stop-color="#13100c"/>
+  </linearGradient>
+  <radialGradient id="ev1-sb-pool" cx="0.62" cy="0.16" r="0.86">
+    <stop offset="0" stop-color="#eccd8f" stop-opacity="0.26"/><stop offset="1" stop-color="#eccd8f" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="ev1-sb-hole" cx="0.5" cy="0.34" r="0.72">
+    <stop offset="0" stop-color="#2a251d"/><stop offset="0.5" stop-color="#150f0a"/><stop offset="1" stop-color="#050403"/>
+  </radialGradient>
+  <linearGradient id="ev1-sb-dust" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#b3a281" stop-opacity="0.62"/><stop offset="1" stop-color="#b3a281" stop-opacity="0.14"/>
+  </linearGradient>
+  <linearGradient id="ev1-sb-scrape" x1="0" y1="0" x2="1" y2="0.2">
+    <stop offset="0" stop-color="#d8cfb4" stop-opacity="0.1"/><stop offset="0.38" stop-color="#efe6c8" stop-opacity="0.78"/>
+    <stop offset="1" stop-color="#cfc4a4" stop-opacity="0.3"/>
+  </linearGradient>
+  <linearGradient id="ev1-sb-iron" x1="0" y1="0" x2="1" y2="0.3">
+    <stop offset="0" stop-color="#241f19"/><stop offset="0.62" stop-color="#4c453a"/><stop offset="1" stop-color="#736a58"/>
+  </linearGradient>
+  <filter id="ev1-sb-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-sb-vig" cx="0.5" cy="0.44" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-sb-stone)"/>
+<rect width="640" height="520" fill="url(#ev1-sb-pool)"/>
+<!-- courses of cut stone, and the mortar between them -->
+<g fill="none" stroke="#0d0b09" stroke-width="5" opacity="0.7">
+  <path d="M0 78 L640 62"/><path d="M0 396 L640 380"/><path d="M148 0 L156 78"/><path d="M400 0 L408 68"/>
+  <path d="M96 396 L104 520"/><path d="M330 394 L340 520"/><path d="M540 392 L550 520"/>
+</g>
+<g fill="none" stroke="#6f695e" stroke-width="1.6" opacity="0.28">
+  <path d="M0 86 L640 70"/><path d="M0 404 L640 388"/>
+</g>
+<g fill="#5f584c" opacity="0.28">
+  <ellipse cx="76" cy="36" rx="60" ry="20"/><ellipse cx="500" cy="30" rx="52" ry="18"/><ellipse cx="250" cy="470" rx="72" ry="22"/>
+</g>
+
+<!-- the cradle: six bays cut in the stone shelf, every one of them empty -->
+<rect x="20" y="112" width="600" height="42" rx="6" fill="#3f3931"/>
+<rect x="20" y="112" width="600" height="10" rx="4" fill="#6b6355" opacity="0.55"/>
+<rect x="20" y="146" width="600" height="10" fill="#0b0907" opacity="0.6"/>
+<rect x="20" y="154" width="600" height="228" fill="#2b2620"/>
+<g fill="url(#ev1-sb-hole)">
+  <path d="M40 168 q 46 -18 92 0 l0 122 q-46 20 -92 0 z"/>
+  <path d="M144 168 q 46 -18 92 0 l0 122 q-46 20 -92 0 z"/>
+  <path d="M248 168 q 46 -18 92 0 l0 122 q-46 20 -92 0 z"/>
+  <path d="M352 168 q 46 -18 92 0 l0 122 q-46 20 -92 0 z"/>
+  <path d="M456 168 q 46 -18 92 0 l0 122 q-46 20 -92 0 z"/>
+</g>
+<path d="M552 168 q 44 -18 88 0 l0 122 q-44 20 -88 0 z" fill="url(#ev1-sb-hole)"/>
+<g fill="none" stroke="#0a0806" stroke-width="5" opacity="0.7">
+  <path d="M40 168 q 46 -18 92 0"/><path d="M144 168 q 46 -18 92 0"/><path d="M248 168 q 46 -18 92 0"/>
+  <path d="M352 168 q 46 -18 92 0"/><path d="M456 168 q 46 -18 92 0"/><path d="M552 168 q 44 -18 88 0"/>
+</g>
+<g fill="none" stroke="#8b8272" stroke-width="2" opacity="0.3">
+  <path d="M40 176 q 46 -18 92 0"/><path d="M144 176 q 46 -18 92 0"/><path d="M248 176 q 46 -18 92 0"/>
+  <path d="M352 176 q 46 -18 92 0"/><path d="M456 176 q 46 -18 92 0"/><path d="M552 176 q 44 -18 88 0"/>
+</g>
+<g fill="#4a443a">
+  <rect x="132" y="164" width="12" height="130" rx="4"/><rect x="236" y="164" width="12" height="130" rx="4"/>
+  <rect x="340" y="164" width="12" height="130" rx="4"/><rect x="444" y="164" width="12" height="130" rx="4"/>
+  <rect x="548" y="164" width="10" height="130" rx="4"/>
+</g>
+<g fill="#8b8272" opacity="0.22">
+  <rect x="133" y="166" width="3" height="126"/><rect x="237" y="166" width="3" height="126"/>
+  <rect x="341" y="166" width="3" height="126"/><rect x="445" y="166" width="3" height="126"/>
+</g>
+
+<!-- thirty years of dust, lying flat and undisturbed in five of the six -->
+<g fill="url(#ev1-sb-dust)">
+  <path d="M44 268 q 44 16 84 0 l0 22 q-42 18 -84 0 z"/>
+  <path d="M148 268 q 44 16 84 0 l0 22 q-42 18 -84 0 z"/>
+  <path d="M252 268 q 44 16 84 0 l0 22 q-42 18 -84 0 z"/>
+  <path d="M460 268 q 44 16 84 0 l0 22 q-42 18 -84 0 z"/>
+  <path d="M556 268 q 42 16 80 0 l0 22 q-40 18 -80 0 z"/>
+</g>
+<g fill="#c2b696" opacity="0.32">
+  <ellipse cx="86" cy="280" rx="40" ry="9"/><ellipse cx="190" cy="280" rx="40" ry="9"/>
+  <ellipse cx="294" cy="280" rx="40" ry="9"/><ellipse cx="502" cy="280" rx="40" ry="9"/>
+  <ellipse cx="596" cy="280" rx="36" ry="8"/>
+</g>
+
+<!-- the sixth bay: dust dragged clean and bright, sideways, in a hurry -->
+<path d="M356 262 q 44 18 84 0 l0 30 q-42 18 -84 0 z" fill="#171310"/>
+<path d="M358 272 q 42 14 80 -2 l2 14 q-40 18 -82 2 z" fill="url(#ev1-sb-scrape)"/>
+<g fill="none" stroke="#f4ecd2" stroke-width="2.6" opacity="0.55" stroke-linecap="round">
+  <path d="M362 282 Q 400 292 438 278"/><path d="M364 290 Q 400 300 436 286"/>
+</g>
+<g fill="none" stroke="#fffaea" stroke-width="1.4" opacity="0.4" stroke-linecap="round">
+  <path d="M366 276 Q 402 286 434 272"/><path d="M370 296 Q 402 306 430 294"/>
+</g>
+<g fill="#e8dcbb" opacity="0.5">
+  <ellipse cx="440" cy="284" rx="10" ry="5"/><ellipse cx="452" cy="290" rx="6" ry="3"/><ellipse cx="462" cy="296" rx="4" ry="2"/>
+</g>
+<g fill="#9d8f6c" opacity="0.4">
+  <ellipse cx="352" cy="300" rx="12" ry="4"/><ellipse cx="336" cy="308" rx="8" ry="3"/>
+</g>
+<!-- the shallow gouge the punt left when it was dragged over the lip -->
+<path d="M356 264 Q 400 276 442 262" fill="none" stroke="#fbf3dc" stroke-width="3.4" opacity="0.5"/>
+<path d="M356 268 Q 400 280 442 266" fill="none" stroke="#1a1611" stroke-width="2.4" opacity="0.5"/>
+
+<!-- the cage stands between you and it: bars, throwing their shadow in -->
+<g transform="translate(16 22)" opacity="0.5" filter="url(#ev1-sb-soft)">
+  <path d="M104 0 L104 520 M264 0 L264 520 M424 0 L424 520 M584 0 L584 520" fill="none" stroke="#000" stroke-width="20"/>
+</g>
+<g fill="url(#ev1-sb-iron)">
+  <rect x="90" y="-10" width="20" height="540"/><rect x="250" y="-10" width="20" height="540"/>
+  <rect x="410" y="-10" width="20" height="540"/><rect x="570" y="-10" width="20" height="540"/>
+</g>
+<g fill="#a29885" opacity="0.28">
+  <rect x="90" y="-10" width="4" height="540"/><rect x="250" y="-10" width="4" height="540"/>
+  <rect x="410" y="-10" width="4" height="540"/><rect x="570" y="-10" width="4" height="540"/>
+</g>
+<g fill="#0a0806" opacity="0.5">
+  <rect x="104" y="-10" width="6" height="540"/><rect x="264" y="-10" width="6" height="540"/>
+  <rect x="424" y="-10" width="6" height="540"/><rect x="584" y="-10" width="6" height="540"/>
+</g>
+<g fill="#7a4a1e" opacity="0.3">
+  <ellipse cx="100" cy="330" rx="9" ry="26"/><ellipse cx="260" cy="180" rx="9" ry="22"/><ellipse cx="420" cy="420" rx="9" ry="24"/>
+</g>
+<rect x="-10" y="330" width="660" height="18" fill="url(#ev1-sb-iron)"/>
+<rect x="-10" y="330" width="660" height="4" fill="#a29885" opacity="0.3"/>
+<rect x="-10" y="344" width="660" height="4" fill="#0a0806" opacity="0.55"/>
+
+<!-- cobweb in the corner of the cage, and the dust that never settled again -->
+<g fill="none" stroke="#8f8b7c" stroke-width="0.9" opacity="0.16">
+  <path d="M0 20 L70 0"/><path d="M0 52 L70 0"/><path d="M0 84 L70 0"/>
+  <path d="M8 76 Q 34 46 56 8"/><path d="M20 68 Q 44 42 62 14"/>
+</g>
+<g fill="#d8c9a8" opacity="0.16">
+  <circle cx="480" cy="86" r="2.4"/><circle cx="196" cy="440" r="2"/><circle cx="600" cy="460" r="1.8"/><circle cx="330" cy="60" r="1.6"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-sb-vig)"/>
+`,
+  },
 };

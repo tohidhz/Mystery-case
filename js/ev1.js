@@ -2670,4 +2670,217 @@ window.CLUE_ART.blackwood = {
 <rect width="640" height="520" fill="url(#ev1-reck-vig)"/>
 `,
   },
+  /* The kitchen clock at twenty to nine, the hour the shouting came down the
+     shaft — the soufflés went in at half past. */
+  c1_argument: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-arg-wall" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#a89a7e"/><stop offset="0.5" stop-color="#6d6250"/><stop offset="1" stop-color="#332d24"/>
+  </linearGradient>
+  <radialGradient id="ev1-arg-pool" cx="0.2" cy="0.1" r="0.9">
+    <stop offset="0" stop-color="#f9e3ae" stop-opacity="0.34"/><stop offset="1" stop-color="#f9e3ae" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-arg-case" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#8a5f30"/><stop offset="0.45" stop-color="#4e3417"/><stop offset="1" stop-color="#20150a"/>
+  </linearGradient>
+  <radialGradient id="ev1-arg-dial" cx="0.36" cy="0.3" r="0.8">
+    <stop offset="0" stop-color="#fbf5e2"/><stop offset="0.6" stop-color="#e9dfc2"/><stop offset="1" stop-color="#b0a586"/>
+  </radialGradient>
+  <linearGradient id="ev1-arg-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#f7e3a8"/><stop offset="0.35" stop-color="#c39a34"/><stop offset="0.75" stop-color="#6d4f13"/><stop offset="1" stop-color="#b48c2c"/>
+  </linearGradient>
+  <filter id="ev1-arg-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-arg-vig" cx="0.42" cy="0.42" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-arg-wall)"/>
+<rect width="640" height="520" fill="url(#ev1-arg-pool)"/>
+<g stroke="#4f4638" stroke-width="2.4" opacity="0.4" fill="none">
+  <path d="M0 84 L640 76"/><path d="M0 176 L640 168"/><path d="M0 268 L640 260"/><path d="M0 360 L640 352"/><path d="M0 452 L640 444"/>
+</g>
+<g stroke="#4f4638" stroke-width="2" opacity="0.3" fill="none">
+  <path d="M76 84 L76 176"/><path d="M228 82 L228 174"/><path d="M380 80 L380 172"/><path d="M532 78 L532 170"/>
+  <path d="M0 176 L0 268"/><path d="M152 174 L152 266"/><path d="M304 172 L304 264"/><path d="M456 170 L456 262"/><path d="M608 168 L608 260"/>
+  <path d="M76 360 L76 452"/><path d="M380 356 L380 448"/><path d="M532 354 L532 446"/>
+</g>
+<g fill="#2f2a20" opacity="0.22">
+  <ellipse cx="600" cy="300" rx="60" ry="120"/><ellipse cx="40" cy="440" rx="60" ry="90"/>
+</g>
+
+<!-- steam, from something that went in at half past -->
+<g fill="none" stroke="#fbf6e6" opacity="0.16">
+  <path d="M486 470 q -18 -40 6 -70 q 20 -26 4 -56" stroke-width="16" stroke-linecap="round"/>
+  <path d="M540 480 q -16 -34 4 -58 q 16 -20 4 -44" stroke-width="11" stroke-linecap="round"/>
+</g>
+<path d="M430 500 Q 470 462 530 460 Q 592 458 620 494 L620 520 L430 520 Z" fill="#7d4a24" opacity="0.55"/>
+<path d="M440 498 Q 476 470 528 468 Q 578 466 606 494" fill="none" stroke="#e8a967" stroke-width="5" opacity="0.5"/>
+
+<!-- the clock -->
+<ellipse cx="286" cy="270" rx="200" ry="196" fill="#000" opacity="0.5" filter="url(#ev1-arg-soft)"/>
+<circle cx="272" cy="250" r="192" fill="url(#ev1-arg-case)"/>
+<circle cx="272" cy="250" r="192" fill="none" stroke="#a87c42" stroke-width="4" opacity="0.5"/>
+<circle cx="272" cy="250" r="168" fill="url(#ev1-arg-brass)"/>
+<circle cx="272" cy="250" r="156" fill="#2a1c0a"/>
+<circle cx="272" cy="250" r="150" fill="url(#ev1-arg-dial)"/>
+<circle cx="272" cy="250" r="150" fill="none" stroke="#8a7f60" stroke-width="2" opacity="0.5"/>
+<circle cx="272" cy="250" r="132" fill="none" stroke="#8a7f60" stroke-width="1.4" opacity="0.45"/>
+<!-- the minute track: batons only -->
+<g stroke="#221d14" stroke-width="7" stroke-linecap="round">
+  <path d="M272 106 L272 132"/><path d="M416 250 L390 250"/><path d="M272 394 L272 368"/><path d="M128 250 L154 250"/>
+  <path d="M344 125 L331 148"/><path d="M397 178 L374 191"/><path d="M397 322 L374 309"/><path d="M344 375 L331 352"/>
+  <path d="M200 375 L213 352"/><path d="M147 322 L170 309"/><path d="M147 178 L170 191"/><path d="M200 125 L213 148"/>
+</g>
+<g stroke="#3d3524" stroke-width="2.6" stroke-linecap="round" opacity="0.7">
+  <path d="M300 110 L297 128"/><path d="M328 116 L322 133"/><path d="M368 143 L357 157"/><path d="M389 165 L375 176"/>
+  <path d="M410 215 L392 219"/><path d="M414 230 L396 233"/><path d="M414 270 L396 267"/><path d="M410 285 L392 281"/>
+  <path d="M389 335 L375 324"/><path d="M368 357 L357 343"/><path d="M328 384 L322 367"/><path d="M300 390 L297 372"/>
+  <path d="M244 390 L247 372"/><path d="M216 384 L222 367"/><path d="M176 357 L187 343"/><path d="M155 335 L169 324"/>
+  <path d="M134 285 L152 281"/><path d="M130 270 L148 267"/><path d="M130 230 L148 233"/><path d="M134 215 L152 219"/>
+  <path d="M155 165 L169 176"/><path d="M176 143 L187 157"/><path d="M216 116 L222 133"/><path d="M244 110 L247 128"/>
+</g>
+<!-- twenty to nine -->
+<path d="M272 250 L238 258 L188 292 L232 268 Z" fill="#181410"/>
+<path d="M272 250 L236 254 L188 292" fill="none" stroke="#3f382c" stroke-width="2" opacity="0.6"/>
+<path d="M272 250 L228 236 L156 296 L232 262 Z" fill="#181410"/>
+<path d="M272 250 L226 240 L156 296" fill="none" stroke="#3f382c" stroke-width="2" opacity="0.5"/>
+<circle cx="272" cy="250" r="12" fill="#181410"/>
+<circle cx="269" cy="246" r="4" fill="#8a8272" opacity="0.6"/>
+<!-- the glass over it -->
+<path d="M150 176 Q 210 108 300 104 Q 240 140 208 200 Q 176 262 186 330 Q 138 264 150 176 Z" fill="#ffffff" opacity="0.14"/>
+<path d="M330 112 Q 372 128 398 160 Q 350 150 320 128 Z" fill="#ffffff" opacity="0.1"/>
+<circle cx="272" cy="250" r="156" fill="none" stroke="#fdf6df" stroke-width="3" opacity="0.35"/>
+<path d="M140 250 Q 148 156 216 110" fill="none" stroke="#fdf6df" stroke-width="5" opacity="0.3"/>
+<!-- brass winding holes and the case below -->
+<circle cx="222" cy="316" r="7" fill="#4a3a18"/>
+<circle cx="322" cy="316" r="7" fill="#4a3a18"/>
+<circle cx="220" cy="314" r="2.6" fill="#e8ce88" opacity="0.6"/>
+<path d="M196 440 L348 440 L336 520 L208 520 Z" fill="url(#ev1-arg-case)"/>
+<path d="M196 440 L348 440 L346 452 L198 452 Z" fill="#a87c42" opacity="0.5"/>
+<path d="M264 452 L280 452 L278 520 L266 520 Z" fill="#c9a04e" opacity="0.5"/>
+<circle cx="272" cy="512" r="26" fill="url(#ev1-arg-brass)"/>
+<circle cx="272" cy="512" r="18" fill="#6d4f13" opacity="0.5"/>
+<path d="M256 500 Q 272 492 288 500" fill="none" stroke="#fbeeb8" stroke-width="4" opacity="0.6"/>
+
+<rect width="640" height="520" fill="url(#ev1-arg-vig)"/>
+`,
+  },
+
+  /* The sickroom as it was left: the dent still in the pillow, the medicine
+     glass on the table, and six weeks of nobody allowed in. */
+  c1_sickroom: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-sick-wall" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#6b6152"/><stop offset="0.5" stop-color="#3b352b"/><stop offset="1" stop-color="#171410"/>
+  </linearGradient>
+  <radialGradient id="ev1-sick-pool" cx="0.22" cy="0.1" r="0.9">
+    <stop offset="0" stop-color="#f6e0ab" stop-opacity="0.3"/><stop offset="1" stop-color="#f6e0ab" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-sick-linen" x1="0.1" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#f4f0e2"/><stop offset="0.5" stop-color="#d8d2be"/><stop offset="1" stop-color="#847e6c"/>
+  </linearGradient>
+  <linearGradient id="ev1-sick-brass" x1="0" y1="0" x2="0.25" y2="1">
+    <stop offset="0" stop-color="#6d4f13"/><stop offset="0.2" stop-color="#e8c66e"/><stop offset="0.55" stop-color="#8f6a19"/><stop offset="1" stop-color="#4a350c"/>
+  </linearGradient>
+  <linearGradient id="ev1-sick-wood" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#6b4c28"/><stop offset="0.5" stop-color="#3d2a13"/><stop offset="1" stop-color="#16100a"/>
+  </linearGradient>
+  <filter id="ev1-sick-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-sick-vig" cx="0.42" cy="0.42" r="0.76">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.82"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-sick-wall)"/>
+<rect width="640" height="520" fill="url(#ev1-sick-pool)"/>
+<g stroke="#2b261e" stroke-width="1.6" opacity="0.35" fill="none">
+  <path d="M60 0 L60 300"/><path d="M180 0 L180 300"/><path d="M300 0 L300 300"/><path d="M420 0 L420 300"/><path d="M540 0 L540 300"/>
+</g>
+<g stroke="#8b8371" stroke-width="1" opacity="0.16" fill="none">
+  <path d="M66 0 L66 300"/><path d="M306 0 L306 300"/><path d="M546 0 L546 300"/>
+</g>
+<path d="M0 292 L640 284 L640 300 L0 308 Z" fill="#4c4436" opacity="0.7"/>
+
+<!-- the bedhead -->
+<rect x="87" y="92" width="18" height="212" rx="9" fill="url(#ev1-sick-brass)"/>
+<rect x="411" y="84" width="18" height="210" rx="9" fill="url(#ev1-sick-brass)"/>
+<rect x="96" y="110" width="324" height="15" rx="7" fill="url(#ev1-sick-brass)"/>
+<rect x="96" y="158" width="324" height="10" rx="5" fill="url(#ev1-sick-brass)"/>
+<g fill="url(#ev1-sick-brass)">
+  <rect x="146" y="120" width="8" height="46" rx="4"/><rect x="200" y="120" width="8" height="46" rx="4"/>
+  <rect x="254" y="119" width="8" height="46" rx="4"/><rect x="308" y="118" width="8" height="46" rx="4"/>
+  <rect x="362" y="117" width="8" height="46" rx="4"/>
+</g>
+<circle cx="96" cy="90" r="17" fill="url(#ev1-sick-brass)"/>
+<circle cx="420" cy="82" r="17" fill="url(#ev1-sick-brass)"/>
+<circle cx="91" cy="84" r="6" fill="#fbeeb8" opacity="0.6"/>
+<circle cx="415" cy="76" r="5" fill="#fbeeb8" opacity="0.5"/>
+<rect x="90" y="120" width="4" height="180" fill="#fbeeb8" opacity="0.4"/>
+<rect x="414" y="112" width="3" height="176" fill="#fbeeb8" opacity="0.3"/>
+<rect x="100" y="112" width="316" height="4" fill="#fbeeb8" opacity="0.45"/>
+
+<!-- the bed, turned down and never slept in since -->
+<path d="M60 300 Q 260 268 470 296 L500 520 L40 520 Z" fill="url(#ev1-sick-linen)"/>
+<path d="M60 300 Q 260 268 470 296 L474 330 Q 262 302 62 334 Z" fill="#fdfaf0" opacity="0.6"/>
+<path d="M62 334 Q 262 302 474 330 L478 360 Q 264 332 64 364 Z" fill="#c2bca8" opacity="0.5"/>
+<g fill="none" stroke="#9a9483" stroke-width="2.4" opacity="0.45">
+  <path d="M120 372 Q 200 460 176 520"/><path d="M300 366 Q 350 440 344 520"/><path d="M420 372 Q 452 440 452 520"/>
+</g>
+<g fill="none" stroke="#fdfaf0" stroke-width="2.6" opacity="0.5">
+  <path d="M128 372 Q 208 460 184 520"/><path d="M308 366 Q 358 440 352 520"/>
+</g>
+<!-- the pillow, with the dent still in it -->
+<ellipse cx="248" cy="288" rx="150" ry="30" fill="#000" opacity="0.4" filter="url(#ev1-sick-soft)"/>
+<path d="M112 274 Q 132 216 250 210 Q 370 214 386 272 Q 372 310 250 314 Q 128 310 112 274 Z" fill="url(#ev1-sick-linen)"/>
+<path d="M120 258 Q 150 222 250 218 Q 348 222 378 258" fill="none" stroke="#fdfaf0" stroke-width="6" opacity="0.6"/>
+<path d="M118 288 Q 160 312 250 314 Q 342 312 380 288" fill="none" stroke="#a09a88" stroke-width="5" opacity="0.5"/>
+<ellipse cx="252" cy="272" rx="66" ry="30" fill="#a8a291" opacity="0.4"/>
+<ellipse cx="252" cy="268" rx="52" ry="22" fill="#8f8a79" opacity="0.35"/>
+<path d="M200 254 Q 250 240 306 254" fill="none" stroke="#7d7768" stroke-width="4" opacity="0.35"/>
+<path d="M144 268 Q 158 288 152 306" fill="none" stroke="#9a9483" stroke-width="3" opacity="0.5"/>
+<path d="M356 266 Q 344 288 350 306" fill="none" stroke="#9a9483" stroke-width="3" opacity="0.45"/>
+
+<!-- the bedside table, and what was left on it -->
+<ellipse cx="556" cy="446" rx="120" ry="26" fill="#000" opacity="0.6" filter="url(#ev1-sick-soft)"/>
+<path d="M436 384 L640 366 L640 412 L436 430 Z" fill="url(#ev1-sick-wood)"/>
+<path d="M436 384 L640 366 L640 378 L436 396 Z" fill="#9a7040" opacity="0.6"/>
+<path d="M460 430 L474 430 L482 520 L466 520 Z" fill="#2d1f0e"/>
+<path d="M604 412 L618 412 L626 520 L610 520 Z" fill="#2d1f0e"/>
+<!-- medicine glass, half drunk, gone cloudy -->
+<path d="M486 302 L534 302 L528 386 Q 506 394 490 386 Z" fill="#e9ece7" opacity="0.28"/>
+<ellipse cx="510" cy="302" rx="24" ry="8" fill="none" stroke="#f4f7f2" stroke-width="2.6" opacity="0.6"/>
+<path d="M494 350 L526 350 L528 386 Q 506 394 490 386 Z" fill="#b9b08c" opacity="0.6"/>
+<ellipse cx="510" cy="350" rx="16" ry="5" fill="#d8cfa8" opacity="0.7"/>
+<path d="M496 312 Q 492 348 496 380" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.35"/>
+<!-- a spoon across it, and a small bottle -->
+<path d="M540 328 L604 314 Q 612 312 613 318 Q 614 324 606 326 L542 340 Q 534 342 533 336 Q 532 330 540 328 Z" fill="#b6bcb6"/>
+<ellipse cx="530" cy="336" rx="16" ry="10" fill="#b6bcb6" transform="rotate(-12 530 336)"/>
+<ellipse cx="527" cy="333" rx="8" ry="4" fill="#f2f5f2" opacity="0.6" transform="rotate(-12 527 333)"/>
+<path d="M572 344 L610 340 L612 384 Q 592 392 570 384 Z" fill="#5b3413"/>
+<path d="M578 344 Q 574 366 578 382" fill="none" stroke="#c68f43" stroke-width="4" opacity="0.4"/>
+<path d="M578 322 L604 322 L606 344 L576 344 Z" fill="#3a2a12"/>
+<path d="M580 352 L606 350 L606 362 L580 364 Z" fill="#e6dfcb" opacity="0.8"/>
+<!-- flowers that nobody changed -->
+<path d="M448 330 L480 330 L476 386 Q 462 392 450 386 Z" fill="#d2d6d0" opacity="0.3"/>
+<path d="M452 336 Q 448 364 452 384" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.35"/>
+<g stroke="#6d6a3c" stroke-width="3" fill="none" stroke-linecap="round">
+  <path d="M462 330 Q 450 300 432 288"/><path d="M466 330 Q 470 296 486 280"/><path d="M470 332 Q 478 310 496 306"/>
+</g>
+<g fill="#7d6a4c" opacity="0.9">
+  <ellipse cx="428" cy="284" rx="13" ry="8" transform="rotate(-30 428 284)"/>
+  <ellipse cx="490" cy="276" rx="12" ry="7" transform="rotate(24 490 276)"/>
+  <ellipse cx="500" cy="304" rx="10" ry="6" transform="rotate(10 500 304)"/>
+</g>
+<g fill="#5e5136" opacity="0.8">
+  <ellipse cx="452" cy="404" rx="9" ry="4" transform="rotate(-14 452 404)"/><ellipse cx="500" cy="398" rx="7" ry="3.4"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-sick-vig)"/>
+`,
+  },
 };

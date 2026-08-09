@@ -212,15 +212,12 @@ window.CLUE_ART.meridian = {
 <g opacity="0.4" stroke="#8a6136" stroke-width="1.2" fill="none">
   <path d="M40 0 Q 34 160 44 330 Q 38 440 46 520"/>
   <path d="M96 0 Q 104 170 92 340 Q 100 450 90 520"/>
-  <path d="M156 0 Q 148 150 158 320 Q 150 430 160 520"/>
   <path d="M236 0 Q 244 180 232 350 Q 240 450 230 520"/>
-  <path d="M310 0 Q 302 160 312 336 Q 304 440 314 520"/>
   <path d="M364 0 Q 372 176 360 348 Q 368 452 358 520"/>
 </g>
 <g opacity="0.22" stroke="#2a190c" stroke-width="2.4" fill="none">
   <path d="M68 0 Q 76 190 64 380 Q 72 460 66 520"/>
   <path d="M198 0 Q 190 200 202 388 Q 194 470 200 520"/>
-  <path d="M340 0 Q 332 186 344 366"/>
 </g>
 <rect x="380" y="0" width="16" height="520" fill="#160e07" opacity="0.7"/>
 
@@ -249,13 +246,11 @@ window.CLUE_ART.meridian = {
 </g>
 <g stroke="#f3dbab" stroke-width="1.3" opacity="0.5" fill="none">
   <path d="M139 192 L150 188"/><path d="M177 178 L190 182"/><path d="M223 174 L236 179"/>
-  <path d="M269 180 L280 187"/><path d="M143 290 L154 297"/><path d="M193 291 L204 297"/>
-  <path d="M243 290 L254 299"/>
+  <path d="M143 290 L154 297"/><path d="M243 290 L254 299"/>
 </g>
 <g stroke="#2f1c0b" stroke-width="0.9" opacity="0.65" fill="none">
-  <path d="M145 194 L143 238"/><path d="M183 182 L179 248"/><path d="M229 178 L226 232"/>
-  <path d="M274 186 L269 240"/><path d="M147 296 L139 330"/><path d="M197 294 L194 342"/>
-  <path d="M247 294 L243 334"/>
+  <path d="M145 194 L143 238"/><path d="M183 182 L179 248"/><path d="M274 186 L269 240"/>
+  <path d="M197 294 L194 342"/>
 </g>
 <!-- plaster and lath, powdered off the frame where it went -->
 <g fill="#cdc6b1" opacity="0.45">
@@ -264,21 +259,22 @@ window.CLUE_ART.meridian = {
   <path d="M290 250 L304 256 L298 272 L286 268 Z"/>
 </g>
 <!-- torn plaster and lath dust below the hole -->
-<g fill="url(#ev4-chain-plaster)" opacity="0.7" stroke="#5d5648" stroke-width="0.8">
-  <path d="M124 354 L152 342 L164 358 L150 378 L128 372 Z"/>
-  <path d="M190 366 L218 352 L232 370 L216 392 L194 386 Z"/>
-  <path d="M258 352 L284 346 L294 364 L278 378 L260 372 Z"/>
-  <path d="M306 368 L326 360 L334 376 L318 388 Z"/>
+<g fill="url(#ev4-chain-plaster)" opacity="0.42" stroke="#4a4438" stroke-width="0.8">
+  <path d="M124 358 L150 348 L160 362 L146 376 L128 372 Z"/>
+  <path d="M192 370 L216 358 L228 372 L214 388 L196 384 Z"/>
+  <path d="M260 356 L282 350 L290 364 L276 374 L262 370 Z"/>
+</g>
+<g fill="#2a2116" opacity="0.5">
+  <path d="M146 376 L160 362 L162 368 L148 382 Z"/>
+  <path d="M214 388 L228 372 L230 378 L216 394 Z"/>
 </g>
 <g fill="#000" opacity="0.4">
   <ellipse cx="146" cy="382" rx="20" ry="5"/><ellipse cx="212" cy="396" rx="22" ry="5"/>
   <ellipse cx="278" cy="382" rx="18" ry="4"/>
 </g>
 <g fill="#ddd6c1" opacity="0.6">
-  <circle cx="152" cy="392" r="3.4"/><circle cx="178" cy="404" r="5"/><circle cx="216" cy="406" r="2.8"/>
-  <circle cx="248" cy="396" r="4.2"/><circle cx="284" cy="392" r="2.6"/><circle cx="122" cy="386" r="2.4"/>
-  <circle cx="200" cy="420" r="3"/><circle cx="266" cy="414" r="2.2"/><circle cx="316" cy="398" r="2"/>
-  <circle cx="240" cy="428" r="1.8"/><circle cx="164" cy="426" r="2"/>
+  <circle cx="152" cy="392" r="3.4"/><circle cx="178" cy="404" r="5"/><circle cx="248" cy="396" r="4.2"/>
+  <circle cx="122" cy="386" r="2.4"/><circle cx="200" cy="420" r="3"/><circle cx="316" cy="398" r="2"/>
 </g>
 
 <!-- cast shadow of the hanging plate -->
@@ -356,9 +352,7 @@ window.CLUE_ART.meridian = {
 <rect x="80" y="414" width="18" height="22" rx="3" fill="#0e0903"/>
 <path d="M262 430 q 20 6 26 24" fill="none" stroke="#7d6226" stroke-width="9" stroke-linecap="round"/>
 <path d="M262 430 q 20 6 26 24" fill="none" stroke="#e7cd7e" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-<g stroke="#f6ecc4" stroke-width="1.2" opacity="0.5" fill="none">
-  <path d="M120 408 L142 406"/><path d="M158 406 L178 404"/>
-</g>
+<path d="M120 408 L178 404" fill="none" stroke="#f6ecc4" stroke-width="1.2" opacity="0.5"/>
 
 <rect width="640" height="520" fill="url(#ev4-chain-vig)"/>
 `,
@@ -504,13 +498,11 @@ window.CLUE_ART.meridian = {
 <g fill="#c9c8c4" opacity="0.75">
   <circle cx="332" cy="306" r="2"/><circle cx="356" cy="318" r="2.6"/><circle cx="382" cy="328" r="1.8"/>
   <circle cx="410" cy="336" r="2.4"/><circle cx="438" cy="342" r="1.6"/><circle cx="464" cy="344" r="2.2"/>
-  <circle cx="486" cy="344" r="1.5"/><circle cx="344" cy="322" r="1.4"/><circle cx="396" cy="344" r="1.7"/>
-  <circle cx="448" cy="352" r="1.3"/><circle cx="422" cy="326" r="1.2"/><circle cx="368" cy="312" r="1.3"/>
+  <circle cx="486" cy="344" r="1.5"/><circle cx="396" cy="344" r="1.7"/><circle cx="368" cy="312" r="1.3"/>
 </g>
 <g fill="#d6d5d0" opacity="0.45">
-  <circle cx="330" cy="400" r="1.8"/><circle cx="358" cy="414" r="2.4"/><circle cx="394" cy="426" r="1.5"/>
-  <circle cx="432" cy="432" r="2"/><circle cx="466" cy="428" r="1.4"/><circle cx="406" cy="406" r="1.2"/>
-  <circle cx="346" cy="434" r="1.3"/><circle cx="484" cy="410" r="1.1"/><circle cx="372" cy="446" r="1.2"/>
+  <circle cx="330" cy="400" r="1.8"/><circle cx="358" cy="414" r="2.4"/><circle cx="432" cy="432" r="2"/>
+  <circle cx="466" cy="428" r="1.4"/><circle cx="372" cy="446" r="1.2"/>
 </g>
 <path d="M322 394 Q 400 430 492 420" fill="none" stroke="#b9b8b3" stroke-width="3" opacity="0.26"/>
 
@@ -1000,12 +992,9 @@ window.CLUE_ART.meridian = {
 <!-- the finest of the spatter, needle-fine, still perfectly edged -->
 <g fill="#0f1422">
   <circle cx="120" cy="176" r="2.6"/><circle cx="196" cy="146" r="2.2"/><circle cx="268" cy="152" r="2.8"/>
-  <circle cx="342" cy="196" r="2.4"/><circle cx="412" cy="238" r="3"/><circle cx="480" cy="286" r="2.4"/>
-  <circle cx="140" cy="248" r="2.2"/><circle cx="208" cy="220" r="2"/><circle cx="286" cy="266" r="2.4"/>
-  <circle cx="352" cy="304" r="2"/><circle cx="418" cy="352" r="2.6"/><circle cx="486" cy="384" r="2.2"/>
-  <circle cx="180" cy="352" r="2.4"/><circle cx="248" cy="330" r="2"/><circle cx="322" cy="394" r="2.6"/>
-  <circle cx="366" cy="436" r="2.2"/><circle cx="88" cy="130" r="2"/><circle cx="62" cy="98" r="1.8"/>
-  <circle cx="516" cy="242" r="2"/><circle cx="546" cy="342" r="2.2"/>
+  <circle cx="412" cy="238" r="3"/><circle cx="480" cy="286" r="2.4"/><circle cx="140" cy="248" r="2.2"/>
+  <circle cx="286" cy="266" r="2.4"/><circle cx="418" cy="352" r="2.6"/><circle cx="180" cy="352" r="2.4"/>
+  <circle cx="322" cy="394" r="2.6"/><circle cx="88" cy="130" r="2"/><circle cx="546" cy="342" r="2.2"/>
 </g>
 
 <!-- the bottle itself, shattered where the mountain put it -->
@@ -3830,13 +3819,14 @@ window.CLUE_ART.meridian = {
 
 <!-- the paper crown, unfolded and dropped -->
 <path d="M118 400 L306 372 L318 452 L132 486 Z" fill="#000" opacity="0.35" filter="url(#ev4-xmas-soft)"/>
-<path d="M104 386 L156 378 L166 356 L206 372 L216 348 L256 364 L266 344 L300 358 L308 424 L114 452 Z" fill="url(#ev4-xmas-crown)"/>
-<path d="M104 386 L156 378 L166 356 L206 372 L216 348 L256 364 L266 344 L300 358 L301 372 L104 400 Z" fill="#f08e7e" opacity="0.35"/>
-<path d="M296 402 L308 424 L114 452 L110 430 Z" fill="#3d0f0d" opacity="0.45"/>
-<g stroke="#5e1a15" stroke-width="1.6" opacity="0.5" fill="none">
-  <path d="M148 384 L154 446"/><path d="M204 376 L210 438"/><path d="M258 368 L264 430"/>
+<path d="M100 402 L126 344 L150 396 L178 336 L204 390 L232 330 L258 384 L286 326 L312 380 L318 440 Q 210 462 108 462 Z" fill="url(#ev4-xmas-crown)"/>
+<path d="M100 402 L126 344 L150 396 L178 336 L204 390 L232 330 L258 384 L286 326 L312 380 L313 396 Q 208 418 102 418 Z" fill="#f08e7e" opacity="0.3"/>
+<path d="M304 424 L318 440 Q 210 462 108 462 L106 442 Q 208 442 304 424 Z" fill="#3d0f0d" opacity="0.45"/>
+<path d="M104 412 Q 208 430 314 392" fill="none" stroke="#f0a294" stroke-width="2" opacity="0.4"/>
+<path d="M104 430 Q 208 448 316 412" fill="none" stroke="#5e1a15" stroke-width="1.6" opacity="0.45"/>
+<g stroke="#5e1a15" stroke-width="1.4" opacity="0.4" fill="none">
+  <path d="M126 348 L130 414"/><path d="M178 340 L182 424"/><path d="M232 334 L236 424"/><path d="M286 330 L290 412"/>
 </g>
-<path d="M110 414 Q 208 400 302 386" fill="none" stroke="#f0a294" stroke-width="1.6" opacity="0.4"/>
 
 <!-- two glasses: one drained, one never touched -->
 <ellipse cx="522" cy="252" rx="52" ry="16" fill="#000" opacity="0.35" filter="url(#ev4-xmas-soft)"/>

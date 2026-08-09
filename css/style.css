@@ -745,6 +745,12 @@ body.busy .dossier { opacity: .55; pointer-events: none; }
   overflow: hidden;
 }
 
+/* The Board is the game's thesis and used to render in the smallest
+   scrollable box on screen. Selecting it gives it the full width; the other
+   two tabs are reference lists and keep the rail. */
+#screen-game.board-wide { grid-template-columns: minmax(0, 1fr); }
+#screen-game.board-wide #board-pane { display: none; }
+
 #board-pane {
   min-width: 0;
   overflow-y: auto;
@@ -1066,6 +1072,27 @@ body.busy .dossier { opacity: .55; pointer-events: none; }
     align-items: center;
   }
 }
+
+/* the search list, folded where the plate's pins already carry labels */
+.hotspot-fold { margin-top: 1.2rem; }
+.hotspot-fold > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem;
+  margin: 0 0 .5rem;
+}
+.hotspot-fold > summary::-webkit-details-marker { display: none; }
+.hotspot-fold > summary::after {
+  content: "\25BE";
+  font-size: .7rem;
+  color: #6b5636;
+  transition: transform var(--dur) var(--ease-out-quart);
+}
+.hotspot-fold[open] > summary::after { transform: rotate(180deg); }
+.hotspot-fold > summary:hover { color: var(--ink); }
 
 /* ============================================================
    9. JOURNAL
@@ -2575,4 +2602,14 @@ body.lang-fa .clock-time { letter-spacing: 0; }
   /* a magnifier you cannot see move is worse than no magnifier */
   .loupe { display: none; }
   .stamp-shock { display: none; }
+}
+
+/* --- the loupe announces itself, and names what it passes over --- */
+@media (pointer: fine) {
+  .scene-frame.has-loupe { cursor: zoom-in; }
+}
+.scene-pin.under-glass .scene-pin-label { opacity: 1; transform: translateX(0); }
+.scene-pin.under-glass .scene-pin-dot { transform: scale(1.15); }
+@media (prefers-reduced-motion: reduce) {
+  .scene-pin.under-glass .scene-pin-dot { transform: none; }
 }

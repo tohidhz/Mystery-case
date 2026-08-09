@@ -755,8 +755,20 @@
       px = e.clientX - r.left; py = e.clientY - r.top;
       if (!on) { build(); on = true; lens.classList.add("on"); }
       if (!raf) raf = requestAnimationFrame(place);
+      /* The glass earns its keep: any pin it passes over names itself, so a
+         player can read a room before deciding what is worth twenty minutes. */
+      frame.querySelectorAll(".scene-pin").forEach((pin) => {
+        const pr = pin.getBoundingClientRect();
+        const cx = pr.left - r.left + pr.width / 2, cy = pr.top - r.top + pr.height / 2;
+        pin.classList.toggle("under-glass", Math.hypot(cx - px, cy - py) < 86);
+      });
     });
-    frame.addEventListener("pointerleave", () => { on = false; lens.classList.remove("on"); });
+    frame.addEventListener("pointerleave", () => {
+      on = false;
+      lens.classList.remove("on");
+      frame.querySelectorAll(".scene-pin.under-glass").forEach((p) => p.classList.remove("under-glass"));
+    });
+    frame.classList.add("has-loupe");
     lens._show = (fx, fy) => {   // debug boot only
       const r = frame.getBoundingClientRect();
       px = r.width * fx; py = r.height * fy;
@@ -848,11 +860,19 @@
       panel.appendChild(row);
     }
 
+    /* The pins on the plate and this list are the same four actions rendered
+       twice in one viewport. The plate is the interaction; the list stays as
+       the labelled, keyboard- and screen-reader-reachable path, folded away
+       where the pins already carry labels on hover, and open on touch and
+       narrow screens where they do not. */
     const doneCount = loc.hotspots.filter((h) => G.searched.includes(h.id)).length;
-    const head = el("div", "loc-subhead");
-    head.innerHTML = T("searchHead") +
+    const fold = el("details", "hotspot-fold");
+    if (!scene || window.matchMedia("(pointer: coarse), (max-width: 900px)").matches) fold.open = true;
+    const sum = el("summary", "loc-subhead");
+    sum.innerHTML = T("searchHead") +
       ' <span class="loc-progress">' + T("searchProgress", doneCount, loc.hotspots.length) + "</span>";
-    panel.appendChild(head);
+    fold.appendChild(sum);
+    panel.appendChild(fold);
     const hs = el("div", "hotspot-list");
     loc.hotspots.forEach((h) => {
       const state = hotspotState(h);
@@ -864,7 +884,7 @@
       b.addEventListener("click", () => searchHotspot(loc, h));
       hs.appendChild(b);
     });
-    panel.appendChild(hs);
+    fold.appendChild(hs);
   }
 
   function searchHotspot(loc, h) {
@@ -1570,7 +1590,16 @@
     const panel = $("#tab-" + name);
     panel.hidden = false;
     panel.classList.add("active");
-    if (name === "board") renderBoardTab();
+    /* The Board is where the player thinks; Evidence and Persons are lists
+       they consult. Thinking gets the whole screen — the map and plate are a
+       glance away on any other tab. */
+    const screen = $("#screen-game");
+    if (screen) screen.classList.toggle("board-wide", name === "board");
+    if (name === "board") {
+      renderBoardTab();
+      // the columns just changed, so the strings must be measured again
+      requestAnimationFrame(() => requestAnimationFrame(() => redrawStrings()));
+    }
     if (name === "evidence" && freshClues.length) {
       // the player has now seen them; retire the markers on the next render
       freshClues = [];

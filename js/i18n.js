@@ -63,7 +63,7 @@ window.CALLOWAY_UI = {
     evidenceLoggedLabel: "EVIDENCE LOGGED",
     inEvidenceLabel: "IN EVIDENCE",
 
-    sceneHint: "Click anything marked on the photograph to examine it.",
+    sceneHint: "Click anything marked on the photograph to examine it. Move a mouse across it for a magnifier.",
     sceneZoom: "Enlarge photograph",
     sceneClose: "Close",
     sceneZoomHint: "Scroll or use the buttons to zoom · drag to pan",
@@ -241,7 +241,7 @@ window.CALLOWAY_UI = {
     evidenceLoggedLabel: "مدرک ثبت شد",
     inEvidenceLabel: "در پرونده",
 
-    sceneHint: "روی هر نشانهٔ عکس بزنید تا وارسی‌اش کنید.",
+    sceneHint: "روی هر نشانهٔ عکس بزنید تا وارسی‌اش کنید. با ماوس روی عکس بروید تا ذره‌بین بیاید.",
     sceneZoom: "بزرگ کردن عکس",
     sceneClose: "بستن",
     sceneZoomHint: "با غلتک یا دکمه‌ها بزرگ و کوچک کنید · برای جابه‌جایی بکشید",

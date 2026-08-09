@@ -46,6 +46,10 @@ window.CASES.push({
         { id: "h_cuesheet", name: "The cue sheet",
           found: "The broadcast log, timed to the second in the producer's neat hand. 11:58:30 — Herrick, closing remarks. 12:02:49 — 'DEAD AIR — 60 SEC — ALL MICS OPEN, STUDIO SILENT.' All mics open. During the silence, the board's channels are unmuted so the 'living silence' of the room goes out over the air. Herrick's own ritual required his mic to be made live at 12:03 — and the whole staff has known it for years.",
           gives: ["c3_cuesheet"] },
+        { id: "h_transcabinet", name: "The transcription cabinet", requiresClue: "c3_combo",
+          lockedHint: "Bolted to the floor under the turntables, a steel transcription cabinet with a combination dial where a keyhole ought to be. You spin it twice for form's sake and it tells you nothing. Whatever the station cannot afford to lose sleeps behind four figures you do not have.",
+          found: "Four figures, a quarter turn, and the door gives. Inside is the station's working treasure: the master disc-cutting key on its brass tag, hung on the hook where every engineer since 1931 has hung it — and beside it a spare acetate sleeve, blank but for two initials inked small in the corner, the engineer's mark on his own stock. The dust on that sleeve has been disturbed by a second set of fingers, and they are nothing like Pratt's. The tag is stamped with what it opens: the disc storage in the effects room.",
+          gives: ["c3_cabinetkey"] },
       ],
     },
     {
@@ -73,6 +77,10 @@ window.CASES.push({
         { id: "h_organ", name: "The organ bench",
           found: "Inside the bench, sheet music and Iris's pocket diary. Tonight's entry, written before midnight in a happy hand: 'Dinner w/ Gene, Milt's Diner, 6–7. He talked circuits the whole hour, bless him. Split the pie.' Milt's is three blocks off. A counter man and a pie can be checked, and you have it checked: confirmed. Iris and Eugene were out of the building six to seven.",
           gives: ["c3_dinner"] },
+        { id: "h_discchest", name: "The disc storage chest", requiresClue: "c3_cabinetkey",
+          lockedHint: "A low banded chest of steel standing hard by the organ, padlocked, its paint worn pale along the lid where ten years of knees have rested against it. The station's whole memory is filed in there, and the padlock takes a tagged key you haven't got.",
+          found: "The brass tag turns it. Inside, standing on edge like a card index of the dead: the 1927 Orchard Farm masters, the whole broadcast, hour by hour. Sleeve after sleeve gone soft and grey at the thumb-notch — handling nobody logged, over years nobody counted. And one sleeve is annotated. Not Herrick's red pencil, not the librarian's stamp: a small, level hand has ruled the margin into two columns of timings, the second column shorter than the first, the way a producer marks a show that runs long. Somebody has been playing her father's condemnation with a stopwatch, marking to the second where the story stops matching itself.",
+          gives: ["c3_masters"] },
       ],
     },
     {
@@ -88,6 +96,9 @@ window.CASES.push({
         { id: "h_contracts", name: "The contracts drawer",
           found: "Two documents, both fresh: a letter from Vellum Cigarettes canceling their sponsorship over 'programming disagreements' — and a signed memo, effective yesterday, terminating Chet Morrow's afternoon program. 'Nothing personal, Chet. Arithmetic. — W.H.' In this building, the dead man had spent the week making enemies at a rate even he couldn't sustain.",
           gives: ["c3_sponsor", "c3_memo"] },
+        { id: "h_blotter", name: "The desk blotter",
+          found: "You turn back the corner of the blotter, the way you turn back every blotter, because men who hide flat things hide them under flat things. A strip torn from a station memo pad slides out, gone furry at the folds from being carried and put back. Four figures in Herrick's red pencil, spaced wide and underscored twice — a combination jotted the way a man writes what he cannot afford to forget and cannot afford to leave lying open. Nothing on the strip says what it opens. It doesn't have to. There is exactly one combination dial in this building, bolted under the turntables in the control room.",
+          gives: ["c3_combo"] },
       ],
     },
     {
@@ -247,6 +258,9 @@ window.CASES.push({
     c3_lobbyalibi:{ name: "The Lobby Pair", desc: "Chet and Ostrow in each other's sight in the lobby at 12:03 — two motives, mutually alibied, forty feet from the board." },
     c3_petition:  { name: "The Rotting Petition", desc: "A state re-examination petition on Orchard Farm has sat in a drawer since 1939 — and Chet was shopping it to wire services all week. The old case was already stirring." },
     c3_sixoclock: { name: "Ostrow's Six O'Clock", desc: "At 6 PM, in the emptied building, the sponsor's man saw Dot coming from the shop wing — walking fast, wiping her hands — five hours before her account of the evening begins." },
+    c3_combo:     { name: "The Red-Pencil Combination", desc: "A strip off a memo pad, kept under Herrick's blotter: four figures in red pencil, spaced wide, underscored twice. Written the way a man writes what he cannot afford to forget — and there is only one dial in the building." },
+    c3_cabinetkey:{ name: "The Master Disc Key", desc: "Behind the combination dial: the station's disc-cutting key on its brass tag, and a spare acetate sleeve initialed by Pratt — its dust disturbed since by fingers far smaller than his. The tag is stamped for the disc storage in the effects room." },
+    c3_masters:   { name: "The 1927 Masters", desc: "The Orchard Farm broadcast itself, sleeve after sleeve worn grey at the thumb-notch by handling nobody logged. One sleeve annotated in a small, level hand: two columns of timings, the second shorter than the first — years of someone marking, to the second, where the story stops matching itself." },
     c3_confession:{ name: "LANGE'S CONFESSION", desc: "She built the trap in the dinner hour, forged the key log, and sprang it from her own board at 12:03 — sixty seconds of silence for the man who scripted her father's guilt, triggered by his plan to replay it 'proud' as Episode 400." },
   },
 

@@ -503,6 +503,7 @@ window.CASE_ART.deadair = {
     hotspots: {
       h_patchbay: { x: 87, y: 30 },
       h_cuesheet: { x: 73, y: 63 },
+      h_transcabinet: { x: 22, y: 85 },
     },
     svg: `
 <defs>
@@ -768,6 +769,18 @@ window.CASE_ART.deadair = {
   </g>
   <rect x="30" y="470" width="288" height="12" fill="#1b140d"/>
 </g>
+
+<!-- THE TRANSCRIPTION CABINET, bolted under the turntables: a dial where a keyhole ought to be -->
+<ellipse cx="226" cy="572" rx="106" ry="13" fill="#0d0904" opacity="0.5"/>
+<rect x="128" y="482" width="194" height="88" fill="url(#da-ctrl-rack)"/>
+<rect x="128" y="482" width="194" height="7" fill="#5b4830" opacity="0.6"/>
+<rect x="140" y="494" width="170" height="64" fill="#241b12"/>
+<rect x="144" y="498" width="162" height="56" fill="none" stroke="#4a3b28" stroke-width="3"/>
+<path d="M144 498 l46 0 l-46 46 z" fill="#ffd98a" opacity="0.06"/>
+<rect x="158" y="518" width="46" height="10" rx="3" fill="#9b7a3f"/>
+<circle cx="276" cy="526" r="17" fill="url(#da-ctrl-steel)" opacity="0.55"/>
+<circle cx="276" cy="526" r="11" fill="url(#da-ctrl-knob)" stroke="#8a6f39" stroke-width="1.5"/>
+<line x1="276" y1="526" x2="276" y2="512" stroke="#e3d5ac" stroke-width="2.2"/>
 
 <!-- the board: meter bridge, Bakelite knobs, faders -->
 <g>
@@ -1477,6 +1490,7 @@ window.CASE_ART.deadair = {
     hotspots: {
       h_thunder: { x: 37, y: 74 },
       h_organ: { x: 63, y: 81 },
+      h_discchest: { x: 91, y: 87 },
     },
     svg: `
 <defs>
@@ -1869,6 +1883,38 @@ window.CASE_ART.deadair = {
   <path d="M689 326 q7 -4 13 0" fill="none" stroke="#4a3f31" stroke-width="2" opacity="0.8"/>
 </g>
 
+<!-- THE DISC STORAGE CHEST: banded steel, padlocked, standing hard by the organ -->
+<g>
+  <ellipse cx="908" cy="598" rx="98" ry="16" fill="#0d0904" opacity="0.45"/>
+  <path d="M834 508 L982 496 L988 512 L840 524 Z" fill="#4a4740"/>
+  <path d="M834 508 L982 496 L984 501 L836 513 Z" fill="#8f8b7e" opacity="0.45"/>
+  <path d="M840 524 L988 512 L984 588 L836 594 Z" fill="#33322c"/>
+  <path d="M840 524 L988 512 L988 519 L840 531 Z" fill="#1a1916" opacity="0.7"/>
+  <path d="M836 594 L984 588 L982 600 L838 606 Z" fill="#15140f"/>
+  <path d="M844 528 l16 -1 l0 65 l-16 1 z" fill="#5b5a52"/>
+  <path d="M844 528 l5 0 l0 65 l-5 0 z" fill="#a3a094" opacity="0.4"/>
+  <path d="M962 517 l16 -1 l0 64 l-16 1 z" fill="#5b5a52"/>
+  <path d="M962 517 l5 0 l0 64 l-5 0 z" fill="#a3a094" opacity="0.4"/>
+  <path d="M878 526 l10 -1 l0 66 l-10 1 z" fill="#4a493f"/>
+  <path d="M934 521 l10 -1 l0 65 l-10 1 z" fill="#4a493f"/>
+  <path d="M836 505 l18 -2 l0 15 l-18 2 z" fill="#6b6a60"/>
+  <path d="M964 494 l18 -2 l0 15 l-18 2 z" fill="#6b6a60"/>
+  <g fill="#8e8e88" opacity="0.5">
+    <circle cx="849" cy="536" r="2.6"/><circle cx="849" cy="584" r="2.6"/>
+    <circle cx="970" cy="526" r="2.6"/><circle cx="970" cy="572" r="2.6"/>
+  </g>
+  <path d="M896 542 q26 -3 42 -2 l0 7 q-18 -1 -42 2 z" fill="#7c7a6c" opacity="0.3"/>
+  <path d="M852 562 q22 -4 40 -3" fill="none" stroke="#6f6d60" stroke-width="3" opacity="0.28"/>
+  <path d="M900 578 q30 -5 56 -4" fill="none" stroke="#6f6d60" stroke-width="2" opacity="0.2"/>
+  <rect x="898" y="518" width="34" height="26" rx="3" fill="#5b5a52"/>
+  <rect x="898" y="518" width="34" height="5" rx="2" fill="#a3a094" opacity="0.45"/>
+  <rect x="906" y="536" width="19" height="23" rx="4" fill="url(#da-fx-brass)"/>
+  <path d="M910 536 l0 -9 q5 -8 11 0 l0 9" fill="none" stroke="#8d949a" stroke-width="4"/>
+  <circle cx="915" cy="548" r="3" fill="#241b12"/>
+  <path d="M902 541 q5 -3 9 -1" fill="none" stroke="#f0dca6" stroke-width="1.6" opacity="0.5"/>
+  <ellipse cx="908" cy="510" rx="62" ry="8" fill="#ffd98a" opacity="0.05"/>
+</g>
+
 <!-- foreground: rope coil and a pair of shells left on the boards -->
 <ellipse cx="146" cy="586" rx="86" ry="16" fill="#0d0904" opacity="0.38"/>
 <g fill="none" stroke="#6b5326" stroke-width="7">
@@ -1896,6 +1942,7 @@ window.CASE_ART.deadair = {
       h_casefile: { x: 40, y: 67 },
       h_letters: { x: 21, y: 84 },
       h_contracts: { x: 79, y: 85 },
+      h_blotter: { x: 19, y: 69 },
     },
     svg: `
 <defs>
@@ -2252,6 +2299,32 @@ window.CASE_ART.deadair = {
   <path d="M290 434 l220 0 l0 8 l-220 0 z" fill="#6b5326"/>
   <rect x="440" y="440" width="76" height="7" rx="3" fill="#a8352a"/>
   <ellipse cx="520" cy="443" rx="6" ry="3.5" fill="#3b2f22"/>
+</g>
+
+<!-- THE DESK BLOTTER: its near corner turned back, and what was lying under it -->
+<g>
+  <path d="M268 390 L268 448 L226 442 L232 396 Z" fill="#4a2f1e"/>
+  <path d="M268 390 L268 448 L262 447 L262 391 Z" fill="#1c1109"/>
+  <path d="M232 396 L268 390 L268 396 L233 402 Z" fill="#8a5a34" opacity="0.45"/>
+  <path d="M226 442 L268 448 L268 454 L228 448 Z" fill="#140c06" opacity="0.6"/>
+  <path d="M244 394 q10 26 4 50" fill="none" stroke="#2f1d14" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="212" cy="450" rx="66" ry="8" fill="#0d0904" opacity="0.45"/>
+  <path d="M140 412 q54 -12 100 -6 l6 34 q-52 8 -108 -2 z" fill="#efe4c6"/>
+  <path d="M140 412 q54 -12 100 -6 l1 6 q-48 -6 -100 6 z" fill="#fdf6e2"/>
+  <path d="M136 436 q56 10 108 2 l1 6 q-54 8 -110 -2 z" fill="#b3a37c" opacity="0.35"/>
+  <path d="M178 408 l4 38" fill="none" stroke="#c8b990" stroke-width="3" opacity="0.6"/>
+  <path d="M180 408 l4 38" fill="none" stroke="#fdf6e2" stroke-width="1.2" opacity="0.5"/>
+  <path d="M212 406 l4 38" fill="none" stroke="#c8b990" stroke-width="3" opacity="0.5"/>
+  <g fill="#d6c8a0" opacity="0.8">
+    <path d="M146 411 l6 -5 l5 5 z"/><path d="M166 408 l6 -5 l5 5 z"/><path d="M186 406 l6 -5 l5 5 z"/>
+    <path d="M206 405 l6 -5 l5 5 z"/><path d="M226 404 l6 -5 l5 5 z"/>
+  </g>
+  <g fill="none" stroke="#a8352a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 421 q7 -8 10 1 q2 8 -6 8"/><path d="M170 419 q8 -3 7 5 q-1 6 -7 5"/>
+    <path d="M190 418 q7 -7 10 1 q2 8 -7 8"/><path d="M210 416 q-2 6 8 5 l-4 -8"/>
+  </g>
+  <path d="M148 434 q46 -6 84 -4" fill="none" stroke="#a8352a" stroke-width="2.4" opacity="0.8"/>
+  <path d="M150 439 q44 -6 80 -4" fill="none" stroke="#8b2419" stroke-width="2" opacity="0.6"/>
 </g>
 
 <!-- the correspondence drawer, pulled out -->

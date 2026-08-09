@@ -4096,4 +4096,476 @@ window.CLUE_ART.deadair = {
 <rect width="640" height="520" fill="url(#ev3-pet-vig)"/>
 `,
   },
+
+  /* The strip from under the blotter: memo-pad paper furred at the folds,
+     four figures in red pencil with two rules under them. Marks, never words. */
+  c3_combo: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev3-cmb-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2e2820"/><stop offset="0.55" stop-color="#171310"/><stop offset="1" stop-color="#080706"/>
+  </linearGradient>
+  <radialGradient id="ev3-cmb-pool" cx="0.24" cy="0.08" r="0.84">
+    <stop offset="0" stop-color="#ffe3a8" stop-opacity="0.28"/><stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev3-cmb-wood" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#6d4e2d"/><stop offset="0.5" stop-color="#432f1b"/><stop offset="1" stop-color="#1e150b"/>
+  </linearGradient>
+  <linearGradient id="ev3-cmb-hide" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#4e3120"/><stop offset="0.45" stop-color="#321e12"/><stop offset="1" stop-color="#170c06"/>
+  </linearGradient>
+  <linearGradient id="ev3-cmb-back" x1="0" y1="0" x2="1" y2="0.7">
+    <stop offset="0" stop-color="#8a5f38"/><stop offset="0.42" stop-color="#5a3b21"/><stop offset="1" stop-color="#2b1a0e"/>
+  </linearGradient>
+  <linearGradient id="ev3-cmb-paper" x1="0.05" y1="0" x2="0.95" y2="1">
+    <stop offset="0" stop-color="#fbf3dc"/><stop offset="0.4" stop-color="#eee2bf"/>
+    <stop offset="0.78" stop-color="#d2c39a"/><stop offset="1" stop-color="#a49470"/>
+  </linearGradient>
+  <linearGradient id="ev3-cmb-lead" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e0685a"/><stop offset="0.5" stop-color="#9c2c20"/><stop offset="1" stop-color="#571310"/>
+  </linearGradient>
+  <filter id="ev3-cmb-soft" x="-40%" y="-60%" width="180%" height="240%">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+  <radialGradient id="ev3-cmb-vig" cx="0.44" cy="0.44" r="0.76">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.84"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev3-cmb-bg)"/>
+<rect width="640" height="520" fill="url(#ev3-cmb-wood)" opacity="0.75"/>
+<rect width="640" height="520" fill="url(#ev3-cmb-pool)"/>
+<!-- the desk itself: quarter-sawn oak, waxed and ringed -->
+<g fill="none" stroke="#241708" stroke-width="2.6" opacity="0.4">
+  <path d="M0 62 q 200 -14 380 4 q 160 16 260 2"/><path d="M0 128 q 220 -10 400 8 q 140 14 240 0"/>
+  <path d="M0 448 q 180 16 360 -4 q 160 -18 280 -2"/><path d="M0 496 q 200 12 380 -8 q 150 -16 260 0"/>
+</g>
+<g fill="none" stroke="#8b6537" stroke-width="1.1" opacity="0.16">
+  <path d="M0 68 q 200 -14 380 4 q 160 16 260 2"/><path d="M0 454 q 180 16 360 -4 q 160 -18 280 -2"/>
+</g>
+<ellipse cx="96" cy="82" rx="54" ry="14" fill="none" stroke="#20150a" stroke-width="3" opacity="0.35"/>
+
+<!-- the blotter, its near corner turned back -->
+<path d="M-20 150 L470 118 L520 470 L-20 520 Z" fill="#000" opacity="0.5" filter="url(#ev3-cmb-soft)"/>
+<path d="M-20 140 L462 108 L516 462 L-20 512 Z" fill="url(#ev3-cmb-hide)"/>
+<path d="M-20 140 L462 108 L464 122 L-20 154 Z" fill="#6b432a" opacity="0.55"/>
+<g fill="#7a5030" opacity="0.13">
+  <ellipse cx="120" cy="220" rx="60" ry="26" transform="rotate(-8 120 220)"/>
+  <ellipse cx="300" cy="330" rx="76" ry="30" transform="rotate(-8 300 330)"/>
+  <ellipse cx="90" cy="400" rx="52" ry="22" transform="rotate(-8 90 400)"/>
+</g>
+<g fill="none" stroke="#0d0703" stroke-width="1.4" opacity="0.4">
+  <path d="M20 176 q 90 22 176 4"/><path d="M40 268 q 120 26 220 2"/><path d="M10 372 q 110 24 210 -2"/>
+</g>
+<g fill="none" stroke="#8a5c36" stroke-width="1" opacity="0.12">
+  <path d="M24 182 q 90 22 176 4"/><path d="M14 378 q 110 24 210 -2"/>
+</g>
+<!-- ink blots and a blotted crescent of red -->
+<path d="M180 300 q 30 -22 54 -4 q 16 20 -8 34 q -34 12 -46 -10 z" fill="#0e0a12" opacity="0.5"/>
+<path d="M244 246 q 22 -12 34 2 q 6 16 -14 20 q -22 2 -20 -22 z" fill="#5a1912" opacity="0.35"/>
+
+<!-- the turned-back corner: hide underside, paler and unworn -->
+<path d="M462 108 L636 168 L586 468 L516 462 Z" fill="url(#ev3-cmb-back)"/>
+<path d="M462 108 L636 168 L634 182 L464 124 Z" fill="#b4834f" opacity="0.4"/>
+<path d="M516 462 L586 468 L584 478 L514 472 Z" fill="#150b05" opacity="0.6"/>
+<path d="M462 108 L516 462" fill="none" stroke="#1c0f07" stroke-width="7" opacity="0.55"/>
+<path d="M468 112 L522 462" fill="none" stroke="#c39258" stroke-width="2" opacity="0.28"/>
+<g fill="none" stroke="#2b1a0e" stroke-width="1.6" opacity="0.35">
+  <path d="M506 152 q 40 16 78 26"/><path d="M512 232 q 42 14 82 22"/><path d="M520 328 q 40 12 78 18"/>
+</g>
+
+<!-- THE STRIP: torn off a memo pad, carried in a pocket, folded and unfolded -->
+<g transform="rotate(-7 320 300)">
+  <path d="M120 236 L472 210 L482 386 L128 400 Z" fill="#000" opacity="0.5" filter="url(#ev3-cmb-soft)"/>
+  <path d="M112 226 q 60 -10 118 -8 q 62 2 122 -6 q 58 -8 112 -2 l 8 158 q -56 8 -114 4 q -62 -4 -122 4 q -58 8 -116 2 z" fill="url(#ev3-cmb-paper)"/>
+  <path d="M112 226 q 60 -10 118 -8 q 62 2 122 -6 q 58 -8 112 -2 l 2 12 q -54 -6 -112 2 q -60 8 -122 6 q -58 -2 -118 8 z" fill="#ffffff" opacity="0.28"/>
+  <!-- the pad's torn head: perforation nibs -->
+  <g fill="#c9b98f" opacity="0.75">
+    <path d="M126 224 l 10 -8 l 8 8 z"/><path d="M166 221 l 10 -8 l 8 8 z"/><path d="M206 219 l 10 -8 l 8 8 z"/>
+    <path d="M246 218 l 10 -8 l 8 8 z"/><path d="M286 216 l 10 -8 l 8 8 z"/><path d="M326 214 l 10 -8 l 8 8 z"/>
+    <path d="M366 213 l 10 -8 l 8 8 z"/><path d="M406 212 l 10 -8 l 8 8 z"/>
+  </g>
+  <!-- two fold lines, gone furry from being carried -->
+  <path d="M226 220 L232 396" fill="none" stroke="#b9a67c" stroke-width="4" opacity="0.55"/>
+  <path d="M228 220 L234 396" fill="none" stroke="#fdf8e6" stroke-width="1.6" opacity="0.5"/>
+  <path d="M348 214 L356 390" fill="none" stroke="#b9a67c" stroke-width="4" opacity="0.5"/>
+  <path d="M350 214 L358 390" fill="none" stroke="#fdf8e6" stroke-width="1.6" opacity="0.45"/>
+  <!-- the pad's faint printed rule -->
+  <path d="M124 268 q 170 -12 340 -8" fill="none" stroke="#9ba07f" stroke-width="1.4" opacity="0.4"/>
+  <path d="M126 348 q 170 -10 340 -6" fill="none" stroke="#9ba07f" stroke-width="1.4" opacity="0.34"/>
+
+  <!-- FOUR FIGURES in red pencil: pressure, grain, and a doubled stroke -->
+  <g fill="none" stroke="#9c2c20" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M148 288 q 30 -18 40 6 q 8 24 -18 28 q -22 2 -18 -16 M142 302 l 48 -12"/>
+    <path d="M222 278 q 36 -2 30 22 q -6 20 -30 16 q -20 -6 -12 -24 M230 296 q 12 24 -2 44"/>
+    <path d="M298 284 q 36 -2 34 22 q -2 24 -30 20 q -24 -6 -18 -26 M318 308 q 16 8 26 -4"/>
+    <path d="M370 278 q 26 -14 46 6 M394 272 q -8 28 -2 54 M378 322 l 30 -8"/>
+  </g>
+  <g fill="none" stroke="#d1584a" stroke-width="3" stroke-linecap="round" opacity="0.5">
+    <path d="M150 286 q 26 -14 34 4"/><path d="M228 278 q 30 2 24 20"/>
+    <path d="M300 280 q 32 -4 32 20"/><path d="M372 276 q 22 -12 40 6"/>
+  </g>
+  <g fill="none" stroke="#5c130e" stroke-width="2.4" stroke-linecap="round" opacity="0.5">
+    <path d="M156 318 q 16 8 28 -4"/><path d="M232 324 q 14 6 26 -4"/>
+    <path d="M290 316 q 18 12 34 0"/><path d="M386 320 q 10 4 18 0"/>
+  </g>
+  <!-- underscored twice, the second rule bearing down harder -->
+  <path d="M144 348 q 140 -8 288 -6" fill="none" stroke="#9c2c20" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  <path d="M146 344 q 140 -8 284 -6" fill="none" stroke="#d1584a" stroke-width="1.8" opacity="0.5"/>
+  <path d="M150 364 q 136 -8 278 -6" fill="none" stroke="#8b2419" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <path d="M152 360 q 136 -8 274 -6" fill="none" stroke="#c14a3c" stroke-width="2" opacity="0.45"/>
+  <!-- the pencil's grain: waxy skips where the paper's tooth won -->
+  <g fill="#efe4c4" opacity="0.4">
+    <ellipse cx="212" cy="347" rx="9" ry="2"/><ellipse cx="300" cy="345" rx="7" ry="1.8"/>
+    <ellipse cx="366" cy="344" rx="10" ry="2"/><ellipse cx="256" cy="363" rx="8" ry="2"/><ellipse cx="344" cy="362" rx="9" ry="2"/>
+  </g>
+  <!-- pocket wear: a grey bloom along the lower edge, and a thumb crease -->
+  <path d="M120 374 q 178 -12 356 -6 l 4 20 q -178 -6 -356 6 z" fill="#8d8262" opacity="0.2"/>
+  <path d="M164 232 q 14 74 -4 158" fill="none" stroke="#b2a37b" stroke-width="2" opacity="0.35"/>
+  <path d="M440 218 q -10 80 6 164" fill="none" stroke="#b2a37b" stroke-width="2" opacity="0.28"/>
+  <path d="M474 220 l 12 12 l -6 156 l -10 -8 z" fill="#9b8b66" opacity="0.5"/>
+</g>
+
+<!-- the red pencil that wrote it, stub-short, lying where it was dropped -->
+<g transform="rotate(15 470 452)">
+  <rect x="352" y="450" width="176" height="16" rx="3" fill="#000" opacity="0.45" filter="url(#ev3-cmb-soft)"/>
+  <rect x="348" y="444" width="176" height="16" rx="3" fill="url(#ev3-cmb-lead)"/>
+  <rect x="348" y="444" width="176" height="4.5" fill="#f0a094" opacity="0.55"/>
+  <rect x="348" y="455" width="176" height="5" fill="#4c110c" opacity="0.6"/>
+  <path d="M524 444 l 30 8 l -30 8 z" fill="#e6cfa8"/>
+  <path d="M546 450 l 10 2 l -10 2 z" fill="#8b2419"/>
+  <rect x="336" y="444" width="12" height="16" fill="#96999a"/>
+</g>
+
+<!-- dust, and the lamp's edge falling off the desk -->
+<g fill="#f3e6c4" opacity="0.13">
+  <circle cx="98" cy="126" r="2"/><circle cx="556" cy="96" r="1.6"/><circle cx="600" cy="330" r="2.2"/><circle cx="60" cy="452" r="1.8"/>
+</g>
+<rect width="640" height="520" fill="url(#ev3-cmb-vig)"/>
+`,
+  },
+
+  /* Inside the transcription cabinet: the master disc-cutting key on its brass
+     tag, and the engineer's spare acetate sleeve with his initials in the corner. */
+  c3_cabinetkey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev3-cab-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2b2d2c"/><stop offset="0.55" stop-color="#141615"/><stop offset="1" stop-color="#070808"/>
+  </linearGradient>
+  <radialGradient id="ev3-cab-pool" cx="0.2" cy="0.06" r="0.86">
+    <stop offset="0" stop-color="#ffe3a8" stop-opacity="0.24"/><stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev3-cab-steel" x1="0" y1="0" x2="1" y2="0.3">
+    <stop offset="0" stop-color="#22241f"/><stop offset="0.16" stop-color="#7d8177"/>
+    <stop offset="0.38" stop-color="#42453d"/><stop offset="0.62" stop-color="#8b8f84"/>
+    <stop offset="0.84" stop-color="#3a3d36"/><stop offset="1" stop-color="#16180f"/>
+  </linearGradient>
+  <linearGradient id="ev3-cab-inner" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#5a5b50"/><stop offset="0.5" stop-color="#31322a"/><stop offset="1" stop-color="#131410"/>
+  </linearGradient>
+  <linearGradient id="ev3-cab-brass" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f7e2a6"/><stop offset="0.32" stop-color="#cda854"/>
+    <stop offset="0.68" stop-color="#8a6c2c"/><stop offset="1" stop-color="#463314"/>
+  </linearGradient>
+  <linearGradient id="ev3-cab-tag" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#e6d9b4"/><stop offset="0.6" stop-color="#b6a682"/><stop offset="1" stop-color="#7d7053"/>
+  </linearGradient>
+  <linearGradient id="ev3-cab-hook" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#1d2022"/><stop offset="0.34" stop-color="#b6bcc1"/>
+    <stop offset="0.7" stop-color="#5a6065"/><stop offset="1" stop-color="#14171a"/>
+  </linearGradient>
+  <linearGradient id="ev3-cab-sleeve" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#c6b489"/><stop offset="0.45" stop-color="#a08e66"/>
+    <stop offset="0.82" stop-color="#6f6144"/><stop offset="1" stop-color="#463c28"/>
+  </linearGradient>
+  <radialGradient id="ev3-cab-dial" cx="0.34" cy="0.28" r="0.85">
+    <stop offset="0" stop-color="#9ea299"/><stop offset="0.42" stop-color="#585c53"/>
+    <stop offset="0.82" stop-color="#2a2c26"/><stop offset="1" stop-color="#43463e"/>
+  </radialGradient>
+  <filter id="ev3-cab-soft" x="-40%" y="-60%" width="180%" height="240%">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+  <radialGradient id="ev3-cab-vig" cx="0.44" cy="0.44" r="0.76">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.84"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev3-cab-bg)"/>
+<rect width="640" height="520" fill="url(#ev3-cab-pool)"/>
+
+<!-- the cabinet's inside: a shallow steel box, painted grey, shelf-lipped -->
+<rect x="72" y="44" width="496" height="440" rx="6" fill="url(#ev3-cab-inner)"/>
+<rect x="72" y="44" width="496" height="440" rx="6" fill="none" stroke="#0a0b08" stroke-width="6"/>
+<path d="M72 44 L568 44 L540 84 L100 84 Z" fill="#0a0b08" opacity="0.65"/>
+<path d="M72 484 L568 484 L540 444 L100 444 Z" fill="#000" opacity="0.35"/>
+<path d="M72 44 L100 84 L100 444 L72 484 Z" fill="#000" opacity="0.4"/>
+<rect x="100" y="84" width="440" height="360" fill="#282a21"/>
+<g stroke="#6f7367" stroke-width="1" opacity="0.3">
+  <path d="M100 152 h440"/><path d="M100 236 h440"/><path d="M100 320 h440"/><path d="M100 402 h440"/>
+</g>
+<!-- back-panel seams and the rivets holding them -->
+<path d="M320 84 v360" stroke="#0c0d0a" stroke-width="3" opacity="0.6"/>
+<path d="M323 84 v360" stroke="#5b5f54" stroke-width="1" opacity="0.18"/>
+<g fill="#787c72" opacity="0.5">
+  <circle cx="114" cy="98" r="3.4"/><circle cx="526" cy="98" r="3.4"/><circle cx="114" cy="430" r="3.4"/><circle cx="526" cy="430" r="3.4"/>
+  <circle cx="320" cy="98" r="3"/><circle cx="320" cy="430" r="3"/>
+</g>
+
+<!-- the door, swung open at the right, dial outward -->
+<path d="M540 40 L640 6 L640 512 L540 488 Z" fill="#000" opacity="0.5" filter="url(#ev3-cab-soft)"/>
+<path d="M534 40 L636 4 L636 508 L534 484 Z" fill="url(#ev3-cab-steel)"/>
+<path d="M534 40 L636 4 L636 20 L534 54 Z" fill="#c8cdc2" opacity="0.3"/>
+<path d="M534 484 L636 508 L636 494 L534 470 Z" fill="#000" opacity="0.5"/>
+<path d="M548 78 L622 52 L622 462 L548 448 Z" fill="none" stroke="#1c1e19" stroke-width="4"/>
+<circle cx="586" cy="262" r="42" fill="#111310"/>
+<circle cx="584" cy="258" r="38" fill="url(#ev3-cab-dial)"/>
+<circle cx="584" cy="258" r="38" fill="none" stroke="#82877c" stroke-width="2"/>
+<circle cx="584" cy="258" r="27" fill="#2a2c26"/>
+<circle cx="584" cy="258" r="27" fill="none" stroke="#9aa094" stroke-width="1.4" opacity="0.7"/>
+<g stroke="#b6bcae" stroke-width="2" opacity="0.55">
+  <path d="M584 224 v 8"/><path d="M618 258 h -8"/><path d="M584 292 v -8"/><path d="M550 258 h 8"/>
+</g>
+<g stroke="#8d9386" stroke-width="1.2" opacity="0.4">
+  <path d="M608 234 l -6 6"/><path d="M608 282 l -6 -6"/><path d="M560 282 l 6 -6"/><path d="M560 234 l 6 6"/>
+</g>
+<path d="M584 258 L584 232" stroke="#e6ebe0" stroke-width="3" stroke-linecap="round"/>
+<circle cx="584" cy="258" r="6" fill="#161812"/>
+<path d="M556 232 q 26 -20 56 -12" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.16"/>
+<rect x="556" y="352" width="56" height="18" rx="4" fill="#5c6157"/>
+<rect x="558" y="354" width="52" height="5" rx="2" fill="#a8ada1" opacity="0.5"/>
+
+<!-- the hook, and the master key on its brass tag -->
+<rect x="228" y="104" width="26" height="12" rx="3" fill="#3d403a"/>
+<path d="M241 116 q 0 26 -16 30" fill="none" stroke="url(#ev3-cab-hook)" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="222" cy="164" rx="20" ry="20" fill="none" stroke="url(#ev3-cab-brass)" stroke-width="9"/>
+<ellipse cx="222" cy="164" rx="20" ry="20" fill="none" stroke="#4b3616" stroke-width="1.4" opacity="0.6"/>
+<path d="M208 150 q 14 -10 28 -2" fill="none" stroke="#ffeec0" stroke-width="3" opacity="0.5"/>
+<rect x="214" y="182" width="16" height="118" fill="url(#ev3-cab-brass)"/>
+<rect x="215" y="185" width="4.4" height="112" fill="#ffeec0" opacity="0.5"/>
+<rect x="214" y="252" width="34" height="13" fill="url(#ev3-cab-brass)"/>
+<rect x="214" y="274" width="26" height="12" fill="url(#ev3-cab-brass)"/>
+<rect x="214" y="292" width="30" height="12" fill="url(#ev3-cab-brass)"/>
+<path d="M214 300 l 16 0 l 0 12 l -8 8 l -8 -8 z" fill="#9e7c33"/>
+<g fill="#3b2c12" opacity="0.4">
+  <rect x="216" y="212" width="12" height="4"/><rect x="216" y="236" width="12" height="4"/>
+</g>
+<!-- the fibre tag wired to the bow, stamped and inked, hanging askew -->
+<path d="M238 176 q 34 12 40 40" fill="none" stroke="#9aa094" stroke-width="2.4"/>
+<g transform="rotate(9 316 246)">
+  <rect x="266" y="212" width="112" height="70" rx="6" fill="#000" opacity="0.45" filter="url(#ev3-cab-soft)"/>
+  <rect x="262" y="206" width="112" height="70" rx="6" fill="url(#ev3-cab-tag)"/>
+  <rect x="262" y="206" width="112" height="5" rx="2" fill="#fbf3dc" opacity="0.5"/>
+  <circle cx="278" cy="222" r="8" fill="#8f8262"/>
+  <circle cx="278" cy="222" r="5" fill="#191a15"/>
+  <circle cx="278" cy="222" r="8" fill="none" stroke="#d8cba6" stroke-width="1.4"/>
+  <g stroke="#4c4331" stroke-width="3" opacity="0.75" stroke-linecap="round">
+    <path d="M296 226 h 62" stroke-dasharray="14 5 22 6 12"/>
+    <path d="M274 246 h 84" stroke-dasharray="18 5 26 6 20"/>
+    <path d="M274 262 h 62" stroke-dasharray="12 5 18 6 16"/>
+  </g>
+  <path d="M266 210 q 52 -6 104 2" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.2"/>
+  <path d="M366 268 l 8 8 l -12 0 z" fill="#7a6e51"/>
+</g>
+
+<!-- the spare acetate sleeve, standing on the cabinet floor, leaning -->
+<g transform="rotate(-4 210 380)">
+  <path d="M108 244 L316 244 L322 452 L104 452 Z" fill="#000" opacity="0.45" filter="url(#ev3-cab-soft)"/>
+  <rect x="98" y="232" width="212" height="212" rx="3" fill="url(#ev3-cab-sleeve)"/>
+  <rect x="98" y="232" width="212" height="6" rx="2" fill="#e8d9ac" opacity="0.4"/>
+  <rect x="98" y="232" width="8" height="212" fill="#4c4230" opacity="0.5"/>
+  <circle cx="204" cy="336" r="66" fill="none" stroke="#5f5439" stroke-width="2.4" opacity="0.75"/>
+  <circle cx="204" cy="336" r="66" fill="#2a2620" opacity="0.28"/>
+  <circle cx="204" cy="336" r="14" fill="#191713"/>
+  <circle cx="204" cy="336" r="14" fill="none" stroke="#6e6244" stroke-width="2"/>
+  <path d="M148 300 q 56 -34 112 -6" fill="none" stroke="#ded0a6" stroke-width="4" opacity="0.22"/>
+  <path d="M110 244 q 96 -6 190 2" fill="none" stroke="#efe2b8" stroke-width="2" opacity="0.28"/>
+  <!-- the engineer's initials, inked small in the corner: two marks, no more -->
+  <g fill="none" stroke="#1c2333" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M112 414 q 12 -30 24 -8 q 7 16 -8 18 M108 400 l 40 -8"/>
+    <path d="M132 416 q 6 -30 20 -20 q 9 7 -3 16 q -10 7 -17 -3"/>
+  </g>
+  <path d="M110 388 q 30 -6 54 2" fill="none" stroke="#1c2333" stroke-width="1.4" opacity="0.3"/>
+  <!-- dust on the sleeve, and where a second hand wiped it away -->
+  <path d="M100 234 q 106 -4 208 4 l 0 208 q -104 -6 -208 2 z" fill="#cdc3a4" opacity="0.1"/>
+  <path d="M226 268 q 40 40 30 96 q -8 44 -46 62 q 46 -46 40 -94 q -6 -46 -24 -64 z" fill="#0d0b08" opacity="0.16"/>
+  <g fill="none" stroke="#0f0d09" stroke-width="2.6" opacity="0.24">
+    <path d="M238 296 q 22 22 18 52"/><path d="M252 302 q 20 22 16 50"/><path d="M266 310 q 16 20 12 44"/>
+  </g>
+</g>
+
+<!-- floor of the cabinet: shadowed lip, dust, and one loose brass washer -->
+<path d="M100 430 L540 430 L540 444 L100 444 Z" fill="#000" opacity="0.45"/>
+<ellipse cx="424" cy="424" rx="46" ry="9" fill="#000" opacity="0.4"/>
+<circle cx="428" cy="418" r="12" fill="none" stroke="url(#ev3-cab-brass)" stroke-width="5"/>
+<g fill="#cdc3a4" opacity="0.12">
+  <ellipse cx="180" cy="436" rx="60" ry="7"/><ellipse cx="466" cy="434" rx="46" ry="6"/>
+</g>
+<g fill="#f3e6c4" opacity="0.13">
+  <circle cx="404" cy="140" r="2"/><circle cx="150" cy="120" r="1.6"/><circle cx="480" cy="300" r="2.2"/>
+</g>
+<rect width="640" height="520" fill="url(#ev3-cab-vig)"/>
+`,
+  },
+
+  /* The 1927 masters: sleeves on edge in the chest, thumb-notches worn grey,
+     and one sleeve ruled into two columns of timings by a small level hand. */
+  c3_masters: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev3-mas-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#2a2823"/><stop offset="0.55" stop-color="#151412"/><stop offset="1" stop-color="#070707"/>
+  </linearGradient>
+  <radialGradient id="ev3-mas-pool" cx="0.24" cy="0.06" r="0.86">
+    <stop offset="0" stop-color="#ffe3a8" stop-opacity="0.24"/><stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev3-mas-chest" x1="0" y1="0" x2="1" y2="0.25">
+    <stop offset="0" stop-color="#23241f"/><stop offset="0.2" stop-color="#6e7269"/>
+    <stop offset="0.5" stop-color="#3b3e37"/><stop offset="0.8" stop-color="#797d73"/>
+    <stop offset="1" stop-color="#181a15"/>
+  </linearGradient>
+  <linearGradient id="ev3-mas-kraft" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#8f7c53"/><stop offset="0.42" stop-color="#6d5c3c"/>
+    <stop offset="0.8" stop-color="#453a26"/><stop offset="1" stop-color="#241d13"/>
+  </linearGradient>
+  <linearGradient id="ev3-mas-front" x1="0.05" y1="0" x2="0.95" y2="1">
+    <stop offset="0" stop-color="#e2d1a4"/><stop offset="0.4" stop-color="#c6b183"/>
+    <stop offset="0.78" stop-color="#94805a"/><stop offset="1" stop-color="#5d4e35"/>
+  </linearGradient>
+  <radialGradient id="ev3-mas-disc" cx="0.34" cy="0.26" r="0.86">
+    <stop offset="0" stop-color="#443c33"/><stop offset="0.32" stop-color="#231f1b"/>
+    <stop offset="0.72" stop-color="#12100e"/><stop offset="1" stop-color="#0a0908"/>
+  </radialGradient>
+  <filter id="ev3-mas-soft" x="-40%" y="-60%" width="180%" height="240%">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+  <radialGradient id="ev3-mas-vig" cx="0.44" cy="0.44" r="0.76">
+    <stop offset="0.42" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.84"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev3-mas-bg)"/>
+<rect width="640" height="520" fill="url(#ev3-mas-pool)"/>
+
+<!-- looking down into the chest: banded steel rim, then dark -->
+<rect x="16" y="26" width="608" height="470" rx="8" fill="url(#ev3-mas-chest)"/>
+<rect x="16" y="26" width="608" height="470" rx="8" fill="none" stroke="#0a0b08" stroke-width="5"/>
+<rect x="16" y="26" width="608" height="14" rx="6" fill="#b9beb2" opacity="0.28"/>
+<rect x="44" y="58" width="552" height="424" rx="4" fill="#0e0e0c"/>
+<path d="M44 58 L596 58 L568 96 L72 96 Z" fill="#000" opacity="0.6"/>
+<path d="M44 58 L72 96 L72 482 L44 482 Z" fill="#000" opacity="0.45"/>
+<path d="M596 58 L568 96 L568 482 L596 482 Z" fill="#000" opacity="0.45"/>
+<g fill="#8f948a" opacity="0.45">
+  <circle cx="32" cy="46" r="4"/><circle cx="608" cy="46" r="4"/><circle cx="32" cy="476" r="4"/><circle cx="608" cy="476" r="4"/>
+</g>
+<rect x="140" y="26" width="26" height="470" fill="#5f645b" opacity="0.35"/>
+<rect x="140" y="26" width="7" height="470" fill="#b9beb2" opacity="0.2"/>
+<rect x="476" y="26" width="26" height="470" fill="#5f645b" opacity="0.35"/>
+<rect x="476" y="26" width="7" height="470" fill="#b9beb2" opacity="0.2"/>
+
+<!-- sleeve after sleeve, filed on edge, ranked back into the dark -->
+<g>
+  <path d="M72 106 L560 96 L560 330 L72 340 Z" fill="#151310"/>
+  <g fill="url(#ev3-mas-kraft)">
+    <path d="M80 114 L104 113 L104 330 L80 332 Z"/>
+    <path d="M110 113 L138 112 L138 329 L110 330 Z"/>
+    <path d="M144 112 L166 111 L166 328 L144 329 Z"/>
+    <path d="M172 111 L202 110 L202 327 L172 328 Z"/>
+    <path d="M208 110 L232 109 L232 326 L208 327 Z"/>
+    <path d="M238 109 L268 108 L268 325 L238 326 Z"/>
+    <path d="M274 108 L296 107 L296 324 L274 325 Z"/>
+    <path d="M302 107 L332 106 L332 323 L302 324 Z"/>
+    <path d="M338 106 L362 105 L362 322 L338 323 Z"/>
+    <path d="M368 105 L398 104 L398 321 L368 322 Z"/>
+    <path d="M404 104 L426 103 L426 320 L404 321 Z"/>
+    <path d="M432 103 L462 102 L462 319 L432 320 Z"/>
+    <path d="M468 102 L492 101 L492 318 L468 319 Z"/>
+    <path d="M498 101 L528 100 L528 317 L498 318 Z"/>
+  </g>
+  <g fill="#0b0a08" opacity="0.6">
+    <path d="M104 113 l 6 0 l 0 217 l -6 0 z"/><path d="M138 112 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M166 111 l 6 0 l 0 217 l -6 0 z"/><path d="M202 110 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M232 109 l 6 0 l 0 217 l -6 0 z"/><path d="M268 108 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M296 107 l 6 0 l 0 217 l -6 0 z"/><path d="M332 106 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M362 105 l 6 0 l 0 217 l -6 0 z"/><path d="M398 104 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M426 103 l 6 0 l 0 217 l -6 0 z"/><path d="M462 102 l 6 0 l 0 217 l -6 0 z"/>
+    <path d="M492 101 l 6 0 l 0 217 l -6 0 z"/>
+  </g>
+  <!-- the thumb-notch bitten out of every sleeve mouth -->
+  <g fill="#100e0b">
+    <ellipse cx="92" cy="115" rx="10" ry="15"/><ellipse cx="124" cy="114" rx="12" ry="15"/>
+    <ellipse cx="155" cy="113" rx="9" ry="15"/><ellipse cx="187" cy="112" rx="13" ry="15"/>
+    <ellipse cx="220" cy="111" rx="10" ry="15"/><ellipse cx="253" cy="110" rx="13" ry="15"/>
+    <ellipse cx="285" cy="109" rx="9" ry="15"/><ellipse cx="317" cy="108" rx="13" ry="15"/>
+    <ellipse cx="350" cy="107" rx="10" ry="15"/><ellipse cx="383" cy="106" rx="13" ry="15"/>
+    <ellipse cx="415" cy="105" rx="9" ry="15"/><ellipse cx="447" cy="104" rx="13" ry="15"/>
+    <ellipse cx="480" cy="103" rx="10" ry="15"/><ellipse cx="513" cy="102" rx="13" ry="15"/>
+  </g>
+  <!-- and the grey the thumbs have rubbed into the kraft below it -->
+  <g fill="#cfc3a2" opacity="0.16">
+    <ellipse cx="106" cy="150" rx="28" ry="26"/><ellipse cx="188" cy="148" rx="30" ry="26"/>
+    <ellipse cx="270" cy="145" rx="28" ry="26"/><ellipse cx="352" cy="142" rx="30" ry="26"/>
+    <ellipse cx="434" cy="139" rx="28" ry="26"/><ellipse cx="506" cy="137" rx="24" ry="26"/>
+  </g>
+  <path d="M72 210 L560 200 L560 340 L72 348 Z" fill="#000" opacity="0.45"/>
+</g>
+
+<!-- ONE SLEEVE DRAWN FORWARD: the annotated one, its disc standing proud of the mouth -->
+<g transform="rotate(-3 310 340)">
+  <path d="M70 300 L586 272 L598 518 L82 534 Z" fill="#000" opacity="0.55" filter="url(#ev3-mas-soft)"/>
+  <circle cx="322" cy="272" r="166" fill="url(#ev3-mas-disc)"/>
+  <circle cx="322" cy="272" r="166" fill="none" stroke="#090807" stroke-width="3"/>
+  <g fill="none" stroke="#6e6558" stroke-width="1" opacity="0.26">
+    <circle cx="322" cy="272" r="156"/><circle cx="322" cy="272" r="138"/><circle cx="322" cy="272" r="120"/>
+  </g>
+  <path d="M200 168 q 76 -62 178 -36 q -100 20 -158 96 q -58 74 -36 168 q -66 -114 16 -228 z" fill="#e8e0cc" opacity="0.1"/>
+  <path d="M218 178 q 66 -46 144 -32" fill="none" stroke="#f0e8d2" stroke-width="5" opacity="0.14"/>
+  <path d="M62 292 L578 264 L590 512 L74 528 Z" fill="url(#ev3-mas-front)"/>
+  <path d="M62 292 L578 264 L578 276 L62 304 Z" fill="#fbf3dc" opacity="0.3"/>
+  <path d="M74 528 L590 512 L588 522 L72 538 Z" fill="#2c2417" opacity="0.6"/>
+  <path d="M276 284 q 48 -6 88 -4 q -6 40 -44 42 q -38 2 -44 -38 z" fill="#0c0b08" opacity="0.55"/>
+  <path d="M282 288 q 42 -5 78 -3 q -6 30 -38 32 q -34 0 -40 -29 z" fill="#8a7754" opacity="0.45"/>
+  <g fill="#8a7448" opacity="0.26">
+    <ellipse cx="150" cy="380" rx="30" ry="20" transform="rotate(-12 150 380)"/>
+    <ellipse cx="522" cy="430" rx="24" ry="15" transform="rotate(-12 522 430)"/>
+    <ellipse cx="206" cy="486" rx="34" ry="13" transform="rotate(-5 206 486)"/>
+  </g>
+  <path d="M62 452 q 262 -22 528 -14 l 2 26 q -262 -10 -528 16 z" fill="#8d8262" opacity="0.2"/>
+  <path d="M70 300 q 8 122 4 226" fill="none" stroke="#7a6a48" stroke-width="3" opacity="0.4"/>
+  <path d="M568 268 q -6 122 12 240" fill="none" stroke="#7a6a48" stroke-width="2.4" opacity="0.3"/>
+  <!-- THE ANNOTATION: the margin ruled into two columns of timings, in pencil -->
+  <path d="M400 300 L410 508" fill="none" stroke="#3f4552" stroke-width="2" opacity="0.75"/>
+  <path d="M472 296 L482 504" fill="none" stroke="#3f4552" stroke-width="1.6" opacity="0.6"/>
+  <path d="M398 318 q 72 -5 84 -5" fill="none" stroke="#3f4552" stroke-width="1.6" opacity="0.55"/>
+  <g stroke="#343b47" stroke-width="2.8" opacity="0.85" stroke-linecap="round">
+    <path d="M414 344 h 52" stroke-dasharray="12 5 8 5 18"/>
+    <path d="M415 374 h 52" stroke-dasharray="16 5 10 5 12"/>
+    <path d="M416 404 h 52" stroke-dasharray="10 5 16 5 12"/>
+    <path d="M417 434 h 52" stroke-dasharray="18 5 8 5 14"/>
+    <path d="M418 464 h 52" stroke-dasharray="12 5 12 5 14"/>
+    <path d="M419 494 h 52" stroke-dasharray="14 5 10 5 16"/>
+  </g>
+  <g stroke="#343b47" stroke-width="2.8" opacity="0.85" stroke-linecap="round">
+    <path d="M488 342 h 42" stroke-dasharray="12 5 8 5 10"/>
+    <path d="M489 372 h 42" stroke-dasharray="10 5 12 5 8"/>
+    <path d="M490 402 h 42" stroke-dasharray="14 5 8 5 8"/>
+    <path d="M491 432 h 40" stroke-dasharray="10 5 10 5 8"/>
+  </g>
+  <path d="M486 456 q 22 8 42 0" fill="none" stroke="#8d2a1c" stroke-width="3.6" opacity="0.7"/>
+  <g fill="none" stroke="#343b47" stroke-width="2" opacity="0.45">
+    <path d="M108 340 q 30 -10 50 2"/><path d="M108 360 q 38 -8 64 4"/><path d="M108 380 q 26 -8 44 2"/>
+  </g>
+  <ellipse cx="430" cy="404" rx="52" ry="126" fill="#ffffff" opacity="0.05"/>
+</g>
+
+<!-- dust risen off the sleeves, caught in the lamp -->
+<g fill="#f3e6c4" opacity="0.14">
+  <circle cx="120" cy="92" r="2.2"/><circle cx="560" cy="380" r="2.4"/>
+</g>
+<rect width="640" height="520" fill="url(#ev3-mas-vig)"/>
+`,
+  },
 };

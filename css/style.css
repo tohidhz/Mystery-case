@@ -347,6 +347,9 @@ body.busy { cursor: progress; }
   .topbar-actions { margin-left: auto; }
 }
 @media (max-width: 560px) {
+  /* below this the four actions cannot sit on one line; let them wrap rather
+     than push the first control off the left edge */
+  .topbar-actions { flex-wrap: wrap; justify-content: flex-end; row-gap: .35rem; }
   /* keep the control, drop the label — padding must not be em-based here,
      because font-size:0 would collapse it to nothing */
   #btn-casefile { font-size: 0; padding: 0 .75rem; min-width: 44px; justify-content: center; }
@@ -891,18 +894,29 @@ body.busy .dossier { opacity: .55; pointer-events: none; }
   .room-name { font-size: .72rem; }
 }
 @media (max-width: 480px) {
-  /* three columns get too cramped — reflow the floor plan to two.
-     game.js sets inline grid-column/grid-row per room, hence !important. */
-  #map {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-rows: minmax(96px, auto);
+  /* A floor plan whose rooms are in DOM order is not a floor plan. This used
+     to reflow to two columns and drop the per-room grid-column/grid-row the
+     case data specifies — while still calling itself PREMISES and still
+     charging travel time, so adjacency, the only reason a spatial map exists,
+     silently stopped meaning anything. The 3x2 geography is kept; the tiles
+     shrink to fit instead. */
+  #map { gap: .35rem; }
+  .room {
+    padding: .4rem .35rem 1.05rem;
+    min-height: 84px;
   }
-  #map .room {
-    grid-column: auto !important;
-    grid-row: auto !important;
+  .room-name {
+    font-size: .6rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
   }
-  .room-name { font-size: .8rem; }
+  .room-chips { gap: .15rem; }
+  .chip { width: 15px; height: 15px; font-size: 7px; }
+  .room-dots { font-size: .6rem; }
+  .travel-cost, .you-are-here { font-size: .52rem; padding: .1em .3em; }
+  .you-are-here { inset-inline-end: .25rem; bottom: .25rem; }
+  .travel-cost { inset-inline-end: .3rem; bottom: .3rem; }
 }
 
 /* ============================================================

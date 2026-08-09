@@ -2883,4 +2883,194 @@ window.CLUE_ART.blackwood = {
 <rect width="640" height="520" fill="url(#ev1-sick-vig)"/>
 `,
   },
+  /* The doctor's bag, exactly as tidy as the account he gives of it: closed,
+     buckled, and thirty years of house calls in the leather. */
+  c1_haleclaim: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-hc-bg" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4a4438"/><stop offset="0.55" stop-color="#241f18"/><stop offset="1" stop-color="#0c0a08"/>
+  </linearGradient>
+  <radialGradient id="ev1-hc-pool" cx="0.26" cy="0.1" r="0.88">
+    <stop offset="0" stop-color="#f4d79c" stop-opacity="0.3"/><stop offset="1" stop-color="#f4d79c" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-hc-quilt" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#ece6d4"/><stop offset="0.5" stop-color="#c8c2ad"/><stop offset="1" stop-color="#7c7665"/>
+  </linearGradient>
+  <linearGradient id="ev1-hc-leather" x1="0.1" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#4c443c"/><stop offset="0.28" stop-color="#241f1b"/><stop offset="0.68" stop-color="#100d0b"/><stop offset="1" stop-color="#332c26"/>
+  </linearGradient>
+  <linearGradient id="ev1-hc-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#f4dfa2"/><stop offset="0.35" stop-color="#bd932e"/><stop offset="0.8" stop-color="#5d4310"/><stop offset="1" stop-color="#a8801f"/>
+  </linearGradient>
+  <filter id="ev1-hc-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-hc-vig" cx="0.44" cy="0.42" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-hc-bg)"/>
+<rect width="640" height="520" fill="url(#ev1-hc-pool)"/>
+<!-- the counterpane, made up like a ward -->
+<path d="M0 246 Q 180 220 360 244 Q 500 262 640 234 L640 520 L0 520 Z" fill="url(#ev1-hc-quilt)"/>
+<g stroke="#9a9484" stroke-width="1.4" opacity="0.4" fill="none">
+  <path d="M0 300 Q 200 276 400 298 Q 540 312 640 288"/><path d="M0 378 Q 200 354 400 376"/><path d="M0 456 Q 200 432 400 454 Q 540 468 640 444"/>
+  <path d="M110 254 L128 520"/><path d="M300 246 L318 520"/><path d="M490 258 L508 520"/>
+</g>
+<g stroke="#fdfaf0" stroke-width="1.6" opacity="0.4" fill="none">
+  <path d="M0 294 Q 200 270 400 292"/><path d="M0 450 Q 200 426 400 448"/>
+</g>
+<path d="M0 246 Q 180 220 360 244 Q 500 262 640 234 L640 258 Q 500 286 360 268 Q 180 244 0 270 Z" fill="#fdfaf0" opacity="0.45"/>
+
+<ellipse cx="330" cy="416" rx="220" ry="42" fill="#000" opacity="0.6" filter="url(#ev1-hc-soft)"/>
+
+<!-- the bag -->
+<path d="M120 396 Q 106 300 154 244 Q 214 190 320 188 Q 428 190 488 244 Q 534 300 520 396 Q 320 424 120 396 Z" fill="url(#ev1-hc-leather)"/>
+<path d="M154 244 Q 214 190 320 188 Q 388 190 440 216 Q 372 206 306 214 Q 216 226 168 268 Z" fill="#6a6058" opacity="0.35"/>
+<path d="M140 340 Q 320 372 500 340 Q 320 388 140 340 Z" fill="#050404" opacity="0.6"/>
+<g fill="#5e564e" opacity="0.22">
+  <circle cx="180" cy="300" r="2.6"/><circle cx="230" cy="272" r="2.2"/><circle cx="288" cy="316" r="2.4"/><circle cx="350" cy="286" r="2"/>
+  <circle cx="410" cy="322" r="2.6"/><circle cx="462" cy="286" r="2.2"/><circle cx="212" cy="352" r="2"/><circle cx="330" cy="358" r="2.4"/>
+  <circle cx="440" cy="360" r="1.8"/><circle cx="150" cy="330" r="2"/>
+</g>
+<!-- the frame across the mouth of it -->
+<path d="M126 234 Q 320 196 514 234 L510 262 Q 320 224 130 262 Z" fill="url(#ev1-hc-brass)"/>
+<path d="M128 240 Q 320 202 512 240" fill="none" stroke="#fbeeb8" stroke-width="4" opacity="0.6"/>
+<path d="M130 258 Q 320 220 510 258" fill="none" stroke="#3d2c08" stroke-width="3.4" opacity="0.6"/>
+<!-- clasp -->
+<path d="M292 210 L348 210 L352 258 L288 258 Z" fill="url(#ev1-hc-brass)"/>
+<path d="M296 214 L344 214 L346 224 L294 224 Z" fill="#fbeeb8" opacity="0.55"/>
+<path d="M300 232 L340 232 L342 250 L298 250 Z" fill="#3d2c08" opacity="0.7"/>
+<circle cx="320" cy="241" r="7" fill="#f4dfa2" opacity="0.8"/>
+<!-- handles -->
+<path d="M232 214 Q 244 148 320 146 Q 396 148 408 214" fill="none" stroke="#191512" stroke-width="15" stroke-linecap="round"/>
+<path d="M236 206 Q 250 158 320 156 Q 390 158 404 206" fill="none" stroke="#6a6058" stroke-width="4" opacity="0.45"/>
+<path d="M254 190 Q 272 164 320 162" fill="none" stroke="#8e857a" stroke-width="3" opacity="0.35"/>
+<ellipse cx="236" cy="212" rx="13" ry="10" fill="url(#ev1-hc-brass)"/>
+<ellipse cx="404" cy="212" rx="13" ry="10" fill="url(#ev1-hc-brass)"/>
+<!-- straps and buckles, worn pale at the fold -->
+<path d="M176 268 L206 264 L214 404 L182 400 Z" fill="#241f1b"/>
+<path d="M178 274 L206 270" fill="none" stroke="#6a6058" stroke-width="3" opacity="0.5"/>
+<path d="M180 320 L210 316 L211 332 L181 336 Z" fill="url(#ev1-hc-brass)"/>
+<path d="M181 322 L209 318" fill="none" stroke="#fbeeb8" stroke-width="2" opacity="0.6"/>
+<path d="M434 264 L464 268 L458 402 L426 406 Z" fill="#241f1b"/>
+<path d="M436 270 L464 274" fill="none" stroke="#6a6058" stroke-width="3" opacity="0.45"/>
+<path d="M430 316 L460 312 L461 328 L431 332 Z" fill="url(#ev1-hc-brass)"/>
+<!-- corners rubbed back to the hide -->
+<path d="M120 396 Q 116 356 128 330 Q 128 372 144 396 Z" fill="#6e6156" opacity="0.5"/>
+<path d="M520 396 Q 524 356 512 330 Q 512 372 496 396 Z" fill="#6e6156" opacity="0.4"/>
+<path d="M150 386 Q 320 414 492 386" fill="none" stroke="#7d7268" stroke-width="3" opacity="0.35"/>
+<g stroke="#8e857a" stroke-width="1.2" opacity="0.3" fill="none">
+  <path d="M250 340 L290 334"/><path d="M370 344 L406 338"/><path d="M300 296 L332 292"/>
+</g>
+
+<rect width="640" height="520" fill="url(#ev1-hc-vig)"/>
+`,
+  },
+
+  /* The pharmacy label under a lens: whatever the doctor says, the date on it is
+     three days old. */
+  c1_halelie: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev1-hl-bg" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#3d3225"/><stop offset="0.55" stop-color="#1e1710"/><stop offset="1" stop-color="#0b0806"/>
+  </linearGradient>
+  <radialGradient id="ev1-hl-pool" cx="0.24" cy="0.1" r="0.88">
+    <stop offset="0" stop-color="#f6dda6" stop-opacity="0.32"/><stop offset="1" stop-color="#f6dda6" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="ev1-hl-glassbot" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#8a5518"/><stop offset="0.12" stop-color="#dda158"/><stop offset="0.45" stop-color="#5f3410"/>
+    <stop offset="0.82" stop-color="#3f2208"/><stop offset="1" stop-color="#a26c26"/>
+  </linearGradient>
+  <linearGradient id="ev1-hl-label" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#faf5e6"/><stop offset="0.5" stop-color="#e8e0c8"/><stop offset="1" stop-color="#a8a088"/>
+  </linearGradient>
+  <linearGradient id="ev1-hl-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#f7e3a8"/><stop offset="0.35" stop-color="#c39a34"/><stop offset="0.78" stop-color="#5d4310"/><stop offset="1" stop-color="#b48c2c"/>
+  </linearGradient>
+  <radialGradient id="ev1-hl-lens" cx="0.34" cy="0.28" r="0.85">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="0.45" stop-color="#e8f0ea" stop-opacity="0.1"/>
+    <stop offset="1" stop-color="#9fb0a6" stop-opacity="0.3"/>
+  </radialGradient>
+  <clipPath id="ev1-hl-clip"><circle cx="392" cy="256" r="146"/></clipPath>
+  <filter id="ev1-hl-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="ev1-hl-vig" cx="0.44" cy="0.42" r="0.74">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev1-hl-bg)"/>
+<rect width="640" height="520" fill="url(#ev1-hl-pool)"/>
+<g fill="none" stroke="#120c07" stroke-width="2.4" opacity="0.5">
+  <path d="M0 78 Q 200 66 400 78 Q 540 86 640 72"/><path d="M0 470 Q 200 458 400 470"/>
+</g>
+
+<!-- the bottle, lying on its side under the lens -->
+<ellipse cx="320" cy="404" rx="240" ry="40" fill="#000" opacity="0.6" filter="url(#ev1-hl-soft)"/>
+<path d="M-10 148 L520 128 Q 566 136 570 176 L572 300 Q 568 340 522 348 L-10 368 Z" fill="url(#ev1-hl-glassbot)"/>
+<path d="M-10 164 L516 144" fill="none" stroke="#f7d296" stroke-width="12" opacity="0.35"/>
+<path d="M-10 186 L512 166" fill="none" stroke="#ffe9c0" stroke-width="4" opacity="0.3"/>
+<path d="M-10 348 L520 328" fill="none" stroke="#2a1505" stroke-width="12" opacity="0.5"/>
+<path d="M520 128 Q 566 136 570 176 L572 300 Q 568 340 522 348 Q 552 320 550 240 Q 548 160 520 128 Z" fill="#251306" opacity="0.6"/>
+
+<!-- the label -->
+<path d="M40 176 Q 300 164 540 178 L544 326 Q 300 340 44 330 Z" fill="url(#ev1-hl-label)"/>
+<path d="M40 176 Q 300 164 540 178 L540 190 Q 300 176 42 188 Z" fill="#cec6a8" opacity="0.5"/>
+<g stroke="#6f6851" stroke-width="3" opacity="0.8" fill="none">
+  <path d="M72 216 L500 206"/><path d="M72 224 L500 214"/>
+</g>
+<g stroke="#8b8369" stroke-width="1.8" opacity="0.6" fill="none">
+  <path d="M72 250 L380 242"/><path d="M72 268 L440 260"/>
+</g>
+<rect x="238" y="282" width="200" height="34" fill="none" stroke="#6f6851" stroke-width="2" opacity="0.7"/>
+<g fill="#3d3a2c" opacity="0.8">
+  <rect x="252" y="292" width="14" height="15"/><rect x="272" y="292" width="10" height="15"/>
+  <rect x="300" y="292" width="12" height="15"/><rect x="318" y="292" width="14" height="15"/>
+  <rect x="352" y="291" width="10" height="15"/><rect x="368" y="291" width="13" height="15"/><rect x="387" y="291" width="11" height="15"/>
+</g>
+<g fill="#a08a5c" opacity="0.25">
+  <circle cx="120" cy="300" r="2.6"/><circle cx="470" cy="230" r="2.2"/><circle cx="200" cy="200" r="1.8"/>
+</g>
+<path d="M544 326 Q 520 310 496 322 Q 520 334 544 326 Z" fill="#cec6a8"/>
+<path d="M44 330 Q 300 340 544 326" fill="none" stroke="#7e7660" stroke-width="2.4" opacity="0.55"/>
+
+<!-- the lens, and what it does to the date -->
+<ellipse cx="404" cy="278" rx="150" ry="146" fill="#000" opacity="0.5" filter="url(#ev1-hl-soft)"/>
+<g clip-path="url(#ev1-hl-clip)">
+  <circle cx="392" cy="256" r="146" fill="#f6efdc"/>
+  <rect x="180" y="200" width="440" height="120" fill="none" stroke="#6f6851" stroke-width="5" opacity="0.7"/>
+  <g fill="#2b2820">
+    <rect x="222" y="232" width="34" height="52"/><rect x="272" y="232" width="24" height="52"/>
+    <rect x="332" y="230" width="28" height="52"/><rect x="376" y="230" width="34" height="52"/>
+    <rect x="452" y="228" width="24" height="52"/><rect x="492" y="228" width="32" height="52"/><rect x="540" y="228" width="26" height="52"/>
+  </g>
+  <g stroke="#8b8369" stroke-width="4" opacity="0.5" fill="none">
+    <path d="M180 160 L620 148"/><path d="M180 348 L620 336"/>
+  </g>
+  <g fill="#a08a5c" opacity="0.22"><circle cx="300" cy="330" r="6"/><circle cx="520" cy="180" r="5"/></g>
+  <circle cx="392" cy="256" r="146" fill="url(#ev1-hl-lens)"/>
+  <path d="M300 140 Q 236 176 232 250 Q 232 300 258 338 Q 272 258 316 200 Q 350 158 300 140 Z" fill="#ffffff" opacity="0.3"/>
+  <path d="M470 152 Q 520 178 536 220 Q 496 194 456 180 Z" fill="#ffffff" opacity="0.16"/>
+</g>
+<circle cx="392" cy="256" r="146" fill="none" stroke="url(#ev1-hl-brass)" stroke-width="16"/>
+<circle cx="392" cy="256" r="146" fill="none" stroke="#fbeeb8" stroke-width="3" opacity="0.45"/>
+<circle cx="392" cy="256" r="156" fill="none" stroke="#3d2c08" stroke-width="4" opacity="0.5"/>
+<path d="M280 132 Q 330 106 392 104" fill="none" stroke="#fdf3cc" stroke-width="6" opacity="0.6"/>
+<!-- the handle, turned from ebony -->
+<path d="M498 358 L582 452 Q 596 470 580 484 Q 562 496 550 478 L468 388 Z" fill="#1c1815"/>
+<path d="M502 364 L578 452" fill="none" stroke="#6e655c" stroke-width="4" opacity="0.5"/>
+<path d="M556 424 L586 396" fill="none" stroke="url(#ev1-hl-brass)" stroke-width="12"/>
+<path d="M556 420 L584 394" fill="none" stroke="#fbeeb8" stroke-width="2.4" opacity="0.5"/>
+<ellipse cx="570" cy="478" rx="16" ry="13" fill="#100d0b"/>
+<ellipse cx="564" cy="470" rx="6" ry="4" fill="#6e655c" opacity="0.5"/>
+<!-- the bright coin of light the lens throws on the label -->
+<ellipse cx="300" cy="360" rx="46" ry="16" fill="#fff3c8" opacity="0.3"/>
+<ellipse cx="300" cy="360" rx="20" ry="7" fill="#fffbe6" opacity="0.4"/>
+
+<rect width="640" height="520" fill="url(#ev1-hl-vig)"/>
+`,
+  },
 };

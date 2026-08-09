@@ -1165,6 +1165,15 @@
         open.addEventListener("click", () => openExhibit(cid));
         card.appendChild(open);
       }
+      // connecting should be reachable from where the evidence is read,
+      // not only from the board itself
+      const tie = el("button", "btn btn-quiet clue-tie", T("tieAction"));
+      tie.addEventListener("click", (e) => {
+        e.stopPropagation();
+        pendingTie = cid;
+        openTab("board");
+      });
+      card.appendChild(tie);
       t.appendChild(card);
     });
   }
@@ -1207,6 +1216,7 @@
      slip that is never dragged behaves exactly as before. */
   let redrawStrings = () => {};
   let onSlipTap = null;   // set by the board while it is open
+  let pendingTie = null;  // an exhibit chosen from the Evidence tab, waiting on the board
   function makeDraggable(node, cid) {
     let sx = 0, sy = 0, ox = 0, oy = 0, dragging = false, moved = false;
     node.addEventListener("pointerdown", (e) => {
@@ -1388,6 +1398,7 @@
       tying.node.classList.remove("tying");
       tying = null;
       if (a === b) return;
+      if (!G.links) G.links = [];
       const at = G.links.findIndex((L) => (L[0] === a && L[1] === b) || (L[0] === b && L[1] === a));
       if (at >= 0) G.links.splice(at, 1);
       else G.links.push([a, b]);
@@ -1439,6 +1450,16 @@
     };
     redrawStrings = drawAll;   // the resize handler is bound once, at boot
     requestAnimationFrame(() => { drawAll(); newDeductions = []; });
+    // an exhibit chosen from the Evidence tab arrives already picked up —
+    // synchronous, so nothing can slip in between the jump and the pickup
+    if (pendingTie) {
+      const node = board.querySelector('.pin-card[data-cid="' + pendingTie + '"]');
+      if (node) {
+        onSlipTap(pendingTie, node);
+        node.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" });
+      }
+      pendingTie = null;
+    }
   }
 
   /* ---------- accusation ---------- */
@@ -1758,7 +1779,7 @@
 
   function bootCase(base, parts) {
     C = localizeCase(base);
-    G = { caseId: base.id, elapsed: 0, loc: C.locations[0].id, clues: [], searched: [], asked: [], deductions: [], over: false };
+    G = { caseId: base.id, elapsed: 0, loc: C.locations[0].id, clues: [], searched: [], asked: [], deductions: [], over: false, links: [], notes: "" };
     if (parts.includes("demo")) {
       C.locations.forEach((l) => l.hotspots.forEach((h) => {
         if (h.requiresClue && !G.clues.includes(h.requiresClue)) return;

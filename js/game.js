@@ -1801,6 +1801,13 @@
   }
 
   document.body.classList.add("has-atmos");
+  // Installable app: the worker makes every case you have opened work
+  // offline. file:// cannot register workers, and doesn't need to — the
+  // files are already local there.
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    navigator.serviceWorker.register("sw.js").catch(function () { /* offline still fine without it */ });
+  }
+
   let saved = null;
   try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
   const bootHash = location.hash.slice(1).split(",");

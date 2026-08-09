@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="ic-folder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d3b88a"/><stop offset="1" stop-color="#a8895b"/>
+    </linearGradient>
+    <radialGradient id="ic-glow" cx="0.5" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#2a2118"/><stop offset="1" stop-color="#14100b"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#ic-glow)"/>
+  <path d="M24 44 L24 36 Q24 32 28 32 L52 32 L58 40 L100 40 Q104 40 104 44 L104 92 Q104 96 100 96 L28 96 Q24 96 24 92 Z" fill="url(#ic-folder)"/>
+  <path d="M24 50 L104 50" stroke="#8d734b" stroke-width="1.4"/>
+  <g transform="rotate(-12 64 74)">
+    <rect x="38" y="64" width="52" height="20" rx="3" fill="none" stroke="#a8352a" stroke-width="4"/>
+    <path d="M45 74 L83 74" stroke="#a8352a" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+  </g>
+</svg>

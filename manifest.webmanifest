@@ -1,0 +1,14 @@
+{
+  "name": "The Calloway Files",
+  "short_name": "Calloway",
+  "description": "A noir detective mystery game. Four cases, two languages, one long night at a time.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1B1712",
+  "theme_color": "#1B1712",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -277,9 +277,17 @@
   }
 
   /* ---------- typewriter ---------- */
+  /* `done` must fire exactly once. It used to fire on every skip() with no
+     guard for the text having already finished, and the click-to-skip
+     handlers stay bound to the whole modal — so once the typing completed,
+     every further click re-ran the callback. In the discovery modal that
+     callback appends the exhibit cards, so the clue appeared again on each
+     click; in the briefing and interrogation it re-appended paragraphs. */
   function typeInto(node, text, speed, done) {
+    let fired = false;
+    const finish = () => { if (fired) return; fired = true; if (done) done(); };
     node.textContent = "";
-    if (REDUCED || speed <= 0) { node.textContent = text; if (done) done(); return { skip: () => {} }; }
+    if (REDUCED || speed <= 0) { node.textContent = text; finish(); return { skip: () => {} }; }
     let i = 0, stopped = false;
     const tick = () => {
       if (stopped) return;
@@ -288,10 +296,10 @@
       node.textContent = text.slice(0, i);
       SFX.play("key");
       if (i < text.length) setTimeout(tick, speed);
-      else if (done) done();
+      else finish();
     };
     tick();
-    return { skip: () => { stopped = true; node.textContent = text; if (done) done(); } };
+    return { skip: () => { stopped = true; node.textContent = text; finish(); } };
   }
 
   /* ---------- feedback: the cost of a minute ----------

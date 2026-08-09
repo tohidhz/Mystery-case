@@ -3870,6 +3870,632 @@ window.CLUE_ART.meridian = {
 
   /* CORLISS'S CONFESSION: the inspector's notebook, the page of shorthand
      it took, and the brandy he set down before he stopped being useful. */
+  /* THE SIGNPOST: the dining till drawer, open for the night count. Six hooks,
+     five keys, one bare — and the steward's pencilled log beside the coin. */
+  c4_lockerkeynote: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev4-till-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#251d15"/><stop offset="0.6" stop-color="#120e09"/><stop offset="1" stop-color="#070604"/>
+  </linearGradient>
+  <linearGradient id="ev4-till-wood" x1="0" y1="0" x2="0.25" y2="1">
+    <stop offset="0" stop-color="#6d4f2c"/><stop offset="0.34" stop-color="#4a3521"/>
+    <stop offset="0.72" stop-color="#2f2116"/><stop offset="1" stop-color="#170f0a"/>
+  </linearGradient>
+  <linearGradient id="ev4-till-floor" x1="0.1" y1="0" x2="0.7" y2="1">
+    <stop offset="0" stop-color="#3f2d1c"/><stop offset="0.45" stop-color="#2c1f14"/><stop offset="1" stop-color="#160f09"/>
+  </linearGradient>
+  <linearGradient id="ev4-till-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4a3718"/><stop offset="0.2" stop-color="#e2c47c"/><stop offset="0.48" stop-color="#8a6c30"/>
+    <stop offset="0.74" stop-color="#f4e0a8"/><stop offset="1" stop-color="#3d2d12"/>
+  </linearGradient>
+  <linearGradient id="ev4-till-paper" x1="0.05" y1="0" x2="0.95" y2="0.9">
+    <stop offset="0" stop-color="#fbf6e6"/><stop offset="0.3" stop-color="#ece2c6"/>
+    <stop offset="0.7" stop-color="#c8bd9c"/><stop offset="1" stop-color="#948a70"/>
+  </linearGradient>
+  <linearGradient id="ev4-till-steel" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#d6dbdf"/><stop offset="0.34" stop-color="#909799"/>
+    <stop offset="0.7" stop-color="#5c6366"/><stop offset="1" stop-color="#2a2f31"/>
+  </linearGradient>
+  <filter id="ev4-till-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev4-till-vig" cx="0.44" cy="0.42" r="0.78">
+    <stop offset="0.46" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.86"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev4-till-bg)"/>
+
+<!-- looking down into the drawer: back board, floor, and the near lip -->
+<path d="M40 60 L604 46 L618 214 L28 226 Z" fill="url(#ev4-till-wood)"/>
+<path d="M40 60 L604 46 L606 66 L42 80 Z" fill="#9a7444" opacity="0.35"/>
+<path d="M28 226 L618 214 L636 470 L12 486 Z" fill="url(#ev4-till-floor)"/>
+<path d="M28 226 L618 214 L619 238 L29 250 Z" fill="#120c07" opacity="0.7"/>
+<g opacity="0.18" stroke="#8a6134" stroke-width="1.6" fill="none">
+  <path d="M40 300 Q 320 288 620 276"/><path d="M36 380 Q 320 366 628 352"/>
+</g>
+<path d="M12 486 L636 470 L640 520 L0 520 Z" fill="#0a0705"/>
+<path d="M12 486 L636 470 L636 478 L12 494 Z" fill="#7a5a30" opacity="0.4"/>
+
+<!-- the pantry key rail, screwed to the back board -->
+<path d="M74 122 L570 110 L570 128 L74 140 Z" fill="url(#ev4-till-brass)"/>
+<path d="M74 122 L570 110 L570 116 L74 128 Z" fill="#f8ecc4" opacity="0.55"/>
+<path d="M74 134 L570 122 L570 128 L74 140 Z" fill="#2c2011" opacity="0.6"/>
+<path d="M62 116 L84 115 L84 148 L62 149 Z" fill="#6b5326"/>
+<path d="M560 106 L582 105 L582 138 L560 139 Z" fill="#6b5326"/>
+<circle cx="73" cy="132" r="3.4" fill="#e2c47c" opacity="0.7"/>
+<circle cx="571" cy="122" r="3.4" fill="#e2c47c" opacity="0.7"/>
+
+<!-- six hooks. Five carry keys. One does not. -->
+<g fill="url(#ev4-till-brass)">
+  <path d="M108 138 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+  <path d="M186 136 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+  <path d="M264 134 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+  <path d="M342 132 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+  <path d="M420 130 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+  <path d="M498 128 l9 0 l0 16 q0 12 -13 12 l0 -8 q4 0 4 -5 z"/>
+</g>
+<g fill="#fbeec6" opacity="0.5">
+  <path d="M108 138 l3 0 l0 26 l-3 0 z"/><path d="M186 136 l3 0 l0 26 l-3 0 z"/>
+  <path d="M264 134 l3 0 l0 26 l-3 0 z"/><path d="M342 132 l3 0 l0 26 l-3 0 z"/>
+  <path d="M420 130 l3 0 l0 26 l-3 0 z"/><path d="M498 128 l3 0 l0 26 l-3 0 z"/>
+</g>
+
+<!-- the keys the rail still has: bow, shank, ward -->
+<g opacity="0.4" fill="#0b0805">
+  <path d="M116 168 l26 0 l0 82 l-26 0 z"/><path d="M194 166 l26 0 l0 82 l-26 0 z"/>
+  <path d="M272 164 l26 0 l0 82 l-26 0 z"/><path d="M350 162 l26 0 l0 82 l-26 0 z"/>
+  <path d="M428 160 l26 0 l0 82 l-26 0 z"/>
+</g>
+<g fill="url(#ev4-till-brass)">
+  <circle cx="112" cy="176" r="14"/><rect x="106" y="188" width="12" height="56"/><rect x="118" y="228" width="12" height="9"/>
+  <circle cx="190" cy="174" r="14"/><rect x="184" y="186" width="12" height="56"/><rect x="196" y="226" width="12" height="9"/>
+  <circle cx="268" cy="172" r="14"/><rect x="262" y="184" width="12" height="56"/><rect x="274" y="224" width="12" height="9"/>
+  <circle cx="346" cy="170" r="14"/><rect x="340" y="182" width="12" height="56"/><rect x="352" y="222" width="12" height="9"/>
+  <circle cx="424" cy="168" r="14"/><rect x="418" y="180" width="12" height="56"/><rect x="430" y="220" width="12" height="9"/>
+</g>
+<g fill="#1a1109">
+  <circle cx="112" cy="176" r="6"/><circle cx="190" cy="174" r="6"/><circle cx="268" cy="172" r="6"/>
+  <circle cx="346" cy="170" r="6"/><circle cx="424" cy="168" r="6"/>
+</g>
+<g fill="#fbeec6" opacity="0.5">
+  <rect x="106" y="188" width="3.4" height="56"/><rect x="184" y="186" width="3.4" height="56"/>
+  <rect x="262" y="184" width="3.4" height="56"/><rect x="340" y="182" width="3.4" height="56"/>
+  <rect x="418" y="180" width="3.4" height="56"/>
+</g>
+
+<!-- and the hook that carries nothing at all -->
+<ellipse cx="500" cy="196" rx="30" ry="42" fill="#000" opacity="0.35" filter="url(#ev4-till-soft)"/>
+<path d="M496 156 q10 6 8 14" fill="none" stroke="#fff2c4" stroke-width="2.6" opacity="0.65"/>
+<path d="M470 176 L536 172" stroke="#5a4225" stroke-width="1.4" opacity="0.4" fill="none"/>
+
+<!-- banded chits, sorted by seating -->
+<path d="M62 300 L246 288 L252 404 L68 420 Z" fill="#1a1109" opacity="0.5"/>
+<path d="M56 292 L240 280 L246 396 L62 412 Z" fill="url(#ev4-till-paper)"/>
+<path d="M56 292 L240 280 L241 292 L57 304 Z" fill="#fdfaf0" opacity="0.6"/>
+<path d="M62 286 L246 274 L250 300 L66 314 Z" fill="#e6dcc0"/>
+<path d="M68 280 L252 268 L256 296 L72 310 Z" fill="#f4ecd6"/>
+<path d="M68 280 L252 268 L253 276 L69 288 Z" fill="#ffffff" opacity="0.45"/>
+<path d="M134 276 L152 275 L158 402 L140 404 Z" fill="#8a5a24" opacity="0.85"/>
+<path d="M134 276 L152 275 L152.6 282 L134.6 283 Z" fill="#c08c46" opacity="0.6"/>
+<g stroke="#8d7c62" stroke-width="2" opacity="0.85" fill="none">
+  <path d="M78 296 L128 292"/><path d="M78 310 L124 306"/><path d="M170 288 L240 283"/>
+  <path d="M170 302 L232 297"/><path d="M74 340 L128 336"/><path d="M170 332 L236 327"/>
+  <path d="M74 366 L120 362"/><path d="M170 358 L228 353"/>
+</g>
+<g stroke="#a8352a" stroke-width="2.4" opacity="0.8" fill="none">
+  <path d="M212 296 L238 294"/><path d="M206 340 L234 338"/>
+</g>
+
+<!-- the key log: ruled, pencilled, and one line struck twice -->
+<path d="M300 318 L586 302 L594 434 L308 452 Z" fill="#1a1109" opacity="0.5"/>
+<path d="M296 310 L582 294 L590 426 L304 444 Z" fill="url(#ev4-till-paper)"/>
+<path d="M296 310 L582 294 L583 306 L297 322 Z" fill="#fdfaf0" opacity="0.55"/>
+<path d="M540 296 L582 294 L590 426 L548 430 Z" fill="#a2977c" opacity="0.25"/>
+<g stroke="#a89d82" stroke-width="1.4" opacity="0.7" fill="none">
+  <path d="M304 336 L584 320"/><path d="M306 362 L586 346"/><path d="M308 388 L588 372"/><path d="M310 414 L590 398"/>
+</g>
+<path d="M356 306 L360 428" stroke="#a8352a" stroke-width="1.8" opacity="0.55" fill="none"/>
+<g stroke="#4a4438" stroke-width="2.2" opacity="0.9" fill="none">
+  <path d="M314 330 q 8 5 16 0 q 8 -5 16 0"/>
+  <path d="M372 326 q 12 6 24 0 q 12 -6 24 0 q 10 6 20 0 q 12 -6 24 0"/>
+  <path d="M372 352 q 12 6 24 0 q 12 -6 24 0 q 10 6 20 0"/>
+  <path d="M314 356 q 8 5 16 0 q 8 -5 16 0"/>
+  <path d="M372 378 q 12 6 24 0 q 12 -6 24 0 q 10 6 20 0 q 12 -6 22 0"/>
+  <path d="M314 382 q 8 5 16 0 q 8 -5 16 0"/>
+</g>
+<g stroke="#2e2a22" stroke-width="3" opacity="0.95" fill="none">
+  <path d="M372 404 q 14 7 28 0 q 14 -7 28 0 q 12 7 24 0"/>
+  <path d="M370 414 L458 409"/><path d="M370 419 L456 414"/>
+</g>
+<path d="M478 396 L566 390 L568 400 L480 406 Z" fill="#5f6b4a" opacity="0.9"/>
+<path d="M478 396 L566 390 L566.6 393 L478.6 399 Z" fill="#8d9a6c" opacity="0.6"/>
+<path d="M566 390 L580 389 L582 398 L568 400 Z" fill="#c9b48c"/>
+<path d="M580 389 L588 391 L586 396 L582 398 Z" fill="#3a332a"/>
+
+<!-- coin, counted and left in its well -->
+<ellipse cx="228" cy="452" rx="46" ry="14" fill="#000" opacity="0.45" filter="url(#ev4-till-soft)"/>
+<ellipse cx="222" cy="446" rx="34" ry="11" fill="#8a6c30"/>
+<ellipse cx="222" cy="440" rx="34" ry="11" fill="#b9963f"/>
+<ellipse cx="222" cy="434" rx="34" ry="11" fill="#d6b468"/>
+<ellipse cx="212" cy="432" rx="16" ry="4" fill="#f4e0a8" opacity="0.6"/>
+<ellipse cx="302" cy="458" rx="28" ry="9" fill="#7a756a"/>
+<ellipse cx="302" cy="452" rx="28" ry="9" fill="#cfc6b2"/>
+<ellipse cx="294" cy="450" rx="13" ry="3.4" fill="#f2eee4" opacity="0.6"/>
+
+<!-- the lamp, raking the rail and the empty hook -->
+<path d="M74 122 Q 320 112 570 110" fill="none" stroke="#fff0cc" stroke-width="3" opacity="0.26"/>
+<ellipse cx="300" cy="220" rx="270" ry="180" fill="#ffe0a4" opacity="0.05"/>
+
+<rect width="640" height="520" fill="url(#ev4-till-vig)"/>
+`,
+  },
+
+  /* THE FIRST DOOR: the flat steel key that rode behind the hunter, laid out
+     on the dark waistcoat cloth with the watch and its chain. */
+  c4_casekey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev4-wkey-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#221c16"/><stop offset="0.6" stop-color="#110e0a"/><stop offset="1" stop-color="#060504"/>
+  </linearGradient>
+  <linearGradient id="ev4-wkey-cloth" x1="0.05" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#3d362c"/><stop offset="0.3" stop-color="#2a251e"/>
+    <stop offset="0.7" stop-color="#191612"/><stop offset="1" stop-color="#0d0b09"/>
+  </linearGradient>
+  <linearGradient id="ev4-wkey-steel" x1="0.05" y1="0" x2="0.7" y2="1">
+    <stop offset="0" stop-color="#f0f4f6"/><stop offset="0.22" stop-color="#b6bec2"/>
+    <stop offset="0.46" stop-color="#798185"/><stop offset="0.72" stop-color="#aeb6ba"/>
+    <stop offset="1" stop-color="#343a3d"/>
+  </linearGradient>
+  <linearGradient id="ev4-wkey-brass" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4e3a17"/><stop offset="0.2" stop-color="#e2c47c"/><stop offset="0.5" stop-color="#8a6c30"/>
+    <stop offset="0.76" stop-color="#f4e0a8"/><stop offset="1" stop-color="#3d2d12"/>
+  </linearGradient>
+  <radialGradient id="ev4-wkey-dial" cx="0.36" cy="0.3" r="0.8">
+    <stop offset="0" stop-color="#f6f0dc"/><stop offset="0.6" stop-color="#dfd5b8"/><stop offset="1" stop-color="#a89c7e"/>
+  </radialGradient>
+  <filter id="ev4-wkey-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev4-wkey-vig" cx="0.44" cy="0.44" r="0.76">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev4-wkey-bg)"/>
+
+<!-- the waistcoat, opened out flat under the lamp -->
+<path d="M0 96 L640 62 L640 520 L0 520 Z" fill="url(#ev4-wkey-cloth)"/>
+<path d="M0 96 L640 62 L640 82 L0 116 Z" fill="#544a3c" opacity="0.4"/>
+<g opacity="0.14" stroke="#9a8f78" stroke-width="1.4" fill="none">
+  <path d="M0 170 Q 320 146 640 128"/><path d="M0 260 Q 320 236 640 216"/>
+  <path d="M0 350 Q 320 326 640 304"/><path d="M0 440 Q 320 416 640 392"/>
+</g>
+<path d="M0 300 Q 180 268 402 258 L406 300 Q 190 310 0 342 Z" fill="#0a0907" opacity="0.35"/>
+
+<!-- the welt pocket the key came out of -->
+<path d="M56 246 L336 226 L340 268 L60 290 Z" fill="#100e0b"/>
+<path d="M56 246 L336 226 L337 238 L57 258 Z" fill="#6b6153" opacity="0.55"/>
+<path d="M60 284 L340 262 L342 274 L62 296 Z" fill="#050403" opacity="0.7"/>
+<path d="M66 250 L330 231 L331 240 L67 259 Z" fill="#000" opacity="0.6"/>
+
+<!-- the hunter, still running, four minutes fast -->
+<ellipse cx="470" cy="380" rx="112" ry="34" fill="#000" opacity="0.5" filter="url(#ev4-wkey-soft)"/>
+<circle cx="462" cy="332" r="104" fill="url(#ev4-wkey-brass)"/>
+<circle cx="462" cy="332" r="92" fill="#2c2011"/>
+<circle cx="462" cy="332" r="86" fill="url(#ev4-wkey-dial)"/>
+<circle cx="462" cy="332" r="86" fill="none" stroke="#8a7c5c" stroke-width="2"/>
+<circle cx="462" cy="332" r="74" fill="none" stroke="#b0a486" stroke-width="1.2" opacity="0.7"/>
+<g stroke="#2e2a20" stroke-width="4" stroke-linecap="round">
+  <path d="M462 254 L462 268"/><path d="M540 332 L526 332"/><path d="M462 410 L462 396"/><path d="M384 332 L398 332"/>
+</g>
+<g stroke="#3b362a" stroke-width="2.4" stroke-linecap="round" opacity="0.8">
+  <path d="M501 264 L494 276"/><path d="M530 293 L518 300"/><path d="M530 371 L518 364"/>
+  <path d="M501 400 L494 388"/><path d="M423 400 L430 388"/><path d="M394 371 L406 364"/>
+  <path d="M394 293 L406 300"/><path d="M423 264 L430 276"/>
+</g>
+<path d="M462 332 L500 288" stroke="#1c1913" stroke-width="6" stroke-linecap="round"/>
+<path d="M462 332 L462 262" stroke="#1c1913" stroke-width="4" stroke-linecap="round"/>
+<path d="M462 332 L442 386" stroke="#8a2f26" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="462" cy="332" r="6" fill="#1c1913"/>
+<circle cx="462" cy="332" r="2.4" fill="#8a2f26"/>
+<path d="M398 268 q 34 -40 92 -44" fill="none" stroke="#ffffff" stroke-width="7" opacity="0.16"/>
+<path d="M382 336 q 4 -60 52 -94" fill="none" stroke="#fff6dc" stroke-width="3" opacity="0.34"/>
+<rect x="448" y="212" width="28" height="20" rx="6" fill="url(#ev4-wkey-brass)"/>
+<circle cx="462" cy="204" r="14" fill="none" stroke="#8a6c30" stroke-width="7"/>
+<path d="M452 196 q 10 -8 20 -1" fill="none" stroke="#f4e0a8" stroke-width="2.2" opacity="0.7"/>
+
+<!-- the chain, running back toward the buttonhole -->
+<g fill="url(#ev4-wkey-brass)">
+  <circle cx="440" cy="186" r="7"/><circle cx="418" cy="176" r="7"/><circle cx="396" cy="168" r="7"/>
+  <circle cx="374" cy="162" r="7"/><circle cx="352" cy="158" r="7"/><circle cx="330" cy="156" r="7"/>
+  <circle cx="308" cy="156" r="7"/><circle cx="286" cy="158" r="7"/>
+</g>
+<g fill="#fbeec6" opacity="0.5">
+  <circle cx="438" cy="183" r="2.4"/><circle cx="416" cy="173" r="2.4"/><circle cx="394" cy="165" r="2.4"/>
+  <circle cx="372" cy="159" r="2.4"/><circle cx="350" cy="155" r="2.4"/><circle cx="328" cy="153" r="2.4"/>
+</g>
+
+<!-- THE KEY: flat, machined, squared bow, a maker's shoulder -->
+<path d="M96 400 L318 372 L330 412 L108 442 Z" fill="#000" opacity="0.5" filter="url(#ev4-wkey-soft)"/>
+<path d="M84 356 L152 348 L156 402 L88 410 Z" fill="url(#ev4-wkey-steel)"/>
+<path d="M100 368 L138 363 L140 388 L102 393 Z" fill="#14120f"/>
+<path d="M100 368 L138 363 L138.6 368 L100.6 373 Z" fill="#5c6366" opacity="0.7"/>
+<path d="M152 362 L166 360 L170 398 L156 400 Z" fill="#7d858a"/>
+<path d="M166 360 L184 358 L188 396 L170 398 Z" fill="url(#ev4-wkey-steel)"/>
+<path d="M184 358 L306 342 L310 380 L188 396 Z" fill="url(#ev4-wkey-steel)"/>
+<path d="M184 358 L306 342 L306.6 350 L184.6 366 Z" fill="#f4f8fa" opacity="0.55"/>
+<path d="M188 388 L310 372 L310.6 380 L188.6 396 Z" fill="#20262a" opacity="0.7"/>
+<path d="M240 380 L268 376 L272 412 L244 416 Z" fill="url(#ev4-wkey-steel)"/>
+<path d="M240 380 L268 376 L268.6 384 L240.6 388 Z" fill="#e2e8ea" opacity="0.5"/>
+<path d="M282 372 L306 369 L310 400 L286 403 Z" fill="url(#ev4-wkey-steel)"/>
+<path d="M282 372 L306 369 L306.6 377 L282.6 380 Z" fill="#e2e8ea" opacity="0.5"/>
+<path d="M306 342 L326 340 L330 378 L310 380 Z" fill="#4e565a"/>
+<path d="M306 342 L326 340 L326.6 348 L306.6 350 Z" fill="#aab2b6" opacity="0.6"/>
+<path d="M84 356 L152 348 L152.6 356 L84.6 364 Z" fill="#ffffff" opacity="0.5"/>
+<path d="M88 402 L156 394 L156.6 402 L88.6 410 Z" fill="#1c2124" opacity="0.75"/>
+<path d="M92 358 q 26 -6 56 -8" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.4"/>
+<path d="M196 362 q 48 -8 104 -14" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.35"/>
+
+<!-- lamp, and the shadow the cloth throws back -->
+<ellipse cx="200" cy="240" rx="260" ry="190" fill="#ffe0a4" opacity="0.05"/>
+<ellipse cx="470" cy="300" rx="170" ry="150" fill="#ffe8bc" opacity="0.04"/>
+
+<rect width="640" height="520" fill="url(#ev4-wkey-vig)"/>
+`,
+  },
+
+  /* THE SECOND DOOR: what the attaché gave up — the road's own locker key,
+     yellow bone fob, company die stamped in the shank. */
+  c4_lockerkey: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev4-fob-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#24190f"/><stop offset="0.6" stop-color="#120c07"/><stop offset="1" stop-color="#070504"/>
+  </linearGradient>
+  <linearGradient id="ev4-fob-cedar" x1="0.05" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#a8703c"/><stop offset="0.3" stop-color="#7e5029"/>
+    <stop offset="0.68" stop-color="#57361c"/><stop offset="1" stop-color="#2c1a0d"/>
+  </linearGradient>
+  <linearGradient id="ev4-fob-leather" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#332921"/><stop offset="0.4" stop-color="#211a15"/><stop offset="1" stop-color="#0d0a08"/>
+  </linearGradient>
+  <linearGradient id="ev4-fob-bone" x1="0.05" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#f6efd6"/><stop offset="0.28" stop-color="#e3d7b0"/>
+    <stop offset="0.62" stop-color="#c3b389"/><stop offset="1" stop-color="#8b7c58"/>
+  </linearGradient>
+  <linearGradient id="ev4-fob-brass" x1="0" y1="0" x2="0.34" y2="1">
+    <stop offset="0" stop-color="#4a3718"/><stop offset="0.18" stop-color="#e6ca82"/><stop offset="0.46" stop-color="#8a6c30"/>
+    <stop offset="0.72" stop-color="#f6e2ac"/><stop offset="1" stop-color="#3d2d12"/>
+  </linearGradient>
+  <filter id="ev4-fob-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev4-fob-vig" cx="0.44" cy="0.42" r="0.78">
+    <stop offset="0.46" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.87"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev4-fob-bg)"/>
+
+<!-- inside the lid: cedar lining, and the leather gusset below it -->
+<path d="M0 70 L640 48 L640 330 L0 356 Z" fill="url(#ev4-fob-cedar)"/>
+<path d="M0 70 L640 48 L640 66 L0 88 Z" fill="#d29c5e" opacity="0.4"/>
+<g opacity="0.24" stroke="#3a2311" stroke-width="2" fill="none">
+  <path d="M0 120 Q 320 100 640 84"/><path d="M0 178 Q 320 156 640 138"/>
+  <path d="M0 236 Q 320 212 640 192"/><path d="M0 294 Q 320 268 640 246"/>
+</g>
+<g opacity="0.2" stroke="#c08b4e" stroke-width="1.2" fill="none">
+  <path d="M0 148 Q 320 126 640 110"/><path d="M0 264 Q 320 240 640 218"/>
+</g>
+<path d="M0 356 L640 330 L640 520 L0 520 Z" fill="url(#ev4-fob-leather)"/>
+<path d="M0 356 L640 330 L640 346 L0 372 Z" fill="#6a5a48" opacity="0.45"/>
+<g opacity="0.12" stroke="#b09a7c" stroke-width="1.2" fill="none">
+  <path d="M0 420 Q 320 396 640 376"/><path d="M0 470 Q 320 446 640 424"/>
+</g>
+<g stroke="#7a6448" stroke-width="2.2" opacity="0.4" stroke-dasharray="9 7" fill="none">
+  <path d="M0 382 Q 320 358 640 338"/>
+</g>
+
+<!-- THE FOB: bone, yellowed with twenty years of handling -->
+<ellipse cx="230" cy="332" rx="132" ry="40" fill="#000" opacity="0.55" filter="url(#ev4-fob-soft)"/>
+<path d="M96 190 q 76 -30 148 6 q 26 20 14 52 q -18 44 -84 46 q -70 2 -86 -42 q -12 -38 8 -62 Z" fill="url(#ev4-fob-bone)"/>
+<path d="M96 190 q 76 -30 148 6 q 8 6 12 16 q -80 -34 -164 -4 q 0 -12 4 -18 Z" fill="#fdf8e6" opacity="0.6"/>
+<path d="M186 200 q 64 22 58 62 q -14 40 -76 40 q 60 -14 66 -56 q 2 -30 -48 -46 Z" fill="#8b7c58" opacity="0.45"/>
+<ellipse cx="208" cy="222" rx="26" ry="20" fill="#a89670" opacity="0.55"/>
+<ellipse cx="208" cy="222" rx="16" ry="12" fill="#3a3122"/>
+<ellipse cx="204" cy="218" rx="7" ry="5" fill="#241d13"/>
+<g opacity="0.3" stroke="#8a7a54" stroke-width="1.6" fill="none">
+  <path d="M120 240 q 30 12 60 8"/><path d="M124 262 q 34 14 70 8"/><path d="M132 284 q 30 12 60 6"/>
+</g>
+<g opacity="0.35" stroke="#6d5f42" stroke-width="1.2" fill="none">
+  <path d="M108 214 q 8 30 4 60"/><path d="M136 202 q 6 34 2 68"/>
+</g>
+
+<!-- THE KEY: the road's own die stamped into the shank -->
+<path d="M262 268 L520 240 L528 288 L272 318 Z" fill="#000" opacity="0.5" filter="url(#ev4-fob-soft)"/>
+<circle cx="256" cy="240" r="16" fill="url(#ev4-fob-brass)"/>
+<path d="M262 238 L316 232 L320 268 L266 274 Z" fill="url(#ev4-fob-brass)"/>
+<path d="M262 238 L316 232 L316.6 242 L262.6 248 Z" fill="#fbeec6" opacity="0.55"/>
+<path d="M266 264 L320 258 L320.6 268 L266.6 274 Z" fill="#2c2011" opacity="0.7"/>
+<path d="M316 232 L520 210 L526 250 L320 268 Z" fill="url(#ev4-fob-brass)"/>
+<path d="M316 232 L520 210 L520.6 222 L316.6 244 Z" fill="#fbeec6" opacity="0.5"/>
+<path d="M320 256 L526 238 L526.6 250 L320.6 268 Z" fill="#2c2011" opacity="0.65"/>
+<path d="M446 246 L482 242 L488 296 L452 300 Z" fill="url(#ev4-fob-brass)"/>
+<path d="M446 246 L482 242 L482.6 254 L446.6 258 Z" fill="#fbeec6" opacity="0.5"/>
+<path d="M498 240 L522 238 L528 284 L504 286 Z" fill="url(#ev4-fob-brass)"/>
+<path d="M498 240 L522 238 L522.6 250 L498.6 252 Z" fill="#fbeec6" opacity="0.5"/>
+<path d="M520 210 L546 208 L552 248 L526 250 Z" fill="#5f4a1f"/>
+<path d="M520 210 L546 208 L546.6 220 L520.6 222 Z" fill="#c8a75c" opacity="0.5"/>
+<!-- the company die, struck into the flat of the shank -->
+<ellipse cx="380" cy="242" rx="30" ry="17" fill="#4e3a17" opacity="0.8"/>
+<ellipse cx="380" cy="240" rx="26" ry="14" fill="none" stroke="#f0d89a" stroke-width="1.6" opacity="0.6"/>
+<g stroke="#2c2011" stroke-width="3" opacity="0.85" fill="none">
+  <path d="M366 238 L394 236"/><path d="M368 246 L392 244"/>
+</g>
+<path d="M366 232 q 14 -6 28 -1" fill="none" stroke="#fbeec6" stroke-width="1.4" opacity="0.5"/>
+<!-- the ring joining fob to key -->
+<circle cx="252" cy="238" r="22" fill="none" stroke="#8a6c30" stroke-width="7"/>
+<path d="M238 224 q 14 -10 28 -2" fill="none" stroke="#f6e2ac" stroke-width="2.4" opacity="0.65"/>
+<path d="M240 254 q 12 8 24 2" fill="none" stroke="#3d2d12" stroke-width="2" opacity="0.7"/>
+
+<!-- lamp -->
+<path d="M96 190 q 76 -30 148 6" fill="none" stroke="#fff4d6" stroke-width="3" opacity="0.3"/>
+<ellipse cx="250" cy="220" rx="250" ry="180" fill="#ffe0a4" opacity="0.06"/>
+
+<rect width="640" height="520" fill="url(#ev4-fob-vig)"/>
+`,
+  },
+
+  /* AND THE OTHER THING IN THE CASE: a second banded envelope of flimsies,
+     seal unbroken, the same brown paper as the eleven years next door. */
+  c4_carbons: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev4-carb-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#241c14"/><stop offset="0.6" stop-color="#120e09"/><stop offset="1" stop-color="#070604"/>
+  </linearGradient>
+  <linearGradient id="ev4-carb-cedar" x1="0.05" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#9a6836"/><stop offset="0.34" stop-color="#6f4724"/>
+    <stop offset="0.72" stop-color="#4a2f18"/><stop offset="1" stop-color="#26160b"/>
+  </linearGradient>
+  <linearGradient id="ev4-carb-kraft" x1="0.06" y1="0" x2="0.94" y2="0.9">
+    <stop offset="0" stop-color="#c9a469"/><stop offset="0.28" stop-color="#ae8a52"/>
+    <stop offset="0.66" stop-color="#8a6a3c"/><stop offset="1" stop-color="#5b452a"/>
+  </linearGradient>
+  <linearGradient id="ev4-carb-flimsy" x1="0.05" y1="0" x2="0.95" y2="0.9">
+    <stop offset="0" stop-color="#f2ecd8"/><stop offset="0.3" stop-color="#ddd3b6"/>
+    <stop offset="0.7" stop-color="#b8ad8e"/><stop offset="1" stop-color="#877d64"/>
+  </linearGradient>
+  <linearGradient id="ev4-carb-wax" x1="0.1" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#c8544a"/><stop offset="0.34" stop-color="#9b2f27"/>
+    <stop offset="0.72" stop-color="#6d1c17"/><stop offset="1" stop-color="#3c0d0a"/>
+  </linearGradient>
+  <filter id="ev4-carb-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev4-carb-vig" cx="0.44" cy="0.42" r="0.78">
+    <stop offset="0.46" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.86"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev4-carb-bg)"/>
+
+<!-- the cedar bed of the case -->
+<path d="M0 66 L640 42 L640 520 L0 520 Z" fill="url(#ev4-carb-cedar)"/>
+<path d="M0 66 L640 42 L640 60 L0 84 Z" fill="#cf9758" opacity="0.4"/>
+<g opacity="0.22" stroke="#341f0f" stroke-width="2" fill="none">
+  <path d="M0 130 Q 320 108 640 90"/><path d="M0 210 Q 320 186 640 164"/>
+  <path d="M0 300 Q 320 274 640 250"/><path d="M0 400 Q 320 372 640 346"/>
+  <path d="M0 480 Q 320 452 640 424"/>
+</g>
+<g opacity="0.18" stroke="#c48c50" stroke-width="1.2" fill="none">
+  <path d="M0 168 Q 320 144 640 124"/><path d="M0 348 Q 320 320 640 296"/>
+</g>
+
+<!-- the flimsies inside, edges just showing under the kraft wrapper -->
+<ellipse cx="330" cy="418" rx="230" ry="46" fill="#000" opacity="0.55" filter="url(#ev4-carb-soft)"/>
+<path d="M92 168 L556 128 L568 386 L104 430 Z" fill="url(#ev4-carb-flimsy)"/>
+<path d="M92 168 L556 128 L557 142 L93 182 Z" fill="#fbf6e6" opacity="0.6"/>
+<path d="M96 176 L560 136 L562 150 L98 190 Z" fill="#cdc2a4"/>
+<path d="M100 184 L564 144 L566 158 L102 198 Z" fill="#eee5cc"/>
+<path d="M104 192 L568 152 L570 166 L106 206 Z" fill="#c4b998"/>
+<path d="M108 200 L572 160 L574 174 L110 214 Z" fill="#f0e8d0"/>
+<path d="M556 128 L586 136 L598 392 L568 386 Z" fill="#8d8268"/>
+<path d="M556 128 L586 136 L586.6 150 L556.6 142 Z" fill="#cfc6ac" opacity="0.6"/>
+<path d="M104 430 L568 386 L598 392 L134 438 Z" fill="#6e6551" opacity="0.9"/>
+
+<!-- THE KRAFT WRAPPER, banded twice and sealed -->
+<path d="M84 216 L580 172 L592 348 L96 396 Z" fill="url(#ev4-carb-kraft)"/>
+<path d="M84 216 L580 172 L581 190 L85 234 Z" fill="#e2be7e" opacity="0.5"/>
+<path d="M96 380 L592 332 L592.6 348 L96.6 396 Z" fill="#3a2c18" opacity="0.65"/>
+<path d="M470 176 L580 172 L592 348 L482 356 Z" fill="#4e3b22" opacity="0.28"/>
+<g opacity="0.22" stroke="#f0d8a4" stroke-width="1.2" fill="none">
+  <path d="M92 258 L586 212"/><path d="M94 300 L588 254"/><path d="M95 340 L590 294"/>
+</g>
+<path d="M96 238 q 120 22 244 8 q 118 -14 236 -40" fill="none" stroke="#6d5230" stroke-width="2" opacity="0.5"/>
+<!-- the folded flap, and its shadow -->
+<path d="M84 216 L338 194 L592 172 L338 262 Z" fill="#b8934f"/>
+<path d="M84 216 L338 194 L338 262 Z" fill="#a07f43"/>
+<path d="M338 194 L592 172 L338 262 Z" fill="#c79f58"/>
+<path d="M84 216 L338 194 L338 200 L86 222 Z" fill="#efd39a" opacity="0.5"/>
+<path d="M338 262 q 130 -32 254 -90" fill="none" stroke="#5b452a" stroke-width="2.4" opacity="0.55"/>
+<path d="M338 262 q -132 -26 -254 -46" fill="none" stroke="#5b452a" stroke-width="2.4" opacity="0.55"/>
+
+<!-- the linen bands, crossed -->
+<path d="M198 202 L232 199 L252 380 L218 384 Z" fill="#4a4438"/>
+<path d="M198 202 L232 199 L233 214 L199 217 Z" fill="#7d7566" opacity="0.7"/>
+<path d="M198 202 L206 201 L226 383 L218 384 Z" fill="#66604f" opacity="0.6"/>
+<path d="M424 186 L458 183 L474 362 L440 366 Z" fill="#4a4438"/>
+<path d="M424 186 L458 183 L459 198 L425 201 Z" fill="#7d7566" opacity="0.7"/>
+<path d="M424 186 L432 185 L448 365 L440 366 Z" fill="#66604f" opacity="0.6"/>
+
+<!-- the seal, unbroken -->
+<ellipse cx="336" cy="288" rx="46" ry="16" fill="#000" opacity="0.4" filter="url(#ev4-carb-soft)"/>
+<ellipse cx="332" cy="276" rx="44" ry="38" fill="url(#ev4-carb-wax)"/>
+<ellipse cx="332" cy="276" rx="34" ry="29" fill="none" stroke="#6d1c17" stroke-width="3" opacity="0.8"/>
+<path d="M300 254 q 30 -18 62 -2" fill="none" stroke="#f0a89c" stroke-width="4" opacity="0.4"/>
+<g stroke="#54120e" stroke-width="4" opacity="0.85" fill="none">
+  <path d="M316 268 q 16 -10 32 0"/><path d="M314 284 q 18 10 36 -2"/>
+</g>
+<path d="M288 290 q 20 26 54 24" fill="none" stroke="#3c0d0a" stroke-width="3" opacity="0.6"/>
+<ellipse cx="316" cy="262" rx="12" ry="7" fill="#e8837a" opacity="0.35"/>
+<path d="M332 238 q 6 -22 -6 -34" fill="none" stroke="#8d2a22" stroke-width="5" opacity="0.7"/>
+<path d="M332 238 q -8 -20 4 -34" fill="none" stroke="#a83a30" stroke-width="4" opacity="0.6"/>
+
+<!-- the cut corner where the flimsy edges show through -->
+<path d="M112 372 L176 366 L180 400 L116 408 Z" fill="url(#ev4-carb-flimsy)"/>
+<path d="M112 372 L176 366 L176.6 374 L112.6 380 Z" fill="#fbf6e6" opacity="0.5"/>
+<g stroke="#7d7157" stroke-width="1.6" opacity="0.7" fill="none">
+  <path d="M120 384 L170 379"/><path d="M120 392 L164 387"/>
+</g>
+
+<!-- lamp -->
+<path d="M84 216 Q 340 190 592 172" fill="none" stroke="#fff2cc" stroke-width="3" opacity="0.26"/>
+<ellipse cx="260" cy="240" rx="270" ry="190" fill="#ffe0a4" opacity="0.05"/>
+
+<rect width="640" height="520" fill="url(#ev4-carb-vig)"/>
+`,
+  },
+
+  /* THE ROOM BEHIND THE LAST DOOR — and a red herring in it: the private
+     stock, and the one bottle turned label-out and ringed in grease pencil. */
+  c4_markedbottle: {
+    viewBox: "0 0 640 520",
+    svg: `
+<defs>
+  <linearGradient id="ev4-bot-bg" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#1b1810"/><stop offset="0.6" stop-color="#0e0c07"/><stop offset="1" stop-color="#050403"/>
+  </linearGradient>
+  <linearGradient id="ev4-bot-rack" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#5f462a"/><stop offset="0.34" stop-color="#412e1c"/>
+    <stop offset="0.72" stop-color="#2a1d12"/><stop offset="1" stop-color="#150e08"/>
+  </linearGradient>
+  <linearGradient id="ev4-bot-glass" x1="0.08" y1="0" x2="0.9" y2="0.4">
+    <stop offset="0" stop-color="#1f3524"/><stop offset="0.2" stop-color="#3d6440"/>
+    <stop offset="0.44" stop-color="#22381f"/><stop offset="0.72" stop-color="#152713"/>
+    <stop offset="1" stop-color="#07110a"/>
+  </linearGradient>
+  <linearGradient id="ev4-bot-label" x1="0.05" y1="0" x2="0.9" y2="0.8">
+    <stop offset="0" stop-color="#f0e6c8"/><stop offset="0.3" stop-color="#dbcfa9"/>
+    <stop offset="0.68" stop-color="#b5a982"/><stop offset="1" stop-color="#7e735a"/>
+  </linearGradient>
+  <linearGradient id="ev4-bot-foil" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#7d1f1c"/><stop offset="0.3" stop-color="#b8443a"/>
+    <stop offset="0.62" stop-color="#6d1a16"/><stop offset="1" stop-color="#320a08"/>
+  </linearGradient>
+  <filter id="ev4-bot-soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+  <radialGradient id="ev4-bot-vig" cx="0.42" cy="0.44" r="0.76">
+    <stop offset="0.44" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<rect width="640" height="520" fill="url(#ev4-bot-bg)"/>
+
+<!-- the locker: back board, and the pigeonhole rack -->
+<path d="M0 40 L640 40 L640 520 L0 520 Z" fill="#120d08"/>
+<path d="M28 56 L612 56 L612 468 L28 468 Z" fill="url(#ev4-bot-rack)"/>
+<path d="M28 56 L612 56 L612 66 L28 66 Z" fill="#8a6538" opacity="0.4"/>
+<path d="M28 56 L40 56 L40 468 L28 468 Z" fill="#8a6538" opacity="0.22"/>
+<path d="M28 158 L612 158 L612 172 L28 172 Z" fill="#2c1f13"/>
+<path d="M28 158 L612 158 L612 162 L28 162 Z" fill="#7d5c33" opacity="0.55"/>
+<path d="M28 300 L612 300 L612 314 L28 314 Z" fill="#2c1f13"/>
+<path d="M28 300 L612 300 L612 304 L28 304 Z" fill="#7d5c33" opacity="0.55"/>
+<path d="M28 442 L612 442 L612 456 L28 456 Z" fill="#2c1f13"/>
+<path d="M28 66 L612 66 L612 96 L28 96 Z" fill="#0a0705" opacity="0.7"/>
+<path d="M28 172 L612 172 L612 200 L28 200 Z" fill="#0a0705" opacity="0.7"/>
+<path d="M28 314 L612 314 L612 342 L28 342 Z" fill="#0a0705" opacity="0.7"/>
+
+<!-- four bottles lying on their sides, punts to the door, dust on the shoulders -->
+<g>
+  <ellipse cx="300" cy="146" rx="230" ry="18" fill="#000" opacity="0.5" filter="url(#ev4-bot-soft)"/>
+  <path d="M74 96 L420 96 L456 104 L482 112 L482 130 L456 138 L420 146 L74 146 Z" fill="url(#ev4-bot-glass)"/>
+  <path d="M74 100 L420 100 L452 107 L474 114" fill="none" stroke="#8fc39a" stroke-width="3" opacity="0.28"/>
+  <path d="M74 140 L420 140 L452 133" fill="none" stroke="#040a05" stroke-width="4" opacity="0.6"/>
+  <path d="M482 112 L516 112 L516 130 L482 130 Z" fill="url(#ev4-bot-foil)"/>
+  <path d="M482 112 L516 112 L516 117 L482 117 Z" fill="#e08076" opacity="0.4"/>
+  <path d="M140 100 L300 100 L300 142 L140 142 Z" fill="url(#ev4-bot-label)" opacity="0.55"/>
+  <ellipse cx="76" cy="121" rx="9" ry="25" fill="#0d1a10"/>
+</g>
+<g>
+  <path d="M74 210 L420 210 L456 218 L482 226 L482 244 L456 252 L420 260 L74 260 Z" fill="url(#ev4-bot-glass)"/>
+  <path d="M74 214 L420 214 L452 221 L474 228" fill="none" stroke="#8fc39a" stroke-width="3" opacity="0.26"/>
+  <path d="M74 254 L420 254 L452 247" fill="none" stroke="#040a05" stroke-width="4" opacity="0.6"/>
+  <path d="M482 226 L516 226 L516 244 L482 244 Z" fill="url(#ev4-bot-foil)"/>
+  <path d="M482 226 L516 226 L516 231 L482 231 Z" fill="#e08076" opacity="0.4"/>
+  <path d="M140 214 L300 214 L300 256 L140 256 Z" fill="url(#ev4-bot-label)" opacity="0.5"/>
+  <ellipse cx="76" cy="235" rx="9" ry="25" fill="#0d1a10"/>
+</g>
+<g>
+  <path d="M74 356 L420 356 L456 364 L482 372 L482 390 L456 398 L420 406 L74 406 Z" fill="url(#ev4-bot-glass)"/>
+  <path d="M74 360 L420 360 L452 367 L474 374" fill="none" stroke="#8fc39a" stroke-width="3" opacity="0.24"/>
+  <path d="M74 400 L420 400 L452 393" fill="none" stroke="#040a05" stroke-width="4" opacity="0.6"/>
+  <path d="M482 372 L516 372 L516 390 L482 390 Z" fill="url(#ev4-bot-foil)"/>
+  <path d="M140 360 L300 360 L300 402 L140 402 Z" fill="url(#ev4-bot-label)" opacity="0.45"/>
+  <ellipse cx="76" cy="381" rx="9" ry="25" fill="#0d1a10"/>
+</g>
+<g>
+  <path d="M74 412 L420 412 L456 420 L482 428 L482 442 L456 448 L420 454 L74 454 Z" fill="url(#ev4-bot-glass)"/>
+  <path d="M74 416 L420 416 L452 423" fill="none" stroke="#8fc39a" stroke-width="2.4" opacity="0.2"/>
+  <path d="M482 428 L516 428 L516 442 L482 442 Z" fill="url(#ev4-bot-foil)"/>
+  <ellipse cx="76" cy="433" rx="9" ry="21" fill="#0d1a10"/>
+</g>
+<g opacity="0.3" fill="#cfc6b2">
+  <path d="M74 96 L420 96 L420 102 L74 102 Z"/><path d="M74 210 L420 210 L420 216 L74 216 Z"/>
+  <path d="M74 356 L420 356 L420 362 L74 362 Z"/><path d="M74 412 L420 412 L420 418 L74 418 Z"/>
+</g>
+
+<!-- THE FIFTH: turned deliberately label-out, and ringed in grease pencil -->
+<ellipse cx="300" cy="298" rx="250" ry="22" fill="#000" opacity="0.6" filter="url(#ev4-bot-soft)"/>
+<path d="M62 224 L420 224 L458 233 L488 244 L488 286 L458 297 L420 306 L62 306 Z" fill="url(#ev4-bot-glass)"/>
+<path d="M488 244 L534 244 L534 286 L488 286 Z" fill="url(#ev4-bot-glass)"/>
+<path d="M534 244 L558 246 L558 284 L534 286 Z" fill="url(#ev4-bot-foil)"/>
+<path d="M534 244 L558 246 L558 254 L534 253 Z" fill="#e89a90" opacity="0.5"/>
+<path d="M558 246 L578 250 L578 280 L558 284 Z" fill="#4e120f"/>
+<path d="M488 246 L534 246 L534 252 L488 252 Z" fill="#8fc39a" opacity="0.3"/>
+<path d="M62 230 L420 230 L454 239 L482 249" fill="none" stroke="#9ccfa6" stroke-width="4" opacity="0.35"/>
+<path d="M62 298 L420 298 L454 290 L482 282" fill="none" stroke="#040a05" stroke-width="5" opacity="0.65"/>
+<ellipse cx="64" cy="265" rx="11" ry="41" fill="#122318"/>
+<ellipse cx="64" cy="265" rx="6" ry="30" fill="#0a160e"/>
+<path d="M56 240 q -8 24 0 50" fill="none" stroke="#7fb489" stroke-width="2.4" opacity="0.3"/>
+<!-- the label, square to the door -->
+<path d="M130 232 L318 232 L318 300 L130 300 Z" fill="url(#ev4-bot-label)"/>
+<path d="M130 232 L318 232 L318 240 L130 240 Z" fill="#fbf4de" opacity="0.6"/>
+<path d="M130 292 L318 292 L318 300 L130 300 Z" fill="#6f6650" opacity="0.5"/>
+<path d="M130 232 L142 232 L142 300 L130 300 Z" fill="#ffffff" opacity="0.18"/>
+<g stroke="#8d7c62" stroke-width="2.4" opacity="0.8" fill="none">
+  <path d="M150 250 L298 250"/><path d="M164 262 L284 262"/><path d="M150 276 L298 276"/><path d="M172 286 L276 286"/>
+</g>
+<path d="M150 250 L298 250" stroke="#5f4a2c" stroke-width="1.2" opacity="0.5" fill="none"/>
+<path d="M334 236 L352 236 L352 296 L334 296 Z" fill="#a8352a" opacity="0.55"/>
+<!-- the grease-pencil ring round the neck: the one he meant to open next -->
+<ellipse cx="504" cy="265" rx="17" ry="25" fill="none" stroke="#211e1a" stroke-width="9" opacity="0.92"/>
+<ellipse cx="507" cy="264" rx="17" ry="25" fill="none" stroke="#38342e" stroke-width="5" opacity="0.65"/>
+<path d="M492 244 q 16 -4 26 6" fill="none" stroke="#7a746a" stroke-width="2.4" opacity="0.45"/>
+<path d="M488 274 q 6 14 20 16" fill="none" stroke="#100e0c" stroke-width="3" opacity="0.6"/>
+<!-- dust, undisturbed, on the shoulder of every one of them -->
+<path d="M62 224 L420 224 L420 231 L62 231 Z" fill="#cfc6b2" opacity="0.34"/>
+<path d="M420 224 L458 233 L456 240 L420 231 Z" fill="#cfc6b2" opacity="0.28"/>
+<g opacity="0.2" fill="#e8e2d2">
+  <ellipse cx="180" cy="228" rx="40" ry="3"/><ellipse cx="300" cy="228" rx="34" ry="3"/><ellipse cx="392" cy="228" rx="22" ry="3"/>
+</g>
+
+<!-- the lantern in the pantry door, raking across the racks -->
+<path d="M62 224 L420 224" fill="none" stroke="#fff2cc" stroke-width="3" opacity="0.22"/>
+<ellipse cx="260" cy="270" rx="280" ry="190" fill="#ffe0a4" opacity="0.05"/>
+
+<rect width="640" height="520" fill="url(#ev4-bot-vig)"/>
+`,
+  },
+
   c4_confession: {
     viewBox: "0 0 640 520",
     svg: `

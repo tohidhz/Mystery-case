@@ -11,6 +11,7 @@ window.CASE_ART.meridian = {
       h_body: { x: 40, y: 52 },
       h_doorchain: { x: 15, y: 47 },
       h_desk: { x: 66, y: 59 },
+      h_watchpocket: { x: 38, y: 65 },
       h_commdoor: { x: 86, y: 49 },
     },
     svg: `
@@ -60,6 +61,10 @@ window.CASE_ART.meridian = {
     <stop offset="0" stop-color="#6a4b2c"/><stop offset="0.38" stop-color="#4a3520"/>
     <stop offset="0.72" stop-color="#312415"/><stop offset="1" stop-color="#1d150e"/>
   </radialGradient>
+  <linearGradient id="mx-comp7-steel" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#d4dade"/><stop offset="0.32" stop-color="#8d959a"/>
+    <stop offset="0.68" stop-color="#5a6165"/><stop offset="1" stop-color="#272c2f"/>
+  </linearGradient>
   <linearGradient id="mx-comp7-brass" x1="0" y1="0" x2="0.25" y2="1">
     <stop offset="0" stop-color="#4e3a17"/><stop offset="0.22" stop-color="#d6b468"/><stop offset="0.44" stop-color="#8a6c30"/>
     <stop offset="0.62" stop-color="#f0dca4"/><stop offset="0.8" stop-color="#7a5d27"/><stop offset="1" stop-color="#3d2d12"/>
@@ -419,6 +424,18 @@ window.CASE_ART.meridian = {
     </g>
     <path d="M370 394 q22 18 30 4" fill="none" stroke="#9b7a3f" stroke-width="2.2"/>
     <path d="M370 393 q22 18 30 4" fill="none" stroke="#e2c374" stroke-width="0.9" opacity="0.6"/>
+    <!-- the little welt pocket: the hunter, and the flat key riding behind it -->
+    <path d="M364 390 l12 0 l1 14 l-12 0 z" fill="#0a0806" opacity="0.45"/>
+    <rect x="364" y="387" width="11" height="9" rx="2" fill="url(#mx-comp7-steel)"/>
+    <rect x="367.4" y="390" width="4.4" height="3.4" rx="0.8" fill="#17140f"/>
+    <rect x="367" y="395" width="4" height="12" fill="url(#mx-comp7-steel)"/>
+    <rect x="367" y="387" width="1.4" height="20" fill="#eaf0f4" opacity="0.45"/>
+    <path d="M371 400 l4 0 l0 3 l-4 0 z" fill="#9aa2a7"/>
+    <path d="M373 400 q10 -9 20 -3 l-1.6 3.4 q-8.4 -5 -16.8 2 z" fill="url(#mx-comp7-brass)"/>
+    <path d="M376 398 q7 -4 13 -1" fill="none" stroke="#ffeab4" stroke-width="1.2" opacity="0.55"/>
+    <path d="M362 402 L396 397 L397 409 L363 414 Z" fill="#1a1712"/>
+    <path d="M362 402 L396 397 L396.6 399.6 L362.6 404.6 Z" fill="#6d6250" opacity="0.5"/>
+    <path d="M363 412 L397 407 L397.6 410 L363.6 415 Z" fill="#080705" opacity="0.7"/>
     <path d="M312 400 q30 -12 50 6 l-6 26 l-44 0 z" fill="#1c1915"/>
     <path d="M348 404 q10 4 14 2 l-6 26 l-14 0 z" fill="#302a22" opacity="0.7"/>
     <path d="M306 424 q16 -10 30 -2 q6 8 -2 14 q-18 6 -30 -2 z" fill="#95836a"/>
@@ -962,6 +979,7 @@ window.CASE_ART.meridian = {
       h_keenetable: { x: 13, y: 76 },
       h_wexlercase: { x: 86, y: 82 },
       h_steward: { x: 50, y: 46 },
+      h_tilldrawer: { x: 43, y: 63 },
     },
     svg: `
 <defs>
@@ -1003,6 +1021,10 @@ window.CASE_ART.meridian = {
   </linearGradient>
   <linearGradient id="mx-diner-snow" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#8195ae"/><stop offset="0.4" stop-color="#b6c3d3"/><stop offset="1" stop-color="#e2e9f0"/>
+  </linearGradient>
+  <linearGradient id="mx-diner-till" x1="0" y1="0" x2="0.2" y2="1">
+    <stop offset="0" stop-color="#6a4d2c"/><stop offset="0.35" stop-color="#4a3524"/>
+    <stop offset="0.72" stop-color="#33251a"/><stop offset="1" stop-color="#1c1410"/>
   </linearGradient>
   <linearGradient id="mx-diner-panel" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#3d2f1f"/><stop offset="0.5" stop-color="#2a2015"/><stop offset="1" stop-color="#1a130c"/>
@@ -1114,6 +1136,39 @@ window.CASE_ART.meridian = {
     <ellipse cx="456" cy="339" rx="8" ry="3"/><ellipse cx="544" cy="339" rx="8" ry="3"/>
     <ellipse cx="456" cy="375" rx="8" ry="3"/><ellipse cx="544" cy="375" rx="8" ry="3"/>
   </g>
+  <!-- THE TILL DRAWER, standing open for the night count -->
+  <rect x="414" y="356" width="60" height="18" fill="#0b0805"/>
+  <path d="M416 362 L470 362 L462 390 L400 390 Z" fill="#221810"/>
+  <path d="M416 362 L440 362 L424 390 L400 390 Z" fill="#150e08" opacity="0.55"/>
+  <path d="M416 362 L470 362 L470 365 L416 365 Z" fill="#4a3524" opacity="0.7"/>
+  <!-- the pantry key rail across the back: six hooks, five keys -->
+  <path d="M420 368 L464 366" stroke="#6b5326" stroke-width="2.4" fill="none"/>
+  <path d="M420 367 L464 365" stroke="#c0a05a" stroke-width="0.8" opacity="0.55" fill="none"/>
+  <g fill="#9b7a3f">
+    <path d="M424 369 l2.6 0 l0 8 l-2.6 0 z"/><path d="M434 368.6 l2.6 0 l0 8 l-2.6 0 z"/>
+    <path d="M444 368.2 l2.6 0 l0 8 l-2.6 0 z"/>
+  </g>
+  <g fill="#d6b468" opacity="0.75">
+    <circle cx="425.3" cy="378.6" r="2.4"/><circle cx="435.3" cy="378.2" r="2.4"/><circle cx="445.3" cy="377.8" r="2.4"/>
+  </g>
+  <path d="M454 367.8 l2.4 0 l0 4 q0 3.4 -3.4 3.4 l0 -2 q1.2 0 1.2 -1.4 z" fill="#7a5d27"/>
+  <!-- banded chits, and coin in its wooden wells -->
+  <path d="M402 372 L432 370 L433 386 L403 388 Z" fill="#ece2c6"/>
+  <path d="M402 372 L432 370 L432.4 374 L402.4 376 Z" fill="#fbf6e6"/>
+  <path d="M414 371 L418 370.8 L419 387 L415 387.2 Z" fill="#8a5a24" opacity="0.8"/>
+  <path d="M405 379 l7 -0.5 M422 378 l8 -0.5 M405 383 l6 -0.4" stroke="#8d7c62" stroke-width="1.1" opacity="0.85" fill="none"/>
+  <rect x="436" y="380" width="24" height="9" rx="2" fill="#17100a"/>
+  <ellipse cx="443" cy="385" rx="6" ry="2.4" fill="#a98f4a"/>
+  <ellipse cx="443" cy="383.4" rx="6" ry="2.4" fill="#d6b468"/>
+  <ellipse cx="454" cy="385.6" rx="5" ry="2" fill="#9a958a"/>
+  <ellipse cx="454" cy="384.2" rx="5" ry="2" fill="#cfc6b2"/>
+  <!-- the drawer front, pulled out into the lamp -->
+  <path d="M400 390 L462 390 L464 412 L398 412 Z" fill="url(#mx-diner-till)"/>
+  <path d="M400 390 L462 390 L462.6 393 L400.6 393 Z" fill="#8a6538" opacity="0.6"/>
+  <path d="M398 408 L464 408 L464 412 L398 412 Z" fill="#120c07" opacity="0.6"/>
+  <rect x="414" y="397" width="30" height="5" rx="2.5" fill="#9b7a3f"/>
+  <rect x="414" y="397" width="30" height="1.6" rx="0.8" fill="#dcc07a" opacity="0.6"/>
+  <ellipse cx="430" cy="416" rx="42" ry="6" fill="#0a0705" opacity="0.4"/>
   <!-- the urn, the burner's blue tongue -->
   <ellipse cx="442" cy="300" rx="34" ry="6" fill="#0e0a06" opacity="0.5"/>
   <path d="M418 250 q22 -12 44 0 l4 44 l-52 0 z" fill="#7d6129"/>
@@ -1368,6 +1423,7 @@ window.CASE_ART.meridian = {
     viewBox: "0 0 1000 620",
     hotspots: {
       h_barchits: { x: 15, y: 55 },
+      h_attache: { x: 20, y: 71 },
       h_coat: { x: 89, y: 58 },
     },
     svg: `
@@ -1381,6 +1437,14 @@ window.CASE_ART.meridian = {
   <linearGradient id="mx-lounge-leather" x1="0.1" y1="0" x2="0.95" y2="0.8">
     <stop offset="0" stop-color="#241910"/><stop offset="0.34" stop-color="#3b2a1b"/>
     <stop offset="0.7" stop-color="#553c26"/><stop offset="1" stop-color="#2b1e13"/>
+  </linearGradient>
+  <linearGradient id="mx-lounge-attache" x1="0.08" y1="0" x2="0.92" y2="0.9">
+    <stop offset="0" stop-color="#100c09"/><stop offset="0.3" stop-color="#241d17"/>
+    <stop offset="0.62" stop-color="#332821"/><stop offset="1" stop-color="#15100c"/>
+  </linearGradient>
+  <linearGradient id="mx-lounge-latch" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#4e3a17"/><stop offset="0.24" stop-color="#e0c47e"/>
+    <stop offset="0.56" stop-color="#8a6c30"/><stop offset="0.8" stop-color="#f0dca4"/><stop offset="1" stop-color="#3d2d12"/>
   </linearGradient>
   <linearGradient id="mx-lounge-camel" x1="0.05" y1="0" x2="0.95" y2="0.5">
     <stop offset="0" stop-color="#65543a"/><stop offset="0.32" stop-color="#967d53"/>
@@ -1641,6 +1705,40 @@ window.CASE_ART.meridian = {
   <path d="M266 314 L306 304 L306.6 306 L266.6 316 Z" fill="#d8655a" opacity="0.6"/>
 </g>
 
+<!-- KEENE'S ATTACHÉ CASE, stood at the foot of the bar where the steward put it -->
+<g>
+  <ellipse cx="206" cy="482" rx="70" ry="12" fill="#080605" opacity="0.45" filter="url(#mx-lounge-soft)"/>
+  <path d="M252 404 L268 411 L274 470 L258 476 Z" fill="#0e0a07"/>
+  <path d="M252 404 L268 411 L268.6 415 L252.6 408 Z" fill="#4a3524" opacity="0.5"/>
+  <path d="M150 412 L252 404 L258 476 L154 482 Z" fill="url(#mx-lounge-attache)"/>
+  <path d="M150 412 L252 404 L252.6 409 L150.6 417 Z" fill="#6b5233" opacity="0.55"/>
+  <path d="M154 476 L258 470 L258 476 L154 482 Z" fill="#050403" opacity="0.7"/>
+  <path d="M152 436 L255 428" stroke="#080605" stroke-width="3" fill="none"/>
+  <path d="M152 433 L255 425" stroke="#6b5233" stroke-width="1.1" opacity="0.45" fill="none"/>
+  <g opacity="0.12" stroke="#c9a877" stroke-width="1" fill="none">
+    <path d="M162 450 q22 -4 44 -6"/><path d="M162 458 q26 -4 52 -6"/><path d="M170 466 q24 -4 48 -6"/>
+  </g>
+  <!-- the twin latches, both of them thrown -->
+  <rect x="172" y="428" width="19" height="17" rx="2.4" fill="url(#mx-lounge-latch)"/>
+  <rect x="172" y="428" width="19" height="3.2" rx="1.4" fill="#f3e0ac" opacity="0.55"/>
+  <rect x="177" y="435" width="9" height="3.4" rx="1.2" fill="#1a1109"/>
+  <rect x="172" y="442" width="19" height="3" rx="1.2" fill="#241a0d" opacity="0.7"/>
+  <rect x="216" y="424" width="19" height="17" rx="2.4" fill="url(#mx-lounge-latch)"/>
+  <rect x="216" y="424" width="19" height="3.2" rx="1.4" fill="#f3e0ac" opacity="0.55"/>
+  <rect x="221" y="431" width="9" height="3.4" rx="1.2" fill="#1a1109"/>
+  <rect x="216" y="438" width="19" height="3" rx="1.2" fill="#241a0d" opacity="0.7"/>
+  <!-- the handle, and the corner protectors -->
+  <path d="M182 412 q22 -18 42 -4 l-5 4 q-15 -10 -32 2 z" fill="#2b1f14"/>
+  <path d="M184 411 q21 -16 39 -4" fill="none" stroke="#6b5233" stroke-width="1.2" opacity="0.5"/>
+  <rect x="178" y="408" width="8" height="7" rx="1.6" fill="#8a6c30"/>
+  <rect x="219" y="405" width="8" height="7" rx="1.6" fill="#8a6c30"/>
+  <g fill="#7a5d27">
+    <path d="M150 412 l16 -1.4 l-15 8 z"/><path d="M252 404 l-16 1.4 l15 8 z"/>
+    <path d="M154 482 l16 -1 l-15 -8 z"/><path d="M258 476 l-16 1 l15 -8 z"/>
+  </g>
+  <path d="M150 412 l16 -1.4 l-3 1.8 l-12 1 z" fill="#dcc07a" opacity="0.5"/>
+</g>
+
 <!-- DANIEL CALLAHAN in the deepest chair, watching you cross the carpet -->
 <g>
   <ellipse cx="392" cy="600" rx="140" ry="24" fill="#080605" opacity="0.35" filter="url(#mx-lounge-soft)"/>
@@ -1791,6 +1889,7 @@ window.CASE_ART.meridian = {
     viewBox: "0 0 1000 620",
     hotspots: {
       h_callbook: { x: 24, y: 68 },
+      h_winelocker: { x: 9, y: 72 },
       h_trunk: { x: 76, y: 68 },
     },
     svg: `
@@ -1824,6 +1923,10 @@ window.CASE_ART.meridian = {
   </radialGradient>
   <linearGradient id="mx-vest-counter" x1="0" y1="0" x2="0.4" y2="1">
     <stop offset="0" stop-color="#8a6538"/><stop offset="0.3" stop-color="#6a4a2a"/><stop offset="1" stop-color="#3f2d1b"/>
+  </linearGradient>
+  <linearGradient id="mx-vest-locker" x1="0.05" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#5a4227"/><stop offset="0.3" stop-color="#3d2c1c"/>
+    <stop offset="0.7" stop-color="#2a1e14"/><stop offset="1" stop-color="#160f0a"/>
   </linearGradient>
   <linearGradient id="mx-vest-brass" x1="0" y1="0" x2="0.3" y2="1">
     <stop offset="0" stop-color="#4a3718"/><stop offset="0.22" stop-color="#d0ac60"/><stop offset="0.5" stop-color="#8a6c30"/>
@@ -2015,6 +2118,33 @@ window.CASE_ART.meridian = {
     <path d="M466 366 l16 0 l-3 22 l-10 0 z"/>
   </g>
   <path d="M416 362 l5 0 l-2 26 l-3 0 z M442 362 l5 0 l-2 26 l-3 0 z M468 366 l5 0 l-2 22 l-3 0 z" fill="#ffffff" opacity="0.5"/>
+  <!-- THE WINE LOCKER: the road's own cupboard in the pantry base -->
+  <rect x="24" y="419" width="134" height="60" rx="2" fill="#0d0906"/>
+  <rect x="28" y="421" width="126" height="56" rx="2" fill="url(#mx-vest-locker)"/>
+  <rect x="28" y="421" width="126" height="3" rx="1.4" fill="#7d5f34" opacity="0.6"/>
+  <rect x="28" y="421" width="2.6" height="56" fill="#8a6a3c" opacity="0.4"/>
+  <rect x="28" y="472" width="126" height="5" fill="#0b0805" opacity="0.6"/>
+  <path d="M38 428 h106 v42 h-106 z" fill="none" stroke="#170f08" stroke-width="2.6"/>
+  <path d="M39 429 h106 v42 h-106 z" fill="none" stroke="#5b4629" stroke-width="1"/>
+  <rect x="102" y="434" width="34" height="3.6" rx="1.8" fill="#0c0805"/>
+  <rect x="102" y="441" width="34" height="3.6" rx="1.8" fill="#0c0805"/>
+  <rect x="102" y="437" width="34" height="1.2" fill="#6b5326" opacity="0.5"/>
+  <rect x="102" y="444" width="34" height="1.2" fill="#6b5326" opacity="0.5"/>
+  <ellipse cx="132" cy="458" rx="5" ry="7" fill="url(#mx-vest-brass)"/>
+  <circle cx="132" cy="456" r="2.2" fill="#150f08"/>
+  <!-- hasp and staple, and a padlock the size of a fist -->
+  <path d="M32 441 l44 0 l0 9 l-44 0 z" fill="url(#mx-vest-brass)"/>
+  <path d="M32 441 l44 0 l0 2.4 l-44 0 z" fill="#e0c47e" opacity="0.5"/>
+  <circle cx="36" cy="445.5" r="1.8" fill="#2c2011" opacity="0.8"/>
+  <rect x="64" y="443.6" width="9" height="4" rx="1.6" fill="#1a1109"/>
+  <path d="M62 450 l0 -6 q6 -7 12 0 l0 6" fill="none" stroke="#8a6c30" stroke-width="4.2"/>
+  <path d="M63.4 448 q4.6 -5.4 9.2 -1" fill="none" stroke="#e0c47e" stroke-width="1.2" opacity="0.6"/>
+  <rect x="56" y="450" width="24" height="19" rx="4" fill="url(#mx-vest-brass)"/>
+  <rect x="56" y="450" width="4.4" height="19" rx="2" fill="#d5ab68" opacity="0.45"/>
+  <rect x="56" y="465" width="24" height="4" rx="2" fill="#2c2011" opacity="0.6"/>
+  <circle cx="68" cy="458" r="3" fill="#150f08"/>
+  <path d="M68 458 l0 5.4" stroke="#150f08" stroke-width="2.2"/>
+  <path d="M24 475 L158 475 L162 484 L20 484 Z" fill="#0a0705" opacity="0.55"/>
 </g>
 
 <!-- the vestibule floor: worn plate, a mat, the trap under it -->
